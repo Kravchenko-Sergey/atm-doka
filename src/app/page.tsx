@@ -1,5 +1,7 @@
 'use client'
 
+import { Input } from '@/components/ui/input'
+
 export default function Home() {
 	const items = [
 		{
@@ -7,19 +9,32 @@ export default function Home() {
 			url: 'evotor5i'
 		},
 		{
+			title: 'Эвотор 7.2',
+			url: 'evotor72'
+		},
+		{
 			title: 'Эвотор 7.3',
 			url: 'evotor73'
+		},
+		{
+			title: 'Эвотор 10',
+			url: 'evotor10'
 		}
 	]
 
 	return (
 		<div>
+			<Input
+				className='mt-8 h-12'
+				style={{ fontSize: '18px' }}
+				placeholder='Поиск'
+			/>
 			<div className='my-8 flex flex-col gap-4'>
 				{items.map((item) => (
 					<div key={item.title}>
 						<div>
 							<a href={item.url}>
-								<span className='text-4xl'>{item.title}</span>
+								<span className='text-xl'>{item.title}</span>
 							</a>
 						</div>
 					</div>

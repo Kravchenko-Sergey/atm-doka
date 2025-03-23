@@ -4,10 +4,10 @@ import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function Evotor5i() {
+export default function Evotor10() {
 	return (
 		<div className='flex flex-col'>
-			<Image src='/evo5i.jpg' width={500} height={500} alt='evo5i' />
+			<Image src='/evo10.jpg' width={500} height={500} alt='evo5i' />
 			<div className='my-4 text-2xl'>Прошивка терминала</div>
 			<div className='text-xl text-gray-700 my-4'>
 				Чтобы прошить терминал нужно взять и прошить его
@@ -17,7 +17,7 @@ export default function Evotor5i() {
 				<Button>
 					<Link
 						href={
-							'https://drive.google.com/uc?export=download&id=1zHNbojcHBEpuA6ZLaEWsBXmnnbTafb1g'
+							'https://drive.google.com/uc?export=download&id=1BO5nAbUB9ob3fGe2XGn954FrJZLoIVe2'
 						}
 						target='_blank'
 						download
