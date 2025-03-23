@@ -24,12 +24,12 @@ export default function Home() {
 
 	return (
 		<div>
-			<Input
-				className='mt-8 h-12'
+			{/*<Input
+				className='h-12'
 				style={{ fontSize: '18px' }}
 				placeholder='Поиск'
-			/>
-			<div className='my-8 flex flex-col gap-4'>
+			>*/}
+			<div className='mb-8 flex flex-col gap-4'>
 				{items.map((item) => (
 					<div key={item.title}>
 						<div>
