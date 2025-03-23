@@ -18,7 +18,6 @@ export default function Evotor5i() {
 						href={
 							'https://drive.google.com/uc?export=download&id=1zHNbojcHBEpuA6ZLaEWsBXmnnbTafb1g'
 						}
-						target='_blank'
 						rel='noopener noreferrer'
 						download
 					>
