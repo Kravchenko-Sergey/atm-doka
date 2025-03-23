@@ -2,7 +2,6 @@
 
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
-import Link from 'next/link'
 
 export default function Evotor5i() {
 	return (
@@ -15,7 +14,7 @@ export default function Evotor5i() {
 			<div className='flex items-center gap-4'>
 				<div className='text-xl'>Актуальная версия прошивки: 4.9.11</div>
 				<Button>
-					<а
+					<a
 						href={
 							'https://drive.google.com/uc?export=download&id=1zHNbojcHBEpuA6ZLaEWsBXmnnbTafb1g'
 						}
@@ -24,7 +23,7 @@ export default function Evotor5i() {
 						download
 					>
 						Скачать
-					</а>
+					</a>
 				</Button>
 			</div>
 		</div>
