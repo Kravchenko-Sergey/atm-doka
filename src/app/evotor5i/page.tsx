@@ -19,7 +19,8 @@ export default function Evotor5i() {
 						href={
 							'https://drive.google.com/file/d/1zHNbojcHBEpuA6ZLaEWsBXmnnbTafb1g/view?usp=drive_link'
 						}
-						target='blank'
+						target='_blank'
+						download
 					>
 						Скачать
 					</Link>
