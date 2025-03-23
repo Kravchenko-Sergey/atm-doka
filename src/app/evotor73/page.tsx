@@ -17,7 +17,7 @@ export default function evotor73() {
 				<Button>
 					<Link
 						href={
-							'https://drive.google.com/file/d/1GfdNdQIm04HbXzrNA0fyVDik_z3q98Xk/view?usp=drive_link'
+							'https://drive.google.com/uc?export=download&id=1GfdNdQIm04HbXzrNA0fyVDik_z3q98Xk'
 						}
 						target='_blank'
 						download
