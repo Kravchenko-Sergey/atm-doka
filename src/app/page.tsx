@@ -1,14 +1,7 @@
 'use client'
 
 import { v4 } from 'uuid'
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardFooter,
-	CardHeader,
-	CardTitle
-} from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 
 //import { Input } from '@/components/ui/input'
 
