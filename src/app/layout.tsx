@@ -15,18 +15,20 @@ export default function RootLayout({
 	return (
 		<html lang='en' className={roboto.className}>
 			<body className='h-screen flex flex-col items-center '>
-				<header className='px-8 pt-8 w-full max-w-7xl flex flex-col lg:flex-row gap-8 whitespace-nowrap'>
-					<Link href={'/'} className='text-3xl flex gap-4'>
-						<div className='h-fit'>АТМ</div>
-						<div className='h-fit'>дока</div>
-					</Link>
-				</header>
-				<main className='p-8 max-w-7xl flex-1'>{children}</main>
-				<footer className='w-full flex justify-center border-t'>
-					<div className='p-8 w-7xl flex justify-end'>
-						<Link href={'about'} className='items-end'>
-							О проекте
+				<header className='p-8 w-full flex justify-center gap-8 whitespace-nowrap border-b'>
+					<div className='px-8 w-[1640px] flex justify-center lg:justify-start'>
+						<Link
+							href={'/'}
+							className='px-8 py-4 text-3xl flex gap-4 border-3 rounded-full'
+						>
+							АТМ Дока
 						</Link>
+					</div>
+				</header>
+				<main className='p-8 max-w-[1640px] flex-1'>{children}</main>
+				<footer className='p-8 w-full flex justify-center border-t'>
+					<div className='px-8 w-[1640px] flex justify-end'>
+						<Link href={'about'}>О проекте</Link>
 					</div>
 				</footer>
 			</body>
