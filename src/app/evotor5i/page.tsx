@@ -1,31 +1,62 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
+import { badgeVariants } from '@/components/ui/badge'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Evotor5i() {
 	return (
-		<div className='flex flex-col'>
+		<div>
 			<Image src='/evo5i.jpg' width={500} height={500} alt='evo5i' />
-			<div className='my-4 text-2xl'>Прошивка терминала</div>
-			<div className='text-xl text-gray-700 my-4'>
-				Чтобы прошить терминал нужно взять и прошить его
-			</div>
-			<div className='flex items-center gap-4'>
-				<div className='text-xl'>Актуальная версия прошивки: 4.9.11</div>
-				<Button>
+			<h2 className='mt-4 mb-8 text-3xl'>Как прошить?</h2>
+			<ul className='list-disc text-xl flex flex-col gap-4'>
+				<li>Включите смарт-терминал и подключите его к интернету.</li>
+				<li>
+					Очистите файловую систему. Для этого перейдите в Обслуживание кассы →
+					Эквайринг или Эвотор.PAY → Файловая система → Форматировать. Нажмите
+					Запрос на обновление.
+				</li>
+				<li>
+					Загрузите обновления платёжного модуля. Для этого перейдите в
+					Обслуживание кассы → Эквайринг или Эвотор.PAY → Прошивка. Нажмите
+					Запрос на обновление.
+				</li>
+				<li>
+					После обновления проверьте какая версия прошивки установлена, для
+					этого зайдите в раздел Настройки → Обслуживание кассы → Эквайринг или
+					Эвотор.PAY → Общая информация.
+				</li>
+				<li>
+					На данный момент актуальная версия для 520 и 521 - 1.8.2.1, для 522 -
+					3.1.2.1
+				</li>
+				<li>
 					<Link
 						href={
 							'https://drive.google.com/uc?export=download&id=1zHNbojcHBEpuA6ZLaEWsBXmnnbTafb1g'
 						}
 						target='_blank'
 						download
+						className={`${badgeVariants({ variant: 'outline' })} mr-2`}
 					>
-						Скачать
+						Скачайте
 					</Link>
-				</Button>
-			</div>
+					файл прошивки. На данный момент актуальная версия прошивки 4.9.11
+				</li>
+				<li>Подготовте флешку в формате FAT32</li>
+				<li>Поместите файл прошивки в корень флешки</li>
+				<li>Включите кассу</li>
+				<li>
+					Вставте флешку в кассу. Устройство автоматически начнёт прошивку. На
+					экране появится окно "Обновление системы".
+				</li>
+				<li>Нажмите на "Проверить и установить"</li>
+				<li>
+					Касса начнет расшифровывать файл с обновлением, это займет некоторое
+					время. После успешной установки касса сама перезагрузится. Подождите
+					еще 1-2 минуты и вытащите флешку.
+				</li>
+			</ul>
 		</div>
 	)
 }

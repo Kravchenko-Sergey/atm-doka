@@ -14,11 +14,6 @@ export default function Home() {
 		},
 		{
 			id: v4(),
-			title: 'Эвотор 6',
-			url: 'evotor5i'
-		},
-		{
-			id: v4(),
 			title: 'Эвотор 7.2',
 			url: 'evotor72'
 		},
@@ -36,11 +31,6 @@ export default function Home() {
 
 	return (
 		<>
-			{/*<Input
-				className='h-12'
-				style={{ fontSize: '18px' }}
-				placeholder='Поиск'
-			>*/}
 			<div className='mb-8 flex flex-col gap-4'>
 				{items.map((item) => (
 					<div key={item?.title}>
@@ -64,9 +54,8 @@ export default function Home() {
 				<div className='p-8 w-[50%] border rounded-sm flex-auto'>
 					<div className='text-2xl'>Дока ищет партнёров</div>
 					<div className='my-8 text-xl'>
-						Партнёрство с Докой полезно компанияи и её сотрудникам. Предоставляя
-						Доке полную или частичную поддержку, вы помогаете развивать
-						русскоязычное сообщество POS-инженеров.
+						Партнёрство с Докой полезно компании и сотрудникам. Поддерживая
+						Доку, вы помогаете развивать русскоязычное сообщество POS-инженеров.
 					</div>
 				</div>
 			</div>
