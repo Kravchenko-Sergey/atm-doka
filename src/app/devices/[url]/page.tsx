@@ -194,13 +194,8 @@ const devices: Device[] = [
 	}
 ]
 
-export function generateStaticParams(): { params: Params }[] {
-	return devices.map((device) => ({
-		params: { url: device.url }
-	}))
-}
-
 const DevicePage: React.FC<{ params: Params }> = ({ params }) => {
+	console.log(params)
 	const device = devices.find((device) => device.url === params.url)
 	return device?.content
 }
