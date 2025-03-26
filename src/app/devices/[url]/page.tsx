@@ -197,7 +197,7 @@ export async function generateStaticParams() {
 	}))
 }
 
-const DevicePage: NextPage<{ params: { url: string } }> = ({ params }) => {
+const DevicePage = (params: { url: string }) => {
 	const device = devices.find((device) => device.url === params.url)
 	return device?.content
 }
