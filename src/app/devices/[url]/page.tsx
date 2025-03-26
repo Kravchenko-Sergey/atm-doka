@@ -3,6 +3,7 @@ import { badgeVariants } from '@/components/ui/badge'
 import Image from 'next/image'
 import Link from 'next/link'
 import { JSX } from 'react'
+import { FC } from 'react'
 
 type Device = {
 	id: string
@@ -196,7 +197,9 @@ export async function generateStaticParams() {
 	}))
 }
 
-export const DevicePage = (params: { url: string }) => {
+const DevicePage: FC<{ params: { url: string } }> = ({ params }) => {
 	const device = devices.find((device) => device.url === params.url)
 	return device?.content
 }
+
+export default DevicePage
