@@ -2,7 +2,7 @@ import { v4 } from 'uuid'
 import { badgeVariants } from '@/components/ui/badge'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FC, JSX } from 'react'
+import { JSX } from 'react'
 
 type Device = {
 	id: string
@@ -200,7 +200,7 @@ export async function generateStaticParams(): Promise<{ params: Params }[]> {
 	}))
 }
 
-const DevicePage: FC<{ params: Params }> = ({ params }) => {
+const DevicePage: React.FC<{ params: Params }> = ({ params }) => {
 	const device = devices.find((device) => device.url === params.url)
 	return device?.content
 }
