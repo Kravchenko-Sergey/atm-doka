@@ -193,7 +193,7 @@ const devices: Device[] = [
 
 export async function generateStaticParams() {
 	return devices.map((device) => ({
-		url: device.id
+		url: device.url
 	}))
 }
 
