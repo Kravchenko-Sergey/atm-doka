@@ -194,7 +194,7 @@ const devices: Device[] = [
 	}
 ]
 
-export async function generateStaticParams(): Promise<{ params: Params }[]> {
+export function generateStaticParams(): { params: Params }[] {
 	return devices.map((device) => ({
 		params: { url: device.url }
 	}))
