@@ -196,7 +196,7 @@ export async function generateStaticParams() {
 	}))
 }
 
-// @ts-ignore
+// @ts-expect-ignore
 const DevicePage = ({ params }: { params: any }) => {
 	console.log(params)
 	const device = devices.find((device) => device.url === params.url)
