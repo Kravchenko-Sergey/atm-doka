@@ -2,6 +2,7 @@ import { v4 } from 'uuid'
 import { badgeVariants } from '@/components/ui/badge'
 import Image from 'next/image'
 import Link from 'next/link'
+import { NextPage } from 'next'
 
 const devices = [
 	{
@@ -188,7 +189,7 @@ export async function generateStaticParams() {
 	}))
 }
 
-const DevicePage = ({ params }: { params: { url: string } }) => {
+const DevicePage: NextPage<{ params: { url: string } }> = ({ params }) => {
 	const device = devices.find((device) => device.url === params.url)
 	return device?.content
 }
