@@ -11,6 +11,10 @@ type Device = {
 	content: JSX.Element
 }
 
+type Params = {
+	url: string
+}
+
 const devices: Device[] = [
 	{
 		id: v4(),
@@ -190,15 +194,13 @@ const devices: Device[] = [
 	}
 ]
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<Params[]> {
 	return devices.map((device) => ({
 		url: device.url
 	}))
 }
 
-// @ts-expect-ignore
-const DevicePage = ({ params }: { params: any }) => {
-	console.log(params)
+const DevicePage: React.FC<{ params: Params }> = ({ params }) => {
 	const device = devices.find((device) => device.url === params.url)
 	return device?.content
 }
