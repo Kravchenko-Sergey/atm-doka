@@ -2,7 +2,7 @@ import { v4 } from 'uuid'
 import { badgeVariants } from '@/components/ui/badge'
 import Image from 'next/image'
 import Link from 'next/link'
-import { JSX } from 'react'
+import { FC, JSX } from 'react'
 
 type Device = {
 	id: string
@@ -194,13 +194,13 @@ const devices: Device[] = [
 	}
 ]
 
-export async function generateStaticParams(): Promise<Params[]> {
+export async function generateStaticParams(): Promise<{ params: Params }[]> {
 	return devices.map((device) => ({
-		url: device.url
+		params: { url: device.url }
 	}))
 }
 
-const DevicePage: React.FC<{ params: Params }> = ({ params }) => {
+const DevicePage: FC<{ params: Params }> = ({ params }) => {
 	const device = devices.find((device) => device.url === params.url)
 	return device?.content
 }
