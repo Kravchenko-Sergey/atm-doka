@@ -29,7 +29,7 @@ type RootState = {
 	posts: Post[]
 }
 
-export const useRootStore = create<RootState>((set) => ({
+export const useRootStore = create<RootState>(() => ({
 	devices: [
 		{
 			id: v4(),
