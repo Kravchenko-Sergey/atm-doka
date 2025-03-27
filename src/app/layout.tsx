@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import './globals.css'
 import { Roboto } from 'next/font/google'
@@ -15,7 +17,7 @@ export default function RootLayout({
 	return (
 		<html lang='en' className={roboto.className}>
 			<body className='h-screen flex flex-col items-center '>
-				<header className='p-8 w-full flex justify-center gap-8 whitespace-nowrap border-b'>
+				<header className='p-8 w-full flex justify-center gap-8 whitespace-nowrap border-b lg: px-0'>
 					<div className='px-8 w-[1640px] flex justify-center lg:justify-start'>
 						<Link
 							href={'/'}
