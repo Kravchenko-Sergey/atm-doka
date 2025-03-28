@@ -4,13 +4,8 @@ import { create } from 'zustand'
 import Image from 'next/image'
 import Link from 'next/link'
 import { JSX } from 'react'
-
-type Device = {
-	id: string
-	title: string
-	url: string
-	content: JSX.Element
-}
+import { ScanFace, Send, Users } from 'lucide-react'
+import { Avatar } from 'avataaars'
 
 type Message = {
 	id: string
@@ -20,23 +15,98 @@ type Message = {
 
 type Post = {
 	id: string
+	url: string
+	author: string
 	title: string
+	description: string
+	tags: string[]
+	content: JSX.Element
+}
+
+type Person = {
+	id: string
+	avatar: JSX.Element
+	name: string
+	description: string
 }
 
 type RootState = {
-	devices: Device[]
 	messages: Message[]
 	posts: Post[]
+	people: Person[]
 }
 
 export const useRootStore = create<RootState>(() => ({
-	devices: [
+	people: [
 		{
 			id: v4(),
-			title: 'Эвотор 5i',
-			url: 'evotor5i',
+			avatar: <ScanFace className='w-16 h-16' />,
+			name: 'Сергей Кравченко',
+			description: 'Не знал где скачать прошивку. Поэтому создал доку'
+		}
+	],
+	messages: [
+		{
+			id: v4(),
+			title: 'Вместе и для каждого',
 			content: (
-				<div>
+				<div className='p-8 w-[50%] bg-gray-200 rounded-xl flex-auto'>
+					<div className='pb-8 text-2xl'>Вместе и для каждого</div>
+					<div className='text-xl'>
+						<p>Дока — это документация для POS-инженеров на понятном языке.</p>
+						<p>Каждый участник сообщества — это ценный источник информации.</p>
+						<p>Делитесь своими знаниями, помогайте коллегам.</p>
+						<p>Ваш опыт важен, ваш вклад бесценен.</p>
+					</div>
+					<div>
+						<Link href='/people' className='mt-8 text-xl flex gap-4'>
+							<Users />
+							<div>Участники</div>
+						</Link>
+					</div>
+				</div>
+			)
+		},
+		{
+			id: v4(),
+			title: 'Дока ищет партнёров',
+			content: (
+				<div className='p-8 w-[50%] border rounded-xl flex-auto'>
+					<div className='pb-8 text-2xl'>Дока ищет партнёров</div>
+					<div className='text-xl'>
+						<p>
+							Сотрудничество с Докой приносит пользу как компании, так и её
+							сотрудникам.
+						</p>
+						<p>
+							Поддерживая Доку, вы способствуете развитию русскоязычного
+							сообщества POS-инженеров.
+						</p>
+					</div>
+					<div>
+						<Link
+							href='https://t.me/+CznWcCGr6H03NjMy'
+							className='mt-8 text-xl flex gap-4'
+							target='_blank'
+						>
+							<Send />
+							<p>Написать нам</p>
+						</Link>
+					</div>
+				</div>
+			)
+		}
+	],
+	posts: [
+		{
+			id: v4(),
+			url: 'evotor5i',
+			author: 'Сергей Кравченко',
+			title: 'Как прошить Evotor 5i?',
+			description: 'Руководство по прошивке Evotor 5i',
+			tags: ['Сбер', 'Эвотор', 'Прошивка'],
+			content: (
+				<div className='bg-amber-600'>
 					<Image
 						src='/evo5i.jpg'
 						width={500}
@@ -102,8 +172,11 @@ export const useRootStore = create<RootState>(() => ({
 		},
 		{
 			id: v4(),
-			title: 'Эвотор 7.2',
 			url: 'evotor72',
+			author: 'Сергей Кравченко',
+			title: 'Как прошить Evotor 72?',
+			description: 'Руководство по прошивке Evotor 7.2',
+			tags: ['Сбер', 'Эвотор', 'Прошивка'],
 			content: (
 				<div>
 					<Image
@@ -151,8 +224,11 @@ export const useRootStore = create<RootState>(() => ({
 		},
 		{
 			id: v4(),
-			title: 'Эвотор 7.3',
 			url: 'evotor73',
+			author: 'Сергей Кравченко',
+			title: 'Как прошить Evotor 73?',
+			description: 'Руководство по прошивке Evotor 7.3',
+			tags: ['Сбер', 'Эвотор', 'Прошивка'],
 			content: (
 				<div>
 					<Image
@@ -200,8 +276,11 @@ export const useRootStore = create<RootState>(() => ({
 		},
 		{
 			id: v4(),
-			title: 'Эвотор 10',
 			url: 'evotor10',
+			author: 'Сергей Кравченко',
+			title: 'Как прошить Evotor 10?',
+			description: 'Руководство по прошивке Evotor 10',
+			tags: ['Сбер', 'Эвотор', 'Прошивка'],
 			content: (
 				<div>
 					<Image
@@ -246,68 +325,6 @@ export const useRootStore = create<RootState>(() => ({
 					</ul>
 				</div>
 			)
-		}
-	],
-	messages: [
-		{
-			id: v4(),
-			title: 'Вместе и для каждого',
-			content: (
-				<div className='p-8 w-[50%] bg-gray-200 rounded-sm flex-auto'>
-					<div className='pb-8 text-2xl'>Вместе и для каждого</div>
-					<div className='text-xl'>
-						<p>Дока — это документация для POS-инженеров на понятном языке.</p>
-						<p>Каждый участник сообщества — это ценный источник информации.</p>
-						<p>Делитесь своими знаниями, помогайте коллегам.</p>
-						<p>Ваш опыт важен, ваш вклад бесценен.</p>
-					</div>
-				</div>
-			)
-		},
-		{
-			id: v4(),
-			title: 'Дока ищет партнёров',
-			content: (
-				<div className='p-8 w-[50%] border rounded-sm flex-auto'>
-					<div className='pb-8 text-2xl'>Дока ищет партнёров</div>
-					<div className='text-xl'>
-						<p>
-							Сотрудничество с Докой приносит пользу как компании, так и её
-							сотрудникам.
-						</p>
-						<p>
-							Поддерживая Доку, вы способствуете развитию русскоязычного
-							сообщества POS-инженеров.
-						</p>
-					</div>
-				</div>
-			)
-		}
-	],
-	posts: [
-		{
-			id: v4(),
-			title: 'Здесь может быть ваша статья'
-		},
-		{
-			id: v4(),
-			title: 'Здесь может быть ваша статья'
-		},
-		{
-			id: v4(),
-			title: 'Здесь может быть ваша статья'
-		},
-		{
-			id: v4(),
-			title: 'Здесь может быть ваша статья'
-		},
-		{
-			id: v4(),
-			title: 'Здесь может быть ваша статья'
-		},
-		{
-			id: v4(),
-			title: 'Здесь может быть ваша статья'
 		}
 	]
 }))

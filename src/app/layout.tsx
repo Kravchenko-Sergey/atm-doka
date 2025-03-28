@@ -27,10 +27,10 @@ export default function RootLayout({
 						</Link>
 					</div>
 				</header>
-				<main className='p-8 max-w-[1640px] flex-1'>{children}</main>
+				<main className='p-8 w-full max-w-[1640px] flex-1'>{children}</main>
 				<footer className='p-8 w-full flex justify-center border-t'>
 					<div className='px-8 w-[1640px] flex justify-end'>
-						<Link href={'about'}>О проекте</Link>
+						<Link href={'/about'}>О проекте</Link>
 					</div>
 				</footer>
 			</body>
