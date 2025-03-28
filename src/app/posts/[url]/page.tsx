@@ -1,7 +1,7 @@
 'use client'
 
 import { useRootStore } from '@/state/store'
-import { ArrowLeft, CircleArrowLeft, CircleArrowRight } from 'lucide-react'
+import { CircleArrowLeft, CircleArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import React from 'react'

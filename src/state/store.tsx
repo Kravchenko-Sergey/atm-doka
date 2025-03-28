@@ -5,7 +5,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { JSX } from 'react'
 import { ScanFace, Send, Users } from 'lucide-react'
-import { Avatar } from 'avataaars'
 
 type Message = {
 	id: string
@@ -106,7 +105,7 @@ export const useRootStore = create<RootState>(() => ({
 			description: 'Руководство по прошивке Evotor 5i',
 			tags: ['Сбер', 'Эвотор', 'Прошивка'],
 			content: (
-				<div className='bg-amber-600'>
+				<div>
 					<Image
 						src='/evo5i.jpg'
 						width={500}
