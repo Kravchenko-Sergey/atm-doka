@@ -43,7 +43,7 @@ type RootState = {
 	tags: Tag[]
 }
 
-export const useRootStore = create<RootState>((set) => ({
+export const useRootStore = create<RootState>(() => ({
 	people: [
 		{
 			id: v4(),
