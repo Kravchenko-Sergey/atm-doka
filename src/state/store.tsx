@@ -364,7 +364,9 @@ export const useRootStore = create<RootState>(() => ({
 						<li>Комплектный провод</li>
 						<li>Блок питания micro-usb</li>
 						<li>Флешка в формате FAT32</li>
-						<li>Переходник USB 2.0 'мама' - USB 2.0 'мама'</li>
+						<li>
+							Переходник USB 2.0 &apos;мама&apos; - USB 2.0 &apos;мама&apos;
+						</li>
 						<li>
 							<Link
 								href={
