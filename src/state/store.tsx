@@ -18,6 +18,7 @@ type Post = {
 	author: string
 	title: string
 	description: string
+	bgImage: string
 	tags: string[]
 	content: JSX.Element
 }
@@ -29,13 +30,20 @@ type Person = {
 	description: string
 }
 
+type Tag = {
+	id: string
+	title: string
+	isActive: boolean
+}
+
 type RootState = {
 	messages: Message[]
 	posts: Post[]
 	people: Person[]
+	tags: Tag[]
 }
 
-export const useRootStore = create<RootState>(() => ({
+export const useRootStore = create<RootState>((set) => ({
 	people: [
 		{
 			id: v4(),
@@ -103,7 +111,8 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Evotor 5i?',
 			description: 'Руководство по прошивке Evotor 5i',
-			tags: ['Сбер', 'Эвотор', 'Прошивка'],
+			bgImage: '/bgsber.jpeg',
+			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			content: (
 				<div>
 					<Image
@@ -175,7 +184,8 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Evotor 72?',
 			description: 'Руководство по прошивке Evotor 7.2',
-			tags: ['Сбер', 'Эвотор', 'Прошивка'],
+			bgImage: '/bgsber.jpeg',
+			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			content: (
 				<div>
 					<Image
@@ -227,7 +237,8 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Evotor 73?',
 			description: 'Руководство по прошивке Evotor 7.3',
-			tags: ['Сбер', 'Эвотор', 'Прошивка'],
+			bgImage: '/bgsber.jpeg',
+			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			content: (
 				<div>
 					<Image
@@ -279,7 +290,8 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Evotor 10?',
 			description: 'Руководство по прошивке Evotor 10',
-			tags: ['Сбер', 'Эвотор', 'Прошивка'],
+			bgImage: '/bgsber.jpeg',
+			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			content: (
 				<div>
 					<Image
@@ -325,5 +337,10 @@ export const useRootStore = create<RootState>(() => ({
 				</div>
 			)
 		}
+	],
+	tags: [
+		{ id: v4(), title: '#Сбер', isActive: false },
+		{ id: v4(), title: '#Эвотор', isActive: false },
+		{ id: v4(), title: '#Прошивка', isActive: false }
 	]
 }))

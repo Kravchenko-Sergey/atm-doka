@@ -16,12 +16,12 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en' className={roboto.className}>
-			<body className='h-screen flex flex-col items-center '>
+			<body className='h-screen flex flex-col items-center'>
 				<header className='p-8 w-full flex justify-center gap-8 whitespace-nowrap border-b lg: px-0'>
 					<div className='px-8 w-[1640px] flex justify-center lg:justify-start'>
 						<Link
 							href={'/'}
-							className='px-8 py-4 text-3xl flex gap-4 border-3 rounded-full'
+							className='px-8 py-4 text-3xl flex gap-4 border rounded-full'
 						>
 							АТМ Дока
 						</Link>

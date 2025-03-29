@@ -17,9 +17,6 @@ const DevicePage: React.FC = () => {
 	const prevPost = posts[posts.findIndex((p) => p.id === post?.id) - 1] ?? post
 	const nextPost = posts[posts.findIndex((p) => p.id === post?.id) + 1] ?? post
 
-	console.log(prevPost)
-	console.log(nextPost)
-
 	return (
 		<>
 			{post?.content}
@@ -33,14 +30,19 @@ const DevicePage: React.FC = () => {
 							<Link
 								href={`/posts/${post.url}`}
 								key={post.id}
-								className='p-8 h-[560px] flex flex-col items-center justify-between flex-auto border border-[#2e9aff] rounded-xl'
+								className='p-8 h-[560px] flex flex-col items-center justify-between flex-auto rounded-xl'
+								style={{
+									backgroundImage: `url('${post.bgImage}')`,
+									backgroundSize: 'cover',
+									backgroundPosition: 'center'
+								}}
 							>
 								<p className='text-2xl self-start'>{post.title}</p>
 								<p className='text-xl self-end'>{post.description}</p>
 							</Link>
 						))}
 				</div>
-				<div className='m-8 flex justify-between'>
+				<div className='m-8 flex flex-col items-center gap-8 md:flex-row justify-between'>
 					<Link href={prevPost.url} className='text-xl flex items-center gap-4'>
 						<CircleArrowLeft
 							className={` ${post?.id === posts[0].id ? 'hidden' : ''}`}
