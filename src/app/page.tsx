@@ -12,7 +12,8 @@ export default function Home() {
 	const [tags, setTags] = useState([
 		{ id: v4(), title: '#Сбер', isActive: false },
 		{ id: v4(), title: '#Эвотор', isActive: false },
-		{ id: v4(), title: '#Прошивка', isActive: false }
+		{ id: v4(), title: '#Прошивка', isActive: false },
+		{ id: v4(), title: '#Pax', isActive: false }
 	])
 
 	const toggleActive = (id: string) => {
@@ -64,7 +65,7 @@ export default function Home() {
 				{filteredPosts.map((post) => (
 					<Link
 						href={`/posts/${post.url}`}
-						key={post.id} // Убедитесь, что у каждого поста есть уникальный ключ
+						key={post.id}
 						className='relative p-8 h-[560px] flex flex-col items-center justify-between flex-auto rounded-xl overflow-hidden transition duration-300 ease-in-out'
 						style={{
 							backgroundImage: `url('${post.bgImage}')`,

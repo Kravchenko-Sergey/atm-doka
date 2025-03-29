@@ -1,5 +1,5 @@
 import { v4 } from 'uuid'
-import { badgeVariants } from '@/components/ui/badge'
+import { Badge, badgeVariants } from '@/components/ui/badge'
 import { create } from 'zustand'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -336,11 +336,100 @@ export const useRootStore = create<RootState>(() => ({
 					</ul>
 				</div>
 			)
+		},
+		{
+			id: v4(),
+			url: 'pax-sp30',
+			author: 'Сергей Кравченко',
+			title: 'Как прошить Pax SP30?',
+			description: 'Руководство по прошивке Pax SP30',
+			bgImage: '/bgsber.jpeg',
+			tags: ['#Сбер', '#Pax', '#Прошивка'],
+			content: (
+				<div>
+					<Image
+						src='/sp30.png'
+						width={500}
+						height={500}
+						priority
+						alt='sp30'
+						style={{
+							width: 'auto',
+							height: 'auto'
+						}}
+					/>
+					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li>пинпад PAX SP30</li>
+						<li>Комплектный провод</li>
+						<li>Блок питания micro-usb</li>
+						<li>Флешка в формате FAT32</li>
+						<li>Переходник USB 2.0 'мама' - USB 2.0 'мама'</li>
+						<li>
+							<Link
+								href={
+									'https://drive.google.com/uc?export=download&id=1mKleqimtFMRrpdWusaRaMERIbtrI872C'
+								}
+								target='_blank'
+								download
+								className='underline hover:no-underline'
+							>
+								Файл прошивки
+							</Link>
+						</li>
+					</ul>
+					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li>
+							Помещаем{' '}
+							<Link
+								href={
+									'https://drive.google.com/uc?export=download&id=1mKleqimtFMRrpdWusaRaMERIbtrI872C'
+								}
+								target='_blank'
+								download
+								className='underline hover:no-underline'
+							>
+								Файл прошивки
+							</Link>{' '}
+							в корень флешки.
+						</li>
+						<li>
+							Присоединяем флешку через переходник к проводу подключения пинпада
+							к компьютеру.
+						</li>
+						<li>
+							Подключаем питание к сети. Должна появиться запись
+							'U-DISC_DOWNLOAD'. Это означает что терминал начал сканировать
+							флешку.
+						</li>
+						<li>
+							Из появившегося списка выбираем нужный нам файл с прошивкой.
+							Терминал начнет чтение файла.
+						</li>
+						<li>В появившемся меню выбираем 'DELETE APP' - 'Delete all app'</li>
+						<li>Далее выбираем 'DOWNLOAD ALL'. Начнется загрузка файла.</li>
+						<li>Нажимаем красную кнопку. Появится надпись 'DOWNLOAD OVER'</li>
+						<li>Ещё раз нажимаем красную кнопку. Терминал перезагрузится.</li>
+						<li>
+							В момент перезагрузки отсоединяем флешку. После перезагрузки
+							начнётся загрузка UPOS.
+						</li>
+						<li>Прошивка завершена!</li>
+					</ul>
+					<h2 className='my-8 text-3xl'>Видео</h2>
+					<video width='320' height='180' controls>
+						<source src='/PAX SP30.mp4' type='video/mp4' />
+						Ваш браузер не поддерживает видео тег.
+					</video>
+				</div>
+			)
 		}
 	],
 	tags: [
 		{ id: v4(), title: '#Сбер', isActive: false },
 		{ id: v4(), title: '#Эвотор', isActive: false },
-		{ id: v4(), title: '#Прошивка', isActive: false }
+		{ id: v4(), title: '#Прошивка', isActive: false },
+		{ id: v4(), title: '#Pax', isActive: false }
 	]
 }))
