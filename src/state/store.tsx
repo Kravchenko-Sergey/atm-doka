@@ -1,5 +1,5 @@
 import { v4 } from 'uuid'
-import { Badge, badgeVariants } from '@/components/ui/badge'
+import { badgeVariants } from '@/components/ui/badge'
 import { create } from 'zustand'
 import Image from 'next/image'
 import Link from 'next/link'
