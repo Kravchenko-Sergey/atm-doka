@@ -19,8 +19,7 @@ export default function Home() {
 		{ id: v4(), title: '#Tactilion', isActive: false },
 		{ id: v4(), title: '#Kozen', isActive: false },
 		{ id: v4(), title: '#VeriFone', isActive: false },
-		{ id: v4(), title: '#Castles', isActive: false },
-		{ id: v4(), title: '#AQSI', isActive: false }
+		{ id: v4(), title: '#Castles', isActive: false }
 	])
 
 	const toggleActive = (id: string) => {
@@ -74,7 +73,7 @@ export default function Home() {
 						<Link
 							href={`/posts/${post.url}`}
 							key={post.id}
-							className='relative p-4 h-[330px] flex flex-col items-center justify-between flex-auto rounded-xl overflow-hidden transition duration-300 ease-in-out sm:h-[560px]'
+							className='relative p-4 min-w-[240px] h-[330px] flex flex-col items-center justify-between flex-1 rounded-xl overflow-hidden transition duration-300 ease-in-out sm:h-[560px] sm:min-w-[508px]'
 							style={{
 								backgroundImage: `url('${post.bgImage}')`,
 								backgroundSize: 'cover',

@@ -471,6 +471,122 @@ export const useRootStore = create<RootState>(() => ({
 					</video>
 				</div>
 			)
+		},
+		{
+			id: v4(),
+			url: 'verifone-vx520',
+			author: 'Сергей Кравченко',
+			title: 'Как прошить VeriFone VX520?',
+			description: 'Руководство по прошивке VeriFone VX520',
+			bgImage: '/sberbg.jpg',
+			tags: ['#Сбер', '#VeriFone', '#Прошивка'],
+			content: (
+				<div>
+					<Image
+						src='/vx520.webp'
+						width={500}
+						height={500}
+						priority
+						alt='vx520'
+					/>
+					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Видео</h2>
+					<video width='320' height='180' controls>
+						<source src='/VX520.mp4' type='video/mp4' />
+						Ваш браузер не поддерживает видео тег.
+					</video>
+				</div>
+			)
+		},
+		{
+			id: v4(),
+			url: 'ingenico-ict220-ict250',
+			author: 'Сергей Кравченко',
+			title: 'Как прошить Ingenico ICT220-ICT250?',
+			description: 'Руководство по прошивке Ingenico ICT220-ICT250',
+			bgImage: '/sberbg.jpg',
+			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
+			content: (
+				<div>
+					<Image
+						src='/ict220.jpg'
+						width={500}
+						height={500}
+						priority
+						alt='ict220'
+					/>
+					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Видео</h2>
+					<video width='320' height='180' controls>
+						<source src='/ICT220-ICT250.mp4' type='video/mp4' />
+						Ваш браузер не поддерживает видео тег.
+					</video>
+				</div>
+			)
+		},
+		{
+			id: v4(),
+			url: 'tactilion-t2',
+			author: 'Сергей Кравченко',
+			title: 'Как прошить Tactilion T2?',
+			description: 'Руководство по прошивке Tactilion T2',
+			bgImage: '/sberbg.jpg',
+			tags: ['#Сбер', '#Tactilion', '#Прошивка'],
+			content: (
+				<div>
+					<Image
+						src='/tactilion-t2.jpg'
+						width={500}
+						height={500}
+						priority
+						alt='Tactilion T2'
+					/>
+					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Видео</h2>
+					<video width='320' height='180' controls>
+						<source src='/TACTILION T2.mp4' type='video/mp4' />
+						Ваш браузер не поддерживает видео тег.
+					</video>
+				</div>
+			)
+		},
+		{
+			id: v4(),
+			url: 'castles-vega3000',
+			author: 'Сергей Кравченко',
+			title: 'Как прошить Castles Vega3000?',
+			description: 'Руководство по прошивке Castles Vega3000',
+			bgImage: '/sberbg.jpg',
+			tags: ['#Сбер', '#Castles', '#Прошивка'],
+			content: (
+				<div>
+					<Image
+						src='/castles-vega3000.jpg'
+						width={500}
+						height={500}
+						priority
+						alt='Castles Vega3000'
+					/>
+					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Видео</h2>
+					<video width='320' height='180' controls>
+						<source src='/Vega3000 GPRS-ETH.mp4' type='video/mp4' />
+						Ваш браузер не поддерживает видео тег.
+					</video>
+				</div>
+			)
 		}
 	],
 	tags: [
