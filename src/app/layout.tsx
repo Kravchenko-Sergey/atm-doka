@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en' className={roboto.className}>
-			<body className='h-screen flex flex-col items-center'>
+			<body className='h-screen flex flex-col items-center box-border'>
 				<header className='px-4 py-8 w-full flex justify-center gap-8 whitespace-nowrap border-b lg:px-0'>
 					<div className='px-4 w-[1640px] flex justify-center lg:justify-start'>
 						<Link

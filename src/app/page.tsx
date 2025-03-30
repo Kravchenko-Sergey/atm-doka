@@ -61,7 +61,7 @@ export default function Home() {
 					<div
 						key={tag.id}
 						onClick={() => handleClickTag(tag.id)}
-						className={`px-4 py-2 text-xl flex items-center justify-center transition duration-300 ease-in-out cursor-pointer
+						className={`w-32 h-12 px-4 py-2 text-xl flex items-center justify-center transition duration-300 ease-in-out cursor-pointer
 						${tag.isActive ? 'border rounded-xl' : ''}`}
 					>
 						{tag.title}
