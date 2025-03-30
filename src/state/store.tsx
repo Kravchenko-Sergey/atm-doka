@@ -57,7 +57,7 @@ export const useRootStore = create<RootState>(() => ({
 			id: v4(),
 			title: 'Вместе и для каждого',
 			content: (
-				<div className='p-8 w-[50%] bg-gray-200 rounded-xl flex-auto'>
+				<div className='p-4 w-[50%] bg-gray-200 rounded-xl flex-auto'>
 					<div className='pb-8 text-2xl'>Вместе и для каждого</div>
 					<div className='text-xl'>
 						<p>Дока — это документация для POS-инженеров на понятном языке.</p>
@@ -78,7 +78,7 @@ export const useRootStore = create<RootState>(() => ({
 			id: v4(),
 			title: 'Дока ищет партнёров',
 			content: (
-				<div className='p-8 w-[50%] border rounded-xl flex-auto'>
+				<div className='p-4 w-[50%] border rounded-xl flex-auto'>
 					<div className='pb-8 text-2xl'>Дока ищет партнёров</div>
 					<div className='text-xl'>
 						<p>

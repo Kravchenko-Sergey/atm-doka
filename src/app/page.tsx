@@ -14,7 +14,13 @@ export default function Home() {
 		{ id: v4(), title: '#Сбер', isActive: false },
 		{ id: v4(), title: '#Эвотор', isActive: false },
 		{ id: v4(), title: '#Прошивка', isActive: false },
-		{ id: v4(), title: '#Pax', isActive: false }
+		{ id: v4(), title: '#Pax', isActive: false },
+		{ id: v4(), title: '#Ingenico', isActive: false },
+		{ id: v4(), title: '#Tactilion', isActive: false },
+		{ id: v4(), title: '#Kozen', isActive: false },
+		{ id: v4(), title: '#VeriFone', isActive: false },
+		{ id: v4(), title: '#Castles', isActive: false },
+		{ id: v4(), title: '#AQSI', isActive: false }
 	])
 
 	const toggleActive = (id: string) => {
@@ -50,12 +56,12 @@ export default function Home() {
 					<Fragment key={message.id}>{message.content}</Fragment>
 				))}
 			</div>
-			<div className='pt-8 text-xl flex flex-wrap items-center gap-4'>
+			<div className='pt-8 text-xl flex flex-wrap items-center gap-2'>
 				{tags.map((tag) => (
 					<div
 						key={tag.id}
 						onClick={() => handleClickTag(tag.id)}
-						className={`p-4 text-xl flex items-center justify-center transition duration-300 ease-in-out cursor-pointer
+						className={`px-4 py-2 text-xl flex items-center justify-center transition duration-300 ease-in-out cursor-pointer
 						${tag.isActive ? 'border rounded-xl' : ''}`}
 					>
 						{tag.title}
@@ -68,7 +74,7 @@ export default function Home() {
 						<Link
 							href={`/posts/${post.url}`}
 							key={post.id}
-							className='relative p-8 h-[330px] flex flex-col items-center justify-between flex-auto rounded-xl overflow-hidden transition duration-300 ease-in-out sm:h-[560px]'
+							className='relative p-4 h-[330px] flex flex-col items-center justify-between flex-auto rounded-xl overflow-hidden transition duration-300 ease-in-out sm:h-[560px]'
 							style={{
 								backgroundImage: `url('${post.bgImage}')`,
 								backgroundSize: 'cover',
@@ -82,8 +88,8 @@ export default function Home() {
 					))
 				) : (
 					<div className='w-full h-[560px] flex items-center justify-center'>
-						<div className='flex items-center gap-4'>
-							<p className='text-2xl'>
+						<div className='flex flex-col items-center gap-4 sm:flex-row'>
+							<p className='text-2xl text-center'>
 								Нет статей с выбранной комбинацией тегов
 							</p>
 							<Frown />
