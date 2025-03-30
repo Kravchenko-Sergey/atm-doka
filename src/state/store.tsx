@@ -111,7 +111,7 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Evotor 5i?',
 			description: 'Руководство по прошивке Evotor 5i',
-			bgImage: '/bgsber.jpeg',
+			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			content: (
 				<div>
@@ -121,12 +121,24 @@ export const useRootStore = create<RootState>(() => ({
 						height={500}
 						priority
 						alt='evo5i'
-						style={{
-							width: 'auto',
-							height: 'auto'
-						}}
 					/>
-					<h2 className='mt-4 mb-8 text-3xl'>Как прошить?</h2>
+					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li>Флешка в формате FAT32</li>
+						<li>
+							<Link
+								href={
+									'https://drive.google.com/uc?export=download&id=1zHNbojcHBEpuA6ZLaEWsBXmnnbTafb1g'
+								}
+								target='_blank'
+								download
+								className='underline hover:no-underline'
+							>
+								Файл прошивки
+							</Link>
+						</li>
+					</ul>
+					<h2 className='my-8 text-3xl'>Как прошить?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li>Включите смарт-терминал и подключите его к интернету.</li>
 						<li>
@@ -184,7 +196,7 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Evotor 72?',
 			description: 'Руководство по прошивке Evotor 7.2',
-			bgImage: '/bgsber.jpeg',
+			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			content: (
 				<div>
@@ -194,12 +206,24 @@ export const useRootStore = create<RootState>(() => ({
 						height={500}
 						priority
 						alt='evo72'
-						style={{
-							width: 'auto',
-							height: 'auto'
-						}}
 					/>
-					<h2 className='mt-4 mb-8 text-3xl'>Как прошить?</h2>
+					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li>Флешка в формате FAT32</li>
+						<li>
+							<Link
+								href={
+									'https://drive.google.com/uc?export=download&id=1n08SYgy72qF2susGP8Cnmw5tbupIaXX5'
+								}
+								target='_blank'
+								download
+								className='underline hover:no-underline'
+							>
+								Файл прошивки
+							</Link>
+						</li>
+					</ul>
+					<h2 className='my-8 text-3xl'>Как прошить?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li>
 							<Link
@@ -237,7 +261,7 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Evotor 73?',
 			description: 'Руководство по прошивке Evotor 7.3',
-			bgImage: '/bgsber.jpeg',
+			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			content: (
 				<div>
@@ -247,12 +271,24 @@ export const useRootStore = create<RootState>(() => ({
 						height={500}
 						priority
 						alt='evo73'
-						style={{
-							width: 'auto',
-							height: 'auto'
-						}}
 					/>
-					<h2 className='mt-4 mb-8 text-3xl'>Как прошить?</h2>
+					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li>Флешка в формате FAT32</li>
+						<li>
+							<Link
+								href={
+									'https://drive.google.com/uc?export=download&id=1GfdNdQIm04HbXzrNA0fyVDik_z3q98Xk'
+								}
+								target='_blank'
+								download
+								className='underline hover:no-underline'
+							>
+								Файл прошивки
+							</Link>
+						</li>
+					</ul>
+					<h2 className='my-8 text-3xl'>Как прошить?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li>
 							<Link
@@ -290,7 +326,7 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Evotor 10?',
 			description: 'Руководство по прошивке Evotor 10',
-			bgImage: '/bgsber.jpeg',
+			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			content: (
 				<div>
@@ -300,13 +336,10 @@ export const useRootStore = create<RootState>(() => ({
 						height={500}
 						priority
 						alt='evo10'
-						style={{
-							width: 'auto',
-							height: 'auto'
-						}}
 					/>
-					<h2 className='mt-4 mb-8 text-3xl'>Как прошить?</h2>
+					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li>Флешка в формате FAT32</li>
 						<li>
 							<Link
 								href={
@@ -314,11 +347,27 @@ export const useRootStore = create<RootState>(() => ({
 								}
 								target='_blank'
 								download
-								className={`${badgeVariants({ variant: 'outline' })} mr-2`}
+								className='underline hover:no-underline'
 							>
-								Скачайте
+								Файл прошивки
 							</Link>
-							файл прошивки. На данный момент актуальная версия прошивки 4.9.11
+						</li>
+					</ul>
+					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li>
+							Скачайте
+							<Link
+								href={
+									'https://drive.google.com/uc?export=download&id=1BO5nAbUB9ob3fGe2XGn954FrJZLoIVe2'
+								}
+								target='_blank'
+								download
+								className='px-2 underline hover:no-underline'
+							>
+								файл прошивки.
+							</Link>
+							На данный момент актуальная версия прошивки 4.9.11
 						</li>
 						<li>Подготовте флешку в формате FAT32</li>
 						<li>Поместите файл прошивки в корень флешки</li>
@@ -343,24 +392,13 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Pax SP30?',
 			description: 'Руководство по прошивке Pax SP30',
-			bgImage: '/bgsber.jpeg',
+			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
 			content: (
 				<div>
-					<Image
-						src='/sp30.png'
-						width={500}
-						height={500}
-						priority
-						alt='sp30'
-						style={{
-							width: 'auto',
-							height: 'auto'
-						}}
-					/>
+					<Image src='/sp30.jpg' width={500} height={500} priority alt='sp30' />
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
-						<li>пинпад PAX SP30</li>
 						<li>Комплектный провод</li>
 						<li>Блок питания micro-usb</li>
 						<li>Флешка в формате FAT32</li>
@@ -425,7 +463,6 @@ export const useRootStore = create<RootState>(() => ({
 							В момент перезагрузки отсоединяем флешку. После перезагрузки
 							начнётся загрузка UPOS.
 						</li>
-						<li>Прошивка завершена!</li>
 					</ul>
 					<h2 className='my-8 text-3xl'>Видео</h2>
 					<video width='320' height='180' controls>

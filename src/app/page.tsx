@@ -1,6 +1,7 @@
 'use client'
 
 import { useRootStore } from '@/state/store'
+import { Frown } from 'lucide-react'
 import Link from 'next/link'
 import { Fragment, useState } from 'react'
 import { v4 } from 'uuid'
@@ -52,7 +53,7 @@ export default function Home() {
 			<div className='pt-8 text-xl flex flex-wrap items-center gap-4'>
 				{tags.map((tag) => (
 					<div
-						key={tag.id} // Добавлен ключ для каждого тега
+						key={tag.id}
 						onClick={() => handleClickTag(tag.id)}
 						className={`p-4 text-xl flex items-center justify-center transition duration-300 ease-in-out cursor-pointer
 						${tag.isActive ? 'border rounded-xl' : ''}`}
@@ -62,22 +63,33 @@ export default function Home() {
 				))}
 			</div>
 			<div className='py-8 flex gap-8 flex-wrap'>
-				{filteredPosts.map((post) => (
-					<Link
-						href={`/posts/${post.url}`}
-						key={post.id}
-						className='relative p-8 h-[560px] flex flex-col items-center justify-between flex-auto rounded-xl overflow-hidden transition duration-300 ease-in-out'
-						style={{
-							backgroundImage: `url('${post.bgImage}')`,
-							backgroundSize: 'cover',
-							backgroundPosition: 'center'
-						}}
-					>
-						<div className='absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-20'></div>
-						<p className='text-2xl self-start'>{post.title}</p>
-						<p className='text-xl self-end'>{post.description}</p>
-					</Link>
-				))}
+				{filteredPosts.length > 0 ? (
+					filteredPosts.map((post) => (
+						<Link
+							href={`/posts/${post.url}`}
+							key={post.id}
+							className='relative p-8 h-[330px] flex flex-col items-center justify-between flex-auto rounded-xl overflow-hidden transition duration-300 ease-in-out sm:h-[560px]'
+							style={{
+								backgroundImage: `url('${post.bgImage}')`,
+								backgroundSize: 'cover',
+								backgroundPosition: 'center'
+							}}
+						>
+							<div className='absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-20'></div>
+							<p className='text-2xl self-start'>{post.title}</p>
+							<p className='text-xl self-end'>{post.description}</p>
+						</Link>
+					))
+				) : (
+					<div className='w-full h-[560px] flex items-center justify-center'>
+						<div className='flex items-center gap-4'>
+							<p className='text-2xl'>
+								Нет статей с выбранной комбинацией тегов
+							</p>
+							<Frown />
+						</div>
+					</div>
+				)}
 			</div>
 		</>
 	)
