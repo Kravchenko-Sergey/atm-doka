@@ -5,8 +5,8 @@ import './globals.css'
 import { Roboto } from 'next/font/google'
 
 const roboto = Roboto({
-	subsets: ['latin', 'cyrillic'],
-	weight: ['400', '700']
+	subsets: ['cyrillic', 'latin'],
+	weight: ['300', '400', '500', '600', '700', '800']
 })
 
 export default function RootLayout({

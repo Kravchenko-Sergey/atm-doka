@@ -42,7 +42,7 @@ const DevicePage: React.FC = () => {
 							</Link>
 						))}
 				</div>
-				<div className='m-8 flex flex-col items-center gap-8 md:flex-row justify-between'>
+				<div className='my-8 flex flex-col items-center gap-8 md:flex-row justify-between'>
 					<Link href={prevPost.url} className='text-xl flex items-center gap-4'>
 						<CircleArrowLeft
 							className={` ${post?.id === posts[0].id ? 'hidden' : ''}`}
