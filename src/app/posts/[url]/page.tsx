@@ -22,7 +22,7 @@ const DevicePage: React.FC = () => {
 			{post?.content}
 			<div>
 				<div className='mt-10 mb-4 text-3xl'>Читайте также</div>
-				<div className='py-8 flex gap-8 flex-wrap'>
+				<div className='py-8 flex gap-4 flex-wrap md:gap-8'>
 					{[...posts]
 						.filter((post) => post.url !== url)
 						.slice(0, 3)

@@ -73,7 +73,7 @@ export default function Home() {
 			<div className='py-8'>
 				{filteredPosts.length > 0 ? (
 					<div className='flex flex-col items-center gap-8'>
-						<div className='flex justify-center gap-8 flex-wrap'>
+						<div className='flex justify-center gap-4 flex-wrap md:gap-8'>
 							{filteredPosts
 								.map((post) => (
 									<Link
@@ -93,7 +93,7 @@ export default function Home() {
 								))
 								.slice(0, count)}
 						</div>
-						{filteredPosts.length > count && (
+						{filteredPosts.length >= count && (
 							<Button
 								onClick={() => setCount(count + 6)}
 								variant={'outline'}

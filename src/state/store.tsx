@@ -617,7 +617,21 @@ export const useRootStore = create<RootState>(() => ({
 						alt='vx520'
 					/>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>Флешка в формате FAT32</li>
+						<li className='ml-[20px]'>
+							Папка{' '}
+							<Link
+								href={'/verifone'}
+								target='_blank'
+								download
+								className='underline hover:no-underline'
+							>
+								verifone
+							</Link>{' '}
+							с необходимыми файлами
+						</li>
+					</ul>
 					<h2 className='my-8 text-3xl'>Как прошить?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
 					<h2 className='my-8 text-3xl'>Видео</h2>
