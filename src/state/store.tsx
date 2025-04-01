@@ -601,6 +601,82 @@ export const useRootStore = create<RootState>(() => ({
 		},
 		{
 			id: v4(),
+			url: 'pax-s80',
+			author: 'Сергей Кравченко',
+			title: 'Как прошить Pax S80?',
+			description: 'Руководство по прошивке Pax S80',
+			bgImage: '/sberbg.jpg',
+			tags: ['#Сбер', '#Pax', '#Прошивка'],
+			content: (
+				<div>
+					<Image src='/s80.webp' width={500} height={500} priority alt='s80' />
+					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>Флешка в формате FAT32</li>
+						<li className='ml-[20px]'>Переходник USB мама - mini USB папа</li>
+						<li className='ml-[20px]'>
+							<Link
+								href={
+									'https://drive.google.com/uc?export=download&id=1FzHlqsBejIBWf62og7-uPpBeJWXCIc0i'
+								}
+								target='_blank'
+								download
+								className='underline hover:no-underline'
+							>
+								Файл прошивки
+							</Link>
+						</li>
+					</ul>
+					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Видео</h2>
+					<video width='320' height='180' controls>
+						<source src='/PAX S90.mp4' type='video/mp4' />
+						Ваш браузер не поддерживает видео тег.
+					</video>
+				</div>
+			)
+		},
+		{
+			id: v4(),
+			url: 'pax-s90',
+			author: 'Сергей Кравченко',
+			title: 'Как прошить Pax S90?',
+			description: 'Руководство по прошивке Pax S90',
+			bgImage: '/sberbg.jpg',
+			tags: ['#Сбер', '#Pax', '#Прошивка'],
+			content: (
+				<div>
+					<Image src='/s90.webp' width={500} height={500} priority alt='s90' />
+					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>Флешка в формате FAT32</li>
+						<li className='ml-[20px]'>Переходник USB мама - mini USB папа</li>
+						<li className='ml-[20px]'>
+							<Link
+								href={
+									'https://drive.google.com/uc?export=download&id=1A2_GfAb4UBjCabcKft7sIl-V-HV9Gkx9'
+								}
+								target='_blank'
+								download
+								className='underline hover:no-underline'
+							>
+								Файл прошивки
+							</Link>
+						</li>
+					</ul>
+					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Видео</h2>
+					<video width='320' height='180' controls>
+						<source src='/PAX S90.mp4' type='video/mp4' />
+						Ваш браузер не поддерживает видео тег.
+					</video>
+				</div>
+			)
+		},
+		{
+			id: v4(),
 			url: 'verifone-vx520',
 			author: 'Сергей Кравченко',
 			title: 'Как прошить VeriFone VX520?',
@@ -622,7 +698,9 @@ export const useRootStore = create<RootState>(() => ({
 						<li className='ml-[20px]'>
 							Папка{' '}
 							<Link
-								href={'/verifone'}
+								href={
+									'https://drive.google.com/drive/folders/1cZYY60KgnU85nJDpRdDTStk1XVw6BLb6?usp=drive_link'
+								}
 								target='_blank'
 								download
 								className='underline hover:no-underline'
