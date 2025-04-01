@@ -30,13 +30,14 @@ const DevicePage: React.FC = () => {
 							<Link
 								href={`/posts/${post.url}`}
 								key={post.id}
-								className='p-8 h-[560px] flex flex-col items-center justify-between flex-auto rounded-xl'
+								className='relative p-4 min-w-[240px] h-[330px] flex flex-col items-center justify-between flex-1 rounded-xl overflow-hidden transition duration-300 ease-in-out sm:h-[560px] sm:min-w-[508px]'
 								style={{
 									backgroundImage: `url('${post.bgImage}')`,
 									backgroundSize: 'cover',
 									backgroundPosition: 'center'
 								}}
 							>
+								<div className='absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-20'></div>
 								<p className='text-2xl self-start'>{post.title}</p>
 								<p className='text-xl self-end'>{post.description}</p>
 							</Link>

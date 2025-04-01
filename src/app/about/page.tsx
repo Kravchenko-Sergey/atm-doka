@@ -3,7 +3,6 @@
 export default function About() {
 	return (
 		<div>
-			<h1 className='pb-8 text-3xl'>О проекте</h1>
 			<h2 className='text-2xl'>Что такое Дока</h2>
 			<p className='pt-8 text-xl'>
 				Дока — это полезный справочник для POS-инженеров. Мы создаем материалы,

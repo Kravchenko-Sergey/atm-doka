@@ -1,5 +1,6 @@
 'use client'
 
+import { Button } from '@/components/ui/button'
 import { useRootStore } from '@/state/store'
 import { Frown } from 'lucide-react'
 import Link from 'next/link'
@@ -21,6 +22,8 @@ export default function Home() {
 		{ id: v4(), title: '#VeriFone', isActive: false },
 		{ id: v4(), title: '#Castles', isActive: false }
 	])
+
+	const [count, setCount] = useState(6)
 
 	const toggleActive = (id: string) => {
 		setTags((prevTags) =>
@@ -67,24 +70,39 @@ export default function Home() {
 					</div>
 				))}
 			</div>
-			<div className='py-8 flex gap-8 flex-wrap'>
+			<div className='py-8'>
 				{filteredPosts.length > 0 ? (
-					filteredPosts.map((post) => (
-						<Link
-							href={`/posts/${post.url}`}
-							key={post.id}
-							className='relative p-4 min-w-[240px] h-[330px] flex flex-col items-center justify-between flex-1 rounded-xl overflow-hidden transition duration-300 ease-in-out sm:h-[560px] sm:min-w-[508px]'
-							style={{
-								backgroundImage: `url('${post.bgImage}')`,
-								backgroundSize: 'cover',
-								backgroundPosition: 'center'
-							}}
-						>
-							<div className='absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-20'></div>
-							<p className='text-2xl self-start'>{post.title}</p>
-							<p className='text-xl self-end'>{post.description}</p>
-						</Link>
-					))
+					<div className='flex flex-col items-center gap-8'>
+						<div className='flex justify-center gap-8 flex-wrap'>
+							{filteredPosts
+								.map((post) => (
+									<Link
+										href={`/posts/${post.url}`}
+										key={post.id}
+										className='relative p-4 min-w-[240px] h-[330px] flex flex-col items-center justify-between flex-1 rounded-xl overflow-hidden transition duration-300 ease-in-out sm:h-[560px] sm:min-w-[508px]'
+										style={{
+											backgroundImage: `url('${post.bgImage}')`,
+											backgroundSize: 'cover',
+											backgroundPosition: 'center'
+										}}
+									>
+										<div className='absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-20'></div>
+										<p className='text-2xl self-start'>{post.title}</p>
+										<p className='text-xl self-end'>{post.description}</p>
+									</Link>
+								))
+								.slice(0, count)}
+						</div>
+						{filteredPosts.length > count && (
+							<Button
+								onClick={() => setCount(count + 6)}
+								variant={'outline'}
+								className='p-8 w-fit font-roboto font-normal text-xl rounded-xl'
+							>
+								Показать ещё
+							</Button>
+						)}
+					</div>
 				) : (
 					<div className='w-full h-[560px] flex items-center justify-center'>
 						<div className='flex flex-col items-center gap-4 sm:flex-row'>
