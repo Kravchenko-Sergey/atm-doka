@@ -513,6 +513,120 @@ export const useRootStore = create<RootState>(() => ({
 		},
 		{
 			id: v4(),
+			url: 'kozen-p10',
+			author: 'Сергей Кравченко',
+			title: 'Как прошить Kozen P10?',
+			description: 'Руководство по прошивке Kozen P10',
+			bgImage: '/sberbg.jpg',
+			tags: ['#Сбер', '#Kozen', '#Прошивка'],
+			content: (
+				<div>
+					<Image src='/p10f.png' width={500} height={500} priority alt='p10f' />
+					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Видео</h2>
+				</div>
+			)
+		},
+		{
+			id: v4(),
+			url: 'kozen-p12',
+			author: 'Сергей Кравченко',
+			title: 'Как прошить Kozen P12?',
+			description: 'Руководство по прошивке Kozen P12',
+			bgImage: '/sberbg.jpg',
+			tags: ['#Сбер', '#Kozen', '#Прошивка'],
+			content: (
+				<div>
+					<Image src='/p12.jpeg' width={500} height={500} priority alt='p12' />
+					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Видео</h2>
+				</div>
+			)
+		},
+		{
+			id: v4(),
+			url: 'pax-s80',
+			author: 'Сергей Кравченко',
+			title: 'Как прошить Pax S80?',
+			description: 'Руководство по прошивке Pax S80',
+			bgImage: '/sberbg.jpg',
+			tags: ['#Сбер', '#Pax', '#Прошивка'],
+			content: (
+				<div>
+					<Image src='/s80.webp' width={500} height={500} priority alt='s80' />
+					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>Флешка в формате FAT32</li>
+						<li className='ml-[20px]'>Переходник USB мама - mini USB папа</li>
+						<li className='ml-[20px]'>
+							<Link
+								href={
+									'https://drive.google.com/uc?export=download&id=1A2_GfAb4UBjCabcKft7sIl-V-HV9Gkx9'
+								}
+								target='_blank'
+								download
+								className='underline hover:no-underline'
+							>
+								Файл прошивки
+							</Link>
+						</li>
+					</ul>
+					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Видео</h2>
+					<video width='320' height='180' controls>
+						<source src='/PAX S80.mp4' type='video/mp4' />
+						Ваш браузер не поддерживает видео тег.
+					</video>
+				</div>
+			)
+		},
+		{
+			id: v4(),
+			url: 'pax-s90',
+			author: 'Сергей Кравченко',
+			title: 'Как прошить Pax S90?',
+			description: 'Руководство по прошивке Pax S90',
+			bgImage: '/sberbg.jpg',
+			tags: ['#Сбер', '#Pax', '#Прошивка'],
+			content: (
+				<div>
+					<Image src='/s90.webp' width={500} height={500} priority alt='s90' />
+					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>Флешка в формате FAT32</li>
+						<li className='ml-[20px]'>Переходник USB мама - mini USB папа</li>
+						<li className='ml-[20px]'>
+							<Link
+								href={
+									'https://drive.google.com/uc?export=download&id=1A2_GfAb4UBjCabcKft7sIl-V-HV9Gkx9'
+								}
+								target='_blank'
+								download
+								className='underline hover:no-underline'
+							>
+								Файл прошивки
+							</Link>
+						</li>
+					</ul>
+					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Видео</h2>
+					<video width='320' height='180' controls>
+						<source src='/PAX S90.mp4' type='video/mp4' />
+						Ваш браузер не поддерживает видео тег.
+					</video>
+				</div>
+			)
+		},
+		{
+			id: v4(),
 			url: 'pax-sp30',
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Pax SP30?',
@@ -601,37 +715,22 @@ export const useRootStore = create<RootState>(() => ({
 		},
 		{
 			id: v4(),
-			url: 'pax-s80',
+			url: 'pax-s300',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Pax S80?',
-			description: 'Руководство по прошивке Pax S80',
+			title: 'Как прошить Pax S300?',
+			description: 'Руководство по прошивке Pax S300',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
 			content: (
 				<div>
-					<Image src='/s80.webp' width={500} height={500} priority alt='s80' />
+					<Image src='/s300.jpg' width={500} height={500} priority alt='s300' />
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'>
-						<li className='ml-[20px]'>Флешка в формате FAT32</li>
-						<li className='ml-[20px]'>Переходник USB мама - mini USB папа</li>
-						<li className='ml-[20px]'>
-							<Link
-								href={
-									'https://drive.google.com/uc?export=download&id=1FzHlqsBejIBWf62og7-uPpBeJWXCIc0i'
-								}
-								target='_blank'
-								download
-								className='underline hover:no-underline'
-							>
-								Файл прошивки
-							</Link>
-						</li>
-					</ul>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
 					<h2 className='my-8 text-3xl'>Как прошить?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
 					<h2 className='my-8 text-3xl'>Видео</h2>
 					<video width='320' height='180' controls>
-						<source src='/PAX S90.mp4' type='video/mp4' />
+						<source src='/S300.mp4' type='video/mp4' />
 						Ваш браузер не поддерживает видео тег.
 					</video>
 				</div>
@@ -639,37 +738,45 @@ export const useRootStore = create<RootState>(() => ({
 		},
 		{
 			id: v4(),
-			url: 'pax-s90',
+			url: 'pax-s200',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Pax S90?',
-			description: 'Руководство по прошивке Pax S90',
+			title: 'Как прошить Pax S200?',
+			description: 'Руководство по прошивке Pax S200',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
 			content: (
 				<div>
-					<Image src='/s90.webp' width={500} height={500} priority alt='s90' />
+					<Image src='/s200.jpg' width={500} height={500} priority alt='s200' />
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'>
-						<li className='ml-[20px]'>Флешка в формате FAT32</li>
-						<li className='ml-[20px]'>Переходник USB мама - mini USB папа</li>
-						<li className='ml-[20px]'>
-							<Link
-								href={
-									'https://drive.google.com/uc?export=download&id=1A2_GfAb4UBjCabcKft7sIl-V-HV9Gkx9'
-								}
-								target='_blank'
-								download
-								className='underline hover:no-underline'
-							>
-								Файл прошивки
-							</Link>
-						</li>
-					</ul>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
 					<h2 className='my-8 text-3xl'>Как прошить?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
 					<h2 className='my-8 text-3xl'>Видео</h2>
 					<video width='320' height='180' controls>
-						<source src='/PAX S90.mp4' type='video/mp4' />
+						<source src='/PAX S200.mp4' type='video/mp4' />
+						Ваш браузер не поддерживает видео тег.
+					</video>
+				</div>
+			)
+		},
+		{
+			id: v4(),
+			url: 'pax-q25',
+			author: 'Сергей Кравченко',
+			title: 'Как прошить Pax Q25?',
+			description: 'Руководство по прошивке Pax Q25',
+			bgImage: '/sberbg.jpg',
+			tags: ['#Сбер', '#Pax', '#Прошивка'],
+			content: (
+				<div>
+					<Image src='/q25.jpg' width={500} height={500} priority alt='q25' />
+					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Видео</h2>
+					<video width='320' height='180' controls>
+						<source src='/PAX Q25.mp4' type='video/mp4' />
 						Ваш браузер не поддерживает видео тег.
 					</video>
 				</div>
@@ -722,6 +829,35 @@ export const useRootStore = create<RootState>(() => ({
 		},
 		{
 			id: v4(),
+			url: 'verifone-vx820',
+			author: 'Сергей Кравченко',
+			title: 'Как прошить VeriFone VX820?',
+			description: 'Руководство по прошивке VeriFone VX820',
+			bgImage: '/sberbg.jpg',
+			tags: ['#Сбер', '#VeriFone', '#Прошивка'],
+			content: (
+				<div>
+					<Image
+						src='/vx820.jpeg'
+						width={500}
+						height={500}
+						priority
+						alt='vx820'
+					/>
+					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Видео</h2>
+					<video width='320' height='180' controls>
+						<source src='/VX820.mp4' type='video/mp4' />
+						Ваш браузер не поддерживает видео тег.
+					</video>
+				</div>
+			)
+		},
+		{
+			id: v4(),
 			url: 'ingenico-ict220-ict250',
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Ingenico ICT220-ICT250?',
@@ -744,6 +880,64 @@ export const useRootStore = create<RootState>(() => ({
 					<h2 className='my-8 text-3xl'>Видео</h2>
 					<video width='320' height='180' controls>
 						<source src='/ICT220-ICT250.mp4' type='video/mp4' />
+						Ваш браузер не поддерживает видео тег.
+					</video>
+				</div>
+			)
+		},
+		{
+			id: v4(),
+			url: 'ingenico-ipp320-ipp350',
+			author: 'Сергей Кравченко',
+			title: 'Как прошить Ingenico IPP320-IPP350?',
+			description: 'Руководство по прошивке Ingenico IPP320-IPP350',
+			bgImage: '/sberbg.jpg',
+			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
+			content: (
+				<div>
+					<Image
+						src='/ipp320.jpg'
+						width={500}
+						height={500}
+						priority
+						alt='ipp320'
+					/>
+					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Видео</h2>
+					<video width='320' height='180' controls>
+						<source src='/IPP320-350.mp4' type='video/mp4' />
+						Ваш браузер не поддерживает видео тег.
+					</video>
+				</div>
+			)
+		},
+		{
+			id: v4(),
+			url: 'ingenico-iwl320-iwl350',
+			author: 'Сергей Кравченко',
+			title: 'Как прошить Ingenico IWL220-IWL250?',
+			description: 'Руководство по прошивке Ingenico IWL220-IWL250',
+			bgImage: '/sberbg.jpg',
+			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
+			content: (
+				<div>
+					<Image
+						src='/iwl220.jpg'
+						width={500}
+						height={500}
+						priority
+						alt='ipp320'
+					/>
+					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Видео</h2>
+					<video width='320' height='180' controls>
+						<source src='/IWL220-IWL250.mp4' type='video/mp4' />
 						Ваш браузер не поддерживает видео тег.
 					</video>
 				</div>
@@ -782,8 +976,8 @@ export const useRootStore = create<RootState>(() => ({
 			id: v4(),
 			url: 'castles-vega3000',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Castles Vega3000?',
-			description: 'Руководство по прошивке Castles Vega3000',
+			title: 'Как прошить Castles Vega3000 стац?',
+			description: 'Руководство по прошивке Castles Vega3000 стац',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Castles', '#Прошивка'],
 			content: (
@@ -802,6 +996,64 @@ export const useRootStore = create<RootState>(() => ({
 					<h2 className='my-8 text-3xl'>Видео</h2>
 					<video width='320' height='180' controls>
 						<source src='/Vega3000 GPRS-ETH.mp4' type='video/mp4' />
+						Ваш браузер не поддерживает видео тег.
+					</video>
+				</div>
+			)
+		},
+		{
+			id: v4(),
+			url: 'castles-vega3000-mob',
+			author: 'Сергей Кравченко',
+			title: 'Как прошить Castles Vega3000 моб?',
+			description: 'Руководство по прошивке Castles Vega3000 моб',
+			bgImage: '/sberbg.jpg',
+			tags: ['#Сбер', '#Castles', '#Прошивка'],
+			content: (
+				<div>
+					<Image
+						src='/v3mob.webp'
+						width={500}
+						height={500}
+						priority
+						alt='Castles Vega3000 mob'
+					/>
+					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Видео</h2>
+					<video width='320' height='180' controls>
+						<source src='/Castles vega 3000 GPRS.mp4' type='video/mp4' />
+						Ваш браузер не поддерживает видео тег.
+					</video>
+				</div>
+			)
+		},
+		{
+			id: v4(),
+			url: 'castles-vega3000-ikr',
+			author: 'Сергей Кравченко',
+			title: 'Как прошить Castles Vega3000 ИКР?',
+			description: 'Руководство по прошивке Castles Vega3000 ИКР',
+			bgImage: '/sberbg.jpg',
+			tags: ['#Сбер', '#Castles', '#Прошивка'],
+			content: (
+				<div>
+					<Image
+						src='/v3ikr.webp'
+						width={500}
+						height={500}
+						priority
+						alt='Castles Vega3000 ikr'
+					/>
+					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 className='my-8 text-3xl'>Видео</h2>
+					<video width='320' height='180' controls>
+						<source src='/Vega3000 ИКР.mp4' type='video/mp4' />
 						Ваш браузер не поддерживает видео тег.
 					</video>
 				</div>

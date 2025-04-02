@@ -93,7 +93,7 @@ export default function Home() {
 								))
 								.slice(0, count)}
 						</div>
-						{filteredPosts.length >= count && (
+						{filteredPosts.length > count && (
 							<Button
 								onClick={() => setCount(count + 6)}
 								variant={'outline'}
