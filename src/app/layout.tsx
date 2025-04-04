@@ -3,8 +3,6 @@
 import Link from 'next/link'
 import './globals.css'
 import { Roboto } from 'next/font/google'
-import { useRootStore } from '@/state/store'
-import { useEffect } from 'react'
 
 const roboto = Roboto({
 	subsets: ['cyrillic', 'latin'],

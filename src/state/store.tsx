@@ -1,7 +1,6 @@
 import { v4 } from 'uuid'
 import { badgeVariants } from '@/components/ui/badge'
 import { create } from 'zustand'
-import Image from 'next/image'
 import Link from 'next/link'
 import { JSX } from 'react'
 import { ScanFace, Send, Users } from 'lucide-react'
@@ -520,7 +519,7 @@ export const useRootStore = create<RootState>((set) => ({
 			title: 'Как прошить Kozen P10?',
 			description: 'Руководство по прошивке Kozen P10',
 			image: '/p10.png',
-			bgColor: '#666666',
+			bgColor: '#C0C0C0',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Kozen', '#Прошивка'],
 			content: (
@@ -540,7 +539,7 @@ export const useRootStore = create<RootState>((set) => ({
 			title: 'Как прошить Kozen P12?',
 			description: 'Руководство по прошивке Kozen P12',
 			image: '/p12.png',
-			bgColor: '#666666',
+			bgColor: '#C0C0C0',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Kozen', '#Прошивка'],
 			content: (
