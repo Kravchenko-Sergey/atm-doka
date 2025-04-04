@@ -53,12 +53,24 @@ export default function Home() {
 
 	return (
 		<>
-			<div className='flex gap-8 flex-wrap lg:flex-nowrap'>
+			<header
+				className={`max-w-[1448px] px-4 py-6 w-full flex justify-center gap-8 whitespace-nowrap bg-white 2xl:px-0`}
+			>
+				<div className='w-[1480px] flex justify-center md:justify-start'>
+					<Link
+						href={'/'}
+						className='px-8 py-2 text-3xl border rounded-xl z-10'
+					>
+						АТМ Дока
+					</Link>
+				</div>
+			</header>
+			<div className='px-4 max-w-[1480px] flex gap-4 flex-wrap lg:flex-nowrap'>
 				{messages.map((message) => (
 					<Fragment key={message.id}>{message.content}</Fragment>
 				))}
 			</div>
-			<div className='pt-8 text-xl flex flex-wrap items-center gap-2'>
+			<div className='px-2 pt-8 max-w-[1480px] text-xl flex flex-wrap items-center justify-between gap-2'>
 				{tags.map((tag) => (
 					<div
 						key={tag.id}
@@ -70,27 +82,28 @@ export default function Home() {
 					</div>
 				))}
 			</div>
-			<div className='py-8'>
+			<div className='px-4 py-8 max-w-[1480px]'>
 				{filteredPosts.length > 0 ? (
 					<div className='flex flex-col items-center gap-8'>
-						<div className='flex justify-center gap-4 flex-wrap md:gap-8'>
+						<div className='flex justify-center gap-4 flex-wrap'>
 							{filteredPosts
 								.map((post) => (
 									<Link
 										href={`/posts/${post.url}`}
 										key={post.id}
-										className='relative p-4 min-w-[240px] h-[330px] flex flex-col items-center justify-between flex-1 rounded-xl overflow-hidden transition duration-300 ease-in-out sm:h-[560px] sm:min-w-[508px]'
-										style={{
-											backgroundImage: `url('${post.bgImage}')`,
-											backgroundSize: 'cover',
-											backgroundPosition: 'center'
-										}}
+										className={`bg-[${post.bgColor}] relative p-4 min-w-[240px] h-[330px] flex flex-col items-center justify-between flex-1 rounded-xl overflow-hidden transition duration-300 ease-in-out sm:h-[480px] sm:min-w-[31%]`}
 									>
 										<div className='absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-20'></div>
 										<p className='text-2xl self-start'>{post.title}</p>
-										<p className='text-xl self-end'>{post.description}</p>
+										<p className='text-xl self-center'>{post.description}</p>
+										<div className='flex gap-4 self-end'>
+											{post.tags.map((tag) => (
+												<p key={tag}>{tag}</p>
+											))}
+										</div>
 									</Link>
 								))
+
 								.slice(0, count)}
 						</div>
 						{filteredPosts.length > count && (

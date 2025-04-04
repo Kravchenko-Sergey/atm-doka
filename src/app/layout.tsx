@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import './globals.css'
 import { Roboto } from 'next/font/google'
+import { useRootStore } from '@/state/store'
+import { useEffect } from 'react'
 
 const roboto = Roboto({
 	subsets: ['cyrillic', 'latin'],
@@ -15,23 +17,13 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang='en' className={roboto.className}>
-			<body className='h-screen flex flex-col items-center box-border'>
-				<header className='px-4 py-8 w-full flex justify-center gap-8 whitespace-nowrap border-b lg:px-0'>
-					<div className='px-4 w-[1640px] flex justify-center lg:justify-start'>
-						<Link
-							href={'/'}
-							className='p-4 text-3xl flex gap-4 border rounded-xl'
-						>
-							АТМ Дока
-						</Link>
-					</div>
-				</header>
-				<main className='px-4 py-8 w-full max-w-[1640px] flex-1'>
+		<html lang='ru' className={`${roboto.className} scroll-smooth`}>
+			<body className='px-4 w-full h-screen flex flex-col items-center box-border position: relative'>
+				<main className='w-[100vw] flex flex-col justify-center items-center flex-1'>
 					{children}
 				</main>
-				<footer className='px-4 py-8 w-full flex justify-center border-t'>
-					<div className='px-4 w-[1640px] flex justify-end'>
+				<footer className='py-8 w-[100vw] flex justify-center border-t'>
+					<div className='px-4 w-[1480px] flex justify-end'>
 						<Link href={'/about'}>О проекте</Link>
 					</div>
 				</footer>

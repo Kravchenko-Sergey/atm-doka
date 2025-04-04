@@ -18,6 +18,8 @@ type Post = {
 	author: string
 	title: string
 	description: string
+	image: string
+	bgColor: string
 	bgImage: string
 	tags: string[]
 	content: JSX.Element
@@ -41,9 +43,11 @@ type RootState = {
 	posts: Post[]
 	people: Person[]
 	tags: Tag[]
+	headerBGColor: string
+	inc: any
 }
 
-export const useRootStore = create<RootState>(() => ({
+export const useRootStore = create<RootState>((set) => ({
 	people: [
 		{
 			id: v4(),
@@ -57,7 +61,7 @@ export const useRootStore = create<RootState>(() => ({
 			id: v4(),
 			title: 'Вместе и для каждого',
 			content: (
-				<div className='p-4 w-[50%] bg-gray-200 rounded-xl flex-auto'>
+				<div className='p-4 w-[50%] bg-gray-300 rounded-xl flex-auto'>
 					<div className='pb-8 text-2xl'>Вместе и для каждого</div>
 					<div className='text-xl'>
 						<p>Дока — это документация для POS-инженеров на понятном языке.</p>
@@ -78,9 +82,9 @@ export const useRootStore = create<RootState>(() => ({
 			id: v4(),
 			title: 'Дока ищет партнёров',
 			content: (
-				<div className='p-4 w-[50%] border rounded-xl flex-auto'>
+				<div className='p-4 w-[50%] border rounded-xl flex flex-col flex-auto'>
 					<div className='pb-8 text-2xl'>Дока ищет партнёров</div>
-					<div className='text-xl'>
+					<div className='text-xl flex-auto'>
 						<p>
 							Сотрудничество с Докой приносит пользу как компании, так и её
 							сотрудникам.
@@ -111,18 +115,28 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Evotor 5i?',
 			description: 'Руководство по прошивке Evotor 5i',
+			image: '/evo5i.png',
+			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			content: (
-				<div>
-					<Image
-						src='/evo5i.jpg'
-						width={500}
-						height={500}
-						priority
-						alt='evo5i'
-					/>
-					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+				<>
+					<div className='hidden 2xl:block'>
+						<ul className='p-6 flex flex-col fixed left-0 top-[102px] z-20'>
+							<li className='hover:underline'>
+								<a href='#1'>Что понадобится?</a>
+							</li>
+							<li className='hover:underline'>
+								<a href='#2'>Как прошить?</a>
+							</li>
+							<li className='hover:underline'>
+								<a href='#3'>Читайте также</a>
+							</li>
+						</ul>
+					</div>
+					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Что понадобится?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
 						<li className='ml-[20px]'>
@@ -138,7 +152,9 @@ export const useRootStore = create<RootState>(() => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Как прошить?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>
 							Включите смарт-терминал и подключите его к интернету.
@@ -193,26 +209,21 @@ export const useRootStore = create<RootState>(() => ({
 							перезагрузится. Подождите еще 1-2 минуты и вытащите флешку.
 						</li>
 					</ul>
-				</div>
+				</>
 			)
 		},
 		{
 			id: v4(),
 			url: 'evotor72',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Evotor 72?',
+			title: 'Как прошить Evotor 7.2?',
 			description: 'Руководство по прошивке Evotor 7.2',
+			image: '/evo72.png',
+			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			content: (
 				<div>
-					<Image
-						src='/evo72.jpg'
-						width={500}
-						height={500}
-						priority
-						alt='evo72'
-					/>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
@@ -269,19 +280,14 @@ export const useRootStore = create<RootState>(() => ({
 			id: v4(),
 			url: 'evotor73',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Evotor 73?',
+			title: 'Как прошить Evotor 7.3?',
 			description: 'Руководство по прошивке Evotor 7.3',
+			image: '/evo73.png',
+			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			content: (
 				<div>
-					<Image
-						src='/evo73.jpg'
-						width={500}
-						height={500}
-						priority
-						alt='evo73'
-					/>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
@@ -340,17 +346,12 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Evotor 10?',
 			description: 'Руководство по прошивке Evotor 10',
+			image: '/evo10.png',
+			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			content: (
 				<div>
-					<Image
-						src='/evo10.jpg'
-						width={500}
-						height={500}
-						priority
-						alt='evo10'
-					/>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
@@ -410,11 +411,12 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Evotor 6?',
 			description: 'Руководство по прошивке Evotor 6',
+			image: '/evo6.png',
+			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			content: (
 				<div>
-					<Image src='/evo6.jpg' width={500} height={500} priority alt='evo6' />
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
@@ -517,11 +519,12 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Kozen P10?',
 			description: 'Руководство по прошивке Kozen P10',
+			image: '/p10.png',
+			bgColor: '#666666',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Kozen', '#Прошивка'],
 			content: (
 				<div>
-					<Image src='/p10f.png' width={500} height={500} priority alt='p10f' />
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
 					<h2 className='my-8 text-3xl'>Как прошить?</h2>
@@ -536,11 +539,12 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Kozen P12?',
 			description: 'Руководство по прошивке Kozen P12',
+			image: '/p12.png',
+			bgColor: '#666666',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Kozen', '#Прошивка'],
 			content: (
 				<div>
-					<Image src='/p12.jpeg' width={500} height={500} priority alt='p12' />
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
 					<h2 className='my-8 text-3xl'>Как прошить?</h2>
@@ -555,11 +559,12 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Pax S80?',
 			description: 'Руководство по прошивке Pax S80',
+			image: '/evo5i.png',
+			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
 			content: (
 				<div>
-					<Image src='/s80.webp' width={500} height={500} priority alt='s80' />
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
@@ -593,11 +598,12 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Pax S90?',
 			description: 'Руководство по прошивке Pax S90',
+			image: '/evo5i.png',
+			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
 			content: (
 				<div>
-					<Image src='/s90.webp' width={500} height={500} priority alt='s90' />
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
@@ -631,11 +637,12 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Pax SP30?',
 			description: 'Руководство по прошивке Pax SP30',
+			image: '/evo5i.png',
+			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
 			content: (
 				<div>
-					<Image src='/sp30.jpg' width={500} height={500} priority alt='sp30' />
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Комплектный провод</li>
@@ -719,11 +726,12 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Pax S300?',
 			description: 'Руководство по прошивке Pax S300',
+			image: '/evo5i.png',
+			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
 			content: (
 				<div>
-					<Image src='/s300.jpg' width={500} height={500} priority alt='s300' />
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
 					<h2 className='my-8 text-3xl'>Как прошить?</h2>
@@ -742,11 +750,12 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Pax S200?',
 			description: 'Руководство по прошивке Pax S200',
+			image: '/evo5i.png',
+			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
 			content: (
 				<div>
-					<Image src='/s200.jpg' width={500} height={500} priority alt='s200' />
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
 					<h2 className='my-8 text-3xl'>Как прошить?</h2>
@@ -765,11 +774,12 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Pax Q25?',
 			description: 'Руководство по прошивке Pax Q25',
+			image: '/evo5i.png',
+			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
 			content: (
 				<div>
-					<Image src='/q25.jpg' width={500} height={500} priority alt='q25' />
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
 					<h2 className='my-8 text-3xl'>Как прошить?</h2>
@@ -788,17 +798,12 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить VeriFone VX520?',
 			description: 'Руководство по прошивке VeriFone VX520',
+			image: '/evo5i.png',
+			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#VeriFone', '#Прошивка'],
 			content: (
 				<div>
-					<Image
-						src='/vx520.webp'
-						width={500}
-						height={500}
-						priority
-						alt='vx520'
-					/>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
@@ -833,17 +838,12 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить VeriFone VX820?',
 			description: 'Руководство по прошивке VeriFone VX820',
+			image: '/evo5i.png',
+			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#VeriFone', '#Прошивка'],
 			content: (
 				<div>
-					<Image
-						src='/vx820.jpeg'
-						width={500}
-						height={500}
-						priority
-						alt='vx820'
-					/>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
 					<h2 className='my-8 text-3xl'>Как прошить?</h2>
@@ -862,17 +862,12 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Ingenico ICT220-ICT250?',
 			description: 'Руководство по прошивке Ingenico ICT220-ICT250',
+			image: '/evo5i.png',
+			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
 			content: (
 				<div>
-					<Image
-						src='/ict220.jpg'
-						width={500}
-						height={500}
-						priority
-						alt='ict220'
-					/>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
 					<h2 className='my-8 text-3xl'>Как прошить?</h2>
@@ -891,17 +886,12 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Ingenico IPP320-IPP350?',
 			description: 'Руководство по прошивке Ingenico IPP320-IPP350',
+			image: '/evo5i.png',
+			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
 			content: (
 				<div>
-					<Image
-						src='/ipp320.jpg'
-						width={500}
-						height={500}
-						priority
-						alt='ipp320'
-					/>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
 					<h2 className='my-8 text-3xl'>Как прошить?</h2>
@@ -920,17 +910,12 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Ingenico IWL220-IWL250?',
 			description: 'Руководство по прошивке Ingenico IWL220-IWL250',
+			image: '/evo5i.png',
+			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
 			content: (
 				<div>
-					<Image
-						src='/iwl220.jpg'
-						width={500}
-						height={500}
-						priority
-						alt='ipp320'
-					/>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
 					<h2 className='my-8 text-3xl'>Как прошить?</h2>
@@ -949,17 +934,12 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Tactilion T2?',
 			description: 'Руководство по прошивке Tactilion T2',
+			image: '/evo5i.png',
+			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Tactilion', '#Прошивка'],
 			content: (
 				<div>
-					<Image
-						src='/tactilion-t2.jpg'
-						width={500}
-						height={500}
-						priority
-						alt='Tactilion T2'
-					/>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
 					<h2 className='my-8 text-3xl'>Как прошить?</h2>
@@ -978,17 +958,12 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Castles Vega3000 стац?',
 			description: 'Руководство по прошивке Castles Vega3000 стац',
+			image: '/evo5i.png',
+			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Castles', '#Прошивка'],
 			content: (
 				<div>
-					<Image
-						src='/castles-vega3000.jpg'
-						width={500}
-						height={500}
-						priority
-						alt='Castles Vega3000'
-					/>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
 					<h2 className='my-8 text-3xl'>Как прошить?</h2>
@@ -1007,17 +982,12 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Castles Vega3000 моб?',
 			description: 'Руководство по прошивке Castles Vega3000 моб',
+			image: '/evo5i.png',
+			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Castles', '#Прошивка'],
 			content: (
 				<div>
-					<Image
-						src='/v3mob.webp'
-						width={500}
-						height={500}
-						priority
-						alt='Castles Vega3000 mob'
-					/>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
 					<h2 className='my-8 text-3xl'>Как прошить?</h2>
@@ -1036,17 +1006,12 @@ export const useRootStore = create<RootState>(() => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Castles Vega3000 ИКР?',
 			description: 'Руководство по прошивке Castles Vega3000 ИКР',
+			image: '/evo5i.png',
+			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Castles', '#Прошивка'],
 			content: (
 				<div>
-					<Image
-						src='/v3ikr.webp'
-						width={500}
-						height={500}
-						priority
-						alt='Castles Vega3000 ikr'
-					/>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
 					<h2 className='my-8 text-3xl'>Как прошить?</h2>
@@ -1065,5 +1030,7 @@ export const useRootStore = create<RootState>(() => ({
 		{ id: v4(), title: '#Эвотор', isActive: false },
 		{ id: v4(), title: '#Прошивка', isActive: false },
 		{ id: v4(), title: '#Pax', isActive: false }
-	]
+	],
+	headerBGColor: '#fff',
+	inc: (headerBGColor: string) => set(() => ({ headerBGColor: headerBGColor }))
 }))

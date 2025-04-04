@@ -1,8 +1,22 @@
 'use client'
 
+import Link from 'next/link'
+
 export default function About() {
 	return (
-		<div>
+		<div className='px-4 h-full max-w-[1448px] flex flex-col'>
+			<header
+				className={`max-w-[1448px] py-6 w-full flex justify-center gap-8 whitespace-nowrap bg-white 2xl:px-0`}
+			>
+				<div className='w-full max-w-[1480px] flex justify-start flex-1'>
+					<Link
+						href={'/'}
+						className='px-8 py-2 text-3xl border rounded-xl z-10'
+					>
+						АТМ Дока
+					</Link>
+				</div>
+			</header>
 			<h2 className='text-2xl'>Что такое Дока</h2>
 			<p className='pt-8 text-xl'>
 				Дока — это полезный справочник для POS-инженеров. Мы создаем материалы,
