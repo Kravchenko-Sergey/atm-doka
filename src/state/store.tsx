@@ -43,7 +43,7 @@ type RootState = {
 	people: Person[]
 	tags: Tag[]
 	headerBGColor: string
-	inc: any
+	inc: (headerBGColor: string) => { headerBGColor: string }
 }
 
 export const useRootStore = create<RootState>((set) => ({
