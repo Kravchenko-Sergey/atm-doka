@@ -75,7 +75,7 @@ export const SearchInput = ({ className }: SearchInputProps) => {
 						)}
 					>
 						{filteredPosts
-							.map((post: any) => {
+							.map((post) => {
 								return (
 									<Link
 										key={post.id}

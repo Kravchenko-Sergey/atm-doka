@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Post, useRootStore } from '@/state/store'
 import { Frown } from 'lucide-react'
 import Link from 'next/link'
-import { Fragment, JSX, useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { v4 } from 'uuid'
 
 type Tag = {
@@ -64,7 +64,7 @@ export default function Home() {
 			: sortedPosts
 
 	useEffect(() => {
-		const shuffledPosts: any = [...posts].sort(() => Math.random() - 0.5)
+		const shuffledPosts: Post[] = [...posts].sort(() => Math.random() - 0.5)
 		setSortedPosts(shuffledPosts)
 		changeBgHeader('white')
 	}, [])

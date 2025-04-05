@@ -21,7 +21,9 @@ const DevicePage = () => {
 	const nextPost = posts[posts.findIndex((p) => p.id === post?.id) + 1] ?? post
 
 	useEffect(() => {
-		post?.bgColor && changeBgHeader(post.bgColor)
+		if (post?.bgColor) {
+			changeBgHeader(post.bgColor)
+		}
 	}, [post])
 
 	return (
