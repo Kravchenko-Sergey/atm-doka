@@ -11,7 +11,7 @@ type Message = {
 	content: JSX.Element
 }
 
-type Post = {
+export type Post = {
 	id: string
 	url: string
 	author: string
@@ -22,6 +22,7 @@ type Post = {
 	bgImage: string
 	tags: string[]
 	content: JSX.Element
+	contentItems: string[]
 }
 
 type Person = {
@@ -42,8 +43,8 @@ type RootState = {
 	posts: Post[]
 	people: Person[]
 	tags: Tag[]
-	headerBGColor: string
-	inc: (headerBGColor: string) => { headerBGColor: string }
+	bgHeader: string
+	changeBgHeader: (bgHeader: string) => { bgHeader: string }
 }
 
 export const useRootStore = create<RootState>((set) => ({
@@ -118,22 +119,10 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<>
-					<div className='hidden 2xl:block'>
-						<ul className='p-6 flex flex-col fixed left-0 top-[102px] z-20'>
-							<li className='hover:underline'>
-								<a href='#1'>Что понадобится?</a>
-							</li>
-							<li className='hover:underline'>
-								<a href='#2'>Как прошить?</a>
-							</li>
-							<li className='hover:underline'>
-								<a href='#3'>Читайте также</a>
-							</li>
-						</ul>
-					</div>
-					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='1' className='my-8 text-3xl pt-[142px] mt-[-102px]'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -221,6 +210,7 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
@@ -285,6 +275,7 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
@@ -349,6 +340,7 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
@@ -414,6 +406,7 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
@@ -522,6 +515,7 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#C0C0C0',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Kozen', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
@@ -542,6 +536,7 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#C0C0C0',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Kozen', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
@@ -558,10 +553,11 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Pax S80?',
 			description: 'Руководство по прошивке Pax S80',
-			image: '/evo5i.png',
-			bgColor: '#f15024',
+			image: '/s80.png',
+			bgColor: '#08a4e1',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
@@ -597,10 +593,11 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Pax S90?',
 			description: 'Руководство по прошивке Pax S90',
-			image: '/evo5i.png',
-			bgColor: '#f15024',
+			image: '/s90.png',
+			bgColor: '#08a4e1',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
@@ -636,10 +633,11 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Pax SP30?',
 			description: 'Руководство по прошивке Pax SP30',
-			image: '/evo5i.png',
-			bgColor: '#f15024',
+			image: '/sp30.png',
+			bgColor: '#08a4e1',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
@@ -725,10 +723,11 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Pax S300?',
 			description: 'Руководство по прошивке Pax S300',
-			image: '/evo5i.png',
-			bgColor: '#f15024',
+			image: '/s300.png',
+			bgColor: '#08a4e1',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
@@ -749,10 +748,11 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Pax S200?',
 			description: 'Руководство по прошивке Pax S200',
-			image: '/evo5i.png',
-			bgColor: '#f15024',
+			image: '/s200.png',
+			bgColor: '#08a4e1',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
@@ -773,10 +773,11 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Pax Q25?',
 			description: 'Руководство по прошивке Pax Q25',
-			image: '/evo5i.png',
-			bgColor: '#f15024',
+			image: '/q25.png',
+			bgColor: '#08a4e1',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
@@ -797,10 +798,11 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить VeriFone VX520?',
 			description: 'Руководство по прошивке VeriFone VX520',
-			image: '/evo5i.png',
-			bgColor: '#f15024',
+			image: '/vx520.png',
+			bgColor: '#6effd2',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#VeriFone', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
@@ -837,10 +839,11 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить VeriFone VX820?',
 			description: 'Руководство по прошивке VeriFone VX820',
-			image: '/evo5i.png',
-			bgColor: '#f15024',
+			image: '/vx820.png',
+			bgColor: '#6effd2',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#VeriFone', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
@@ -861,10 +864,11 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Ingenico ICT220-ICT250?',
 			description: 'Руководство по прошивке Ingenico ICT220-ICT250',
-			image: '/evo5i.png',
-			bgColor: '#f15024',
+			image: '/ict220.png',
+			bgColor: '#41e747',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
@@ -885,10 +889,11 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Ingenico IPP320-IPP350?',
 			description: 'Руководство по прошивке Ingenico IPP320-IPP350',
-			image: '/evo5i.png',
-			bgColor: '#f15024',
+			image: '/ipp320.png',
+			bgColor: '#41e747',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
@@ -909,10 +914,11 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Ingenico IWL220-IWL250?',
 			description: 'Руководство по прошивке Ingenico IWL220-IWL250',
-			image: '/evo5i.png',
-			bgColor: '#f15024',
+			image: '/iwl220.png',
+			bgColor: '#41e747',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
@@ -933,10 +939,11 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Tactilion T2?',
 			description: 'Руководство по прошивке Tactilion T2',
-			image: '/evo5i.png',
-			bgColor: '#f15024',
+			image: '/t2.png',
+			bgColor: '#ffd829',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Tactilion', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
@@ -957,10 +964,11 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Castles Vega3000 стац?',
 			description: 'Руководство по прошивке Castles Vega3000 стац',
-			image: '/evo5i.png',
-			bgColor: '#f15024',
+			image: '/v3st.png',
+			bgColor: '#704ecc',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Castles', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
@@ -981,10 +989,11 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Castles Vega3000 моб?',
 			description: 'Руководство по прошивке Castles Vega3000 моб',
-			image: '/evo5i.png',
-			bgColor: '#f15024',
+			image: '/v3mob.png',
+			bgColor: '#704ecc',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Castles', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
@@ -1005,10 +1014,11 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Castles Vega3000 ИКР?',
 			description: 'Руководство по прошивке Castles Vega3000 ИКР',
-			image: '/evo5i.png',
-			bgColor: '#f15024',
+			image: '/v3ikr.png',
+			bgColor: '#704ecc',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Castles', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
@@ -1030,6 +1040,9 @@ export const useRootStore = create<RootState>((set) => ({
 		{ id: v4(), title: '#Прошивка', isActive: false },
 		{ id: v4(), title: '#Pax', isActive: false }
 	],
-	headerBGColor: '#fff',
-	inc: (headerBGColor: string) => set(() => ({ headerBGColor: headerBGColor }))
+	bgHeader: 'white',
+	changeBgHeader: (bgHeader: string) => {
+		set(() => ({ bgHeader }))
+		return { bgHeader }
+	}
 }))

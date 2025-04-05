@@ -4,14 +4,14 @@ import { useRootStore } from '@/state/store'
 import { CircleArrowLeft, CircleArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
-import React, { useEffect } from 'react'
 import Image from 'next/image'
+import { useEffect } from 'react'
 
-const DevicePage: React.FC = () => {
+const DevicePage = () => {
 	const params = useParams()
 	const posts = useRootStore((state) => state.posts)
-	const headerBGColor = useRootStore((state) => state.headerBGColor)
-	const inc = useRootStore((state) => state.inc)
+
+	const changeBgHeader = useRootStore((state) => state.changeBgHeader)
 
 	const url = params?.url
 
@@ -20,28 +20,15 @@ const DevicePage: React.FC = () => {
 	const prevPost = posts[posts.findIndex((p) => p.id === post?.id) - 1] ?? post
 	const nextPost = posts[posts.findIndex((p) => p.id === post?.id) + 1] ?? post
 
-	console.log(post)
-
 	useEffect(() => {
-		inc(post?.bgColor)
-	}, [])
+		post?.bgColor && changeBgHeader(post.bgColor)
+	}, [post])
 
 	return (
 		<>
-			<header
-				className={`px-4 py-6 w-full flex justify-center gap-8 whitespace-nowrap z-10 fixed -top-0 -left-0 bg-[${headerBGColor}]`}
-			>
-				<div className='w-[1710px] flex justify-center md:justify-start'>
-					<Link
-						href={'/'}
-						className='px-8 py-2 text-3xl border rounded-xl z-10'
-					>
-						АТМ Дока
-					</Link>
-				</div>
-			</header>
 			<div
-				className={`mt-[102px] bg-[${post?.bgColor}] flex items-center justify-center w-full h-[480px] z-0 md:h-[348px]`}
+				className='flex items-center justify-center w-full h-[480px] z-0 md:h-[348px]'
+				style={{ backgroundColor: post?.bgColor }}
 			>
 				<div className='w-full px-4 max-w-[1120px] flex flex-col items-center md:flex-row'>
 					<Image
@@ -58,6 +45,15 @@ const DevicePage: React.FC = () => {
 					</div>
 				</div>
 			</div>
+			<div className='hidden 2xl:block'>
+				<ul className='p-6 flex flex-col fixed left-0 top-[102px] z-20'>
+					{post?.contentItems.map((item, index) => (
+						<li key={item} className='hover:underline'>
+							<a href={`#${index + 1}`}>{item}</a>
+						</li>
+					))}
+				</ul>
+			</div>
 			<div className='px-4 w-full max-w-[1120px]'>{post?.content}</div>
 			<div className='px-4 w-full max-w-[1120px]'>
 				<div id='3' className='pt-[142px] mt-[-102px] mb-4 text-3xl'>
@@ -66,12 +62,14 @@ const DevicePage: React.FC = () => {
 				<div className='pt-8 flex gap-4 flex-wrap md:gap-4'>
 					{[...posts]
 						.filter((post) => post.url !== url)
+						.sort(() => Math.random() - 0.5)
 						.slice(0, 3)
 						.map((post) => (
 							<Link
 								href={`/posts/${post.url}`}
 								key={post.id}
-								className={`bg-[${headerBGColor}] relative p-4 min-w-[240px] h-[330px] flex flex-col items-center justify-between flex-1 rounded-xl overflow-hidden transition duration-300 ease-in-out sm:h-[380px] sm:min-w-[31%]`}
+								className='relative p-4 min-w-[240px] h-[330px] flex flex-col items-center justify-between flex-1 rounded-xl overflow-hidden transition duration-300 ease-in-out sm:h-[380px] sm:min-w-[352px]'
+								style={{ backgroundColor: post.bgColor }}
 							>
 								<div className='absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-20'></div>
 								<p className='text-2xl self-start'>{post.title}</p>
