@@ -47,7 +47,7 @@ const DevicePage = () => {
 					</div>
 				</div>
 			</div>
-			<div className='hidden 2xl:block'>
+			<div className='hidden xl:block'>
 				<ul className='p-6 flex flex-col fixed left-0 top-[102px] z-20'>
 					{post?.contentItems.map((item, index) => (
 						<li key={item} className='hover:underline'>
