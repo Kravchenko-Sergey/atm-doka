@@ -20,6 +20,14 @@ export default function RootLayout({
 
 	return (
 		<html lang='ru' className={`${roboto.className} scroll-smooth`}>
+			<head>
+				<meta charSet='UTF-8' />
+				<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+				<link
+					href='https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'
+					rel='stylesheet'
+				/>
+			</head>
 			<body className='px-4 w-full h-screen flex flex-col items-center box-border position: relative'>
 				<header
 					className='px-4 py-6 w-full flex items-center justify-center fixed top-0 z-20'

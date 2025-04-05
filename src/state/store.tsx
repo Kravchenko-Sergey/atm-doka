@@ -140,7 +140,10 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2
+						id='2'
+						className='my-8 pt-[142px] mt-[-102px] pl-[200px] text-3xl'
+					>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
