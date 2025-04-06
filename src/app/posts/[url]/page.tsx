@@ -90,7 +90,10 @@ const DevicePage = () => {
 				<div className='w-full max-w-[1540px] flex-auto'>
 					<div className='px-4 w-full max-w-[1308px]'>{post?.content}</div>
 					<div className='px-4 w-full max-w-[1308px]'>
-						<div id='3' className='pt-[142px] mt-[-102px] mb-4 text-3xl'>
+						<div
+							id='3'
+							className='pt-[228px] mt-[-102px] mb-4 text-3xl sm:pt-[142px]'
+						>
 							Читайте также
 						</div>
 						<div className='pt-8 flex gap-4 flex-wrap md:gap-4'>

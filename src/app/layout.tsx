@@ -27,6 +27,20 @@ export default function RootLayout({
 					href='https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'
 					rel='stylesheet'
 				/>
+				<link
+					rel='icon'
+					type='image/png'
+					href='/favicon-96x96.png'
+					sizes='96x96'
+				/>
+				<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+				<link rel='shortcut icon' href='/favicon.ico' />
+				<link
+					rel='apple-touch-icon'
+					sizes='180x180'
+					href='/apple-touch-icon.png'
+				/>
+				<link rel='manifest' href='/site.webmanifest' />
 			</head>
 			<body className='px-4 w-full h-screen flex flex-col items-center box-border position: relative'>
 				<header
