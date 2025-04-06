@@ -6,6 +6,12 @@ import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
 import { useEffect } from 'react'
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger
+} from '@/components/ui/accordion'
 
 const DevicePage = () => {
 	const params = useParams()
@@ -28,24 +34,48 @@ const DevicePage = () => {
 
 	return (
 		<div className='w-full flex flex-col'>
-			<div
-				className='flex items-center justify-center w-full h-[480px] z-0 md:h-[348px]'
-				style={{ backgroundColor: post?.bgColor }}
-			>
-				<div className='w-full px-4 max-w-[1308px] flex flex-col items-center md:flex-row'>
-					<Image
-						src={post!.image}
-						width={320}
-						height={320}
-						priority
-						alt={post!.url}
-						style={{ width: 'auto', height: '320px' }}
-					/>
-					<div className='flex flex-col justify-between gap-4'>
-						<div className='text-3xl'>{post?.title}</div>
-						<div className='text-xl'>{post?.description}</div>
+			<div className='flex flex-col items-center'>
+				<div
+					className='flex items-center justify-center w-full h-[480px] z-0 md:h-[348px]'
+					style={{ backgroundColor: post?.bgColor }}
+				>
+					<div className='w-full px-4 max-w-[1308px] flex flex-col items-center md:flex-row'>
+						<Image
+							src={post!.image}
+							width={320}
+							height={320}
+							priority
+							alt={post!.url}
+							style={{ width: 'auto', height: '320px' }}
+						/>
+						<div className='flex flex-col justify-between gap-4'>
+							<div className='text-3xl'>{post?.title}</div>
+							<div className='text-xl'>{post?.description}</div>
+						</div>
 					</div>
 				</div>
+				<Accordion
+					type='single'
+					collapsible
+					className='px-4 w-full border-b block lg:hidden'
+				>
+					<AccordionItem value='item-1'>
+						<AccordionTrigger className='text-xl font-normal'>
+							Содержание
+						</AccordionTrigger>
+						<AccordionContent className='flex flex-col'>
+							{post?.contentItems.map((item, index) => (
+								<a
+									href={`#${index + 1}`}
+									key={item}
+									className='min-w-[140px] text-lg hover:underline'
+								>
+									{item}
+								</a>
+							))}
+						</AccordionContent>
+					</AccordionItem>
+				</Accordion>
 			</div>
 			<div className='flex'>
 				<div className='flex-auto min-w-[240px] hidden lg:block'>
@@ -59,7 +89,7 @@ const DevicePage = () => {
 				</div>
 				<div className='w-full max-w-[1540px] flex-auto'>
 					<div className='px-4 w-full max-w-[1308px]'>{post?.content}</div>
-					<div className='px-4 w-full max-w-[1120px]'>
+					<div className='px-4 w-full max-w-[1308px]'>
 						<div id='3' className='pt-[142px] mt-[-102px] mb-4 text-3xl'>
 							Читайте также
 						</div>
