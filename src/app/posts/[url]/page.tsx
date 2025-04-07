@@ -35,7 +35,7 @@ const DevicePage = () => {
 	return (
 		<div className='w-full flex flex-col'>
 			<div className='flex flex-col items-center'>
-				<div
+				<header
 					className='flex items-center justify-center w-full h-[480px] z-0 md:h-[348px]'
 					style={{ backgroundColor: post?.bgColor }}
 				>
@@ -49,11 +49,11 @@ const DevicePage = () => {
 							style={{ width: 'auto', height: '320px' }}
 						/>
 						<div className='flex flex-col justify-between gap-4'>
-							<div className='text-3xl'>{post?.title}</div>
-							<div className='text-xl'>{post?.description}</div>
+							<h1 className='text-3xl'>{post?.title}</h1>
+							<p className='text-xl'>{post?.description}</p>
 						</div>
 					</div>
-				</div>
+				</header>
 				<Accordion
 					type='single'
 					collapsible
@@ -78,7 +78,7 @@ const DevicePage = () => {
 				</Accordion>
 			</div>
 			<div className='flex'>
-				<div className='flex-auto min-w-[240px] hidden lg:block'>
+				<aside className='flex-auto min-w-[240px] hidden lg:block'>
 					<ul className='p-6 flex flex-col sticky top-[102px] left-0 z-20'>
 						{post?.contentItems.map((item, index) => (
 							<li key={item} className='min-w-[140px] hover:underline'>
@@ -86,16 +86,16 @@ const DevicePage = () => {
 							</li>
 						))}
 					</ul>
-				</div>
+				</aside>
 				<div className='w-full max-w-[1540px] flex-auto'>
 					<div className='px-4 w-full max-w-[1308px]'>{post?.content}</div>
 					<div className='px-4 w-full max-w-[1308px]'>
-						<div
+						<h2
 							id='3'
 							className='pt-[228px] mt-[-102px] mb-4 text-3xl sm:pt-[142px]'
 						>
 							Читайте также
-						</div>
+						</h2>
 						<div className='pt-8 flex gap-4 flex-wrap md:gap-4'>
 							{[...posts]
 								.filter((post) => post.url !== url)
@@ -109,13 +109,13 @@ const DevicePage = () => {
 										style={{ backgroundColor: post.bgColor }}
 									>
 										<div className='absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-20'></div>
-										<p className='text-2xl self-start'>{post.title}</p>
+										<h3 className='text-2xl self-start'>{post.title}</h3>
 										<p className='text-xl self-center'>{post.description}</p>
-										<div className='flex gap-4 self-end'>
+										<ul className='flex gap-4 self-end'>
 											{post.tags.map((tag) => (
-												<p key={tag}>{tag}</p>
+												<li key={tag}>{tag}</li>
 											))}
-										</div>
+										</ul>
 									</Link>
 								))}
 						</div>

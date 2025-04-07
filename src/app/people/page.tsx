@@ -14,8 +14,8 @@ export default function People() {
 							<div key={person.id} className='flex items-center gap-8'>
 								<div>{person.avatar}</div>
 								<div>
-									<div className='mb-2 text-2xl'>{person.name}</div>
-									<div className='text-xl'>{person.description}</div>
+									<p className='mb-2 text-2xl'>{person.name}</p>
+									<p className='text-xl'>{person.description}</p>
 								</div>
 							</div>
 						))}
