@@ -1,0 +1,16 @@
+{
+	"posts": [
+		{
+			"id": "1",
+			"url": "evotor5i'",
+			"author": "Сергей Кравченко'",
+			"title": "Как прошить Evotor 5i?'",
+			"description": "Руководство по прошивке Evotor 5i'",
+			"image": "/evo5i.png'",
+			"bgColor": "#f15024'",
+			"bgImage": "/sberbg.jpg'",
+			"tags": ["#Сбер", "#Эвотор", "#Прошивка"],
+			"contentItems": ["Что понадобится?", "Как прошить?", "Читайте также"]
+		}
+	]
+}

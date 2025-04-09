@@ -847,9 +847,59 @@ export const useRootStore = create<RootState>((set) => ({
 			content: (
 				<div>
 					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>Комплектный провод</li>
+						<li className='ml-[20px]'>Блок питания micro-USB</li>
+						<li className='ml-[20px]'>
+							<Link
+								href={
+									'https://drive.google.com/drive/folders/19MO7THGTlL8OWdVknxXMB5i0YUGxmcZr?usp=drive_link'
+								}
+								target='_blank'
+								download
+								className='underline hover:no-underline'
+							>
+								Папка с файлами
+							</Link>
+						</li>
+					</ul>
 					<h2 className='my-8 text-3xl'>Как прошить?</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>
+							Сначала нужно войти в режим прошивки. Для этого одновременно
+							зажимаем зелёную кнопку и цифру 7
+						</li>
+						<li className='ml-[20px]'>Вводим пароль - 166831</li>
+						<li className='ml-[20px]'>Нажимаем 6 - Clear Memory</li>
+						<li className='ml-[20px]'>Повторяем пароль</li>
+						<li className='ml-[20px]'>Выбираем 4 пункт - Clear all Groups</li>
+						<li className='ml-[20px]'>
+							Подтверждаем нажатием кнопки 2 - Confirm
+						</li>
+						<li className='ml-[20px]'>
+							После того как терминал очистится нажимаем красную кнопку
+						</li>
+						<li className='ml-[20px]'>
+							Выбираем 1 - Restart. Терминал перезапустится. На экране должна
+							появиться надпись GO FILE NOT FOUND
+						</li>
+						<li className='ml-[20px]'>
+							Открываем на компьютере заранее скачанную папку и выбираем файл с
+							моделью нашего терминала
+						</li>
+						<li className='ml-[20px]'>
+							Откроется командная строка. Следуем инструкциям на экране.
+							Нажимаем кнопку 1
+						</li>
+						<li className='ml-[20px]'>
+							Ждем пока терминал очистится. На экране должна появится надпись No
+							*GO variable
+						</li>
+						<li className='ml-[20px]'>Нажимаем кнопку 2</li>
+						<li className='ml-[20px]'>
+							Ждём окончания прошивки и загрузки UPOS
+						</li>
+					</ul>
 					<h2 className='my-8 text-3xl'>Видео</h2>
 					<video width='320' height='180' controls>
 						<source src='/VX820.mp4' type='video/mp4' />
