@@ -213,7 +213,9 @@ export const useRootStore = create<RootState>((set) => ({
 			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
-					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Что понадобится?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
 						<li className='ml-[20px]'>
@@ -229,7 +231,9 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Как прошить?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>
 							<Link
@@ -278,7 +282,9 @@ export const useRootStore = create<RootState>((set) => ({
 			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
-					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Что понадобится?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
 						<li className='ml-[20px]'>
@@ -294,7 +300,9 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Как прошить?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>
 							<Link
@@ -343,7 +351,9 @@ export const useRootStore = create<RootState>((set) => ({
 			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
-					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Что понадобится?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
 						<li className='ml-[20px]'>
@@ -359,7 +369,9 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Как прошить?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>
 							Скачайте
@@ -406,10 +418,17 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Как добавить eSIM?',
+				'Читайте также'
+			],
 			content: (
 				<div>
-					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Что понадобится?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
 						<li className='ml-[20px]'>
@@ -428,7 +447,9 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Как прошить?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>
 							Скачайте
@@ -462,7 +483,9 @@ export const useRootStore = create<RootState>((set) => ({
 							перезагрузится. Подождите еще 1-2 минуты и вытащите флешку.
 						</li>
 					</ul>
-					<h2 className='my-8 text-3xl'>Как добавить eSIM?</h2>
+					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Как добавить eSIM?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>
 							Заходим в настройки устройства. Для этого жмем три раза на логотип
@@ -518,11 +541,30 @@ export const useRootStore = create<RootState>((set) => ({
 			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
-					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Как прошить?</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Видео</h2>
+					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Что понадобится?
+					</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'></li>
+					</ul>
+					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Как прошить?
+					</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'></li>
+					</ul>
 				</div>
 			)
 		},
@@ -539,10 +581,30 @@ export const useRootStore = create<RootState>((set) => ({
 			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
-					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Как прошить?</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Что понадобится?
+					</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'></li>
+					</ul>
+					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Как прошить?
+					</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'></li>
+					</ul>
 					<h2 className='my-8 text-3xl'>Видео</h2>
 				</div>
 			)
@@ -557,10 +619,17 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#08a4e1',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
-					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Что понадобится?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
 						<li className='ml-[20px]'>Переходник USB мама - mini USB папа</li>
@@ -577,9 +646,35 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 className='my-8 text-3xl'>Как прошить?</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Видео</h2>
+					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Как прошить?
+					</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>
+							Подсоединяем флешку с помощью переходника
+						</li>
+						<li className='ml-[20px]'>Включаем терминал</li>
+						<li className='ml-[20px]'>Выбираем нужный файл прошивки</li>
+						<li className='ml-[20px]'>Подтверждаем выбор</li>
+						<li className='ml-[20px]'>
+							В появившемся меню выбираем первый пункт - DELETE APP
+						</li>
+						<li className='ml-[20px]'>
+							Затем также выбираем первый пункт - Delete all app
+						</li>
+						<li className='ml-[20px]'>
+							После того как терминал очистится выбираем второй пункт - DOWNLOAD
+							ALL
+						</li>
+						<li className='ml-[20px]'>
+							После окончания прошивки дважды нажимаем красную кнопку и
+							вытаскиваем флешку. Терминал перезапустится и начнётся загрузка
+							UPOS
+						</li>
+					</ul>
+					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Видео
+					</h2>
 					<video width='320' height='180' controls>
 						<source src='/PAX S80.mp4' type='video/mp4' />
 						Ваш браузер не поддерживает видео тег.
@@ -597,10 +692,17 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#08a4e1',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
-					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Что понадобится?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
 						<li className='ml-[20px]'>Переходник USB мама - mini USB папа</li>
@@ -617,9 +719,35 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 className='my-8 text-3xl'>Как прошить?</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Видео</h2>
+					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Как прошить?
+					</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>
+							Подсоединяем флешку с помощью переходника
+						</li>
+						<li className='ml-[20px]'>Включаем терминал</li>
+						<li className='ml-[20px]'>Выбираем нужный файл прошивки</li>
+						<li className='ml-[20px]'>Подтверждаем выбор</li>
+						<li className='ml-[20px]'>
+							В появившемся меню выбираем первый пункт - DELETE APP
+						</li>
+						<li className='ml-[20px]'>
+							Затем также выбираем первый пункт - Delete all app
+						</li>
+						<li className='ml-[20px]'>
+							После того как терминал очистится выбираем второй пункт - DOWNLOAD
+							ALL
+						</li>
+						<li className='ml-[20px]'>
+							После окончания прошивки дважды нажимаем красную кнопку и
+							вытаскиваем флешку. Терминал перезапустится и начнётся загрузка
+							UPOS
+						</li>
+					</ul>
+					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Видео
+					</h2>
 					<video width='320' height='180' controls>
 						<source src='/PAX S90.mp4' type='video/mp4' />
 						Ваш браузер не поддерживает видео тег.
@@ -637,10 +765,17 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#08a4e1',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
-					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Что понадобится?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Комплектный провод</li>
 						<li className='ml-[20px]'>Блок питания micro-usb</li>
@@ -661,7 +796,9 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Как прошить?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>
 							Помещаем{' '}
@@ -709,7 +846,9 @@ export const useRootStore = create<RootState>((set) => ({
 							начнётся загрузка UPOS.
 						</li>
 					</ul>
-					<h2 className='my-8 text-3xl'>Видео</h2>
+					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Видео
+					</h2>
 					<video width='320' height='180' controls>
 						<source src='/PAX SP30.mp4' type='video/mp4' />
 						Ваш браузер не поддерживает видео тег.
@@ -727,14 +866,70 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#08a4e1',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
-					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Как прошить?</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Видео</h2>
+					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Что понадобится?
+					</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>Компьютер</li>
+						<li className='ml-[20px]'>Комплектный провод</li>
+						<li className='ml-[20px]'>Программа TermAssist</li>
+						<li className='ml-[20px]'>Файл с прошивкой</li>
+						<li className='ml-[20px]'>Драйвер</li>
+					</ul>
+					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Как прошить?
+					</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>
+							Проверяем установлен ли драйвер на компьютере. Заходим в диспетчер
+							устройств. Если терминал не присвоил себе порт то устанавливаем
+							драйвер
+						</li>
+						<li className='ml-[20px]'>
+							Подключаем терминал к порту USB компьютера
+						</li>
+						<li className='ml-[20px]'>
+							Многократно нажимаем на двойку до появления системного меню
+						</li>
+						<li className='ml-[20px]'>
+							В Выбираем первый пункт - System Config
+						</li>
+						<li className='ml-[20px]'>Вводим пароль - 123456</li>
+						<li className='ml-[20px]'>Нажимаем 4 чтобы включить XCB Service</li>
+						<li className='ml-[20px]'>
+							В появившемся меню выбираем пункт 3 - USB
+						</li>
+						<li className='ml-[20px]'>
+							В скачанной на компьютер папке запуcкаем программу Starter
+						</li>
+						<li className='ml-[20px]'>
+							Вводим номер порта на котором подключен наш терминал. Номер порта
+							можно посмотреть в диспетчере устройств
+						</li>
+						<li className='ml-[20px]'>Выбираем нужную нам прошивку</li>
+						<li className='ml-[20px]'>Дожидаемся окончания загрузки</li>
+						<li className='ml-[20px]'>
+							На терминале выбираем 4 пункт - XCB Service
+						</li>
+						<li className='ml-[20px]'>Нажимаем на единицу - Close Service</li>
+						<li className='ml-[20px]'>
+							Несколько раз нажимаем на красную кнопку и выключаем терминал
+						</li>
+						<li className='ml-[20px]'>
+							После перезагрузки терминала остаётся дождаться загрузки UPOS
+						</li>
+					</ul>
+					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Видео
+					</h2>
 					<video width='320' height='180' controls>
 						<source src='/S300.mp4' type='video/mp4' />
 						Ваш браузер не поддерживает видео тег.
@@ -752,14 +947,57 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#08a4e1',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
-					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Как прошить?</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Видео</h2>
+					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Что понадобится?
+					</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>Программа PC Loader</li>
+						<li className='ml-[20px]'>Переходник</li>
+					</ul>
+					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Как прошить?
+					</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>Подключаем терминал</li>
+						<li className='ml-[20px]'>
+							При включении многократно нажимаем кнопку F1
+						</li>
+						<li className='ml-[20px]'>
+							После того как на экране появится меню нажимаем красную кнопку
+						</li>
+						<li className='ml-[20px]'>
+							На компьютере запускаем программу PC Loader
+						</li>
+						<li className='ml-[20px]'>Заходим в Setting</li>
+						<li className='ml-[20px]'>
+							В поле Serial Port выбираем порт на котором подключен наш
+							терминал. Номер порта можно посмотреть в диспетчере устройств
+						</li>
+						<li className='ml-[20px]'>Заходим в Application</li>
+						<li className='ml-[20px]'>Указать путь до файла прошивки</li>
+						<li className='ml-[20px]'>Нажимаем APP Info</li>
+						<li className='ml-[20px]'>Нажимаем Refresh</li>
+						<li className='ml-[20px]'>
+							Все найденные файлы удаляем. Нажимаем Delete
+						</li>
+						<li className='ml-[20px]'>
+							После того как файлы удалятся нажимаем Download
+						</li>
+						<li className='ml-[20px]'>Дожидаемся окончания прошивки</li>
+						<li className='ml-[20px]'>Нажимаем красную кнопку</li>
+						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
+					</ul>
+					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Видео
+					</h2>
 					<video width='320' height='180' controls>
 						<source src='/PAX S200.mp4' type='video/mp4' />
 						Ваш браузер не поддерживает видео тег.
@@ -777,14 +1015,67 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#08a4e1',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
-					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Как прошить?</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Видео</h2>
+					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Что понадобится?
+					</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>Папка с файлами</li>
+						<li className='ml-[20px]'>Драйвер</li>
+					</ul>
+					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Как прошить?
+					</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>
+							Проверяем установлен ли драйвер на компьютере. Заходим в диспетчер
+							устройств. Если терминал не присвоил себе порт то устанавливаем
+							драйвер
+						</li>
+						<li className='ml-[20px]'>
+							Подключаем терминал к порту USB компьютера
+						</li>
+						<li className='ml-[20px]'>
+							Многократно нажимаем на двойку до появления системного меню
+						</li>
+						<li className='ml-[20px]'>
+							В Выбираем первый пункт - System Config
+						</li>
+						<li className='ml-[20px]'>Вводим пароль - 123456</li>
+						<li className='ml-[20px]'>Нажимаем 4 чтобы включить XCB Service</li>
+						<li className='ml-[20px]'>
+							В появившемся меню выбираем пункт 3 - USB
+						</li>
+						<li className='ml-[20px]'>
+							В скачанной на компьютер папке запуcкаем программу Starter
+						</li>
+						<li className='ml-[20px]'>
+							Вводим номер порта на котором подключен наш терминал. Номер порта
+							можно посмотреть в диспетчере устройств
+						</li>
+						<li className='ml-[20px]'>Выбираем нужную нам прошивку</li>
+						<li className='ml-[20px]'>Дожидаемся окончания загрузки</li>
+						<li className='ml-[20px]'>
+							На терминале выбираем 4 пункт - XCB Service
+						</li>
+						<li className='ml-[20px]'>Нажимаем на единицу - Close Service</li>
+						<li className='ml-[20px]'>
+							Несколько раз нажимаем на красную кнопку и выключаем терминал
+						</li>
+						<li className='ml-[20px]'>
+							После перезагрузки терминала остаётся дождаться загрузки UPOS
+						</li>
+					</ul>
+					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Видео
+					</h2>
 					<video width='320' height='180' controls>
 						<source src='/PAX Q25.mp4' type='video/mp4' />
 						Ваш браузер не поддерживает видео тег.
@@ -802,10 +1093,17 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#6effd2',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#VeriFone', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
-					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Что понадобится?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
 						<li className='ml-[20px]'>
@@ -823,9 +1121,55 @@ export const useRootStore = create<RootState>((set) => ({
 							с необходимыми файлами
 						</li>
 					</ul>
-					<h2 className='my-8 text-3xl'>Как прошить?</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Видео</h2>
+					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Как прошить?
+					</h2>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>Включаем терминал</li>
+						<li className='ml-[20px]'>Присоединяем флешку</li>
+						<li className='ml-[20px]'>
+							Для входа в системное меню одновременно зажимаем зелёную кнопку и
+							цифру 7
+						</li>
+						<li className='ml-[20px]'>
+							Вводим пароль - 1 alpha alpha 6 6 8 3 1
+						</li>
+						<li className='ml-[20px]'>
+							В меню выбираем пункт - Memory Function
+						</li>
+						<li className='ml-[20px]'>выбираем пункт - Clear Mem</li>
+						<li className='ml-[20px]'>Повторяем пароль</li>
+						<li className='ml-[20px]'>Выбираем 4 пункт - Clear all Groups</li>
+						<li className='ml-[20px]'>
+							Подтверждаем нажатием кнопки 2 - Confirm
+						</li>
+						<li className='ml-[20px]'>
+							После того как терминал очистится нажимаем красную кнопку
+						</li>
+						<li className='ml-[20px]'>
+							Выбираем 1 - Restart. Устройство перезапустится
+						</li>
+						<li className='ml-[20px]'>
+							Терминал предложит загрузить все файлы - выбираем NO
+						</li>
+						<li className='ml-[20px]'>
+							Далее по очереди будут предлагаться файлы прошивок. Выбираем
+							нужную нам прошивку и нажимаем Yes
+						</li>
+						<li className='ml-[20px]'>
+							Все остальные шаги нам не нужны. Нажимаем NO
+						</li>
+						<li className='ml-[20px]'>
+							Извлекаем флешку после того как терминал предложит это сделать
+						</li>
+						<li className='ml-[20px]'>Нажимаем зелёную кнопку</li>
+						<li className='ml-[20px]'>
+							Осталось дождаться окончания прошивки и загрузки UPOS
+						</li>
+					</ul>
+					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Видео
+					</h2>
 					<video width='320' height='180' controls>
 						<source src='/VX520.mp4' type='video/mp4' />
 						Ваш браузер не поддерживает видео тег.
@@ -843,10 +1187,17 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#6effd2',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#VeriFone', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
-					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Что понадобится?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Комплектный провод</li>
 						<li className='ml-[20px]'>Блок питания micro-USB</li>
@@ -863,7 +1214,9 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Как прошить?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>
 							Сначала нужно войти в режим прошивки. Для этого одновременно
@@ -897,10 +1250,12 @@ export const useRootStore = create<RootState>((set) => ({
 						</li>
 						<li className='ml-[20px]'>Нажимаем кнопку 2</li>
 						<li className='ml-[20px]'>
-							Ждём окончания прошивки и загрузки UPOS
+							Осталось дождаться окончания прошивки и загрузки UPOS
 						</li>
 					</ul>
-					<h2 className='my-8 text-3xl'>Видео</h2>
+					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Видео
+					</h2>
 					<video width='320' height='180' controls>
 						<source src='/VX820.mp4' type='video/mp4' />
 						Ваш браузер не поддерживает видео тег.
@@ -918,14 +1273,25 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#41e747',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
-					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Что понадобится?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Как прошить?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Видео</h2>
+					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Видео
+					</h2>
 					<video width='320' height='180' controls>
 						<source src='/ICT220-ICT250.mp4' type='video/mp4' />
 						Ваш браузер не поддерживает видео тег.
@@ -946,11 +1312,17 @@ export const useRootStore = create<RootState>((set) => ({
 			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
-					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Что понадобится?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Как прошить?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Видео</h2>
+					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Видео
+					</h2>
 					<video width='320' height='180' controls>
 						<source src='/IPP320-350.mp4' type='video/mp4' />
 						Ваш браузер не поддерживает видео тег.
@@ -968,14 +1340,25 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#41e747',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
-					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Что понадобится?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Как прошить?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Видео</h2>
+					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Видео
+					</h2>
 					<video width='320' height='180' controls>
 						<source src='/IWL220-IWL250.mp4' type='video/mp4' />
 						Ваш браузер не поддерживает видео тег.
@@ -993,14 +1376,25 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#ffd829',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Tactilion', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
-					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Что понадобится?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Как прошить?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Видео</h2>
+					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Видео
+					</h2>
 					<video width='320' height='180' controls>
 						<source src='/TACTILION T2.mp4' type='video/mp4' />
 						Ваш браузер не поддерживает видео тег.
@@ -1018,14 +1412,25 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#704ecc',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Castles', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
-					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Что понадобится?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Как прошить?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Видео</h2>
+					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Видео
+					</h2>
 					<video width='320' height='180' controls>
 						<source src='/Vega3000 GPRS-ETH.mp4' type='video/mp4' />
 						Ваш браузер не поддерживает видео тег.
@@ -1043,14 +1448,25 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#704ecc',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Castles', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
-					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Что понадобится?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Как прошить?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Видео</h2>
+					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Видео
+					</h2>
 					<video width='320' height='180' controls>
 						<source src='/Castles vega 3000 GPRS.mp4' type='video/mp4' />
 						Ваш браузер не поддерживает видео тег.
@@ -1068,14 +1484,25 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#704ecc',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Castles', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
-					<h2 className='my-8 text-3xl'>Что понадобится?</h2>
+					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Что понадобится?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Как прошить?</h2>
+					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Как прошить?
+					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
-					<h2 className='my-8 text-3xl'>Видео</h2>
+					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Видео
+					</h2>
 					<video width='320' height='180' controls>
 						<source src='/Vega3000 ИКР.mp4' type='video/mp4' />
 						Ваш браузер не поддерживает видео тег.

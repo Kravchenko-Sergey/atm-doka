@@ -91,7 +91,7 @@ const DevicePage = () => {
 					<div className='px-4 w-full max-w-[1308px]'>{post?.content}</div>
 					<div className='px-4 w-full max-w-[1308px]'>
 						<h2
-							id='3'
+							id={String(post?.contentItems.length)}
 							className='pt-[228px] mt-[-102px] mb-4 text-3xl sm:pt-[142px]'
 						>
 							Читайте также
