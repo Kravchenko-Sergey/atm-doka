@@ -47,7 +47,7 @@ type RootState = {
 	changeBgHeader: (bgHeader: string) => { bgHeader: string }
 }
 
-export const useRootStore = create<RootState>(set => ({
+export const useRootStore = create<RootState>((set) => ({
 	people: [
 		{
 			id: v4(),
@@ -85,11 +85,21 @@ export const useRootStore = create<RootState>(set => ({
 				<div className='p-4 w-[50%] border rounded-xl flex flex-col flex-auto'>
 					<div className='pb-8 text-2xl'>Дока ищет партнёров</div>
 					<div className='text-xl flex-auto'>
-						<p>Сотрудничество с Докой приносит пользу как компании, так и её сотрудникам.</p>
-						<p>Поддерживая Доку, вы способствуете развитию русскоязычного сообщества POS-инженеров.</p>
+						<p>
+							Сотрудничество с Докой приносит пользу как компании, так и её
+							сотрудникам.
+						</p>
+						<p>
+							Поддерживая Доку, вы способствуете развитию русскоязычного
+							сообщества POS-инженеров.
+						</p>
 					</div>
 					<div>
-						<Link href='https://t.me/+CznWcCGr6H03NjMy' className='mt-8 text-xl flex gap-4' target='_blank'>
+						<Link
+							href='https://t.me/+CznWcCGr6H03NjMy'
+							className='mt-8 text-xl flex gap-4'
+							target='_blank'
+						>
 							<Send />
 							<p>Написать нам</p>
 						</Link>
@@ -119,10 +129,12 @@ export const useRootStore = create<RootState>(set => ({
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={'https://drive.google.com/uc?export=download&id=1zHNbojcHBEpuA6ZLaEWsBXmnnbTafb1g'}
+								href={
+									'https://drive.google.com/uc?export=download&id=1zHNbojcHBEpuA6ZLaEWsBXmnnbTafb1g'
+								}
 								target='_blank'
 								download
-								className='underline hover:no-underline'
+								className={`${badgeVariants({ variant: 'outline' })} bg-[#f15024] text-white`}
 							>
 								Файл прошивки
 							</Link>
@@ -132,42 +144,122 @@ export const useRootStore = create<RootState>(set => ({
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
-						<li className='ml-[20px]'>Включите смарт-терминал и подключите его к интернету.</li>
 						<li className='ml-[20px]'>
-							Очистите файловую систему. Для этого перейдите в Обслуживание кассы → Эквайринг или Эвотор.PAY → Файловая
-							система → Форматировать. Нажмите Запрос на обновление.
+							Включите смарт-терминал и подключите его к интернету
 						</li>
 						<li className='ml-[20px]'>
-							Загрузите обновления платёжного модуля. Для этого перейдите в Обслуживание кассы → Эквайринг или
-							Эвотор.PAY → Прошивка. Нажмите Запрос на обновление.
+							Очистите файловую систему. Перейдите в
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Обслуживание кассы
+							</span>
+							→
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Эквайринг
+							</span>
+							или
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Эвотор.PAY
+							</span>
+							→
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Файловая система
+							</span>
+							→
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Форматировать
+							</span>
 						</li>
 						<li className='ml-[20px]'>
-							После обновления проверьте какая версия прошивки установлена, для этого зайдите в раздел Настройки →
-							Обслуживание кассы → Эквайринг или Эвотор.PAY → Общая информация.
+							Загрузите обновления платёжного модуля. Перейдите в
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Обслуживание кассы
+							</span>
+							→
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Эквайринг
+							</span>
+							→
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Прошивка
+							</span>
+							→
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Запрос на обновление
+							</span>
 						</li>
-						<li className='ml-[20px]'>На данный момент актуальная версия для 520 и 521 - 1.8.2.1, для 522 - 3.1.2.1</li>
+						<li className='ml-[20px]'>
+							После обновления проверьте какая версия прошивки установлена.
+							Зайдите в раздел
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Настройки
+							</span>
+							→
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Обслуживание кассы
+							</span>
+							→
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Эквайринг
+							</span>
+							→
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Общая информация
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							На данный момент актуальная версия эквайринга для 520 и 521 -
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} ml-2 bg-[#f15024] text-white`}
+							>
+								1.8.2.1
+							</span>
+							, для 522 -
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#f15024] text-white`}
+							>
+								3.1.2.1
+							</span>
+						</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={'https://drive.google.com/uc?export=download&id=1zHNbojcHBEpuA6ZLaEWsBXmnnbTafb1g'}
+								href={
+									'https://drive.google.com/uc?export=download&id=1zHNbojcHBEpuA6ZLaEWsBXmnnbTafb1g'
+								}
 								target='_blank'
 								download
-								className={`${badgeVariants({ variant: 'outline' })} mr-2`}
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#f15024] text-white`}
 							>
 								Скачайте
 							</Link>
-							файл прошивки. На данный момент актуальная версия прошивки 4.9.11
+							файл прошивки. На данный момент актуальная версия прошивки
+							<span
+								className={`${badgeVariants({ variant: 'outline' })}  bg-[#f15024] text-white`}
+							>
+								4.9.11
+							</span>
 						</li>
 						<li className='ml-[20px]'>Подготовте флешку в формате FAT32</li>
-						<li className='ml-[20px]'>Поместите файл прошивки в корень флешки</li>
+						<li className='ml-[20px]'>
+							Поместите файл прошивки в корень флешки
+						</li>
 						<li className='ml-[20px]'>Включите кассу</li>
 						<li className='ml-[20px]'>
-							Вставте флешку в кассу. Устройство автоматически начнёт прошивку. На экране появится окно &apos;Обновление
-							системы&apos;.
+							Вставте флешку в кассу. Устройство автоматически начнёт прошивку.
+							На экране появится окно
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Обновление системы
+							</span>
 						</li>
-						<li className='ml-[20px]'>Нажмите на &apos;Проверить и установить.&apos;</li>
 						<li className='ml-[20px]'>
-							Касса начнет расшифровывать файл с обновлением, это займет некоторое время. После успешной установки касса
-							сама перезагрузится. Подождите еще 1-2 минуты и вытащите флешку.
+							Нажмите на
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Проверить и установить
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Касса начнет расшифровывать файл с обновлением, это займет
+							некоторое время. После успешной установки касса сама
+							перезагрузится. Подождите еще 1-2 минуты и вытащите флешку.
 						</li>
 					</ul>
 				</>
@@ -193,10 +285,12 @@ export const useRootStore = create<RootState>(set => ({
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={'https://drive.google.com/uc?export=download&id=1n08SYgy72qF2susGP8Cnmw5tbupIaXX5'}
+								href={
+									'https://drive.google.com/uc?export=download&id=1n08SYgy72qF2susGP8Cnmw5tbupIaXX5'
+								}
 								target='_blank'
 								download
-								className='underline hover:no-underline'
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#f15024] text-white`}
 							>
 								Файл прошивки
 							</Link>
@@ -208,26 +302,44 @@ export const useRootStore = create<RootState>(set => ({
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>
 							<Link
-								href={'https://drive.google.com/uc?export=download&id=1n08SYgy72qF2susGP8Cnmw5tbupIaXX5'}
+								href={
+									'https://drive.google.com/uc?export=download&id=1n08SYgy72qF2susGP8Cnmw5tbupIaXX5'
+								}
 								target='_blank'
 								download
-								className={`${badgeVariants({ variant: 'outline' })} mr-2`}
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#f15024] text-white`}
 							>
 								Скачайте
 							</Link>
-							файл прошивки. На данный момент актуальная версия прошивки 4.9.11
+							файл прошивки. На данный момент актуальная версия прошивки
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#f15024] text-white`}
+							>
+								4.9.11
+							</span>
 						</li>
 						<li className='ml-[20px]'>Подготовте флешку в формате FAT32</li>
-						<li className='ml-[20px]'>Поместите файл прошивки в корень флешки</li>
+						<li className='ml-[20px]'>
+							Поместите файл прошивки в корень флешки
+						</li>
 						<li className='ml-[20px]'>Включите кассу</li>
 						<li className='ml-[20px]'>
-							Вставте флешку в кассу. Устройство автоматически начнёт прошивку. На экране появится окно &apos;Обновление
-							системы&apos;
+							Вставте флешку в кассу. Устройство автоматически начнёт прошивку.
+							На экране появится окно
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Обновление системы
+							</span>
 						</li>
-						<li className='ml-[20px]'>Нажмите на &apos;Проверить и установить.&apos;</li>
 						<li className='ml-[20px]'>
-							Касса начнет расшифровывать файл с обновлением, это займет некоторое время. После успешной установки касса
-							сама перезагрузится. Подождите еще 1-2 минуты и вытащите флешку.
+							Нажмите на
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Проверить и установить
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Касса начнет расшифровывать файл с обновлением, это займет
+							некоторое время. После успешной установки касса сама
+							перезагрузится. Подождите еще 1-2 минуты и вытащите флешку.
 						</li>
 					</ul>
 				</div>
@@ -253,10 +365,12 @@ export const useRootStore = create<RootState>(set => ({
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={'https://drive.google.com/uc?export=download&id=1GfdNdQIm04HbXzrNA0fyVDik_z3q98Xk'}
+								href={
+									'https://drive.google.com/uc?export=download&id=1GfdNdQIm04HbXzrNA0fyVDik_z3q98Xk'
+								}
 								target='_blank'
 								download
-								className='underline hover:no-underline'
+								className={`${badgeVariants({ variant: 'outline' })} bg-[#f15024] text-white`}
 							>
 								Файл прошивки
 							</Link>
@@ -268,26 +382,44 @@ export const useRootStore = create<RootState>(set => ({
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>
 							<Link
-								href={'https://drive.google.com/uc?export=download&id=1GfdNdQIm04HbXzrNA0fyVDik_z3q98Xk'}
+								href={
+									'https://drive.google.com/uc?export=download&id=1GfdNdQIm04HbXzrNA0fyVDik_z3q98Xk'
+								}
 								target='_blank'
 								download
-								className={`${badgeVariants({ variant: 'outline' })} mr-2`}
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#f15024] text-white`}
 							>
 								Скачайте
 							</Link>
-							файл прошивки. На данный момент актуальная версия прошивки 4.9.11
+							файл прошивки. На данный момент актуальная версия прошивки
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#f15024] text-white`}
+							>
+								4.9.11
+							</span>
 						</li>
 						<li className='ml-[20px]'>Подготовте флешку в формате FAT32</li>
-						<li className='ml-[20px]'>Поместите файл прошивки в корень флешки</li>
+						<li className='ml-[20px]'>
+							Поместите файл прошивки в корень флешки
+						</li>
 						<li className='ml-[20px]'>Включите кассу</li>
 						<li className='ml-[20px]'>
-							Вставте флешку в кассу. Устройство автоматически начнёт прошивку. На экране появится окно &apos;Обновление
-							системы&apos;.
+							Вставте флешку в кассу. Устройство автоматически начнёт прошивку.
+							На экране появится окно
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Обновление системы
+							</span>
 						</li>
-						<li className='ml-[20px]'>Нажмите на &apos;Проверить и установить.&apos;</li>
 						<li className='ml-[20px]'>
-							Касса начнет расшифровывать файл с обновлением, это займет некоторое время. После успешной установки касса
-							сама перезагрузится. Подождите еще 1-2 минуты и вытащите флешку.
+							Нажмите на
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Проверить и установить
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Касса начнет расшифровывать файл с обновлением, это займет
+							некоторое время. После успешной установки касса сама
+							перезагрузится. Подождите еще 1-2 минуты и вытащите флешку.
 						</li>
 					</ul>
 				</div>
@@ -313,10 +445,12 @@ export const useRootStore = create<RootState>(set => ({
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={'https://drive.google.com/uc?export=download&id=1BO5nAbUB9ob3fGe2XGn954FrJZLoIVe2'}
+								href={
+									'https://drive.google.com/uc?export=download&id=1BO5nAbUB9ob3fGe2XGn954FrJZLoIVe2'
+								}
 								target='_blank'
 								download
-								className='underline hover:no-underline'
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#f15024] text-white`}
 							>
 								Файл прошивки
 							</Link>
@@ -329,26 +463,44 @@ export const useRootStore = create<RootState>(set => ({
 						<li className='ml-[20px]'>
 							Скачайте
 							<Link
-								href={'https://drive.google.com/uc?export=download&id=1BO5nAbUB9ob3fGe2XGn954FrJZLoIVe2'}
+								href={
+									'https://drive.google.com/uc?export=download&id=1BO5nAbUB9ob3fGe2XGn954FrJZLoIVe2'
+								}
 								target='_blank'
 								download
-								className='px-2 underline hover:no-underline'
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#f15024] text-white`}
 							>
 								файл прошивки.
 							</Link>
-							На данный момент актуальная версия прошивки 4.9.11
+							На данный момент актуальная версия прошивки
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#f15024] text-white`}
+							>
+								4.9.11
+							</span>
 						</li>
 						<li className='ml-[20px]'>Подготовте флешку в формате FAT32</li>
-						<li className='ml-[20px]'>Поместите файл прошивки в корень флешки</li>
+						<li className='ml-[20px]'>
+							Поместите файл прошивки в корень флешки
+						</li>
 						<li className='ml-[20px]'>Включите кассу</li>
 						<li className='ml-[20px]'>
-							Вставте флешку в кассу. Устройство автоматически начнёт прошивку. На экране появится окно &apos;Обновление
-							системы&apos;.
+							Вставте флешку в кассу. Устройство автоматически начнёт прошивку.
+							На экране появится окно
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Обновление системы
+							</span>
 						</li>
-						<li className='ml-[20px]'>Нажмите на &apos;Проверить и установить.&apos;</li>
 						<li className='ml-[20px]'>
-							Касса начнет расшифровывать файл с обновлением, это займет некоторое время. После успешной установки касса
-							сама перезагрузится. Подождите еще 1-2 минуты и вытащите флешку.
+							Нажмите на
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Проверить и установить
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Касса начнет расшифровывать файл с обновлением, это займет
+							некоторое время. После успешной установки касса сама
+							перезагрузится. Подождите еще 1-2 минуты и вытащите флешку.
 						</li>
 					</ul>
 				</div>
@@ -364,7 +516,12 @@ export const useRootStore = create<RootState>(set => ({
 			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Как добавить eSIM?', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Как добавить eSIM?',
+				'Читайте также'
+			],
 			content: (
 				<div>
 					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
@@ -372,13 +529,15 @@ export const useRootStore = create<RootState>(set => ({
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
-						<li className='ml-[20px]'>Переходник USB &apos;мама&apos; - Type C &apos;папа&apos;</li>
+						<li className='ml-[20px]'>Переходник USB мама - Type-C папа</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={'https://drive.google.com/uc?export=download&id=1zp8lapO00GubC86cOwkxooq8cZBRzLb5'}
+								href={
+									'https://drive.google.com/uc?export=download&id=1zp8lapO00GubC86cOwkxooq8cZBRzLb5'
+								}
 								target='_blank'
 								download
-								className='underline hover:no-underline'
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#f15024] text-white`}
 							>
 								Файл прошивки
 							</Link>
@@ -391,53 +550,94 @@ export const useRootStore = create<RootState>(set => ({
 						<li className='ml-[20px]'>
 							Скачайте
 							<Link
-								href={'https://drive.google.com/uc?export=download&id=1zp8lapO00GubC86cOwkxooq8cZBRzLb5'}
+								href={
+									'https://drive.google.com/uc?export=download&id=1zp8lapO00GubC86cOwkxooq8cZBRzLb5'
+								}
 								target='_blank'
 								download
-								className='px-2 underline hover:no-underline'
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#f15024] text-white`}
 							>
 								файл прошивки.
 							</Link>
 						</li>
 						<li className='ml-[20px]'>Подготовте флешку в формате FAT32</li>
-						<li className='ml-[20px]'>Поместите файл прошивки в корень флешки</li>
+						<li className='ml-[20px]'>
+							Поместите файл прошивки в корень флешки
+						</li>
 						<li className='ml-[20px]'>Включите кассу</li>
 						<li className='ml-[20px]'>
-							С помощью переходника подключите флешку к кассе и немного подождите. Устройство найдёт нужный файл и
-							предложит его установить.
+							С помощью переходника подключите флешку к кассе и немного
+							подождите. Устройство найдёт нужный файл и предложит его
+							установить.
 						</li>
-						<li className='ml-[20px]'>Нажмите на &apos;Проверить и установить&apos;</li>
 						<li className='ml-[20px]'>
-							Касса начнет расшифровывать файл с обновлением, это займет некоторое время. После успешной установки касса
-							сама перезагрузится. Подождите еще 1-2 минуты и вытащите флешку.
+							Нажмите на
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Проверить и установить
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Касса начнет расшифровывать файл с обновлением, это займет
+							некоторое время. После успешной установки касса сама
+							перезагрузится. Подождите еще 1-2 минуты и вытащите флешку.
 						</li>
 					</ul>
 					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Как добавить eSIM?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
-						<li className='ml-[20px]'>Заходим в настройки устройства. Для этого жмем три раза на логотип Сбера.</li>
+						<li className='ml-[20px]'>
+							Заходим в настройки устройства. Для этого жмем три раза на логотип
+							Сбера.
+						</li>
 						<li className='ml-[20px]'>Подключаемся к Wi-Fi.</li>
-						<li className='ml-[20px]'>Нажимаем &apos;Мобильная сеть&apos; → &apos;Добавить eSIM&apos;.</li>
+						<li className='ml-[20px]'>
+							Нажимаем
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Мобильная сеть
+							</span>
+							→
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Добавить eSIM
+							</span>
+						</li>
 						<li className='ml-[20px]'>
 							Заходим в Telegram бота
-							<Link href={'https://t.me/WERGIT_bot'} className='px-2 underline hover:no-underline' target='_blank'>
-								@WERGIT_bot.
+							<Link
+								href={'https://t.me/WERGIT_bot'}
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#f15024] text-white`}
+								target='_blank'
+							>
+								@WERGIT_bot
 							</Link>
 						</li>
-						<li className='ml-[20px]'>При первом использовании бота необходимо пройти регистрацию.</li>
 						<li className='ml-[20px]'>
-							Вводим команду &apos;getqr 111222333&apos;. Где &apos;111222333&apos; - серийный номер устройства
+							При первом использовании бота необходимо пройти регистрацию.
 						</li>
 						<li className='ml-[20px]'>
-							После того как бот распознает терминал вам станут доступна кнопка &apos;получить QR&apos;. Нажимаем на
-							неё.
+							Вводим команду
+							<span className={`${badgeVariants({ variant: 'outline' })} ml-2`}>
+								getqr 111222333
+							</span>
+							. Где 111222333 - серийный номер устройства
 						</li>
 						<li className='ml-[20px]'>
-							Нажимаем на оранжевую кнопку на левой стороне устройства и сканируем полученный QR.
+							После того как бот распознает терминал вам станут доступна кнопка
+							<span className={`${badgeVariants({ variant: 'outline' })} ml-2`}>
+								получить QR
+							</span>
+							. Нажимаем на неё.
 						</li>
 						<li className='ml-[20px]'>
-							При необходимости повторяем два предыдущих шага для добавления eSIM других операторов.
+							Нажимаем на{' '}
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								оранжевую кнопку
+							</span>
+							на левой стороне устройства и сканируем полученный QR.
+						</li>
+						<li className='ml-[20px]'>
+							При необходимости повторяем два предыдущих шага для добавления
+							eSIM других операторов.
 						</li>
 					</ul>
 				</div>
@@ -534,7 +734,12 @@ export const useRootStore = create<RootState>(set => ({
 			bgColor: '#08a4e1',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Видео', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
 					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
@@ -545,10 +750,12 @@ export const useRootStore = create<RootState>(set => ({
 						<li className='ml-[20px]'>Переходник USB мама - mini USB папа</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={'https://drive.google.com/uc?export=download&id=1A2_GfAb4UBjCabcKft7sIl-V-HV9Gkx9'}
+								href={
+									'https://drive.google.com/uc?export=download&id=1A2_GfAb4UBjCabcKft7sIl-V-HV9Gkx9'
+								}
 								target='_blank'
 								download
-								className='underline hover:no-underline'
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#08a4e1] text-white`}
 							>
 								Файл прошивки
 							</Link>
@@ -558,17 +765,35 @@ export const useRootStore = create<RootState>(set => ({
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
-						<li className='ml-[20px]'>Подсоединяем флешку с помощью переходника</li>
+						<li className='ml-[20px]'>
+							Подсоединяем флешку с помощью переходника
+						</li>
 						<li className='ml-[20px]'>Включаем терминал</li>
 						<li className='ml-[20px]'>Выбираем нужный файл прошивки</li>
 						<li className='ml-[20px]'>Подтверждаем выбор</li>
-						<li className='ml-[20px]'>В появившемся меню выбираем первый пункт - DELETE APP</li>
-						<li className='ml-[20px]'>Затем также выбираем первый пункт - Delete all app</li>
-						<li className='ml-[20px]'>После того как терминал очистится выбираем второй пункт - DOWNLOAD ALL</li>
 						<li className='ml-[20px]'>
-							После окончания прошивки дважды нажимаем красную кнопку и вытаскиваем флешку. Терминал перезапустится и
-							начнётся загрузка UPOS
+							В появившемся меню выбираем первый пункт -
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								DELETE APP
+							</span>
 						</li>
+						<li className='ml-[20px]'>
+							Затем выбираем первый пункт -
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Delete all app
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							После того как терминал очистится выбираем второй пункт -
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								DOWNLOAD ALL
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							После окончания прошивки дважды нажимаем красную кнопку и
+							вытаскиваем флешку. Терминал перезапустится
+						</li>
+						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
 					</ul>
 					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Видео
@@ -590,7 +815,12 @@ export const useRootStore = create<RootState>(set => ({
 			bgColor: '#08a4e1',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Видео', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
 					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
@@ -601,10 +831,12 @@ export const useRootStore = create<RootState>(set => ({
 						<li className='ml-[20px]'>Переходник USB мама - mini USB папа</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={'https://drive.google.com/uc?export=download&id=1A2_GfAb4UBjCabcKft7sIl-V-HV9Gkx9'}
+								href={
+									'https://drive.google.com/uc?export=download&id=1A2_GfAb4UBjCabcKft7sIl-V-HV9Gkx9'
+								}
 								target='_blank'
 								download
-								className='underline hover:no-underline'
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#08a4e1] text-white`}
 							>
 								Файл прошивки
 							</Link>
@@ -614,17 +846,35 @@ export const useRootStore = create<RootState>(set => ({
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
-						<li className='ml-[20px]'>Подсоединяем флешку с помощью переходника</li>
+						<li className='ml-[20px]'>
+							Подсоединяем флешку с помощью переходника
+						</li>
 						<li className='ml-[20px]'>Включаем терминал</li>
 						<li className='ml-[20px]'>Выбираем нужный файл прошивки</li>
 						<li className='ml-[20px]'>Подтверждаем выбор</li>
-						<li className='ml-[20px]'>В появившемся меню выбираем первый пункт - DELETE APP</li>
-						<li className='ml-[20px]'>Затем также выбираем первый пункт - Delete all app</li>
-						<li className='ml-[20px]'>После того как терминал очистится выбираем второй пункт - DOWNLOAD ALL</li>
 						<li className='ml-[20px]'>
-							После окончания прошивки дважды нажимаем красную кнопку и вытаскиваем флешку. Терминал перезапустится и
-							начнётся загрузка UPOS
+							В появившемся меню выбираем первый пункт -
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								DELETE APP
+							</span>
 						</li>
+						<li className='ml-[20px]'>
+							Затем выбираем первый пункт -{' '}
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Delete all app
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							После того как терминал очистится выбираем второй пункт -
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								DOWNLOAD ALL
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							После окончания прошивки дважды нажимаем красную кнопку и
+							вытаскиваем флешку. Терминал перезапустится
+						</li>
+						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
 					</ul>
 					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Видео
@@ -646,7 +896,12 @@ export const useRootStore = create<RootState>(set => ({
 			bgColor: '#08a4e1',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Видео', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
 					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
@@ -656,13 +911,17 @@ export const useRootStore = create<RootState>(set => ({
 						<li className='ml-[20px]'>Комплектный провод</li>
 						<li className='ml-[20px]'>Блок питания micro-usb</li>
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
-						<li className='ml-[20px]'>Переходник USB 2.0 &apos;мама&apos; - USB 2.0 &apos;мама&apos;</li>
+						<li className='ml-[20px]'>
+							Переходник USB 2.0 мама - USB 2.0 мама
+						</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={'https://drive.google.com/uc?export=download&id=1mKleqimtFMRrpdWusaRaMERIbtrI872C'}
+								href={
+									'https://drive.google.com/uc?export=download&id=1mKleqimtFMRrpdWusaRaMERIbtrI872C'
+								}
 								target='_blank'
 								download
-								className='underline hover:no-underline'
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#08a4e1] text-white`}
 							>
 								Файл прошивки
 							</Link>
@@ -673,36 +932,64 @@ export const useRootStore = create<RootState>(set => ({
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>
-							Помещаем{' '}
+							Помещаем
 							<Link
-								href={'https://drive.google.com/uc?export=download&id=1mKleqimtFMRrpdWusaRaMERIbtrI872C'}
+								href={
+									'https://drive.google.com/uc?export=download&id=1mKleqimtFMRrpdWusaRaMERIbtrI872C'
+								}
 								target='_blank'
 								download
-								className='underline hover:no-underline'
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#08a4e1] text-white`}
 							>
 								Файл прошивки
-							</Link>{' '}
+							</Link>
 							в корень флешки.
 						</li>
 						<li className='ml-[20px]'>
-							Присоединяем флешку через переходник к проводу подключения пинпада к компьютеру.
+							Присоединяем флешку через переходник к проводу подключения пинпада
+							к компьютеру.
 						</li>
 						<li className='ml-[20px]'>
-							Подключаем питание к сети. Должна появиться запись &apos;U-DISC_DOWNLOAD&apos;. Это означает что терминал
-							начал сканировать флешку.
+							Подключаем питание к сети. Должна появиться запись
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								U-DISC_DOWNLOAD
+							</span>
+							. Это означает что терминал начал сканировать флешку.
 						</li>
 						<li className='ml-[20px]'>
-							Из появившегося списка выбираем нужный нам файл с прошивкой. Терминал начнет чтение файла.
+							Из появившегося списка выбираем нужный нам файл с прошивкой.
+							Терминал начнет чтение файла.
 						</li>
 						<li className='ml-[20px]'>
-							В появившемся меню выбираем &apos;DELETE APP&apos; - &apos;Delete all app&apos;
+							В появившемся меню выбираем
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								DELETE APP
+							</span>
+							→
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Delete all app
+							</span>
 						</li>
-						<li className='ml-[20px]'>Далее выбираем &apos;DOWNLOAD ALL&apos;. Начнется загрузка файла.</li>
-						<li className='ml-[20px]'>Нажимаем красную кнопку. Появится надпись &apos;DOWNLOAD OVER&apos;</li>
-						<li className='ml-[20px]'>Ещё раз нажимаем красную кнопку. Терминал перезагрузится.</li>
 						<li className='ml-[20px]'>
-							В момент перезагрузки отсоединяем флешку. После перезагрузки начнётся загрузка UPOS.
+							Далее выбираем
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								DOWNLOAD ALL
+							</span>
+							. Начнется загрузка файла.
 						</li>
+						<li className='ml-[20px]'>
+							Нажимаем красную кнопку. Появится надпись
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								DOWNLOAD OVER
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Ещё раз нажимаем красную кнопку. Терминал перезагрузится.
+						</li>
+						<li className='ml-[20px]'>
+							В момент перезагрузки отсоединяем флешку
+						</li>
+						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
 					</ul>
 					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Видео
@@ -724,7 +1011,12 @@ export const useRootStore = create<RootState>(set => ({
 			bgColor: '#08a4e1',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Видео', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
 					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
@@ -734,33 +1026,102 @@ export const useRootStore = create<RootState>(set => ({
 						<li className='ml-[20px]'>Компьютер</li>
 						<li className='ml-[20px]'>Комплектный провод</li>
 						<li className='ml-[20px]'>Программа TermAssist</li>
-						<li className='ml-[20px]'>Файл с прошивкой</li>
-						<li className='ml-[20px]'>Драйвер</li>
+						<li className='ml-[20px]'>
+							<Link
+								href={'#'}
+								target='_blank'
+								download
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#08a4e1] text-white`}
+							>
+								Файл прошивки
+							</Link>
+						</li>
+						<li className='ml-[20px]'>
+							<Link
+								href={'#'}
+								target='_blank'
+								download
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#08a4e1] text-white`}
+							>
+								Драйвер
+							</Link>
+						</li>
 					</ul>
 					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>
-							Проверяем установлен ли драйвер на компьютере. Заходим в диспетчер устройств. Если терминал не присвоил
-							себе порт то устанавливаем драйвер
+							Проверяем установлен ли драйвер на компьютере. Заходим в диспетчер
+							устройств. Если терминал не присвоил себе порт то устанавливаем
+							драйвер
 						</li>
-						<li className='ml-[20px]'>Подключаем терминал к порту USB компьютера</li>
-						<li className='ml-[20px]'>Многократно нажимаем на двойку до появления системного меню</li>
-						<li className='ml-[20px]'>В Выбираем первый пункт - System Config</li>
-						<li className='ml-[20px]'>Вводим пароль - 123456</li>
-						<li className='ml-[20px]'>Нажимаем 4 чтобы включить XCB Service</li>
-						<li className='ml-[20px]'>В появившемся меню выбираем пункт 3 - USB</li>
-						<li className='ml-[20px]'>В скачанной на компьютер папке запуcкаем программу Starter</li>
 						<li className='ml-[20px]'>
-							Вводим номер порта на котором подключен наш терминал. Номер порта можно посмотреть в диспетчере устройств
+							Подключаем терминал к порту USB компьютера
+						</li>
+						<li className='ml-[20px]'>
+							Многократно нажимаем на двойку до появления системного меню
+						</li>
+						<li className='ml-[20px]'>
+							В Выбираем первый пункт -
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								System Config
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Вводим пароль -
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#08a4e1] text-white`}
+							>
+								123456
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Нажимаем 4 чтобы включить
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								XCB Service
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							В появившемся меню выбираем пункт 3 -{' '}
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								USB
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							В скачанной на компьютер папке запуcкаем программу{' '}
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Starter
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Вводим номер порта на котором подключен наш терминал. Номер порта
+							можно посмотреть в диспетчере устройств
 						</li>
 						<li className='ml-[20px]'>Выбираем нужную нам прошивку</li>
 						<li className='ml-[20px]'>Дожидаемся окончания загрузки</li>
-						<li className='ml-[20px]'>На терминале выбираем 4 пункт - XCB Service</li>
-						<li className='ml-[20px]'>Нажимаем на единицу - Close Service</li>
-						<li className='ml-[20px]'>Несколько раз нажимаем на красную кнопку и выключаем терминал</li>
-						<li className='ml-[20px]'>После перезагрузки терминала остаётся дождаться загрузки UPOS</li>
+						<li className='ml-[20px]'>
+							На терминале выбираем 4 пункт -
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 `}
+							>
+								XCB Service
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Нажимаем на единицу -
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 `}
+							>
+								Close Service
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Несколько раз нажимаем на красную кнопку и выключаем терминал
+						</li>
+						<li className='ml-[20px]'>
+							После перезагрузки терминала остаётся дождаться загрузки UPOS
+						</li>
 					</ul>
 					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Видео
@@ -782,35 +1143,106 @@ export const useRootStore = create<RootState>(set => ({
 			bgColor: '#08a4e1',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Видео', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
 					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
-						<li className='ml-[20px]'>Программа PC Loader</li>
+						<li className='ml-[20px]'>
+							Программа
+							<Link
+								href={'#'}
+								target='_blank'
+								download
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#08a4e1] text-white`}
+							>
+								PC Loader
+							</Link>
+						</li>
 						<li className='ml-[20px]'>Переходник</li>
+						<li className='ml-[20px]'>
+							<Link
+								href={'#'}
+								target='_blank'
+								download
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#08a4e1] text-white`}
+							>
+								Файл прошивки
+							</Link>
+						</li>
 					</ul>
 					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Подключаем терминал</li>
-						<li className='ml-[20px]'>При включении многократно нажимаем кнопку F1</li>
-						<li className='ml-[20px]'>После того как на экране появится меню нажимаем красную кнопку</li>
-						<li className='ml-[20px]'>На компьютере запускаем программу PC Loader</li>
-						<li className='ml-[20px]'>Заходим в Setting</li>
 						<li className='ml-[20px]'>
-							В поле Serial Port выбираем порт на котором подключен наш терминал. Номер порта можно посмотреть в
-							диспетчере устройств
+							При включении многократно нажимаем кнопку
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								F1
+							</span>
 						</li>
-						<li className='ml-[20px]'>Заходим в Application</li>
-						<li className='ml-[20px]'>Указать путь до файла прошивки</li>
-						<li className='ml-[20px]'>Нажимаем APP Info</li>
-						<li className='ml-[20px]'>Нажимаем Refresh</li>
-						<li className='ml-[20px]'>Все найденные файлы удаляем. Нажимаем Delete</li>
-						<li className='ml-[20px]'>После того как файлы удалятся нажимаем Download</li>
+						<li className='ml-[20px]'>
+							После того как на экране появится меню нажимаем красную кнопку
+						</li>
+						<li className='ml-[20px]'>
+							На компьютере запускаем программу
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								PC Loader
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Заходим в
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Setting
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							В поле
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Serial Port
+							</span>
+							выбираем порт на котором подключен наш терминал. Номер порта можно
+							посмотреть в диспетчере устройств
+						</li>
+						<li className='ml-[20px]'>
+							Заходим в
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Application
+							</span>
+						</li>
+						<li className='ml-[20px]'>Указываем путь до файла прошивки</li>
+						<li className='ml-[20px]'>
+							Нажимаем
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								APP Info
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Нажимаем
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Refresh
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Все найденные файлы удаляем. Нажимаем
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Delete
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							После того как файлы удалятся нажимаем
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Download
+							</span>
+						</li>
 						<li className='ml-[20px]'>Дожидаемся окончания прошивки</li>
 						<li className='ml-[20px]'>Нажимаем красную кнопку</li>
 						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
@@ -835,40 +1267,115 @@ export const useRootStore = create<RootState>(set => ({
 			bgColor: '#08a4e1',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Видео', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
 					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
-						<li className='ml-[20px]'>Папка с файлами</li>
-						<li className='ml-[20px]'>Драйвер</li>
+						<li className='ml-[20px]'>
+							<Link
+								href={'#'}
+								target='_blank'
+								download
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#08a4e1] text-white`}
+							>
+								Папка с файлами
+							</Link>
+						</li>
+						<li className='ml-[20px]'>
+							<Link
+								href={'#'}
+								target='_blank'
+								download
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#08a4e1] text-white`}
+							>
+								Драйвер
+							</Link>
+						</li>
 					</ul>
 					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>
-							Проверяем установлен ли драйвер на компьютере. Заходим в диспетчер устройств. Если терминал не присвоил
-							себе порт то устанавливаем драйвер
+							Проверяем установлен ли драйвер на компьютере. Заходим в диспетчер
+							устройств. Если терминал не присвоил себе порт то устанавливаем
+							драйвер
 						</li>
-						<li className='ml-[20px]'>Подключаем терминал к порту USB компьютера</li>
-						<li className='ml-[20px]'>Многократно нажимаем на двойку до появления системного меню</li>
-						<li className='ml-[20px]'>В Выбираем первый пункт - System Config</li>
-						<li className='ml-[20px]'>Вводим пароль - 123456</li>
-						<li className='ml-[20px]'>Нажимаем 4 чтобы включить XCB Service</li>
-						<li className='ml-[20px]'>В появившемся меню выбираем пункт 3 - USB</li>
-						<li className='ml-[20px]'>В скачанной на компьютер папке запуcкаем программу Starter</li>
 						<li className='ml-[20px]'>
-							Вводим номер порта на котором подключен наш терминал. Номер порта можно посмотреть в диспетчере устройств
+							Подключаем терминал к порту USB компьютера
+						</li>
+						<li className='ml-[20px]'>
+							Многократно нажимаем на двойку до появления системного меню
+						</li>
+						<li className='ml-[20px]'>
+							В Выбираем первый пункт -
+							<span className={`${badgeVariants({ variant: 'outline' })} mr-2`}>
+								System Config
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Вводим пароль -
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#08a4e1] text-white`}
+							>
+								123456
+							</span>
+						</li>
+
+						<li className='ml-[20px]'>
+							Нажимаем 4 чтобы включить
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								XCB Service
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							В появившемся меню выбираем пункт 3 -{' '}
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								USB
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							В скачанной на компьютер папке запуcкаем программу{' '}
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Starter
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Вводим номер порта на котором подключен наш терминал. Номер порта
+							можно посмотреть в диспетчере устройств
 						</li>
 						<li className='ml-[20px]'>Выбираем нужную нам прошивку</li>
 						<li className='ml-[20px]'>Дожидаемся окончания загрузки</li>
-						<li className='ml-[20px]'>На терминале выбираем 4 пункт - XCB Service</li>
-						<li className='ml-[20px]'>Нажимаем на единицу - Close Service</li>
-						<li className='ml-[20px]'>Несколько раз нажимаем на красную кнопку и выключаем терминал</li>
-						<li className='ml-[20px]'>После перезагрузки терминала остаётся дождаться загрузки UPOS</li>
+						<li className='ml-[20px]'>
+							На терминале выбираем 4 пункт -
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 `}
+							>
+								XCB Service
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Нажимаем на единицу -
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 `}
+							>
+								Close Service
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Несколько раз нажимаем на красную кнопку и выключаем терминал
+						</li>
+						<li className='ml-[20px]'>
+							После перезагрузки терминала остаётся дождаться загрузки UPOS
+						</li>
 					</ul>
 					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Видео
@@ -890,7 +1397,12 @@ export const useRootStore = create<RootState>(set => ({
 			bgColor: '#6effd2',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#VeriFone', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Видео', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
 					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
@@ -899,15 +1411,17 @@ export const useRootStore = create<RootState>(set => ({
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
 						<li className='ml-[20px]'>
-							Папка{' '}
+							Папка
 							<Link
-								href={'https://drive.google.com/drive/folders/1cZYY60KgnU85nJDpRdDTStk1XVw6BLb6?usp=drive_link'}
+								href={
+									'https://drive.google.com/drive/folders/1cZYY60KgnU85nJDpRdDTStk1XVw6BLb6?usp=drive_link'
+								}
 								target='_blank'
 								download
-								className='underline hover:no-underline'
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#6effd2]`}
 							>
 								verifone
-							</Link>{' '}
+							</Link>
 							с необходимыми файлами
 						</li>
 					</ul>
@@ -917,23 +1431,79 @@ export const useRootStore = create<RootState>(set => ({
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Включаем терминал</li>
 						<li className='ml-[20px]'>Присоединяем флешку</li>
-						<li className='ml-[20px]'>Для входа в системное меню одновременно зажимаем зелёную кнопку и цифру 7</li>
-						<li className='ml-[20px]'>Вводим пароль - 1 alpha alpha 6 6 8 3 1</li>
-						<li className='ml-[20px]'>В меню выбираем пункт - Memory Function</li>
-						<li className='ml-[20px]'>выбираем пункт - Clear Mem</li>
-						<li className='ml-[20px]'>Повторяем пароль</li>
-						<li className='ml-[20px]'>Выбираем 4 пункт - Clear all Groups</li>
-						<li className='ml-[20px]'>Подтверждаем нажатием кнопки 2 - Confirm</li>
-						<li className='ml-[20px]'>После того как терминал очистится нажимаем красную кнопку</li>
-						<li className='ml-[20px]'>Выбираем 1 - Restart. Устройство перезапустится</li>
-						<li className='ml-[20px]'>Терминал предложит загрузить все файлы - выбираем NO</li>
 						<li className='ml-[20px]'>
-							Далее по очереди будут предлагаться файлы прошивок. Выбираем нужную нам прошивку и нажимаем Yes
+							Для входа в системное меню одновременно зажимаем зелёную кнопку и
+							цифру 7
 						</li>
-						<li className='ml-[20px]'>Все остальные шаги нам не нужны. Нажимаем NO</li>
-						<li className='ml-[20px]'>Извлекаем флешку после того как терминал предложит это сделать</li>
+						<li className='ml-[20px]'>
+							Вводим пароль -
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#6effd2]`}
+							>
+								1 alpha alpha 6 6 8 3 1
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							В меню выбираем пункт -
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Memory Function
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							выбираем пункт -
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Clear Mem
+							</span>
+						</li>
+						<li className='ml-[20px]'>Повторяем пароль</li>
+						<li className='ml-[20px]'>
+							Выбираем 4 пункт -
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Clear all Groups
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Подтверждаем нажатием кнопки 2 -
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Confirm
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							После того как терминал очистится нажимаем красную кнопку
+						</li>
+						<li className='ml-[20px]'>
+							Выбираем 1 -
+							<span className={`${badgeVariants({ variant: 'outline' })} ml-2`}>
+								Restart
+							</span>
+							. Устройство перезапустится
+						</li>
+						<li className='ml-[20px]'>
+							Терминал предложит загрузить все файлы - выбираем
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								NO
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Далее по очереди будут предлагаться файлы прошивок. Выбираем
+							нужную нам прошивку и нажимаем
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								YES
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Все остальные шаги нам не нужны. Нажимаем
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								NO
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Извлекаем флешку после того как терминал предложит это сделать
+						</li>
 						<li className='ml-[20px]'>Нажимаем зелёную кнопку</li>
-						<li className='ml-[20px]'>Осталось дождаться окончания прошивки и загрузки UPOS</li>
+						<li className='ml-[20px]'>
+							Осталось дождаться окончания прошивки и загрузки UPOS
+						</li>
 					</ul>
 					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Видео
@@ -955,7 +1525,12 @@ export const useRootStore = create<RootState>(set => ({
 			bgColor: '#6effd2',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#VeriFone', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Видео', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
 					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
@@ -966,10 +1541,12 @@ export const useRootStore = create<RootState>(set => ({
 						<li className='ml-[20px]'>Блок питания micro-USB</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={'https://drive.google.com/drive/folders/19MO7THGTlL8OWdVknxXMB5i0YUGxmcZr?usp=drive_link'}
+								href={
+									'https://drive.google.com/drive/folders/19MO7THGTlL8OWdVknxXMB5i0YUGxmcZr?usp=drive_link'
+								}
 								target='_blank'
 								download
-								className='underline hover:no-underline'
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#6effd2]`}
 							>
 								Папка с файлами
 							</Link>
@@ -980,26 +1557,75 @@ export const useRootStore = create<RootState>(set => ({
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>
-							Сначала нужно войти в режим прошивки. Для этого одновременно зажимаем зелёную кнопку и цифру 7
+							Сначала нужно войти в режим прошивки. Для этого одновременно
+							зажимаем зелёную кнопку и цифру 7
 						</li>
-						<li className='ml-[20px]'>Вводим пароль - 166831</li>
-						<li className='ml-[20px]'>Нажимаем 6 - Clear Memory</li>
+						<li className='ml-[20px]'>
+							Вводим пароль -{' '}
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#6effd2]`}
+							>
+								166831
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Нажимаем 6 -
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Clear Memory
+							</span>
+						</li>
 						<li className='ml-[20px]'>Повторяем пароль</li>
-						<li className='ml-[20px]'>Выбираем 4 пункт - Clear all Groups</li>
-						<li className='ml-[20px]'>Подтверждаем нажатием кнопки 2 - Confirm</li>
-						<li className='ml-[20px]'>После того как терминал очистится нажимаем красную кнопку</li>
 						<li className='ml-[20px]'>
-							Выбираем 1 - Restart. Терминал перезапустится. На экране должна появиться надпись GO FILE NOT FOUND
+							Выбираем 4 пункт -{' '}
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Clear all Groups
+							</span>
 						</li>
 						<li className='ml-[20px]'>
-							Открываем на компьютере заранее скачанную папку и выбираем файл с моделью нашего терминала
+							Подтверждаем нажатием кнопки 2 -
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Confirm
+							</span>
 						</li>
-						<li className='ml-[20px]'>Откроется командная строка. Следуем инструкциям на экране. Нажимаем кнопку 1</li>
 						<li className='ml-[20px]'>
-							Ждем пока терминал очистится. На экране должна появится надпись No *GO variable
+							После того как терминал очистится нажимаем красную кнопку
 						</li>
-						<li className='ml-[20px]'>Нажимаем кнопку 2</li>
-						<li className='ml-[20px]'>Осталось дождаться окончания прошивки и загрузки UPOS</li>
+						<li className='ml-[20px]'>
+							Выбираем 1 -
+							<span className={`${badgeVariants({ variant: 'outline' })} ml-2`}>
+								Restart
+							</span>
+							. Терминал перезапустится. На экране должна появиться надпись
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								GO FILE NOT FOUND
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Открываем на компьютере заранее скачанную папку и выбираем файл с
+							моделью нашего терминала
+						</li>
+						<li className='ml-[20px]'>
+							Откроется командная строка. Следуем инструкциям на экране.
+							Нажимаем кнопку
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								1
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Ждем пока терминал очистится. На экране должна появится надпись{' '}
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								No *GO variable
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Нажимаем кнопку
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								2
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Осталось дождаться окончания прошивки и загрузки UPOS
+						</li>
 					</ul>
 					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Видео
@@ -1021,7 +1647,12 @@ export const useRootStore = create<RootState>(set => ({
 			bgColor: '#41e747',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Видео', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
 					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
@@ -1029,7 +1660,16 @@ export const useRootStore = create<RootState>(set => ({
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
-						<li className='ml-[20px]'>Папка с файлами</li>
+						<li className='ml-[20px]'>
+							<Link
+								href={'#'}
+								target='_blank'
+								download
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#41e747]`}
+							>
+								Папка с файлами
+							</Link>
+						</li>
 					</ul>
 					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Как прошить?
@@ -1037,31 +1677,114 @@ export const useRootStore = create<RootState>(set => ({
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Включаем терминал</li>
 						<li className='ml-[20px]'>Присоединяем флешку</li>
-						<li className='ml-[20px]'>Одновременно нажимаем желтую кнопку и точку. Держим до перезагрузки</li>
-						<li className='ml-[20px]'>Зажимаем F4. На экране терминала должна появиться надпись USB MASS STORAGE</li>
-						<li className='ml-[20px]'>Ждём появления меню. Выбираем FLASHCLEAN</li>
 						<li className='ml-[20px]'>
-							Ждём. На экране должна появиться надпись Software Activate OK. Терминал перезагрузится. После перезагрузки
-							на экране должна появиться надпись LLT
+							Одновременно нажимаем желтую кнопку и точку. Держим до
+							перезагрузки
 						</li>
-						<li className='ml-[20px]'>Одновременно нажимаем желтую кнопку и точку. Держим до перезагрузки</li>
-						<li className='ml-[20px]'>Зажимаем F4. На экране терминала должна появиться надпись USB MASS STORAGE</li>
-						<li className='ml-[20px]'>Ждём появления меню. Выбираем файл ОС - 9_32_3V</li>
+						<li className='ml-[20px]'>
+							Зажимаем
+							<span className={`${badgeVariants({ variant: 'outline' })} ml-2`}>
+								F4
+							</span>
+							. На экране терминала должна появиться надпись
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								USB MASS STORAGE
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Ждём появления меню. Выбираем
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								FLASHCLEAN
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Ждём. На экране должна появиться надпись
+							<span className={`${badgeVariants({ variant: 'outline' })} ml-2`}>
+								Software Activate OK
+							</span>
+							. Терминал перезагрузится. После перезагрузки на экране должна
+							появиться надпись
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								LLT
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Одновременно нажимаем желтую кнопку и точку. Держим до
+							перезагрузки
+						</li>
+						<li className='ml-[20px]'>
+							Зажимаем
+							<span className={`${badgeVariants({ variant: 'outline' })} ml-2`}>
+								F4
+							</span>
+							. На экране терминала должна появиться надпись
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								USB MASS STORAGE
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Ждём появления меню. Выбираем файл ОС -
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#41e747]`}
+							>
+								9_32_3V
+							</span>
+						</li>
 						<li className='ml-[20px]'>Дожидаемся загрузки файлов</li>
 						<li className='ml-[20px]'>
-							Ждём. На экране должна появиться надпись Software Activate OK. Терминал перезагрузится
+							Ждём. На экране должна появиться надпись{' '}
+							<span className={`${badgeVariants({ variant: 'outline' })} ml-2`}>
+								Software Activate OK
+							</span>
+							. Терминал перезагрузится
 						</li>
-						<li className='ml-[20px]'>Одновременно нажимаем желтую кнопку и точку. Держим до перезагрузки</li>
-						<li className='ml-[20px]'>Зажимаем F4. На экране терминала должна появиться надпись USB MASS STORAGE</li>
-						<li className='ml-[20px]'>Ждём появления меню. Выбираем файл Stempel</li>
+						<li className='ml-[20px]'>
+							Одновременно нажимаем желтую кнопку и точку. Держим до
+							перезагрузки
+						</li>
+						<li className='ml-[20px]'>
+							Зажимаем
+							<span className={`${badgeVariants({ variant: 'outline' })} ml-2`}>
+								F4
+							</span>
+							. На экране терминала должна появиться надпись
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								USB MASS STORAGE
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Ждём появления меню. Выбираем файл
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Stempel
+							</span>
+						</li>
 						<li className='ml-[20px]'>Дожидаемся загрузки файлов</li>
 						<li className='ml-[20px]'>
-							Ждём. На экране должна появиться надпись Software Activate OK. Терминал перезагрузится
+							Ждём. На экране должна появиться надпись{' '}
+							<span className={`${badgeVariants({ variant: 'outline' })} ml-2`}>
+								Software Activate OK
+							</span>
+							. Терминал перезагрузится
 						</li>
-						<li className='ml-[20px]'>Зажимаем F4. На экране терминала должна появиться надпись USB MASS STORAGE</li>
-						<li className='ml-[20px]'>Ждём появления меню. Выбираем файл с моделью нашего терминала</li>
 						<li className='ml-[20px]'>
-							Ждём. На экране должна появиться надпись Software Activate OK. Терминал перезагрузится
+							Зажимаем
+							<span className={`${badgeVariants({ variant: 'outline' })} ml-2`}>
+								F4
+							</span>
+							. На экране терминала должна появиться надпись
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								USB MASS STORAGE
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Ждём появления меню. Выбираем файл с моделью нашего терминала
+						</li>
+						<li className='ml-[20px]'>
+							Ждём. На экране должна появиться надпись
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Software Activate OK
+							</span>
+							. Терминал перезагрузится
 						</li>
 						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
 					</ul>
@@ -1085,77 +1808,219 @@ export const useRootStore = create<RootState>(set => ({
 			bgColor: '#41e747',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Видео', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
 					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
-						<li className='ml-[20px]'>Программа LLT</li>
-						<li className='ml-[20px]'>Папка с файлами</li>
+						<li className='ml-[20px]'>
+							Программа
+							<Link
+								href={'#'}
+								target='_blank'
+								download
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#41e747] text-white`}
+							>
+								LLT
+							</Link>
+						</li>
+						<li className='ml-[20px]'>
+							<Link
+								href={'#'}
+								target='_blank'
+								download
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#41e747] text-white`}
+							>
+								Папка с файлами
+							</Link>
+						</li>
 					</ul>
 					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
-						<li className='ml-[20px]'>Запускаем программу LLT</li>
-						<li className='ml-[20px]'>Нажимаем New Catalogue</li>
 						<li className='ml-[20px]'>
-							Если в нижней правой части экрана не отображается порт на котором висит терминал, то нужно установить
-							драйвер
+							Запускаем программу
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								LLT
+							</span>
 						</li>
 						<li className='ml-[20px]'>
-							Для того чтобы перейти в режим LLT одновременно зажимаем жёлтую кнопку и точку. Когда терминал начнёт
-							перезагрузку отпускаем эти кнопки и зажимаем F1 и держим. После того как на экране появится * отпускаем F1
-							и быстро нажимаем F2 F3 F4. На экране должна появиться надпись LLT
+							Нажимаем
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								New Catalogue
+							</span>
 						</li>
 						<li className='ml-[20px]'>
-							В нижней правой части экрана дважды нажимаем на значок терминала. Выше должны появиться папки HOST и SWAP.
-							Удаляем папку HOST
+							Если в нижней правой части экрана не отображается порт на котором
+							висит терминал, то нужно установить драйвер
 						</li>
 						<li className='ml-[20px]'>
-							В левой части экрана в папке FLASHCLEAN кликаем правой кнопкой мыши по файлу IPP3XX_CLEAN. Нажимаем
-							download
+							Для того чтобы перейти в режим LLT одновременно зажимаем жёлтую
+							кнопку и точку. Когда терминал начнёт перезагрузку отпускаем эти
+							кнопки и зажимаем
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								F1
+							</span>
+							и держим. После того как на экране появится
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								*
+							</span>
+							отпускаем
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								F1
+							</span>
+							и быстро поочерёдно нажимаем
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								F2
+							</span>
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								F3
+							</span>
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								F4
+							</span>
+							. На экране должна появиться надпись LLT
 						</li>
 						<li className='ml-[20px]'>
-							После загрузки файлов в нижней правой части экрана дважды нажимаем на значок терминала и ждём. Термина сам
-							должен перезагрузиться. Дожидаемся появления надписи LLT на экране терминала
+							В нижней правой части экрана дважды нажимаем на значок терминала.
+							Выше должны появиться папки
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								HOST
+							</span>
+							и
+							<span className={`${badgeVariants({ variant: 'outline' })} ml-2`}>
+								SWAP
+							</span>
+							. Удаляем папку
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								HOST
+							</span>
 						</li>
 						<li className='ml-[20px]'>
-							На компьютере снова подключаем наше устройство двойным нажатием на значок терминала
+							В левой части экрана в папке
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								FLASHCLEAN
+							</span>
+							кликаем правой кнопкой мыши по файлу
+							<span className={`${badgeVariants({ variant: 'outline' })} ml-2`}>
+								IPP3XX_CLEAN
+							</span>
+							. Нажимаем
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								download
+							</span>
 						</li>
-						<li className='ml-[20px]'>В правой части экрана выбираем файл ОС - 9_32_3V</li>
 						<li className='ml-[20px]'>
-							После окончания загрузки в нижней правой части экрана снова дважды нажимаем на значок терминала чтобы
-							отконнектиться. Ждём перезагрузки терминала
+							После загрузки файлов в нижней правой части экрана дважды нажимаем
+							на значок терминала и ждём. Термина сам должен перезагрузиться.
+							Дожидаемся появления надписи LLT на экране терминала
 						</li>
 						<li className='ml-[20px]'>
-							На терминале принимаем все пункты меню. Нажимаем зеленую кнопку до появления надписи CHARGER UNE
-							APPLICATION
+							На компьютере снова подключаем наше устройство двойным нажатием на
+							значок терминала
 						</li>
-						<li className='ml-[20px]'>Перезагружаем терминал одновременным нажатием желтой кнопки и точки</li>
 						<li className='ml-[20px]'>
-							После того как начнется перезагрузка многократно нажимаем кнопку F пока не появится системное меню
+							В правой части экрана выбираем файл ОС -
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#41e747]`}
+							>
+								9_32_3V
+							</span>
 						</li>
-						<li className='ml-[20px]'>Выбираем пункт - Local Download. Терминал снова войдёт в режим LLT</li>
 						<li className='ml-[20px]'>
-							На компьютере снова приконнекчиваем терминал. Дважды нажимаем на значок терминала
+							После окончания загрузки в нижней правой части экрана снова дважды
+							нажимаем на значок терминала чтобы отконнектиться. Ждём
+							перезагрузки терминала
 						</li>
-						<li className='ml-[20px]'>В Левой части экрана выбираем файл STEMPEL</li>
-						<li className='ml-[20px]'>После загрузки файла отконнекчиваем терминал двойным нажатием на значок.</li>
+						<li className='ml-[20px]'>
+							На терминале принимаем все пункты меню. Нажимаем зеленую кнопку до
+							появления надписи
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 `}
+							>
+								CHARGER UNE APPLICATION
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Перезагружаем терминал одновременным нажатием желтой кнопки и
+							точки
+						</li>
+						<li className='ml-[20px]'>
+							После того как начнется перезагрузка многократно нажимаем кнопку
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 `}
+							>
+								F
+							</span>
+							пока не появится системное меню
+						</li>
+						<li className='ml-[20px]'>
+							Выбираем пункт -
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} ml-2 `}
+							>
+								Local Download
+							</span>
+							. Терминал снова войдёт в режим LLT
+						</li>
+						<li className='ml-[20px]'>
+							На компьютере снова приконнекчиваем терминал. Дважды нажимаем на
+							значок терминала
+						</li>
+						<li className='ml-[20px]'>
+							В Левой части экрана выбираем файл
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} ml-2 `}
+							>
+								STEMPEL
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							После загрузки файла отконнекчиваем терминал двойным нажатием на
+							значок.
+						</li>
 						<li className='ml-[20px]'>Ждём пока терминал перезапустится</li>
-						<li className='ml-[20px]'>Перезагружаем терминал вручную одновременным нажатием желтой кнопки и точки</li>
 						<li className='ml-[20px]'>
-							После того как начнется перезагрузка многократно нажимаем кнопку F пока не появится системное меню
-						</li>
-						<li className='ml-[20px]'>Выбираем пункт - Local Download. Терминал снова войдёт в режим LLT</li>
-						<li className='ml-[20px]'>Снова приконнекчиваем терминал. Дважды нажимаем на значок терминала</li>
-						<li className='ml-[20px]'>
-							В Левой части экрана находим папку с названием нашего терминала и выбираем нужную прошивку
+							Перезагружаем терминал вручную одновременным нажатием желтой
+							кнопки и точки
 						</li>
 						<li className='ml-[20px]'>
-							После окончания прошивки дважды нажимаем на значок. Ждём перезагрузки терминала
+							После того как начнется перезагрузка многократно нажимаем кнопку
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} ml-2 `}
+							>
+								F
+							</span>
+							пока не появится системное меню
+						</li>
+						<li className='ml-[20px]'>
+							Выбираем пункт -
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} ml-2 `}
+							>
+								Local Download
+							</span>
+							. Терминал снова войдёт в режим LLT
+						</li>
+						<li className='ml-[20px]'>
+							Снова приконнекчиваем терминал. Дважды нажимаем на значок
+							терминала
+						</li>
+						<li className='ml-[20px]'>
+							В Левой части экрана находим папку с названием нашего терминала и
+							выбираем нужную прошивку
+						</li>
+						<li className='ml-[20px]'>
+							После окончания прошивки дважды нажимаем на значок. Ждём
+							перезагрузки терминала
 						</li>
 						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
 					</ul>
@@ -1179,7 +2044,12 @@ export const useRootStore = create<RootState>(set => ({
 			bgColor: '#41e747',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Видео', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
 					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
@@ -1187,38 +2057,102 @@ export const useRootStore = create<RootState>(set => ({
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Переходник USB мама - mini USB папа</li>
-						<li className='ml-[20px]'>Папка с файлами</li>
+						<li className='ml-[20px]'>
+							<Link
+								href={'#'}
+								target='_blank'
+								download
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#41e747]`}
+							>
+								Папка с файлами
+							</Link>
+						</li>
 					</ul>
 					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
-						<li className='ml-[20px]'>Подключаем флешку с помощью переходника</li>
 						<li className='ml-[20px]'>
-							Включаем терминал нажатием на зелёную кнопку и сразу же зажимаем F4. Должна появиться надпись USB MASS
-							STORAGE
+							Подключаем флешку с помощью переходника
+						</li>
+						<li className='ml-[20px]'>
+							Включаем терминал нажатием на зелёную кнопку и сразу же зажимаем
+							<span className={`${badgeVariants({ variant: 'outline' })} ml-2`}>
+								F4
+							</span>
+							. Должна появиться надпись
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								USB MASS STORAGE
+							</span>
 						</li>
 						<li className='ml-[20px]'>Дожидаемся появления меню</li>
-						<li className='ml-[20px]'>Выбираем пункт FLASHCLEAN</li>
+						<li className='ml-[20px]'>
+							Выбираем пункт
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								FLASHCLEAN
+							</span>
+						</li>
 						<li className='ml-[20px]'>Ждём очистки и перезагрузки терминала</li>
 						<li className='ml-[20px]'>
-							После того как на экране появится надпись LLT одновременно зажимаем жёлтую кнопку и точку. Терминал
-							выключится
+							После того как на экране появится надпись
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								LLT
+							</span>
+							одновременно зажимаем жёлтую кнопку и точку. Терминал выключится
 						</li>
-						<li className='ml-[20px]'>Включаем терминал нажатием на зелёную кнопку</li>
-						<li className='ml-[20px]'>В меню выбираем пункт - 9_32_3V</li>
-						<li className='ml-[20px]'>Ждём установки файлов и перезагрузки терминала</li>
 						<li className='ml-[20px]'>
-							После перезагрузки терминала одновременно зажимаем жёлтую кнопку и точку. Терминал выключится
+							Включаем терминал нажатием на зелёную кнопку
 						</li>
-						<li className='ml-[20px]'>Включаем терминал нажатием на зелёную кнопку и сразу же зажимаем F4</li>
-						<li className='ml-[20px]'>В меню выбираем файл - Stempel</li>
 						<li className='ml-[20px]'>
-							После перезагрузки терминала одновременно зажимаем жёлтую кнопку и точку. Терминал выключится
+							В меню выбираем пункт -
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#41e747]`}
+							>
+								9_32_3V
+							</span>
 						</li>
-						<li className='ml-[20px]'>Включаем терминал нажатием на зелёную кнопку и сразу же зажимаем F4</li>
-						<li className='ml-[20px]'>В меню выбираем файл с названием модели нашего устройства</li>
-						<li className='ml-[20px]'>После того как терминал перезагрузится останется дождаться загрузки UPOS</li>
+						<li className='ml-[20px]'>
+							Ждём установки файлов и перезагрузки терминала
+						</li>
+						<li className='ml-[20px]'>
+							После перезагрузки терминала одновременно зажимаем жёлтую кнопку и
+							точку. Терминал выключится
+						</li>
+						<li className='ml-[20px]'>
+							Включаем терминал нажатием на зелёную кнопку и сразу же зажимаем
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 `}
+							>
+								F4
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							В меню выбираем файл -
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 `}
+							>
+								Stempel
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							После перезагрузки терминала одновременно зажимаем жёлтую кнопку и
+							точку. Терминал выключится
+						</li>
+						<li className='ml-[20px]'>
+							Включаем терминал нажатием на зелёную кнопку и сразу же зажимаем
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 `}
+							>
+								F4
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							В меню выбираем файл с названием модели нашего устройства
+						</li>
+						<li className='ml-[20px]'>
+							После того как терминал перезагрузится останется дождаться
+							загрузки UPOS
+						</li>
 					</ul>
 					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Видео
@@ -1240,7 +2174,12 @@ export const useRootStore = create<RootState>(set => ({
 			bgColor: '#ffd829',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Tactilion', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Видео', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
 					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
@@ -1248,7 +2187,16 @@ export const useRootStore = create<RootState>(set => ({
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
-						<li className='ml-[20px]'>Папака с файлами</li>
+						<li className='ml-[20px]'>
+							<Link
+								href={'#'}
+								target='_blank'
+								download
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#ffd829] text-white`}
+							>
+								Папка с файлами
+							</Link>
+						</li>
 					</ul>
 					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Как прошить?
@@ -1257,15 +2205,43 @@ export const useRootStore = create<RootState>(set => ({
 						<li className='ml-[20px]'>Подключаем флешку к терминалу</li>
 						<li className='ml-[20px]'>Нажимаем на кнопку включения</li>
 						<li className='ml-[20px]'>
-							После того как терминал издаст звуковой сигнал быстро зажимаем клавиши F и 1. Держим пока не появится
-							системное меню
+							После того как терминал издаст звуковой сигнал быстро зажимаем
+							клавиши
+							<span className={`${badgeVariants({ variant: 'outline' })} mr-2`}>
+								F
+							</span>
+							и
+							<span className={`${badgeVariants({ variant: 'outline' })} ml-2`}>
+								1
+							</span>
+							. Держим пока не появится системное меню
 						</li>
-						<li className='ml-[20px]'>Для начала очищаем терминал. Выбираем пункт 4 - Clear APPs</li>
-						<li className='ml-[20px]'>Вводим пароль - 83890345</li>
-						<li className='ml-[20px]'>Подтверждаем нажатием на зелёную кнопку</li>
-						<li className='ml-[20px]'>В меню выбираем пункт 3 - U disk download</li>
 						<li className='ml-[20px]'>
-							После завершения прошивки дважды нажимаем кнопку назад и один раз зеленую кнопку
+							Для начала очищаем терминал. Выбираем пункт 4 -
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Clear APPs
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Вводим пароль -
+							<span
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#ffd829] text-white`}
+							>
+								83890345
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Подтверждаем нажатием на зелёную кнопку
+						</li>
+						<li className='ml-[20px]'>
+							В меню выбираем пункт 3 -
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								U disk download
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							После завершения прошивки дважды нажимаем кнопку назад и один раз
+							зеленую кнопку
 						</li>
 						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
 					</ul>
@@ -1289,7 +2265,12 @@ export const useRootStore = create<RootState>(set => ({
 			bgColor: '#704ecc',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Castles', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Видео', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
 					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
@@ -1298,27 +2279,73 @@ export const useRootStore = create<RootState>(set => ({
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
 						<li className='ml-[20px]'>Переходник USB мама - mini USB папа</li>
-						<li className='ml-[20px]'>Папка с файлами</li>
+						<li className='ml-[20px]'>
+							<Link
+								href={'#'}
+								target='_blank'
+								download
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#704ecc] text-white`}
+							>
+								Папка с файлами
+							</Link>
+						</li>
 					</ul>
 					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>
-							Подключаем флешку с помощью переходника к порту USB1 на задней стороне терминала
+							Подключаем флешку с помощью переходника к порту
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								USB1
+							</span>
+							на задней стороне терминала
 						</li>
 						<li className='ml-[20px]'>
-							Включаем терминал и многократно нажимаем на красную кнопку пока не появится системное меню
+							Включаем терминал и многократно нажимаем на красную кнопку пока не
+							появится системное меню
 						</li>
-						<li className='ml-[20px]'>Удаляем старый UPOS - кнопка 2</li>
+						<li className='ml-[20px]'>
+							Удаляем старый UPOS - кнопка
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								2
+							</span>
+						</li>
 						<li className='ml-[20px]'>Подтверждаем удаление</li>
-						<li className='ml-[20px]'>Нажимаем 0</li>
-						<li className='ml-[20px]'>В появившемся меню выбираем пункт 1 - Download AP</li>
-						<li className='ml-[20px]'>Далее выбираем пункт 2 - USB Disk</li>
-						<li className='ml-[20px]'>После завершения прошивки нажимаем любую кнопку</li>
+						<li className='ml-[20px]'>
+							Нажимаем
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								0
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							В появившемся меню выбираем пункт 1 -
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Download AP
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Далее выбираем пункт 2 -
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								USB Disk
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							После завершения прошивки нажимаем любую кнопку
+						</li>
 						<li className='ml-[20px]'>Дважды нажимаем красную кнопку</li>
-						<li className='ml-[20px]'>На экране должна появиться надпись [Default Select]</li>
-						<li className='ml-[20px]'>Если её нет нажимаем 1</li>
+						<li className='ml-[20px]'>
+							На экране должна появиться надпись
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								[Default Select]
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Если её нет нажимаем
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								1
+							</span>
+						</li>
 						<li className='ml-[20px]'>Нажимаем зелёную кнопку</li>
 						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
 					</ul>
@@ -1342,7 +2369,12 @@ export const useRootStore = create<RootState>(set => ({
 			bgColor: '#704ecc',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Castles', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Видео', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
 					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
@@ -1351,25 +2383,70 @@ export const useRootStore = create<RootState>(set => ({
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
 						<li className='ml-[20px]'>Переходник USB мама - mini USB папа</li>
-						<li className='ml-[20px]'>Папка с файлами</li>
+						<li className='ml-[20px]'>
+							<Link
+								href={'#'}
+								target='_blank'
+								download
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#704ecc] text-white`}
+							>
+								Папка с файлами
+							</Link>
+						</li>
 					</ul>
 					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Включаем терминал</li>
-						<li className='ml-[20px]'>Подключаем флешку с помощью переходника</li>
+						<li className='ml-[20px]'>
+							Подключаем флешку с помощью переходника
+						</li>
 						<li className='ml-[20px]'>Перезагружаем терминал</li>
-						<li className='ml-[20px]'>Многократно нажимаем красную кнопку до появления системного меню</li>
-						<li className='ml-[20px]'>Удаляем старый UPOS - кнопка 2</li>
+						<li className='ml-[20px]'>
+							Многократно нажимаем красную кнопку до появления системного меню
+						</li>
+						<li className='ml-[20px]'>
+							Удаляем старый UPOS - кнопка
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								2
+							</span>
+						</li>
 						<li className='ml-[20px]'>Подтверждаем удаление</li>
-						<li className='ml-[20px]'>Нажимаем 0</li>
-						<li className='ml-[20px]'>В появившемся меню выбираем пункт 1 - Download AP</li>
-						<li className='ml-[20px]'>Далее выбираем пункт 2 - USB Disk</li>
-						<li className='ml-[20px]'>После завершения прошивки нажимаем любую кнопку</li>
+						<li className='ml-[20px]'>
+							Нажимаем
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								0
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							В появившемся меню выбираем пункт 1 -
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Download AP
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Далее выбираем пункт 2 -
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								USB Disk
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							После завершения прошивки нажимаем любую кнопку
+						</li>
 						<li className='ml-[20px]'>Дважды нажимаем красную кнопку</li>
-						<li className='ml-[20px]'>На экране должна появиться надпись [Default Select]</li>
-						<li className='ml-[20px]'>Если её нет нажимаем 1</li>
+						<li className='ml-[20px]'>
+							На экране должна появиться надпись
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								[Default Select]
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Если её нет нажимаем
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								1
+							</span>
+						</li>
 						<li className='ml-[20px]'>Нажимаем зелёную кнопку</li>
 						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
 					</ul>
@@ -1393,7 +2470,12 @@ export const useRootStore = create<RootState>(set => ({
 			bgColor: '#704ecc',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Castles', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Видео', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
 					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
@@ -1403,27 +2485,76 @@ export const useRootStore = create<RootState>(set => ({
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
 						<li className='ml-[20px]'>Комплектный провод</li>
 						<li className='ml-[20px]'>Переходник USB мама - mini USB папа</li>
-						<li className='ml-[20px]'>Папка с файлами</li>
+						<li className='ml-[20px]'>
+							<Link
+								href={'#'}
+								target='_blank'
+								download
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#704ecc] text-white`}
+							>
+								Папка с файлами
+							</Link>
+						</li>
 					</ul>
 					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
-						<li className='ml-[20px]'>Подключить питание терминала к компьютеру</li>
-						<li className='ml-[20px]'>Подключить флешку с помощью переходника</li>
-						<li className='ml-[20px]'>Отключаем питание от компьютера и включаем стова чтобы перезагрузить терминал</li>
 						<li className='ml-[20px]'>
-							При включении многократно нажимаем красную кнопку до появления системного меню
+							Подключить питание терминала к компьютеру
 						</li>
-						<li className='ml-[20px]'>Удаляем старый UPOS - кнопка 2</li>
+						<li className='ml-[20px]'>
+							Подключить флешку с помощью переходника
+						</li>
+						<li className='ml-[20px]'>
+							Отключаем питание от компьютера и включаем стова чтобы
+							перезагрузить терминал
+						</li>
+						<li className='ml-[20px]'>
+							При включении многократно нажимаем красную кнопку до появления
+							системного меню
+						</li>
+						<li className='ml-[20px]'>
+							Удаляем старый UPOS - кнопка
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								2
+							</span>
+						</li>
 						<li className='ml-[20px]'>Подтверждаем удаление</li>
-						<li className='ml-[20px]'>Нажимаем 0</li>
-						<li className='ml-[20px]'>В появившемся меню выбираем пункт 1 - Download AP</li>
-						<li className='ml-[20px]'>Далее выбираем пункт 2 - USB Disk</li>
-						<li className='ml-[20px]'>После завершения прошивки нажимаем любую кнопку</li>
+						<li className='ml-[20px]'>
+							Нажимаем
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								0
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							В появившемся меню выбираем пункт 1 -
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Download AP
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Далее выбираем пункт 2 -
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								USB Disk
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							После завершения прошивки нажимаем любую кнопку
+						</li>
 						<li className='ml-[20px]'>Дважды нажимаем красную кнопку</li>
-						<li className='ml-[20px]'>На экране должна появиться надпись [Default Select]</li>
-						<li className='ml-[20px]'>Если её нет нажимаем 1</li>
+						<li className='ml-[20px]'>
+							На экране должна появиться надпись
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								[Default Select]
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Если её нет нажимаем
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								1
+							</span>
+						</li>
 						<li className='ml-[20px]'>Нажимаем зелёную кнопку</li>
 						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
 					</ul>
