@@ -1185,11 +1185,41 @@ export const useRootStore = create<RootState>(set => ({
 					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Что понадобится?
 					</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>Переходник USB мама - mini USB папа</li>
+						<li className='ml-[20px]'>Папка с файлами</li>
+					</ul>
 					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Как прошить?
 					</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>Подключаем флешку с помощью переходника</li>
+						<li className='ml-[20px]'>
+							Включаем терминал нажатием на зелёную кнопку и сразу же зажимаем F4. Должна появиться надпись USB MASS
+							STORAGE
+						</li>
+						<li className='ml-[20px]'>Дожидаемся появления меню</li>
+						<li className='ml-[20px]'>Выбираем пункт FLASHCLEAN</li>
+						<li className='ml-[20px]'>Ждём очистки и перезагрузки терминала</li>
+						<li className='ml-[20px]'>
+							После того как на экране появится надпись LLT одновременно зажимаем жёлтую кнопку и точку. Терминал
+							выключится
+						</li>
+						<li className='ml-[20px]'>Включаем терминал нажатием на зелёную кнопку</li>
+						<li className='ml-[20px]'>В меню выбираем пункт - 9_32_3V</li>
+						<li className='ml-[20px]'>Ждём установки файлов и перезагрузки терминала</li>
+						<li className='ml-[20px]'>
+							После перезагрузки терминала одновременно зажимаем жёлтую кнопку и точку. Терминал выключится
+						</li>
+						<li className='ml-[20px]'>Включаем терминал нажатием на зелёную кнопку и сразу же зажимаем F4</li>
+						<li className='ml-[20px]'>В меню выбираем файл - Stempel</li>
+						<li className='ml-[20px]'>
+							После перезагрузки терминала одновременно зажимаем жёлтую кнопку и точку. Терминал выключится
+						</li>
+						<li className='ml-[20px]'>Включаем терминал нажатием на зелёную кнопку и сразу же зажимаем F4</li>
+						<li className='ml-[20px]'>В меню выбираем файл с названием модели нашего устройства</li>
+						<li className='ml-[20px]'>После того как терминал перезагрузится останется дождаться загрузки UPOS</li>
+					</ul>
 					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Видео
 					</h2>
@@ -1216,11 +1246,29 @@ export const useRootStore = create<RootState>(set => ({
 					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Что понадобится?
 					</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>Флешка в формате FAT32</li>
+						<li className='ml-[20px]'>Папака с файлами</li>
+					</ul>
 					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Как прошить?
 					</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>Подключаем флешку к терминалу</li>
+						<li className='ml-[20px]'>Нажимаем на кнопку включения</li>
+						<li className='ml-[20px]'>
+							После того как терминал издаст звуковой сигнал быстро зажимаем клавиши F и 1. Держим пока не появится
+							системное меню
+						</li>
+						<li className='ml-[20px]'>Для начала очищаем терминал. Выбираем пункт 4 - Clear APPs</li>
+						<li className='ml-[20px]'>Вводим пароль - 83890345</li>
+						<li className='ml-[20px]'>Подтверждаем нажатием на зелёную кнопку</li>
+						<li className='ml-[20px]'>В меню выбираем пункт 3 - U disk download</li>
+						<li className='ml-[20px]'>
+							После завершения прошивки дважды нажимаем кнопку назад и один раз зеленую кнопку
+						</li>
+						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
+					</ul>
 					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Видео
 					</h2>
@@ -1247,11 +1295,33 @@ export const useRootStore = create<RootState>(set => ({
 					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Что понадобится?
 					</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>Флешка в формате FAT32</li>
+						<li className='ml-[20px]'>Переходник USB мама - mini USB папа</li>
+						<li className='ml-[20px]'>Папка с файлами</li>
+					</ul>
 					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Как прошить?
 					</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>
+							Подключаем флешку с помощью переходника к порту USB1 на задней стороне терминала
+						</li>
+						<li className='ml-[20px]'>
+							Включаем терминал и многократно нажимаем на красную кнопку пока не появится системное меню
+						</li>
+						<li className='ml-[20px]'>Удаляем старый UPOS - кнопка 2</li>
+						<li className='ml-[20px]'>Подтверждаем удаление</li>
+						<li className='ml-[20px]'>Нажимаем 0</li>
+						<li className='ml-[20px]'>В появившемся меню выбираем пункт 1 - Download AP</li>
+						<li className='ml-[20px]'>Далее выбираем пункт 2 - USB Disk</li>
+						<li className='ml-[20px]'>После завершения прошивки нажимаем любую кнопку</li>
+						<li className='ml-[20px]'>Дважды нажимаем красную кнопку</li>
+						<li className='ml-[20px]'>На экране должна появиться надпись [Default Select]</li>
+						<li className='ml-[20px]'>Если её нет нажимаем 1</li>
+						<li className='ml-[20px]'>Нажимаем зелёную кнопку</li>
+						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
+					</ul>
 					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Видео
 					</h2>
@@ -1278,11 +1348,31 @@ export const useRootStore = create<RootState>(set => ({
 					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Что понадобится?
 					</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>Флешка в формате FAT32</li>
+						<li className='ml-[20px]'>Переходник USB мама - mini USB папа</li>
+						<li className='ml-[20px]'>Папка с файлами</li>
+					</ul>
 					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Как прошить?
 					</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>Включаем терминал</li>
+						<li className='ml-[20px]'>Подключаем флешку с помощью переходника</li>
+						<li className='ml-[20px]'>Перезагружаем терминал</li>
+						<li className='ml-[20px]'>Многократно нажимаем красную кнопку до появления системного меню</li>
+						<li className='ml-[20px]'>Удаляем старый UPOS - кнопка 2</li>
+						<li className='ml-[20px]'>Подтверждаем удаление</li>
+						<li className='ml-[20px]'>Нажимаем 0</li>
+						<li className='ml-[20px]'>В появившемся меню выбираем пункт 1 - Download AP</li>
+						<li className='ml-[20px]'>Далее выбираем пункт 2 - USB Disk</li>
+						<li className='ml-[20px]'>После завершения прошивки нажимаем любую кнопку</li>
+						<li className='ml-[20px]'>Дважды нажимаем красную кнопку</li>
+						<li className='ml-[20px]'>На экране должна появиться надпись [Default Select]</li>
+						<li className='ml-[20px]'>Если её нет нажимаем 1</li>
+						<li className='ml-[20px]'>Нажимаем зелёную кнопку</li>
+						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
+					</ul>
 					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Видео
 					</h2>
@@ -1309,11 +1399,34 @@ export const useRootStore = create<RootState>(set => ({
 					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Что понадобится?
 					</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>Флешка в формате FAT32</li>
+						<li className='ml-[20px]'>Комплектный провод</li>
+						<li className='ml-[20px]'>Переходник USB мама - mini USB папа</li>
+						<li className='ml-[20px]'>Папка с файлами</li>
+					</ul>
 					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Как прошить?
 					</h2>
-					<ul className='list-disc text-xl flex flex-col gap-4'></ul>
+					<ul className='list-disc text-xl flex flex-col gap-4'>
+						<li className='ml-[20px]'>Подключить питание терминала к компьютеру</li>
+						<li className='ml-[20px]'>Подключить флешку с помощью переходника</li>
+						<li className='ml-[20px]'>Отключаем питание от компьютера и включаем стова чтобы перезагрузить терминал</li>
+						<li className='ml-[20px]'>
+							При включении многократно нажимаем красную кнопку до появления системного меню
+						</li>
+						<li className='ml-[20px]'>Удаляем старый UPOS - кнопка 2</li>
+						<li className='ml-[20px]'>Подтверждаем удаление</li>
+						<li className='ml-[20px]'>Нажимаем 0</li>
+						<li className='ml-[20px]'>В появившемся меню выбираем пункт 1 - Download AP</li>
+						<li className='ml-[20px]'>Далее выбираем пункт 2 - USB Disk</li>
+						<li className='ml-[20px]'>После завершения прошивки нажимаем любую кнопку</li>
+						<li className='ml-[20px]'>Дважды нажимаем красную кнопку</li>
+						<li className='ml-[20px]'>На экране должна появиться надпись [Default Select]</li>
+						<li className='ml-[20px]'>Если её нет нажимаем 1</li>
+						<li className='ml-[20px]'>Нажимаем зелёную кнопку</li>
+						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
+					</ul>
 					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Видео
 					</h2>
