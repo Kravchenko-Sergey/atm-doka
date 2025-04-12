@@ -129,9 +129,7 @@ export const useRootStore = create<RootState>((set) => ({
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={
-									'https://drive.google.com/uc?export=download&id=1zHNbojcHBEpuA6ZLaEWsBXmnnbTafb1g'
-								}
+								href={'https://disk.yandex.ru/d/eB9BL5llaTbtcw'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} bg-[#f15024] text-white`}
@@ -222,9 +220,7 @@ export const useRootStore = create<RootState>((set) => ({
 						</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={
-									'https://drive.google.com/uc?export=download&id=1zHNbojcHBEpuA6ZLaEWsBXmnnbTafb1g'
-								}
+								href={'https://disk.yandex.ru/d/eB9BL5llaTbtcw'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#f15024] text-white`}
@@ -285,9 +281,7 @@ export const useRootStore = create<RootState>((set) => ({
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={
-									'https://drive.google.com/uc?export=download&id=1n08SYgy72qF2susGP8Cnmw5tbupIaXX5'
-								}
+								href={'https://disk.yandex.ru/d/Zwk1HO1llawQwQ'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#f15024] text-white`}
@@ -302,9 +296,7 @@ export const useRootStore = create<RootState>((set) => ({
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>
 							<Link
-								href={
-									'https://drive.google.com/uc?export=download&id=1n08SYgy72qF2susGP8Cnmw5tbupIaXX5'
-								}
+								href={'https://disk.yandex.ru/d/Zwk1HO1llawQwQ'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#f15024] text-white`}
@@ -365,9 +357,7 @@ export const useRootStore = create<RootState>((set) => ({
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={
-									'https://drive.google.com/uc?export=download&id=1GfdNdQIm04HbXzrNA0fyVDik_z3q98Xk'
-								}
+								href={'https://disk.yandex.ru/d/6wPk2ywVHz_BpA'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} bg-[#f15024] text-white`}
@@ -382,9 +372,7 @@ export const useRootStore = create<RootState>((set) => ({
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>
 							<Link
-								href={
-									'https://drive.google.com/uc?export=download&id=1GfdNdQIm04HbXzrNA0fyVDik_z3q98Xk'
-								}
+								href={'https://disk.yandex.ru/d/6wPk2ywVHz_BpA'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#f15024] text-white`}
@@ -445,9 +433,7 @@ export const useRootStore = create<RootState>((set) => ({
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={
-									'https://drive.google.com/uc?export=download&id=1BO5nAbUB9ob3fGe2XGn954FrJZLoIVe2'
-								}
+								href={'https://disk.yandex.ru/d/wQphqGBH5Eh7Hg'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#f15024] text-white`}
@@ -463,9 +449,7 @@ export const useRootStore = create<RootState>((set) => ({
 						<li className='ml-[20px]'>
 							Скачайте
 							<Link
-								href={
-									'https://drive.google.com/uc?export=download&id=1BO5nAbUB9ob3fGe2XGn954FrJZLoIVe2'
-								}
+								href={'https://disk.yandex.ru/d/wQphqGBH5Eh7Hg'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#f15024] text-white`}
@@ -750,9 +734,7 @@ export const useRootStore = create<RootState>((set) => ({
 						<li className='ml-[20px]'>Переходник USB мама - mini USB папа</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={
-									'https://drive.google.com/uc?export=download&id=1A2_GfAb4UBjCabcKft7sIl-V-HV9Gkx9'
-								}
+								href={'https://disk.yandex.ru/d/1Ei0svpswKnAOQ'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#08a4e1] text-white`}
@@ -769,7 +751,17 @@ export const useRootStore = create<RootState>((set) => ({
 							Подсоединяем флешку с помощью переходника
 						</li>
 						<li className='ml-[20px]'>Включаем терминал</li>
-						<li className='ml-[20px]'>Выбираем нужный файл прошивки</li>
+						<li className='ml-[20px]'>
+							Выбираем нужный файл прошивки -
+							<Link
+								href={'https://disk.yandex.ru/d/1Ei0svpswKnAOQ'}
+								target='_blank'
+								download
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#08a4e1] text-white`}
+							>
+								!SB_S80_33.33
+							</Link>
+						</li>
 						<li className='ml-[20px]'>Подтверждаем выбор</li>
 						<li className='ml-[20px]'>
 							В появившемся меню выбираем первый пункт -
@@ -831,9 +823,7 @@ export const useRootStore = create<RootState>((set) => ({
 						<li className='ml-[20px]'>Переходник USB мама - mini USB папа</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={
-									'https://drive.google.com/uc?export=download&id=1A2_GfAb4UBjCabcKft7sIl-V-HV9Gkx9'
-								}
+								href={'https://disk.yandex.ru/d/GQPfUmSopiLFyA'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#08a4e1] text-white`}
@@ -850,7 +840,17 @@ export const useRootStore = create<RootState>((set) => ({
 							Подсоединяем флешку с помощью переходника
 						</li>
 						<li className='ml-[20px]'>Включаем терминал</li>
-						<li className='ml-[20px]'>Выбираем нужный файл прошивки</li>
+						<li className='ml-[20px]'>
+							Выбираем нужный файл прошивки -
+							<Link
+								href={'https://disk.yandex.ru/d/GQPfUmSopiLFyA'}
+								target='_blank'
+								download
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#08a4e1] text-white`}
+							>
+								!SB_S90C_33.33
+							</Link>
+						</li>
 						<li className='ml-[20px]'>Подтверждаем выбор</li>
 						<li className='ml-[20px]'>
 							В появившемся меню выбираем первый пункт -
@@ -916,9 +916,7 @@ export const useRootStore = create<RootState>((set) => ({
 						</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={
-									'https://drive.google.com/uc?export=download&id=1mKleqimtFMRrpdWusaRaMERIbtrI872C'
-								}
+								href={'https://disk.yandex.ru/d/4fC0Y01j_Gu1-A'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#08a4e1] text-white`}
@@ -932,20 +930,6 @@ export const useRootStore = create<RootState>((set) => ({
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>
-							Помещаем
-							<Link
-								href={
-									'https://drive.google.com/uc?export=download&id=1mKleqimtFMRrpdWusaRaMERIbtrI872C'
-								}
-								target='_blank'
-								download
-								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#08a4e1] text-white`}
-							>
-								Файл прошивки
-							</Link>
-							в корень флешки.
-						</li>
-						<li className='ml-[20px]'>
 							Присоединяем флешку через переходник к проводу подключения пинпада
 							к компьютеру.
 						</li>
@@ -957,8 +941,16 @@ export const useRootStore = create<RootState>((set) => ({
 							. Это означает что терминал начал сканировать флешку.
 						</li>
 						<li className='ml-[20px]'>
-							Из появившегося списка выбираем нужный нам файл с прошивкой.
-							Терминал начнет чтение файла.
+							Из появившегося списка выбираем нужный нам файл с прошивкой -
+							<Link
+								href={'https://disk.yandex.ru/d/4fC0Y01j_Gu1-A'}
+								target='_blank'
+								download
+								className={`${badgeVariants({ variant: 'outline' })} ml-2 bg-[#08a4e1] text-white`}
+							>
+								!SB_SP30_33.33
+							</Link>
+							. Терминал начнет чтение файла.
 						</li>
 						<li className='ml-[20px]'>
 							В появившемся меню выбираем
@@ -972,7 +964,7 @@ export const useRootStore = create<RootState>((set) => ({
 						</li>
 						<li className='ml-[20px]'>
 							Далее выбираем
-							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+							<span className={`${badgeVariants({ variant: 'outline' })} ml-2`}>
 								DOWNLOAD ALL
 							</span>
 							. Начнется загрузка файла.
@@ -984,7 +976,7 @@ export const useRootStore = create<RootState>((set) => ({
 							</span>
 						</li>
 						<li className='ml-[20px]'>
-							Ещё раз нажимаем красную кнопку. Терминал перезагрузится.
+							Ещё раз нажимаем красную кнопку. Терминал перезагрузится
 						</li>
 						<li className='ml-[20px]'>
 							В момент перезагрузки отсоединяем флешку
@@ -1024,21 +1016,20 @@ export const useRootStore = create<RootState>((set) => ({
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>Компьютер</li>
-						<li className='ml-[20px]'>Комплектный провод</li>
-						<li className='ml-[20px]'>Программа TermAssist</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={'#'}
+								href={'https://disk.yandex.ru/d/7w6GizD53EmiGA'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#08a4e1] text-white`}
 							>
-								Файл прошивки
+								Папка для компьютера
 							</Link>
 						</li>
+						<li className='ml-[20px]'>Комплектный провод</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={'#'}
+								href={'https://disk.yandex.ru/d/RbEz-ll2kQgtzA'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#08a4e1] text-white`}
@@ -1158,7 +1149,7 @@ export const useRootStore = create<RootState>((set) => ({
 						<li className='ml-[20px]'>
 							Программа
 							<Link
-								href={'#'}
+								href={'https://disk.yandex.ru/d/3RhZrYWn5tC1og'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#08a4e1] text-white`}
@@ -1281,7 +1272,7 @@ export const useRootStore = create<RootState>((set) => ({
 					<ul className='list-disc text-xl flex flex-col gap-4'>
 						<li className='ml-[20px]'>
 							<Link
-								href={'#'}
+								href={'https://disk.yandex.ru/d/7w6GizD53EmiGA'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#08a4e1] text-white`}
@@ -1291,7 +1282,7 @@ export const useRootStore = create<RootState>((set) => ({
 						</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={'#'}
+								href={'https://disk.yandex.ru/d/RbEz-ll2kQgtzA'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#08a4e1] text-white`}
@@ -1337,13 +1328,22 @@ export const useRootStore = create<RootState>((set) => ({
 							</span>
 						</li>
 						<li className='ml-[20px]'>
-							В появившемся меню выбираем пункт 3 -{' '}
+							В появившемся меню выбираем пункт 3 -
 							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
 								USB
 							</span>
 						</li>
 						<li className='ml-[20px]'>
-							В скачанной на компьютер папке запуcкаем программу{' '}
+							В скачанной на компьютер
+							<Link
+								href={'https://disk.yandex.ru/d/7w6GizD53EmiGA'}
+								target='_blank'
+								download
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#08a4e1] text-white`}
+							>
+								папке
+							</Link>
+							запуcкаем программу
 							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
 								Starter
 							</span>
@@ -1413,9 +1413,7 @@ export const useRootStore = create<RootState>((set) => ({
 						<li className='ml-[20px]'>
 							Папка
 							<Link
-								href={
-									'https://drive.google.com/drive/folders/1cZYY60KgnU85nJDpRdDTStk1XVw6BLb6?usp=drive_link'
-								}
+								href={'https://disk.yandex.ru/d/LxnfSoRsagunFg'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#6effd2]`}
@@ -1541,9 +1539,7 @@ export const useRootStore = create<RootState>((set) => ({
 						<li className='ml-[20px]'>Блок питания micro-USB</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={
-									'https://drive.google.com/drive/folders/19MO7THGTlL8OWdVknxXMB5i0YUGxmcZr?usp=drive_link'
-								}
+								href={'https://disk.yandex.ru/d/o4SZOhqtAKcMMg'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#6effd2]`}
@@ -1662,7 +1658,7 @@ export const useRootStore = create<RootState>((set) => ({
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={'#'}
+								href={'https://disk.yandex.ru/d/ZP3VLrmw0CnZAw'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#41e747]`}
@@ -1823,7 +1819,7 @@ export const useRootStore = create<RootState>((set) => ({
 						<li className='ml-[20px]'>
 							Программа
 							<Link
-								href={'#'}
+								href={'https://disk.yandex.ru/d/GuKO1lZnITNtEA'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#41e747] text-white`}
@@ -1833,7 +1829,7 @@ export const useRootStore = create<RootState>((set) => ({
 						</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={'#'}
+								href={'https://disk.yandex.ru/d/ZP3VLrmw0CnZAw'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#41e747] text-white`}
@@ -2059,7 +2055,7 @@ export const useRootStore = create<RootState>((set) => ({
 						<li className='ml-[20px]'>Переходник USB мама - mini USB папа</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={'#'}
+								href={'https://disk.yandex.ru/d/ZP3VLrmw0CnZAw'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#41e747]`}
@@ -2189,7 +2185,7 @@ export const useRootStore = create<RootState>((set) => ({
 						<li className='ml-[20px]'>Флешка в формате FAT32</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={'#'}
+								href={'https://disk.yandex.ru/d/KfbfXY0nfsmAEg'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#ffd829] text-white`}
@@ -2281,7 +2277,7 @@ export const useRootStore = create<RootState>((set) => ({
 						<li className='ml-[20px]'>Переходник USB мама - mini USB папа</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={'#'}
+								href={'https://disk.yandex.ru/d/YWXEkFPT6dtvnQ'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#704ecc] text-white`}
@@ -2385,7 +2381,7 @@ export const useRootStore = create<RootState>((set) => ({
 						<li className='ml-[20px]'>Переходник USB мама - mini USB папа</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={'#'}
+								href={'https://disk.yandex.ru/d/YWXEkFPT6dtvnQ'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#704ecc] text-white`}
@@ -2487,7 +2483,7 @@ export const useRootStore = create<RootState>((set) => ({
 						<li className='ml-[20px]'>Переходник USB мама - mini USB папа</li>
 						<li className='ml-[20px]'>
 							<Link
-								href={'#'}
+								href={'https://disk.yandex.ru/d/YWXEkFPT6dtvnQ'}
 								target='_blank'
 								download
 								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#704ecc] text-white`}
