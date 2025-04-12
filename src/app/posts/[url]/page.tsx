@@ -23,8 +23,6 @@ const DevicePage = () => {
 
 	const post = posts.find((post) => post.url === url)
 
-	console.log(post)
-
 	const prevPost = posts[posts.findIndex((p) => p.id === post?.id) - 1] ?? post
 	const nextPost = posts[posts.findIndex((p) => p.id === post?.id) + 1] ?? post
 
@@ -110,12 +108,15 @@ const DevicePage = () => {
 										className='relative p-4 min-w-[240px] h-[330px] flex flex-col items-center justify-between flex-1 rounded-xl overflow-hidden transition duration-300 ease-in-out sm:h-[380px] sm:min-w-[352px]'
 										style={{ backgroundColor: post.bgColor }}
 									>
-										<div className='absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-20'></div>
-										<h3 className='text-2xl self-start'>{post.title}</h3>
-										<p className='text-xl self-center'>{post.description}</p>
+										<div className='absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-20 dark:bg-gray-800 dark:hover:opacity-40 dark:opacity-20'></div>
+										<p className='text-xl self-center opacity-100 z-20'>
+											{post.description}
+										</p>
 										<ul className='flex gap-4 self-end'>
 											{post.tags.map((tag) => (
-												<li key={tag}>{tag}</li>
+												<li key={tag} className='opacity-100 z-20'>
+													{tag}
+												</li>
 											))}
 										</ul>
 									</Link>

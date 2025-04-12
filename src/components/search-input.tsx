@@ -55,9 +55,9 @@ export const SearchInput = ({ className }: SearchInputProps) => {
 				)}
 				ref={ref}
 			>
-				<Search className='absolute top-1/2 translate-y-[-50%] left-3 h-5 text-gray-400' />
+				<Search className='absolute top-1/2 translate-y-[-50%] left-3 h-5 text-gray-400 dark:text-white' />
 				<input
-					className='rounded-2xl outline-none w-full bg-gray-100 pl-11'
+					className='rounded-2xl outline-none w-full bg-gray-100 pl-11 dark:bg-[#42454c] dark:placeholder-white'
 					type='text'
 					placeholder='Найти статью...'
 					onFocus={() => setFocused(true)}
@@ -67,8 +67,9 @@ export const SearchInput = ({ className }: SearchInputProps) => {
 				{filteredPosts.length > 0 && (
 					<div
 						className={cn(
-							'absolute w-full bg-white rounded-xl py-2 top-14 shadow-md transition-all duration-200 invisible opacity-0 z-30',
-							focused && 'visible opacity-100 top-16'
+							'absolute w-full rounded-xl py-2 top-14 shadow-md transition-all duration-200 invisible opacity-0 z-30',
+							focused &&
+								'visible opacity-100 top-16 dark:bg-[#42454c] dark:text-white'
 						)}
 					>
 						{filteredPosts

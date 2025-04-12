@@ -61,7 +61,7 @@ export const useRootStore = create<RootState>((set) => ({
 			id: v4(),
 			title: 'Вместе и для каждого',
 			content: (
-				<div className='p-4 w-[50%] bg-gray-300 rounded-xl flex-auto'>
+				<div className='p-4 w-[50%] bg-gray-300 rounded-xl flex-auto dark:bg-[#42454c]'>
 					<div className='pb-8 text-2xl'>Вместе и для каждого</div>
 					<div className='text-xl'>
 						<p>Дока — это документация для POS-инженеров на понятном языке.</p>

@@ -107,12 +107,18 @@ export default function Home() {
 										className='relative p-4 min-w-[240px] h-[330px] flex flex-col items-center justify-between flex-1 rounded-xl overflow-hidden transition duration-300 ease-in-out sm:h-[480px] sm:min-w-[31%]'
 										style={{ backgroundColor: post.bgColor }}
 									>
-										<div className='absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-20'></div>
-										<p className='text-2xl self-start'>{post.title}</p>
-										<p className='text-xl self-center'>{post.description}</p>
+										<div className='absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-20 dark:bg-gray-800 dark:hover:opacity-40 dark:opacity-20'></div>
+										<p className='text-2xl self-start opacity-100 z-20'>
+											{post.title}
+										</p>
+										<p className='text-xl self-center opacity-100 z-10'>
+											{post.description}
+										</p>
 										<div className='flex gap-4 self-end'>
 											{[...post.tags].map((tag) => (
-												<p key={tag}>{tag}</p>
+												<p key={tag} className='opacity-100 z-10'>
+													{tag}
+												</p>
 											))}
 										</div>
 									</Link>
