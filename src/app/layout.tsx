@@ -37,7 +37,7 @@ export default function RootLayout({
 	return (
 		<html
 			lang='ru'
-			className={`${roboto.className} scroll-smooth scroll-pt-[126px]`}
+			className={`${roboto.className} scroll-smooth scroll-pt-[180px] md:scroll-pt-[126px]`}
 		>
 			<head>
 				<meta charSet='UTF-8' />
@@ -65,7 +65,7 @@ export default function RootLayout({
 				className={`px-4 w-full h-screen text-[#2C2C2C] flex flex-col items-center box-border position: relative top:102px ${theme}`}
 			>
 				<header
-					className='px-4 py-6 w-full flex items-center justify-center fixed top-0 z-30'
+					className='px-4 py-4 w-full flex items-center justify-center fixed top-0 z-30 md:py-6'
 					style={{
 						backgroundColor:
 							bgHeader === 'white'
@@ -75,10 +75,10 @@ export default function RootLayout({
 								: bgHeader
 					}}
 				>
-					<div className='max-w-[1540px] w-full flex flex-col justify-center gap-6 md:justify-start md:flex-row'>
+					<div className='max-w-[1540px] w-full flex flex-col justify-center gap-4 md:justify-start md:flex-row'>
 						<Link
 							href={'/'}
-							className='px-8 py-2 text-3xl border rounded-xl z-20 whitespace-nowrap hidden md:block dark:text-[#ffffff] dark:border-white'
+							className='px-8 py-2 text-3xl border rounded-xl z-20 whitespace-nowrap dark:text-[#ffffff] dark:border-white'
 						>
 							АТМ Дока
 						</Link>
