@@ -5,7 +5,7 @@ import { CircleArrowLeft, CircleArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import {
 	Accordion,
 	AccordionContent,
@@ -25,6 +25,10 @@ const DevicePage = () => {
 
 	const prevPost = posts[posts.findIndex((p) => p.id === post?.id) - 1] ?? post
 	const nextPost = posts[posts.findIndex((p) => p.id === post?.id) + 1] ?? post
+
+	const [collapsible, setCollapsible] = useState(false)
+
+	console.log(collapsible)
 
 	useEffect(() => {
 		if (post?.bgColor) {
@@ -78,7 +82,7 @@ const DevicePage = () => {
 				</Accordion>
 			</div>
 			<div className='flex'>
-				<aside className='flex-auto min-w-[240px] hidden lg:block'>
+				<aside className='flex-auto min-w-[240px] hidden lg:flex'>
 					<ul className='p-6 flex flex-col sticky top-[102px] left-0 z-20'>
 						{post?.contentItems.map((item, index) => (
 							<li key={item} className='min-w-[140px] hover:underline'>
@@ -112,7 +116,7 @@ const DevicePage = () => {
 										<p className='text-xl self-center opacity-100 z-20'>
 											{post.description}
 										</p>
-										<ul className='flex gap-4 self-end'>
+										<ul className='flex gap-4 self-end flex-wrap'>
 											{post.tags.map((tag) => (
 												<li key={tag} className='opacity-100 z-20'>
 													{tag}

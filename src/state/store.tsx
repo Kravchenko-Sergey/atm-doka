@@ -122,7 +122,7 @@ export const useRootStore = create<RootState>((set) => ({
 			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<>
-					<h2 id='1' className='my-8 text-3xl pt-[142px] mt-[-102px]'>
+					<h2 id='1' className='my-8 text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -274,7 +274,7 @@ export const useRootStore = create<RootState>((set) => ({
 			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
-					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='1' className='my-8 pt-[142px]'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -350,7 +350,7 @@ export const useRootStore = create<RootState>((set) => ({
 			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
-					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='1' className='my-8 pt-[142px]'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -426,7 +426,7 @@ export const useRootStore = create<RootState>((set) => ({
 			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
-					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='1' className='my-8 pt-[142px]'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -508,7 +508,7 @@ export const useRootStore = create<RootState>((set) => ({
 			],
 			content: (
 				<div>
-					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='1' className='my-8 text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -645,7 +645,7 @@ export const useRootStore = create<RootState>((set) => ({
 			],
 			content: (
 				<div>
-					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='1' className='my-8 text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -745,7 +745,7 @@ export const useRootStore = create<RootState>((set) => ({
 			],
 			content: (
 				<div>
-					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='1' className='my-8 text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -845,7 +845,7 @@ export const useRootStore = create<RootState>((set) => ({
 			],
 			content: (
 				<div>
-					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='1' className='my-8 text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -934,7 +934,7 @@ export const useRootStore = create<RootState>((set) => ({
 			],
 			content: (
 				<div>
-					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='1' className='my-8 text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -1023,7 +1023,7 @@ export const useRootStore = create<RootState>((set) => ({
 			],
 			content: (
 				<div>
-					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='1' className='my-8 text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -1130,7 +1130,7 @@ export const useRootStore = create<RootState>((set) => ({
 			],
 			content: (
 				<div>
-					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='1' className='my-8 text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -1261,7 +1261,7 @@ export const useRootStore = create<RootState>((set) => ({
 			],
 			content: (
 				<div>
-					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='1' className='my-8 text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -1385,7 +1385,7 @@ export const useRootStore = create<RootState>((set) => ({
 			],
 			content: (
 				<div>
-					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='1' className='my-8 text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -1524,7 +1524,7 @@ export const useRootStore = create<RootState>((set) => ({
 			],
 			content: (
 				<div>
-					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='1' className='my-8 text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -1650,7 +1650,7 @@ export const useRootStore = create<RootState>((set) => ({
 			],
 			content: (
 				<div>
-					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='1' className='my-8 text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -1770,7 +1770,7 @@ export const useRootStore = create<RootState>((set) => ({
 			],
 			content: (
 				<div>
-					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='1' className='my-8 text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -1931,7 +1931,7 @@ export const useRootStore = create<RootState>((set) => ({
 			],
 			content: (
 				<div>
-					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='1' className='my-8 text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -2167,7 +2167,7 @@ export const useRootStore = create<RootState>((set) => ({
 			],
 			content: (
 				<div>
-					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='1' className='my-8 text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -2297,7 +2297,7 @@ export const useRootStore = create<RootState>((set) => ({
 			],
 			content: (
 				<div>
-					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='1' className='my-8 text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -2388,7 +2388,7 @@ export const useRootStore = create<RootState>((set) => ({
 			],
 			content: (
 				<div>
-					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='1' className='my-8 text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -2492,7 +2492,7 @@ export const useRootStore = create<RootState>((set) => ({
 			],
 			content: (
 				<div>
-					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='1' className='my-8 text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -2593,7 +2593,7 @@ export const useRootStore = create<RootState>((set) => ({
 			],
 			content: (
 				<div>
-					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='1' className='my-8 text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>

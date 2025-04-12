@@ -62,7 +62,7 @@ export default function RootLayout({
 				className={`px-4 w-full h-screen text-[#2C2C2C] flex flex-col items-center box-border position: relative ${theme}`}
 			>
 				<header
-					className={`px-4 py-6 w-full flex items-center justify-center fixed top-0 z-30`}
+					className={`px-4 py-6 w-full flex items-center justify-center fixed top-0 z-30 pt-[142px] mt-[-102px]`}
 					style={{
 						backgroundColor:
 							bgHeader === 'white'
