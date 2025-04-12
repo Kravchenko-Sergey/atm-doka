@@ -5,7 +5,7 @@ import { CircleArrowLeft, CircleArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import {
 	Accordion,
 	AccordionContent,
@@ -25,10 +25,6 @@ const DevicePage = () => {
 
 	const prevPost = posts[posts.findIndex((p) => p.id === post?.id) - 1] ?? post
 	const nextPost = posts[posts.findIndex((p) => p.id === post?.id) + 1] ?? post
-
-	const [collapsible, setCollapsible] = useState(false)
-
-	console.log(collapsible)
 
 	useEffect(() => {
 		if (post?.bgColor) {
