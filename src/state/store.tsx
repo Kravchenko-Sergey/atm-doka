@@ -637,33 +637,93 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#C0C0C0',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Kozen', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
 					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
-						<li className='ml-[20px]'></li>
-						<li className='ml-[20px]'></li>
-						<li className='ml-[20px]'></li>
-						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'>
+							Программа
+							<Link
+								href={'https://disk.yandex.ru/d/5bzYR63BWdppGg'}
+								target='_blank'
+								download
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#C0C0C0] text-white`}
+							>
+								Flash Tool
+							</Link>
+						</li>
+						<li className='ml-[20px]'>
+							<Link
+								href={
+									'https://drive.google.com/drive/folders/1Ms1kETV6WVh9RfCiG3X-9h1naujG0LRq?usp=drive_link'
+								}
+								target='_blank'
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#C0C0C0] text-white`}
+							>
+								Папка с файлами
+							</Link>
+						</li>
 					</ul>
 					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
-						<li className='ml-[20px]'></li>
-						<li className='ml-[20px]'></li>
-						<li className='ml-[20px]'></li>
-						<li className='ml-[20px]'></li>
-						<li className='ml-[20px]'></li>
-						<li className='ml-[20px]'></li>
-						<li className='ml-[20px]'></li>
-						<li className='ml-[20px]'></li>
-						<li className='ml-[20px]'></li>
-						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'>
+							Заходим в программу
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Flash Tool
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							В поле
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Download-Agent
+							</span>
+							указываем путь к файлу
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								?
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							В поле
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Scatter-loading File
+							</span>
+							указываем путь к файлу
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								?
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Чуть ниже выбираем
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Firmware Upgrade
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Нажимаем кнопку
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Download
+							</span>
+						</li>
+						<li className='ml-[20px]'>Подключаем терминал к компьютеру</li>
+						<li className='ml-[20px]'>Дожидаемся окончания прошивки</li>
 					</ul>
+					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Видео
+					</h2>
+					<video width='320' height='180' controls>
+						<source src='/KOZEN.mp4' type='video/mp4' />
+						Ваш браузер не поддерживает видео тег.
+					</video>
 				</div>
 			)
 		},
@@ -677,34 +737,93 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#C0C0C0',
 			bgImage: '/sberbg.jpg',
 			tags: ['#Сбер', '#Kozen', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
+			contentItems: [
+				'Что понадобится?',
+				'Как прошить?',
+				'Видео',
+				'Читайте также'
+			],
 			content: (
 				<div>
 					<h2 id='1' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
-						<li className='ml-[20px]'></li>
-						<li className='ml-[20px]'></li>
-						<li className='ml-[20px]'></li>
-						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'>
+							Программа
+							<Link
+								href={'https://disk.yandex.ru/d/5bzYR63BWdppGg'}
+								target='_blank'
+								download
+								className={`${badgeVariants({ variant: 'outline' })} mx-2 bg-[#C0C0C0] text-white`}
+							>
+								Flash Tool
+							</Link>
+						</li>
+						<li className='ml-[20px]'>
+							<Link
+								href={
+									'https://drive.google.com/drive/folders/18Qq54wZnPj76NNwvfG4oqvMOVumyOtyR?usp=drive_link'
+								}
+								target='_blank'
+								className={`${badgeVariants({ variant: 'outline' })} mr-2 bg-[#C0C0C0] text-white`}
+							>
+								Папка с файлами
+							</Link>
+						</li>
 					</ul>
 					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
-						<li className='ml-[20px]'></li>
-						<li className='ml-[20px]'></li>
-						<li className='ml-[20px]'></li>
-						<li className='ml-[20px]'></li>
-						<li className='ml-[20px]'></li>
-						<li className='ml-[20px]'></li>
-						<li className='ml-[20px]'></li>
-						<li className='ml-[20px]'></li>
-						<li className='ml-[20px]'></li>
-						<li className='ml-[20px]'></li>
+						<li className='ml-[20px]'>
+							Заходим в программу
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Flash Tool
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							В поле
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Download-Agent
+							</span>
+							указываем путь к файлу
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								?
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							В поле
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Scatter-loading File
+							</span>
+							указываем путь к файлу
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								?
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Чуть ниже выбираем
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Firmware Upgrade
+							</span>
+						</li>
+						<li className='ml-[20px]'>
+							Нажимаем кнопку
+							<span className={`${badgeVariants({ variant: 'outline' })} mx-2`}>
+								Download
+							</span>
+						</li>
+						<li className='ml-[20px]'>Подключаем терминал к компьютеру</li>
+						<li className='ml-[20px]'>Дожидаемся окончания прошивки</li>
 					</ul>
-					<h2 className='my-8 text-3xl'>Видео</h2>
+					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+						Видео
+					</h2>
+					<video width='320' height='180' controls>
+						<source src='/KOZEN.mp4' type='video/mp4' />
+						Ваш браузер не поддерживает видео тег.
+					</video>
 				</div>
 			)
 		},

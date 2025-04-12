@@ -23,6 +23,8 @@ const DevicePage = () => {
 
 	const post = posts.find((post) => post.url === url)
 
+	console.log(post)
+
 	const prevPost = posts[posts.findIndex((p) => p.id === post?.id) - 1] ?? post
 	const nextPost = posts[posts.findIndex((p) => p.id === post?.id) + 1] ?? post
 

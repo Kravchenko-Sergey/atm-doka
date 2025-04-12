@@ -31,9 +31,6 @@ export const SearchInput = ({ className }: SearchInputProps) => {
 		setFilteredPosts(posts)
 	}, [posts])
 
-	console.log(posts)
-	console.log(filteredPosts)
-
 	useEffect(() => {
 		if (searchQuery) {
 			const lowerCaseQuery = searchQuery.toLowerCase()
