@@ -138,7 +138,7 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='2' className='my-8 text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -274,7 +274,7 @@ export const useRootStore = create<RootState>((set) => ({
 			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
-					<h2 id='1' className='my-8 pt-[142px]'>
+					<h2 id='1' className='my-8 text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -290,7 +290,7 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='2' className='my-8 text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -350,7 +350,7 @@ export const useRootStore = create<RootState>((set) => ({
 			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
-					<h2 id='1' className='my-8 pt-[142px]'>
+					<h2 id='1' className='my-8 text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -366,7 +366,7 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='2' className='my-8 text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -426,7 +426,7 @@ export const useRootStore = create<RootState>((set) => ({
 			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
 				<div>
-					<h2 id='1' className='my-8 pt-[142px]'>
+					<h2 id='1' className='my-8 text-3xl'>
 						Что понадобится?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -442,7 +442,7 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='2' className='my-8 text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -527,7 +527,7 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='2' className='my-8 text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -566,7 +566,7 @@ export const useRootStore = create<RootState>((set) => ({
 							перезагрузится. Подождите еще 1-2 минуты и вытащите флешку.
 						</li>
 					</ul>
-					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='3' className='my-8 text-3xl'>
 						Как добавить eSIM?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -672,7 +672,7 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='2' className='my-8 text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -717,7 +717,7 @@ export const useRootStore = create<RootState>((set) => ({
 						<li className='ml-[20px]'>Подключаем терминал к компьютеру</li>
 						<li className='ml-[20px]'>Дожидаемся окончания прошивки</li>
 					</ul>
-					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='3' className='my-8 text-3xl'>
 						Видео
 					</h2>
 					<video width='320' height='180' controls>
@@ -772,7 +772,7 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='2' className='my-8 text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -817,7 +817,7 @@ export const useRootStore = create<RootState>((set) => ({
 						<li className='ml-[20px]'>Подключаем терминал к компьютеру</li>
 						<li className='ml-[20px]'>Дожидаемся окончания прошивки</li>
 					</ul>
-					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='3' className='my-8 text-3xl'>
 						Видео
 					</h2>
 					<video width='320' height='180' controls>
@@ -862,7 +862,7 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='2' className='my-8 text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -906,7 +906,7 @@ export const useRootStore = create<RootState>((set) => ({
 						</li>
 						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
 					</ul>
-					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='3' className='my-8 text-3xl'>
 						Видео
 					</h2>
 					<video width='320' height='180' controls>
@@ -951,7 +951,7 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='2' className='my-8 text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -995,7 +995,7 @@ export const useRootStore = create<RootState>((set) => ({
 						</li>
 						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
 					</ul>
-					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='3' className='my-8 text-3xl'>
 						Видео
 					</h2>
 					<video width='320' height='180' controls>
@@ -1044,7 +1044,7 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='2' className='my-8 text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -1102,7 +1102,7 @@ export const useRootStore = create<RootState>((set) => ({
 						</li>
 						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
 					</ul>
-					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='3' className='my-8 text-3xl'>
 						Видео
 					</h2>
 					<video width='320' height='180' controls>
@@ -1157,7 +1157,7 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='2' className='my-8 text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -1233,7 +1233,7 @@ export const useRootStore = create<RootState>((set) => ({
 							После перезагрузки терминала остаётся дождаться загрузки UPOS
 						</li>
 					</ul>
-					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='3' className='my-8 text-3xl'>
 						Видео
 					</h2>
 					<video width='320' height='180' controls>
@@ -1288,7 +1288,7 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='2' className='my-8 text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -1357,7 +1357,7 @@ export const useRootStore = create<RootState>((set) => ({
 						<li className='ml-[20px]'>Нажимаем красную кнопку</li>
 						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
 					</ul>
-					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='3' className='my-8 text-3xl'>
 						Видео
 					</h2>
 					<video width='320' height='180' controls>
@@ -1410,7 +1410,7 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='2' className='my-8 text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -1496,7 +1496,7 @@ export const useRootStore = create<RootState>((set) => ({
 							После перезагрузки терминала остаётся дождаться загрузки UPOS
 						</li>
 					</ul>
-					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='3' className='my-8 text-3xl'>
 						Видео
 					</h2>
 					<video width='320' height='180' controls>
@@ -1542,7 +1542,7 @@ export const useRootStore = create<RootState>((set) => ({
 							с необходимыми файлами
 						</li>
 					</ul>
-					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='2' className='my-8 text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -1622,7 +1622,7 @@ export const useRootStore = create<RootState>((set) => ({
 							Осталось дождаться окончания прошивки и загрузки UPOS
 						</li>
 					</ul>
-					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='3' className='my-8 text-3xl'>
 						Видео
 					</h2>
 					<video width='320' height='180' controls>
@@ -1667,7 +1667,7 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='2' className='my-8 text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -1742,7 +1742,7 @@ export const useRootStore = create<RootState>((set) => ({
 							Осталось дождаться окончания прошивки и загрузки UPOS
 						</li>
 					</ul>
-					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='3' className='my-8 text-3xl'>
 						Видео
 					</h2>
 					<video width='320' height='180' controls>
@@ -1786,7 +1786,7 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='2' className='my-8 text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -1903,7 +1903,7 @@ export const useRootStore = create<RootState>((set) => ({
 						</li>
 						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
 					</ul>
-					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='3' className='my-8 text-3xl'>
 						Видео
 					</h2>
 					<video width='320' height='180' controls>
@@ -1957,7 +1957,7 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='2' className='my-8 text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -2139,7 +2139,7 @@ export const useRootStore = create<RootState>((set) => ({
 						</li>
 						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
 					</ul>
-					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='3' className='my-8 text-3xl'>
 						Видео
 					</h2>
 					<video width='320' height='180' controls>
@@ -2183,7 +2183,7 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='2' className='my-8 text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -2269,7 +2269,7 @@ export const useRootStore = create<RootState>((set) => ({
 							загрузки UPOS
 						</li>
 					</ul>
-					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='3' className='my-8 text-3xl'>
 						Видео
 					</h2>
 					<video width='320' height='180' controls>
@@ -2313,7 +2313,7 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='2' className='my-8 text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -2360,7 +2360,7 @@ export const useRootStore = create<RootState>((set) => ({
 						</li>
 						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
 					</ul>
-					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='3' className='my-8 text-3xl'>
 						Видео
 					</h2>
 					<video width='320' height='180' controls>
@@ -2405,7 +2405,7 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='2' className='my-8 text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -2464,7 +2464,7 @@ export const useRootStore = create<RootState>((set) => ({
 						<li className='ml-[20px]'>Нажимаем зелёную кнопку</li>
 						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
 					</ul>
-					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='3' className='my-8 text-3xl'>
 						Видео
 					</h2>
 					<video width='320' height='180' controls>
@@ -2509,7 +2509,7 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='2' className='my-8 text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -2565,7 +2565,7 @@ export const useRootStore = create<RootState>((set) => ({
 						<li className='ml-[20px]'>Нажимаем зелёную кнопку</li>
 						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
 					</ul>
-					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='3' className='my-8 text-3xl'>
 						Видео
 					</h2>
 					<video width='320' height='180' controls>
@@ -2611,7 +2611,7 @@ export const useRootStore = create<RootState>((set) => ({
 							</Link>
 						</li>
 					</ul>
-					<h2 id='2' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='2' className='my-8 text-3xl'>
 						Как прошить?
 					</h2>
 					<ul className='list-disc text-xl flex flex-col gap-4'>
@@ -2673,7 +2673,7 @@ export const useRootStore = create<RootState>((set) => ({
 						<li className='ml-[20px]'>Нажимаем зелёную кнопку</li>
 						<li className='ml-[20px]'>Осталось дождаться загрузки UPOS</li>
 					</ul>
-					<h2 id='3' className='my-8 pt-[142px] mt-[-102px] text-3xl'>
+					<h2 id='3' className='my-8 text-3xl'>
 						Видео
 					</h2>
 					<video width='320' height='180' controls>

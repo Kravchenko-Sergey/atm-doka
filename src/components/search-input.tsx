@@ -69,7 +69,7 @@ export const SearchInput = ({ className }: SearchInputProps) => {
 						className={cn(
 							'absolute w-full rounded-xl py-2 top-14 shadow-md transition-all duration-200 invisible opacity-0 z-30',
 							focused &&
-								'visible opacity-100 top-16 dark:bg-[#42454c] dark:text-white'
+								'visible opacity-100 top-16 bg-gray-100 dark:bg-[#42454c] dark:text-white'
 						)}
 					>
 						{filteredPosts

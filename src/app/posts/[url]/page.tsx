@@ -57,7 +57,7 @@ const DevicePage = () => {
 				<Accordion
 					type='single'
 					collapsible
-					className='px-4 w-full border-b block lg:hidden'
+					className='px-4 w-full border-b block md:hidden'
 				>
 					<AccordionItem value='item-1'>
 						<AccordionTrigger className='text-xl font-normal'>
@@ -78,7 +78,7 @@ const DevicePage = () => {
 				</Accordion>
 			</div>
 			<div className='flex'>
-				<aside className='flex-auto min-w-[240px] hidden lg:flex'>
+				<aside className='flex-auto min-w-[240px] hidden md:block'>
 					<ul className='p-6 flex flex-col sticky top-[102px] left-0 z-20'>
 						{post?.contentItems.map((item, index) => (
 							<li key={item} className='min-w-[140px] hover:underline'>
@@ -92,7 +92,7 @@ const DevicePage = () => {
 					<div className='px-4 w-full max-w-[1308px]'>
 						<h2
 							id={String(post?.contentItems.length)}
-							className='pt-[228px] mt-[-102px] mb-4 text-3xl sm:pt-[142px]'
+							className='my-8 text-3xl'
 						>
 							Читайте также
 						</h2>
