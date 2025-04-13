@@ -79,7 +79,7 @@ const DevicePage = () => {
 				</Accordion>
 			</div>
 			<div className='flex'>
-				<aside className='flex-auto min-w-[240px] hidden md:block'>
+				<aside className='flex-col justify-between min-w-[240px] hidden md:flex'>
 					<ul className='p-6 flex flex-col sticky top-[102px] left-0 z-20'>
 						{post?.contentItems.map((item, index) => (
 							<li key={item} className='min-w-[140px] hover:underline'>
@@ -138,7 +138,7 @@ const DevicePage = () => {
 						<div className='my-8 flex flex-col items-center gap-8 md:flex-row justify-between'>
 							<Link
 								href={prevPost.url}
-								className='text-xl flex items-center gap-4'
+								className='text-xl flex items-center gap-4 self-start'
 							>
 								<CircleArrowLeft
 									className={`${post?.id === posts[0].id ? 'hidden' : ''}`}
@@ -149,7 +149,7 @@ const DevicePage = () => {
 							</Link>
 							<Link
 								href={nextPost.url}
-								className='text-xl flex items-center gap-4'
+								className='text-xl flex items-center gap-4 self-end'
 							>
 								<p
 									className={` ${post?.id === posts[posts.length - 1].id ? 'hidden' : ''}`}
