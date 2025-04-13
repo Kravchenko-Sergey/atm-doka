@@ -1,7 +1,7 @@
 'use client'
 
 import { useRootStore } from '@/state/store'
-import { CircleArrowLeft, CircleArrowRight } from 'lucide-react'
+import { CircleArrowLeft, CircleArrowRight, Send } from 'lucide-react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
@@ -12,6 +12,7 @@ import {
 	AccordionItem,
 	AccordionTrigger
 } from '@/components/ui/accordion'
+import { badgeVariants } from '@/components/ui/badge'
 
 const DevicePage = () => {
 	const params = useParams()
@@ -89,6 +90,18 @@ const DevicePage = () => {
 				</aside>
 				<div className='w-full max-w-[1540px] flex-auto'>
 					<div className='px-4 w-full max-w-[1308px]'>{post?.content}</div>
+					<div className='pt-16 pb-8 max-w-[1276px] text-xl flex flex-wrap items-center justify-center gap-2'>
+						<p>Нашли ошибку?</p>
+						<p>Хотите улучшить статью?</p>
+						<Link
+							href='https://t.me/+CznWcCGr6H03NjMy'
+							target='_blank'
+							className={`${badgeVariants({ variant: 'outline' })} text-white`}
+							style={{ backgroundColor: post?.bgColor }}
+						>
+							напишите нам!
+						</Link>
+					</div>
 					<div className='px-4 w-full max-w-[1308px]'>
 						<h2
 							id={String(post?.contentItems.length)}
