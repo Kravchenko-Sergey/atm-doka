@@ -71,7 +71,7 @@ export default function Home() {
 
 	return (
 		<>
-			<div className='px-4 py-21 max-w-[1580px] flex align-center justify-center'>
+			<div className='px-4 pt-32 pb-21 max-w-[1580px] flex align-center justify-center md:py-21'>
 				<img src='/logo_atm2x.png' alt='atm' />
 			</div>
 			<div className='px-4 max-w-[1580px] flex gap-4 flex-wrap lg:flex-nowrap'>

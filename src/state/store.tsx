@@ -20,6 +20,7 @@ export type Post = {
 	image: string
 	bgColor: string
 	bgImage: string
+	updatedAt: string
 	tags: string[]
 	content: JSX.Element
 	contentItems: string[]
@@ -118,6 +119,7 @@ export const useRootStore = create<RootState>((set) => ({
 			image: '/evo5i.png',
 			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
+			updatedAt: '13 апреля 2025',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
@@ -270,6 +272,7 @@ export const useRootStore = create<RootState>((set) => ({
 			image: '/evo72.png',
 			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
+			updatedAt: '13 апреля 2025',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
@@ -346,6 +349,7 @@ export const useRootStore = create<RootState>((set) => ({
 			image: '/evo73.png',
 			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
+			updatedAt: '13 апреля 2025',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
@@ -422,6 +426,7 @@ export const useRootStore = create<RootState>((set) => ({
 			image: '/evo10.png',
 			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
+			updatedAt: '13 апреля 2025',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также'],
 			content: (
@@ -499,6 +504,7 @@ export const useRootStore = create<RootState>((set) => ({
 			image: '/evo6.png',
 			bgColor: '#f15024',
 			bgImage: '/sberbg.jpg',
+			updatedAt: '13 апреля 2025',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			contentItems: [
 				'Что понадобится?',
@@ -636,6 +642,7 @@ export const useRootStore = create<RootState>((set) => ({
 			image: '/p10.png',
 			bgColor: '#C0C0C0',
 			bgImage: '/sberbg.jpg',
+			updatedAt: '13 апреля 2025',
 			tags: ['#Сбер', '#Kozen', '#Прошивка'],
 			contentItems: [
 				'Что понадобится?',
@@ -736,6 +743,7 @@ export const useRootStore = create<RootState>((set) => ({
 			image: '/p12.png',
 			bgColor: '#C0C0C0',
 			bgImage: '/sberbg.jpg',
+			updatedAt: '13 апреля 2025',
 			tags: ['#Сбер', '#Kozen', '#Прошивка'],
 			contentItems: [
 				'Что понадобится?',
@@ -836,6 +844,7 @@ export const useRootStore = create<RootState>((set) => ({
 			image: '/s80.png',
 			bgColor: '#08a4e1',
 			bgImage: '/sberbg.jpg',
+			updatedAt: '13 апреля 2025',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
 			contentItems: [
 				'Что понадобится?',
@@ -925,6 +934,7 @@ export const useRootStore = create<RootState>((set) => ({
 			image: '/s90.png',
 			bgColor: '#08a4e1',
 			bgImage: '/sberbg.jpg',
+			updatedAt: '13 апреля 2025',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
 			contentItems: [
 				'Что понадобится?',
@@ -1014,6 +1024,7 @@ export const useRootStore = create<RootState>((set) => ({
 			image: '/sp30.png',
 			bgColor: '#08a4e1',
 			bgImage: '/sberbg.jpg',
+			updatedAt: '13 апреля 2025',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
 			contentItems: [
 				'Что понадобится?',
@@ -1121,6 +1132,7 @@ export const useRootStore = create<RootState>((set) => ({
 			image: '/s300.png',
 			bgColor: '#08a4e1',
 			bgImage: '/sberbg.jpg',
+			updatedAt: '13 апреля 2025',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
 			contentItems: [
 				'Что понадобится?',
@@ -1252,6 +1264,7 @@ export const useRootStore = create<RootState>((set) => ({
 			image: '/s200.png',
 			bgColor: '#08a4e1',
 			bgImage: '/sberbg.jpg',
+			updatedAt: '13 апреля 2025',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
 			contentItems: [
 				'Что понадобится?',
@@ -1376,6 +1389,7 @@ export const useRootStore = create<RootState>((set) => ({
 			image: '/q25.png',
 			bgColor: '#08a4e1',
 			bgImage: '/sberbg.jpg',
+			updatedAt: '13 апреля 2025',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
 			contentItems: [
 				'Что понадобится?',
@@ -1515,6 +1529,7 @@ export const useRootStore = create<RootState>((set) => ({
 			image: '/vx520.png',
 			bgColor: '#6effd2',
 			bgImage: '/sberbg.jpg',
+			updatedAt: '13 апреля 2025',
 			tags: ['#Сбер', '#VeriFone', '#Прошивка'],
 			contentItems: [
 				'Что понадобится?',
@@ -1641,6 +1656,7 @@ export const useRootStore = create<RootState>((set) => ({
 			image: '/vx820.png',
 			bgColor: '#6effd2',
 			bgImage: '/sberbg.jpg',
+			updatedAt: '13 апреля 2025',
 			tags: ['#Сбер', '#VeriFone', '#Прошивка'],
 			contentItems: [
 				'Что понадобится?',
@@ -1761,6 +1777,7 @@ export const useRootStore = create<RootState>((set) => ({
 			image: '/ict220.png',
 			bgColor: '#41e747',
 			bgImage: '/sberbg.jpg',
+			updatedAt: '13 апреля 2025',
 			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
 			contentItems: [
 				'Что понадобится?',
@@ -1922,6 +1939,7 @@ export const useRootStore = create<RootState>((set) => ({
 			image: '/ipp320.png',
 			bgColor: '#41e747',
 			bgImage: '/sberbg.jpg',
+			updatedAt: '13 апреля 2025',
 			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
 			contentItems: [
 				'Что понадобится?',
@@ -2158,6 +2176,7 @@ export const useRootStore = create<RootState>((set) => ({
 			image: '/iwl220.png',
 			bgColor: '#41e747',
 			bgImage: '/sberbg.jpg',
+			updatedAt: '13 апреля 2025',
 			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
 			contentItems: [
 				'Что понадобится?',
@@ -2288,6 +2307,7 @@ export const useRootStore = create<RootState>((set) => ({
 			image: '/t2.png',
 			bgColor: '#ffd829',
 			bgImage: '/sberbg.jpg',
+			updatedAt: '13 апреля 2025',
 			tags: ['#Сбер', '#Tactilion', '#Прошивка'],
 			contentItems: [
 				'Что понадобится?',
@@ -2379,6 +2399,7 @@ export const useRootStore = create<RootState>((set) => ({
 			image: '/v3st.png',
 			bgColor: '#704ecc',
 			bgImage: '/sberbg.jpg',
+			updatedAt: '13 апреля 2025',
 			tags: ['#Сбер', '#Castles', '#Прошивка'],
 			contentItems: [
 				'Что понадобится?',
@@ -2483,6 +2504,7 @@ export const useRootStore = create<RootState>((set) => ({
 			image: '/v3mob.png',
 			bgColor: '#704ecc',
 			bgImage: '/sberbg.jpg',
+			updatedAt: '13 апреля 2025',
 			tags: ['#Сбер', '#Castles', '#Прошивка'],
 			contentItems: [
 				'Что понадобится?',
@@ -2584,6 +2606,7 @@ export const useRootStore = create<RootState>((set) => ({
 			image: '/v3ikr.png',
 			bgColor: '#704ecc',
 			bgImage: '/sberbg.jpg',
+			updatedAt: '13 апреля 2025',
 			tags: ['#Сбер', '#Castles', '#Прошивка'],
 			contentItems: [
 				'Что понадобится?',

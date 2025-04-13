@@ -62,7 +62,7 @@ export default function RootLayout({
 				<link rel='manifest' href='/site.webmanifest' />
 			</head>
 			<body
-				className={`px-4 w-full h-screen text-[#2C2C2C] flex flex-col items-center box-border position: relative top:102px ${theme}`}
+				className={`px-4 w-full h-screen text-[#2C2C2C] flex flex-col items-center box-border position: relative top:102px ${theme} overflow-x-hidden`}
 			>
 				<header
 					className='px-4 py-4 w-full flex items-center justify-center fixed top-0 z-30 md:py-6'

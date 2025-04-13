@@ -79,7 +79,7 @@ const DevicePage = () => {
 				</Accordion>
 			</div>
 			<div className='flex'>
-				<aside className='flex-col justify-between min-w-[240px] hidden md:flex'>
+				<aside className='flex-col flex-auto justify-between min-w-[240px] hidden md:flex'>
 					<ul className='p-6 flex flex-col sticky top-[102px] left-0 z-20'>
 						{post?.contentItems.map((item, index) => (
 							<li key={item} className='min-w-[140px] hover:underline'>
@@ -87,21 +87,23 @@ const DevicePage = () => {
 							</li>
 						))}
 					</ul>
+					<footer
+						className='px-6 py-8 text-sm sticky bottom-0 z-10 flex flex-col'
+						aria-label='Информация об обновлении'
+					>
+						<div className='flex flex-wrap gap-x-1'>
+							<p>Авторы:</p>
+							<p>команда АТМ</p>
+						</div>
+						<div className='flex flex-wrap gap-x-1'>
+							<p>Обновлено</p>
+							<time dateTime='2025-04-13'>{post?.updatedAt}</time>
+						</div>
+					</footer>
 				</aside>
 				<div className='w-full max-w-[1540px] flex-auto'>
 					<div className='px-4 w-full max-w-[1308px]'>{post?.content}</div>
-					<div className='pt-16 pb-8 max-w-[1276px] text-xl flex flex-wrap items-center justify-center gap-2'>
-						<p>Нашли ошибку?</p>
-						<p>Хотите улучшить статью?</p>
-						<Link
-							href='https://t.me/+CznWcCGr6H03NjMy'
-							target='_blank'
-							className={`${badgeVariants({ variant: 'outline' })} text-white`}
-							style={{ backgroundColor: post?.bgColor }}
-						>
-							напишите нам!
-						</Link>
-					</div>
+
 					<div className='px-4 w-full max-w-[1308px]'>
 						<h2
 							id={String(post?.contentItems.length)}
@@ -159,6 +161,31 @@ const DevicePage = () => {
 								<CircleArrowRight
 									className={` ${post?.id === posts[posts.length - 1].id ? 'hidden' : ''}`}
 								/>
+							</Link>
+						</div>
+						<div
+							className='px-6 py-12 text-lg border rounded-md flex flex-col items-center justify-center md:hidden'
+							aria-label='Информация об обновлении'
+						>
+							<div className='flex flex-wrap gap-x-1'>
+								<p>Авторы:</p>
+								<p>команда АТМ</p>
+							</div>
+							<div className='flex flex-wrap gap-x-1'>
+								<p>Обновлено</p>
+								<time dateTime='2025-04-13'>{post?.updatedAt}</time>
+							</div>
+						</div>
+						<div className='py-8 max-w-[1276px] text-xl flex flex-wrap items-center justify-center gap-2 md:mt-24'>
+							<p>Нашли ошибку?</p>
+							<p>Хотите улучшить статью?</p>
+							<Link
+								href='https://t.me/+CznWcCGr6H03NjMy'
+								target='_blank'
+								className={`${badgeVariants({ variant: 'outline' })} text-white`}
+								style={{ backgroundColor: post?.bgColor }}
+							>
+								напишите нам!
 							</Link>
 						</div>
 					</div>
