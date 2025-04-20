@@ -1,13 +1,13 @@
 'use client'
 
 import Link from 'next/link'
-import './globals.css'
 import { Roboto } from 'next/font/google'
 import { useRootStore } from '@/state/store'
 import { SearchInput } from '@/components/search-input'
 import { Switch } from '@/components/ui/switch'
 import { useEffect, useState } from 'react'
 import { Moon, Sun } from 'lucide-react'
+import './globals.css'
 
 const roboto = Roboto({
 	subsets: ['cyrillic', 'latin'],
