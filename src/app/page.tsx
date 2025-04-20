@@ -3,8 +3,8 @@
 import { Button } from '@/components/ui/button'
 import { Post, useRootStore } from '@/state/store'
 import { Frown, Send, Users } from 'lucide-react'
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 import { v4 } from 'uuid'
 
 type Tag = {
@@ -15,7 +15,6 @@ type Tag = {
 }
 
 export default function Home() {
-	const messages = useRootStore((state) => state.messages)
 	const posts = useRootStore((state) => state.posts)
 	const changeBgHeader = useRootStore((state) => state.changeBgHeader)
 
