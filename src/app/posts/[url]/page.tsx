@@ -218,6 +218,3 @@ const DevicePage = () => {
 }
 
 export default DevicePage
-function marked(markdown: string): import('react').SetStateAction<string> {
-	throw new Error('Function not implemented.')
-}
