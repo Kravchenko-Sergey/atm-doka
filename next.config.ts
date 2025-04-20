@@ -1,10 +1,14 @@
-import type { NextConfig } from 'next'
+import createMDX from '@next/mdx'
 
-const nextConfig: NextConfig = {
-	// Другие параметры конфигурации
+/** @type {import('next').NextConfig} */
+const nextConfig = {
 	typescript: {
-		ignoreBuildErrors: true // Игнорировать ошибки сборки TypeScript
-	}
+		ignoreBuildErrors: true
+	},
+
+	pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx']
 }
 
-export default nextConfig
+const withMDX = createMDX({})
+
+export default withMDX(nextConfig)

@@ -2,9 +2,9 @@
 
 import { Button } from '@/components/ui/button'
 import { Post, useRootStore } from '@/state/store'
-import { Frown } from 'lucide-react'
+import { Frown, Send, Users } from 'lucide-react'
 import Link from 'next/link'
-import { Fragment, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { v4 } from 'uuid'
 
 type Tag = {
@@ -75,9 +75,44 @@ export default function Home() {
 				<img src='/logo_atm2x.png' alt='atm' />
 			</div>
 			<div className='px-4 max-w-[1580px] flex gap-4 flex-wrap lg:flex-nowrap'>
-				{messages.map((message) => (
-					<Fragment key={message.id}>{message.content}</Fragment>
-				))}
+				<div className='p-4 w-[50%] bg-gray-300 rounded-xl flex-auto dark:bg-[#42454c]'>
+					<div className='pb-8 text-2xl'>Вместе и для каждого</div>
+					<div className='text-xl'>
+						<p>Дока — это документация для POS-инженеров на понятном языке.</p>
+						<p>Каждый участник сообщества — это ценный источник информации.</p>
+						<p>Делитесь своими знаниями, помогайте коллегам.</p>
+						<p>Ваш опыт важен, ваш вклад бесценен.</p>
+					</div>
+					<div>
+						<Link href='/people' className='mt-8 text-xl flex gap-4'>
+							<Users />
+							<div>Участники</div>
+						</Link>
+					</div>
+				</div>
+				<div className='p-4 w-[50%] border rounded-xl flex flex-col flex-auto'>
+					<div className='pb-8 text-2xl'>Дока ищет партнёров</div>
+					<div className='text-xl flex-auto'>
+						<p>
+							Сотрудничество с Докой приносит пользу как компании, так и её
+							сотрудникам.
+						</p>
+						<p>
+							Поддерживая Доку, вы способствуете развитию русскоязычного
+							сообщества POS-инженеров.
+						</p>
+					</div>
+					<div>
+						<Link
+							href='https://t.me/+CznWcCGr6H03NjMy'
+							className='mt-8 text-xl flex gap-4'
+							target='_blank'
+						>
+							<Send />
+							<p>Написать нам</p>
+						</Link>
+					</div>
+				</div>
 			</div>
 			<div className='px-2 pt-8 max-w-[1580px] text-xl flex flex-wrap items-center justify-between gap-2'>
 				{tags.map((tag) => (

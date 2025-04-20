@@ -5,14 +5,15 @@ import { CircleArrowLeft, CircleArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import {
 	Accordion,
 	AccordionContent,
 	AccordionItem,
 	AccordionTrigger
 } from '@/components/ui/accordion'
-import { badgeVariants } from '@/components/ui/badge'
+import { marked as markdownParser } from 'marked'
+import { Button } from '@/components/ui/button'
 
 const DevicePage = () => {
 	const params = useParams()
@@ -27,11 +28,30 @@ const DevicePage = () => {
 	const prevPost = posts[posts.findIndex((p) => p.id === post?.id) - 1] ?? post
 	const nextPost = posts[posts.findIndex((p) => p.id === post?.id) + 1] ?? post
 
+	const [content, setContent] = useState<string | Promise<string>>('')
+
 	useEffect(() => {
 		if (post?.bgColor) {
 			changeBgHeader(post.bgColor)
 		}
-	}, [post])
+		const fetchMarkdownContent = async () => {
+			try {
+				const response = await fetch(`/content/${url}.md`)
+				if (!response.ok) {
+					throw new Error('Не удалось загрузить контент')
+				}
+				const markdown = await response.text()
+				const HTMLContent = markdownParser(markdown)
+				setContent(HTMLContent)
+			} catch (error) {
+				console.error('Ошибка загрузки Markdown файла:', error)
+			}
+		}
+
+		if (url) {
+			fetchMarkdownContent()
+		}
+	}, [post, url])
 
 	return (
 		<div className='w-full flex flex-col'>
@@ -95,6 +115,12 @@ const DevicePage = () => {
 							<p>Авторы:</p>
 							<p>команда АТМ</p>
 						</div>
+						<Button
+							variant={'outline'}
+							className='my-2 py-4 px-2 w-fit font-roboto font-normal text-md rounded-md'
+						>
+							<Link href={'#'}>Редактировать на GitHub</Link>
+						</Button>
 						<div className='flex flex-wrap gap-x-1'>
 							<p>Обновлено</p>
 							<time dateTime='2025-04-13'>{post?.updatedAt}</time>
@@ -102,8 +128,10 @@ const DevicePage = () => {
 					</footer>
 				</aside>
 				<div className='w-full max-w-[1540px] flex-auto'>
-					<div className='px-4 w-full max-w-[1308px]'>{post?.content}</div>
-
+					<div
+						className='px-4 w-full max-w-[1308px] markdown-content'
+						dangerouslySetInnerHTML={{ __html: content }}
+					/>
 					<div className='px-4 w-full max-w-[1308px]'>
 						<h2
 							id={String(post?.contentItems.length)}
@@ -111,7 +139,7 @@ const DevicePage = () => {
 						>
 							Читайте также
 						</h2>
-						<div className='pt-8 flex gap-4 flex-wrap md:gap-4'>
+						<div className='flex gap-4 flex-wrap md:gap-4'>
 							{[...posts]
 								.filter((post) => post.url !== url)
 								.sort(() => Math.random() - 0.5)
@@ -164,29 +192,23 @@ const DevicePage = () => {
 							</Link>
 						</div>
 						<div
-							className='px-6 py-12 text-lg border rounded-md flex flex-col items-center justify-center md:hidden'
+							className='mb-8 px-6 py-12 text-lg border rounded-md flex flex-col items-center justify-center md:hidden'
 							aria-label='Информация об обновлении'
 						>
 							<div className='flex flex-wrap gap-x-1'>
 								<p>Авторы:</p>
 								<p>команда АТМ</p>
 							</div>
+							<Button
+								variant={'outline'}
+								className='my-4 py-4 px-2 w-fit font-roboto font-normal text-md rounded-md'
+							>
+								<Link href={'#'}>Редактировать на GitHub</Link>
+							</Button>
 							<div className='flex flex-wrap gap-x-1'>
 								<p>Обновлено</p>
 								<time dateTime='2025-04-13'>{post?.updatedAt}</time>
 							</div>
-						</div>
-						<div className='py-8 max-w-[1276px] text-xl flex flex-wrap items-center justify-center gap-2 md:mt-24'>
-							<p>Нашли ошибку?</p>
-							<p>Хотите улучшить статью?</p>
-							<Link
-								href='https://t.me/+CznWcCGr6H03NjMy'
-								target='_blank'
-								className={`${badgeVariants({ variant: 'outline' })} text-white`}
-								style={{ backgroundColor: post?.bgColor }}
-							>
-								напишите нам!
-							</Link>
 						</div>
 					</div>
 				</div>
@@ -196,3 +218,6 @@ const DevicePage = () => {
 }
 
 export default DevicePage
+function marked(markdown: string): import('react').SetStateAction<string> {
+	throw new Error('Function not implemented.')
+}
