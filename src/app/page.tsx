@@ -19,6 +19,7 @@ export default function Home() {
 	const changeBgHeader = useRootStore((state) => state.changeBgHeader)
 
 	const [sortedPosts, setSortedPosts] = useState<Post[]>([])
+	const [count, setCount] = useState(6)
 
 	const [tags, setTags] = useState([
 		{ id: v4(), title: '#Сбер', isActive: false, borderColor: '#0dd72d' },
@@ -32,18 +33,12 @@ export default function Home() {
 		{ id: v4(), title: '#Castles', isActive: false, borderColor: '#704ecc' }
 	])
 
-	const [count, setCount] = useState(6)
-
 	const toggleActive = (id: string) => {
 		setTags((prevTags) =>
 			prevTags.map((tag) =>
 				tag.id === id ? { ...tag, isActive: !tag.isActive } : tag
 			)
 		)
-	}
-
-	const handleClickTag = (id: string) => {
-		toggleActive(id)
 	}
 
 	const activeTags: Tag[] = tags
@@ -61,6 +56,10 @@ export default function Home() {
 					activeTags.every((activeTag) => post.tags.includes(activeTag.title))
 				)
 			: sortedPosts
+
+	const handleClickTag = (id: string) => {
+		toggleActive(id)
+	}
 
 	useEffect(() => {
 		const shuffledPosts: Post[] = [...posts].sort(() => Math.random() - 0.5)

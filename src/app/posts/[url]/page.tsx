@@ -18,25 +18,28 @@ import { Button } from '@/components/ui/button'
 const DevicePage = () => {
 	const params = useParams()
 	const posts = useRootStore((state) => state.posts)
-
 	const changeBgHeader = useRootStore((state) => state.changeBgHeader)
+	const [content, setContent] = useState<string | Promise<string>>('')
 
 	const url = params?.url
 
 	const post = posts.find((post) => post.url === url)
 
-	const prevPost = posts[posts.findIndex((p) => p.id === post?.id) - 1] ?? post
-	const nextPost = posts[posts.findIndex((p) => p.id === post?.id) + 1] ?? post
-
-	const [content, setContent] = useState<string | Promise<string>>('')
+	const currentIndex = posts.findIndex((p) => p.id === post?.id)
+	const prevPost = posts[currentIndex - 1] || null
+	const nextPost = posts[currentIndex + 1] || null
 
 	useEffect(() => {
 		if (post?.bgColor) {
 			changeBgHeader(post.bgColor)
 		}
+	}, [post?.bgColor])
+
+	useEffect(() => {
 		const fetchMarkdownContent = async () => {
+			if (!url) return
 			try {
-				const response = await fetch(`/content/${url}.md`)
+				const response = await fetch(`/content/${url}/index.md`)
 				if (!response.ok) {
 					throw new Error('Не удалось загрузить контент')
 				}
@@ -48,10 +51,10 @@ const DevicePage = () => {
 			}
 		}
 
-		if (url) {
-			fetchMarkdownContent()
-		}
-	}, [post, url])
+		fetchMarkdownContent()
+	}, [url])
+
+	console.log(post)
 
 	return (
 		<div className='w-full flex flex-col'>
@@ -119,7 +122,12 @@ const DevicePage = () => {
 							variant={'outline'}
 							className='my-2 py-4 px-2 w-fit font-roboto font-normal text-md rounded-md'
 						>
-							<Link href={'#'}>Редактировать на GitHub</Link>
+							<Link
+								href={post?.linkToEdit ? new URL(post?.linkToEdit) : '#'}
+								target='blank'
+							>
+								Редактировать на GitHub
+							</Link>
 						</Button>
 						<div className='flex flex-wrap gap-x-1'>
 							<p>Обновлено</p>
@@ -203,7 +211,12 @@ const DevicePage = () => {
 								variant={'outline'}
 								className='my-4 py-4 px-2 w-fit font-roboto font-normal text-md rounded-md'
 							>
-								<Link href={'#'}>Редактировать на GitHub</Link>
+								<Link
+									href={post?.linkToEdit ? new URL(post?.linkToEdit) : '#'}
+									target='blank'
+								>
+									Редактировать на GitHub
+								</Link>
 							</Button>
 							<div className='flex flex-wrap gap-x-1'>
 								<p>Обновлено</p>

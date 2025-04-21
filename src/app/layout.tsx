@@ -40,8 +40,13 @@ export default function RootLayout({
 			className={`${roboto.className} scroll-smooth scroll-pt-[180px] md:scroll-pt-[126px]`}
 		>
 			<head>
+				<title>Дока — Документация для POS-инженеров</title>
 				<meta charSet='UTF-8' />
 				<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+				<meta
+					name='description'
+					content='Дока — это документация для POS-инженеров на понятном языке.'
+				/>
 				<link
 					href='https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'
 					rel='stylesheet'
