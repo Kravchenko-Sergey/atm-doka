@@ -25,9 +25,8 @@ const DevicePage = () => {
 
 	const post = posts.find((post) => post.url === url)
 
-	const currentIndex = posts.findIndex((p) => p.id === post?.id)
-	const prevPost = posts[currentIndex - 1] || null
-	const nextPost = posts[currentIndex + 1] || null
+	const prevPost = posts[posts.findIndex((p) => p.id === post?.id) - 1] ?? post
+	const nextPost = posts[posts.findIndex((p) => p.id === post?.id) + 1] ?? post
 
 	useEffect(() => {
 		if (post?.bgColor) {
@@ -53,8 +52,6 @@ const DevicePage = () => {
 
 		fetchMarkdownContent()
 	}, [url])
-
-	console.log(post)
 
 	return (
 		<div className='w-full flex flex-col'>
