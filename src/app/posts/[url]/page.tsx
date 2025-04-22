@@ -68,7 +68,7 @@ const DevicePage = () => {
 					>
 						<div className='w-full px-4 max-w-[1308px] flex flex-col items-center md:flex-row'>
 							<Image
-								src={post!.image}
+								src={`/content/${post.url}/image${post!.image}`}
 								width={320}
 								height={320}
 								priority
