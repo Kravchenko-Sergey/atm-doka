@@ -1,4 +1,9 @@
 {
+	"plugins": ["prettier-plugin-tailwindcss"],
+	"tailwindStylesheet": "./src/app/globals.css",
+	"tailwindConfig": "./tailwind.config.ts",
+	"tailwindPreserveWhitespace": true,
+	"tailwindAttributes": ["className"],
 	"printWidth": 120,
 	"tabWidth": 2,
 	"singleQuote": true,

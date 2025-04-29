@@ -384,6 +384,20 @@ export const useRootStore = create<RootState>((set) => ({
 		},
 		{
 			id: v4(),
+			url: 'tactilion-g3',
+			author: 'Сергей Кравченко',
+			title: 'Как прошить Tactilion G3?',
+			description: 'Руководство по прошивке Tactilion G3',
+			image: '/g3.png',
+			bgColor: '#ffd829',
+			linkToEdit:
+				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/tactilion-g3/index.md',
+			updatedAt: '29 апреля 2025',
+			tags: ['#Сбер', '#Tactilion', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также']
+		},
+		{
+			id: v4(),
 			url: 'castles-vega3000',
 			author: 'Сергей Кравченко',
 			title: 'Как прошить Castles Vega3000 стац?',
