@@ -270,6 +270,34 @@ export const useRootStore = create<RootState>((set) => ({
 		},
 		{
 			id: v4(),
+			url: 'pax-d230',
+			author: 'Сергей Кравченко',
+			title: 'Как прошить Pax D230?',
+			description: 'Руководство по прошивке Pax D230',
+			image: '/pax-d230.png',
+			bgColor: '#08a4e1',
+			linkToEdit:
+				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-d230/index.md',
+			updatedAt: '1 мая 2025',
+			tags: ['#Сбер', '#Pax', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также']
+		},
+		{
+			id: v4(),
+			url: 'pax-d230-mob',
+			author: 'Сергей Кравченко',
+			title: 'Как прошить Pax D230 mob?',
+			description: 'Руководство по прошивке Pax D230 mob',
+			image: '/pax-d230-mob.png',
+			bgColor: '#08a4e1',
+			linkToEdit:
+				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-d230-mob/index.md',
+			updatedAt: '1 мая 2025',
+			tags: ['#Сбер', '#Pax', '#Прошивка'],
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также']
+		},
+		{
+			id: v4(),
 			url: 'verifone-vx520',
 			author: 'Сергей Кравченко',
 			title: 'Как прошить VeriFone VX520?',
