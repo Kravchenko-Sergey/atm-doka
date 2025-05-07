@@ -482,7 +482,6 @@ export const useRootStore = create<RootState>((set) => ({
 			]
 		}
 	],
-
 	bgHeader: 'white',
 	changeBgHeader: (bgHeader: string) => {
 		set(() => ({ bgHeader }))

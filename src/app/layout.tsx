@@ -11,7 +11,8 @@ import './globals.css'
 
 const roboto = Roboto({
 	subsets: ['cyrillic', 'latin'],
-	weight: ['300', '400', '500', '600', '700', '800']
+	weight: ['300', '400', '500', '600', '700', '800'],
+	display: 'swap'
 })
 
 export default function RootLayout({
@@ -20,24 +21,55 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	const bgHeader = useRootStore((state) => state.bgHeader)
+	const [theme, setTheme] = useState<'light' | 'dark'>('light')
+	const [isMounted, setIsMounted] = useState(false)
 
-	const [theme, setTheme] = useState('light')
-
+	// Инициализация темы только на клиенте
 	useEffect(() => {
+		setIsMounted(true)
 		const savedTheme = localStorage.getItem('theme')
-		if (savedTheme) {
-			setTheme(savedTheme)
-		}
+		const prefersDark = window.matchMedia(
+			'(prefers-color-scheme: dark)'
+		).matches
+		const initialTheme =
+			savedTheme === 'dark' || (!savedTheme && prefersDark) ? 'dark' : 'light'
+		setTheme(initialTheme)
 	}, [])
 
+	// Применение темы
 	useEffect(() => {
+		if (!isMounted) return
+
+		document.documentElement.classList.remove('light', 'dark')
+		document.documentElement.classList.add(theme)
 		localStorage.setItem('theme', theme)
-	}, [theme])
+	}, [theme, isMounted])
+
+	const toggleTheme = () => {
+		setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
+	}
+
+	// Не рендерить до монтирования на клиенте
+	if (!isMounted) {
+		return (
+			<html lang='ru' suppressHydrationWarning>
+				<body className={`${roboto.className} bg-white`} />
+			</html>
+		)
+	}
+
+	const headerBgColor =
+		bgHeader === 'white'
+			? theme === 'light'
+				? '#ffffff'
+				: '#292a2e'
+			: bgHeader
 
 	return (
 		<html
 			lang='ru'
-			className={`${roboto.className} scroll-smooth scroll-pt-[180px] md:scroll-pt-[126px]`}
+			className={`${theme} ${roboto.className}`}
+			suppressHydrationWarning
 		>
 			<head>
 				<title>Дока — Документация для POS-инженеров</title>
@@ -46,10 +78,6 @@ export default function RootLayout({
 				<meta
 					name='description'
 					content='Дока — это документация для POS-инженеров на понятном языке.'
-				/>
-				<link
-					href='https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'
-					rel='stylesheet'
 				/>
 				<link
 					rel='icon'
@@ -67,45 +95,46 @@ export default function RootLayout({
 				<link rel='manifest' href='/site.webmanifest' />
 			</head>
 			<body
-				className={`px-4 w-full h-screen text-[#2C2C2C] flex flex-col items-center box-border position: relative top:102px ${theme} overflow-x-hidden`}
+				className={`min-h-screen w-full bg-white text-[#2C2C2C] dark:bg-[#292a2e] dark:text-white`}
 			>
 				<header
-					className='px-4 py-4 w-full flex items-center justify-center fixed top-0 z-30 md:py-6'
-					style={{
-						backgroundColor:
-							bgHeader === 'white'
-								? theme === 'light'
-									? '#ffffff'
-									: '#292a2e'
-								: bgHeader
-					}}
+					className='fixed top-0 z-30 w-full px-4 py-4 transition-colors duration-300 md:py-6'
+					style={{ backgroundColor: headerBgColor }}
 				>
-					<div className='max-w-[1540px] w-full flex flex-col justify-center gap-4 md:justify-start md:flex-row'>
+					<div className='mx-auto flex w-full max-w-[1540px] flex-col items-center justify-between gap-4 md:flex-row'>
 						<Link
-							href={'/'}
-							className='px-8 py-2 text-3xl border rounded-xl z-20 whitespace-nowrap dark:text-[#ffffff] dark:border-white'
+							href='/'
+							className='z-20 whitespace-nowrap rounded-xl border px-8 py-2 text-3xl transition-colors hover:opacity-80 dark:border-white dark:text-white'
+							aria-label='На главную страницу'
 						>
 							АТМ Дока
 						</Link>
-						<SearchInput className='min-h-[54px]' />
+						<SearchInput className='min-h-[54px] w-full md:w-auto' />
 					</div>
 				</header>
-				<main className='pt-[102px] w-[100vw] flex flex-col justify-center items-center flex-1 relative top-0 dark:bg-[#292a2e] dark:text-[#ffffff]'>
+
+				<main className='mx-auto w-full max-w-[1540px] flex-1 pt-[102px]'>
 					{children}
 				</main>
-				<footer className='py-8 w-[100vw] flex justify-center border-t dark:bg-[#292a2e] dark:text-[#ffffff]'>
-					<div className='px-4 w-[1534px] flex justify-between'>
-						<div className='flex items-center justify-center gap-2'>
-							<Sun />
+
+				<footer className='w-full border-t bg-white py-8 dark:bg-[#292a2e] dark:text-white'>
+					<div className='mx-auto flex w-full max-w-[1540px] items-center justify-between px-4'>
+						<div className='flex items-center gap-2'>
+							<Sun size={20} />
 							<Switch
-								value={theme}
-								onCheckedChange={() =>
-									setTheme(theme === 'light' ? 'dark' : 'light')
-								}
+								checked={theme === 'dark'}
+								onCheckedChange={toggleTheme}
+								aria-label='Переключить тему'
 							/>
-							<Moon />
+							<Moon size={20} />
 						</div>
-						<Link href={'/about'}>О проекте</Link>
+						<Link
+							href='/about'
+							className='hover:underline'
+							aria-label='О проекте'
+						>
+							О проекте
+						</Link>
 					</div>
 				</footer>
 			</body>

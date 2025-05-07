@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	theme: {
+		fontFamily: {
+			// Полностью переопределяем sans-шрифт
+			sans: ['Roboto', 'sans-serif']
+		},
 		extend: {
 			keyframes: {
 				'accordion-down': {
