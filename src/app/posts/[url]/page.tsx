@@ -63,7 +63,7 @@ const DevicePage = () => {
 			<div className='w-full flex flex-col'>
 				<div className='flex flex-col items-center'>
 					<header
-						className='flex items-center justify-center w-full h-[480px] z-0 md:h-[348px]'
+						className='flex items-center justify-center w-[100vw] h-[480px] z-0 md:h-[348px]'
 						style={{ backgroundColor: post?.bgColor }}
 					>
 						<div className='w-full px-4 max-w-[1308px] flex flex-col items-center md:flex-row'>

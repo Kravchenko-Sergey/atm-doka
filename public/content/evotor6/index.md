@@ -15,15 +15,42 @@
    .markdown-content a:hover {
       text-decoration: underline;
    }
+   .markdown-content table {
+      min-width: 100%;
+   }
+   .markdown-content th {
+      padding-left: 0.5rem;    
+      padding-right: 0.5rem;   
+      padding-top: 0.5rem;     
+      padding-bottom: 0.5rem;  
+      text-align: left;        
+      font-size: 0.875rem;     
+      line-height: 1.25rem;    
+      font-weight: 500;        
+      border: 1px solid;       
+      border-color: #e5e7eb;
+   }
+   .markdown-content td {
+      padding: 0.75rem 0.5rem;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      border: 1px solid #e5e7eb;
+   }
 </style>
 
-## <a id="1">Что понадобится?</a>
+## <a id="1">Актуальные версии</a>
+
+| ОС                    | UPOS                                       | МЭ           |
+| --------------------- | ------------------------------------------ | ------------ |
+| 6.0.12<br>6.0.14 (ОЭ) | 33.28.08<br>33.36.04 (АН)<br>33.39.04 (ОЭ) | SP_V1.01.050 |
+
+## <a id="2">Что понадобится?</a>
 
 - Флешка в формате FAT32
 - Переходник USB мама - Type-C папа
 - [Файл прошивки](https://drive.google.com/uc?export=download&id=1zp8lapO00GubC86cOwkxooq8cZBRzLb5)
 
-## <a id="2">Как прошить?</a>
+## <a id="3">Как прошить?</a>
 
 - Скачайте [файл прошивки](https://drive.google.com/uc?export=download&id=1zp8lapO00GubC86cOwkxooq8cZBRzLb5).
 - Подготовьте флешку в формате FAT32.
@@ -33,7 +60,7 @@
 - Нажмите на **Проверить и установить**.
 - Касса начнет расшифровывать файл с обновлением, это займет некоторое время. После успешной установки касса сама перезагрузится. Подождите еще 1-2 минуты и вытащите флешку.
 
-## <a id="3">Как добавить eSIM?</a>
+## <a id="4">Как добавить eSIM?</a>
 
 - Заходим в настройки устройства. Для этого жмем три раза на логотип Сбера.
 - Подключаемся к Wi-Fi.
