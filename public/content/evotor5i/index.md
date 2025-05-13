@@ -15,14 +15,41 @@
    .markdown-content a:hover {
       text-decoration: underline;
    }
+   .markdown-content table {
+      min-width: 100%;
+   }
+   .markdown-content th {
+      padding-left: 0.5rem;    
+      padding-right: 0.5rem;   
+      padding-top: 0.5rem;     
+      padding-bottom: 0.5rem;  
+      text-align: left;        
+      font-size: 0.875rem;     
+      line-height: 1.25rem;    
+      font-weight: 500;        
+      border: 1px solid;       
+      border-color: #e5e7eb;
+   }
+   .markdown-content td {
+      padding: 0.75rem 0.5rem;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      border: 1px solid #e5e7eb;
+   }
 </style>
 
-## <a id="1">Что понадобится?</a>
+## <a id="1">Актуальные версии</a>
+
+| ОС     | UPOS                      | МЭ                                                           |
+| ------ | ------------------------- | ------------------------------------------------------------ |
+| 4.9.11 | 33.36.04<br>33.39.04 (ОЭ) | 1.8.2.1*<br>1.8.4.1 (ОЭ)*<br>3.1.2.1\*\*<br>3.1.4.1 (ОЭ)\*\* |
+
+## <a id="2">Что понадобится?</a>
 
 - Флешка в формате FAT32
 - [Файл прошивки](https://disk.yandex.ru/d/eB9BL5llaTbtcw)
 
-## <a id="2">Как прошить?</a>
+## <a id="3">Как прошить?</a>
 
 - Включите смарт-терминал и подключите его к интернету.
 - Очистите файловую систему. Перейдите в
