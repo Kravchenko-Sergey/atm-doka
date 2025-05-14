@@ -19,9 +19,9 @@
 
 ## <a id="1">Что понадобится?</a>
 
-- [**Файл прошивки**](https://disk.yandex.ru/d/hWH_5HxplM8JwQ)
+- [**Файл прошивки**](https://disk.yandex.ru/d/Zo_BfaeJxsk8oA)
 - Провод USB - mini USB
-- Программа [**Nexgo TMU Tools**](https://disk.yandex.ru/d/b97p_kvypMvelw)
+- Программа [**Nexgo TMU Tools**](https://disk.yandex.ru/d/ntxPwIVh8dASHg)
 
 ## <a id="2">Как прошить?</a>
 
@@ -30,7 +30,7 @@
 - Выбираем пункт **4** - **Clear APPs**
 - Вводим пароль - **83890345**
 - Подтверждаем нажатием на зелёную кнопку
-- Открываем на компьютере программу [**Nexgo TMU Tools**](https://disk.yandex.ru/d/b97p_kvypMvelw)
+- Открываем на компьютере программу [**Nexgo TMU Tools**](https://disk.yandex.ru/d/ntxPwIVh8dASHg)
 - Нажимаем **Add local App** и выбираем папку с прошивкой
 - Нажимаем **Download**
 - Перезагружаем терминал

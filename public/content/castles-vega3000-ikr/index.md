@@ -22,7 +22,7 @@
 - Флешка в формате FAT32
 - Комплектный провод
 - Переходник USB мама - mini USB папа
-- [**Папка с файлами**](https://disk.yandex.ru/d/YWXEkFPT6dtvnQ)
+- [**Папка с файлами**](https://disk.yandex.ru/d/MS548Ff0grXoUw)
 
 ## <a id="2">Как прошить?</a>
 

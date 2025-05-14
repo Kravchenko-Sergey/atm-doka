@@ -19,8 +19,8 @@
 
 ## <a id="1">Что понадобится?</a>
 
-- Программа [Flash Tool](https://disk.yandex.ru/d/5bzYR63BWdppGg)
-- [Папка с файлами](https://drive.google.com/drive/folders/1Ms1kETV6WVh9RfCiG3X-9h1naujG0LRq?usp=drive_link)
+- Программа [Flash Tool](https://disk.yandex.ru/d/rd08ougjIKg4Lg)
+- [Папка с файлами](https://drive.google.com/file/d/1rseX8SzaCr5X41YLjX9kcvzj4SdPE1ZX/view?usp=drive_link)
 
 ## <a id="2">Как прошить?</a>
 

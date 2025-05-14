@@ -21,7 +21,7 @@
 
 - Комплектный провод
 - Блок питания micro-USB
-- **[Папка с файлами](https://disk.yandex.ru/d/o4SZOhqtAKcMMg)**
+- **[Папка с файлами](https://disk.yandex.ru/d/XjC6g_QSFhr6Jw)**
 
 ## <a id="2">Как прошить?</a>
 

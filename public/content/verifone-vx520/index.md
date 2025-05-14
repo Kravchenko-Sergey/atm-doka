@@ -20,7 +20,7 @@
 ## <a id="1">Что понадобится?</a>
 
 - Флешка в формате FAT32
-- **Папка** [verifone](https://disk.yandex.ru/d/LxnfSoRsagunFg) с необходимыми файлами
+- **Папка** [verifone](https://disk.yandex.ru/d/Ym5ZizF5xbCEHQ) с необходимыми файлами
 
 ## <a id="2">Как прошить?</a>
 

@@ -48,7 +48,7 @@
 
 - Флешка в формате FAT32
 - Переходник USB мама - Type-C папа
-- [Файл прошивки](https://drive.google.com/uc?export=download&id=1zp8lapO00GubC86cOwkxooq8cZBRzLb5)
+- [Файл прошивки](https://drive.google.com/uc?export=download&id=1GIIdIvHHEUQvnACXVaffDGzVBSYzh_nN)
 
 ## <a id="3">Как прошить?</a>
 

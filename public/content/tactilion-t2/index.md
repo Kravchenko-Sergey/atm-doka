@@ -20,7 +20,7 @@
 ## <a id="1">Что понадобится?</a>
 
 - Флешка в формате FAT32
-- [Папка с файлами](https://disk.yandex.ru/d/KfbfXY0nfsmAEg)
+- [Папка с файлами](https://disk.yandex.ru/d/wlh2zYSls2s77g)
 
 ## <a id="2">Как прошить?</a>
 

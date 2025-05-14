@@ -20,8 +20,8 @@
 ## <a id="1">Что понадобится?</a>
 
 - **Программа**  
-  [LLT](https://disk.yandex.ru/d/GuKO1lZnITNtEA)
-- [Папка с файлами](https://disk.yandex.ru/d/ZP3VLrmw0CnZAw)
+  [LLT](https://disk.yandex.ru/d/BbiiXdxjEfw_PA)
+- [Папка с файлами](https://disk.yandex.ru/d/-L6rGWh_bGYcog)
 
 ## <a id="2">Как прошить?</a>
 

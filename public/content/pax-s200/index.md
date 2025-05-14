@@ -19,7 +19,7 @@
 
 ## <a id="1">Что понадобится?</a>
 
-- Программа [PC Loader](https://disk.yandex.ru/d/3RhZrYWn5tC1og)
+- Программа [PC Loader](https://disk.yandex.ru/d/qf8P-Mc4FOyUcQ)
 - Переходник
 - [Файл прошивки](#)
 

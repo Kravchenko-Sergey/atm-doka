@@ -20,9 +20,9 @@
 ## <a id="1">Что понадобится?</a>
 
 - Компьютер
-- [Папка для компьютера](https://disk.yandex.ru/d/7w6GizD53EmiGA)
+- [Папка для компьютера](https://disk.yandex.ru/d/jt5WS_fWPZHaUg)
 - Комплектный провод
-- [Драйвер](https://disk.yandex.ru/d/RbEz-ll2kQgtzA)
+- [Драйвер](https://disk.yandex.ru/d/0XtlL9aZeqnAHA)
 
 ## <a id="2">Как прошить?</a>
 
