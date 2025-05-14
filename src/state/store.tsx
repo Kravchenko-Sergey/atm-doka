@@ -247,7 +247,7 @@ export const useRootStore = create<RootState>(set => ({
 			linkToEdit: 'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/verifone-vx520/index.md',
 			updatedAt: '13 апреля 2025',
 			tags: ['#Сбер', '#VeriFone', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Видео', 'Читайте также']
+			contentItems: ['Что понадобится?', 'Как прошить?', 'Видео', 'Дефектовка', 'Читайте также']
 		},
 		{
 			id: v4(),
