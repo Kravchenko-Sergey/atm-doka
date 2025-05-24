@@ -386,9 +386,10 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#41e747',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/ingenico-ict220-ict250/index.md',
-			updatedAt: '13 апреля 2025',
+			updatedAt: '24 мая 2025',
 			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
 			contentItems: [
+				'Актуальные версии',
 				'Что понадобится?',
 				'Как прошить?',
 				'Видео',
@@ -405,9 +406,10 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#41e747',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/ingenico-ipp320-ipp350/index.md',
-			updatedAt: '13 апреля 2025',
+			updatedAt: '24 мая 2025',
 			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
 			contentItems: [
+				'Актуальные версии',
 				'Что понадобится?',
 				'Как прошить?',
 				'Видео',
@@ -424,9 +426,10 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#41e747',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/ingenico-iwl320-iwl350/index.md',
-			updatedAt: '13 апреля 2025',
+			updatedAt: '24 мая 2025',
 			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
 			contentItems: [
+				'Актуальные версии',
 				'Что понадобится?',
 				'Как прошить?',
 				'Видео',
@@ -443,9 +446,10 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#ffd829',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/tactilion-t2/index.md',
-			updatedAt: '13 апреля 2025',
+			updatedAt: '24 мая 2025',
 			tags: ['#Сбер', '#Tactilion', '#Прошивка'],
 			contentItems: [
+				'Актуальные версии',
 				'Что понадобится?',
 				'Как прошить?',
 				'Видео',
@@ -462,9 +466,14 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#ffd829',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/tactilion-g3/index.md',
-			updatedAt: '29 апреля 2025',
+			updatedAt: '24 мая 2025',
 			tags: ['#Сбер', '#Tactilion', '#Прошивка'],
-			contentItems: ['Что понадобится?', 'Как прошить?', 'Читайте также']
+			contentItems: [
+				'Актуальные версии',
+				'Что понадобится?',
+				'Как прошить?',
+				'Читайте также'
+			]
 		},
 		{
 			id: v4(),
@@ -476,9 +485,10 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#704ecc',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/castles-vega3000/index.md',
-			updatedAt: '13 апреля 2025',
+			updatedAt: '24 мая 2025',
 			tags: ['#Сбер', '#Castles', '#Прошивка'],
 			contentItems: [
+				'Актуальные версии',
 				'Что понадобится?',
 				'Как прошить?',
 				'Видео',
@@ -495,9 +505,10 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#704ecc',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/castles-vega3000-mob/index.md',
-			updatedAt: '13 апреля 2025',
+			updatedAt: '24 мая 2025',
 			tags: ['#Сбер', '#Castles', '#Прошивка'],
 			contentItems: [
+				'Актуальные версии',
 				'Что понадобится?',
 				'Как прошить?',
 				'Видео',
@@ -514,9 +525,10 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#704ecc',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/castles-vega3000-ikr/index.md',
-			updatedAt: '13 апреля 2025',
+			updatedAt: '24 мая 2025',
 			tags: ['#Сбер', '#Castles', '#Прошивка'],
 			contentItems: [
+				'Актуальные версии',
 				'Что понадобится?',
 				'Как прошить?',
 				'Видео',
