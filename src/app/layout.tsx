@@ -5,9 +5,11 @@ import { Roboto } from 'next/font/google'
 import { useRootStore } from '@/state/store'
 import { SearchInput } from '@/components/search-input'
 import { Switch } from '@/components/ui/switch'
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { Moon, Sun } from 'lucide-react'
 import './globals.css'
+import Script from 'next/script'
+import YandexMetrika from '@/components/YandexMetrika'
 
 const roboto = Roboto({
 	subsets: ['cyrillic', 'latin'],
@@ -97,6 +99,24 @@ export default function RootLayout({
 			<body
 				className={`min-h-screen w-full bg-white text-[#2C2C2C] dark:bg-[#292a2e] dark:text-white`}
 			>
+				<Script id='metrika-counter' strategy='afterInteractive'>
+					{`(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+    ym(102141824, "init", {
+          defer: true,
+          clickmap:true,
+          trackLinks:true,
+          accurateTrackBounce:true,
+          webvisor:true
+    });`}
+				</Script>
+				<Suspense fallback={<></>}>
+					<YandexMetrika />
+				</Suspense>
 				<header
 					className='fixed top-0 z-30 w-full px-4 py-4 transition-colors duration-300 md:py-6'
 					style={{ backgroundColor: headerBgColor }}
@@ -112,11 +132,9 @@ export default function RootLayout({
 						<SearchInput className='min-h-[54px] w-full md:w-auto' />
 					</div>
 				</header>
-
 				<main className='mx-auto w-full max-w-[1540px] flex-1 pt-[102px]'>
 					{children}
 				</main>
-
 				<footer className='w-full border-t bg-white py-8 dark:bg-[#292a2e] dark:text-white'>
 					<div className='mx-auto flex w-full max-w-[1540px] items-center justify-between px-4'>
 						<div className='flex items-center gap-2'>
