@@ -20,6 +20,6 @@ export default function YandexMetrika() {
 
 	return null
 }
-function ym(arg0: number, arg1: string, url: string) {
+function ym(_arg0: number, _arg1: string, _url: string) {
 	throw new Error('Function not implemented.')
 }
