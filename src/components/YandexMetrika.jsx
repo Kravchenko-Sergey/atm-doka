@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import Script from 'next/script'
 
-export function Metrika() {
+export function YandexMetrika() {
 	const pathName = usePathname()
 	const searchParams = useSearchParams()
 
@@ -22,7 +22,7 @@ export function Metrika() {
         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
         (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
  
-        ym(XXXXXXXX, "init", {
+        ym(102141824, "init", {
           defer: true,
           clickmap:true,
           trackLinks:true,

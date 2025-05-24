@@ -8,8 +8,7 @@ import { Switch } from '@/components/ui/switch'
 import { Suspense, useEffect, useState } from 'react'
 import { Moon, Sun } from 'lucide-react'
 import './globals.css'
-import Script from 'next/script'
-import YandexMetrika from '@/components/YandexMetrika'
+import { YandexMetrika } from '@/components/YandexMetrika'
 
 const roboto = Roboto({
 	subsets: ['cyrillic', 'latin'],
