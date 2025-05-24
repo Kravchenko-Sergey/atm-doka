@@ -15,16 +15,47 @@
    .markdown-content a:hover {
       text-decoration: underline;
    }
+   .markdown-content table {
+      min-width: 100%;
+   }
+   .markdown-content th {
+      padding-left: 0.5rem;    
+      padding-right: 0.5rem;   
+      padding-top: 0.5rem;     
+      padding-bottom: 0.5rem;  
+      text-align: left;        
+      font-size: 0.875rem;     
+      line-height: 1.25rem;    
+      font-weight: 500;        
+      border: 1px solid;       
+      border-color: #e5e7eb;
+   }
+   .markdown-content td {
+      padding: 0.75rem 0.5rem;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      border: 1px solid #e5e7eb;
+   }
 </style>
 
-## <a id="1">Что понадобится?</a>
+## <a id="1">Актуальные версии</a>
+
+<div class="overflow-x-auto whitespace-nowrap">
+
+| UPOS     | Prolin OS |
+| -------- | --------- |
+| 33.33.07 | 2.4.224   |
+
+</div>
+
+## <a id="2">Что понадобится?</a>
 
 - Компьютер
 - [Папка для компьютера](https://disk.yandex.ru/d/jt5WS_fWPZHaUg)
 - Комплектный провод
 - [Драйвер](https://disk.yandex.ru/d/0XtlL9aZeqnAHA)
 
-## <a id="2">Как прошить?</a>
+## <a id="3">Как прошить?</a>
 
 - Проверяем установлен ли драйвер на компьютере. Заходим в диспетчер устройств. Если терминал не присвоил себе порт, то устанавливаем драйвер.
 - Подключаем терминал к порту USB компьютера.
@@ -42,7 +73,7 @@
 - Несколько раз нажимаем на красную кнопку и выключаем терминал.
 - После перезагрузки терминала остаётся дождаться загрузки UPOS.
 
-## <a id="3">Видео</a>
+## <a id="4">Видео</a>
 
 <video width='320' height='180' controls>
   <source src='/content/pax-s300/video/S300.mp4' type='video/mp4' />

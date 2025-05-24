@@ -15,14 +15,45 @@
    .markdown-content a:hover {
       text-decoration: underline;
    }
+   .markdown-content table {
+      min-width: 100%;
+   }
+   .markdown-content th {
+      padding-left: 0.5rem;    
+      padding-right: 0.5rem;   
+      padding-top: 0.5rem;     
+      padding-bottom: 0.5rem;  
+      text-align: left;        
+      font-size: 0.875rem;     
+      line-height: 1.25rem;    
+      font-weight: 500;        
+      border: 1px solid;       
+      border-color: #e5e7eb;
+   }
+   .markdown-content td {
+      padding: 0.75rem 0.5rem;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      border: 1px solid #e5e7eb;
+   }
 </style>
 
-## <a id="1">Что понадобится?</a>
+## <a id="1">Актуальные версии</a>
+
+<div class="overflow-x-auto whitespace-nowrap">
+
+| Модель                  | UPOS                                                             | OS        |
+| ----------------------- | ---------------------------------------------------------------- | --------- |
+| T2<br>T2 + Kozen P12 \* | 33.18.03<br>33.33.07 \* (АН)<br>33.33.09 \*<br> 33.42.02 \* (ОЭ) | 04_190408 |
+
+</div>
+
+## <a id="2">Что понадобится?</a>
 
 - Флешка в формате FAT32
 - [Папка с файлами](https://disk.yandex.ru/d/wlh2zYSls2s77g)
 
-## <a id="2">Как прошить?</a>
+## <a id="3">Как прошить?</a>
 
 - Подключаем флешку к терминалу.
 - Нажимаем на кнопку включения.
@@ -34,7 +65,7 @@
 - После завершения прошивки дважды нажимаем кнопку назад и один раз зелёную кнопку.
 - Осталось дождаться загрузки UPOS.
 
-## <a id="3">Видео</a>
+## <a id="4">Видео</a>
 
 <video width="320" height="180" controls>
   <source src="/content/tactilion-t2/video/TACTILION T2.mp4" type="video/mp4" />

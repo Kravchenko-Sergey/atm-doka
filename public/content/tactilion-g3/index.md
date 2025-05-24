@@ -15,15 +15,46 @@
    .markdown-content a:hover {
       text-decoration: underline;
    }
+   .markdown-content table {
+      min-width: 100%;
+   }
+   .markdown-content th {
+      padding-left: 0.5rem;    
+      padding-right: 0.5rem;   
+      padding-top: 0.5rem;     
+      padding-bottom: 0.5rem;  
+      text-align: left;        
+      font-size: 0.875rem;     
+      line-height: 1.25rem;    
+      font-weight: 500;        
+      border: 1px solid;       
+      border-color: #e5e7eb;
+   }
+   .markdown-content td {
+      padding: 0.75rem 0.5rem;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      border: 1px solid #e5e7eb;
+   }
 </style>
 
-## <a id="1">Что понадобится?</a>
+## <a id="1">Актуальные версии</a>
+
+<div class="overflow-x-auto whitespace-nowrap">
+
+| UPOS     | OS         |
+| -------- | ---------- |
+| 33.18.03 | S190512349 |
+
+</div>
+
+## <a id="2">Что понадобится?</a>
 
 - [**Файл прошивки**](https://disk.yandex.ru/d/Zo_BfaeJxsk8oA)
 - Провод USB - mini USB
 - Программа [**Nexgo TMU Tools**](https://disk.yandex.ru/d/ntxPwIVh8dASHg)
 
-## <a id="2">Как прошить?</a>
+## <a id="3">Как прошить?</a>
 
 - Вкючаем терминал
 - После звукового сигнала зажимаем **1** и **F** и держим до появления системного меню

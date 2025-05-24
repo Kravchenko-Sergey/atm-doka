@@ -15,14 +15,45 @@
    .markdown-content a:hover {
       text-decoration: underline;
    }
+   .markdown-content table {
+      min-width: 100%;
+   }
+   .markdown-content th {
+      padding-left: 0.5rem;    
+      padding-right: 0.5rem;   
+      padding-top: 0.5rem;     
+      padding-bottom: 0.5rem;  
+      text-align: left;        
+      font-size: 0.875rem;     
+      line-height: 1.25rem;    
+      font-weight: 500;        
+      border: 1px solid;       
+      border-color: #e5e7eb;
+   }
+   .markdown-content td {
+      padding: 0.75rem 0.5rem;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      border: 1px solid #e5e7eb;
+   }
 </style>
 
-## <a id="1">Что понадобится?</a>
+## <a id="1">Актуальные версии</a>
+
+<div class="overflow-x-auto whitespace-nowrap">
+
+| Модель                        | UPOS                                                             | OS Verix | EOS     | VX-CTLS-2  |
+| ----------------------------- | ---------------------------------------------------------------- | -------- | ------- | ---------- |
+| VX520<br>VX520 + Kozen P12 \* | 33.18.03<br>33.33.07 \* (АН)<br>33.33.09 \*<br> 33.42.02 \* (ОЭ) | QT00050  | 3.3.2.0 | 01.30.02M6 |
+
+</div>
+
+## <a id="2">Что понадобится?</a>
 
 - Флешка в формате FAT32
 - **Папка** [verifone](https://disk.yandex.ru/d/Ym5ZizF5xbCEHQ) с необходимыми файлами
 
-## <a id="2">Как прошить?</a>
+## <a id="3">Как прошить?</a>
 
 - Включаем терминал.
 - Присоединяем флешку.
@@ -42,7 +73,7 @@
 - Нажимаем зелёную кнопку.
 - Осталось дождаться окончания прошивки и загрузки UPOS.
 
-## <a id="3">Видео</a>
+## <a id="4">Видео</a>
 
 <video width='320' height='180' controls>
     <source src='/content/verifone-vx520/video/VX520.mp4' type='video/mp4' />
@@ -50,7 +81,7 @@
 
 ##
 
-## <a id="4">Дефектовка</a>
+## <a id="5">Дефектовка</a>
 
 - Заходим в системное меню зажимаем клавиши ввода (зеленая) и цифру семь, далее вводим пароль **1 alpha alpha 6 6 8 3 1**
 - Проверка магнитного ридера. Заходим в **Terminal Info** → **Diagnostics** → **Mag Card Diag**. Проводим магнитную полосу карты через магнито приемник. Если на всех трех дорохках значение **VALID** то магнитный ридер исправен. (третью дорожку в расчет небрать)

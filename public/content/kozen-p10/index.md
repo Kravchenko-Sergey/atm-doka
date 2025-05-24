@@ -15,14 +15,45 @@
    .markdown-content a:hover {
       text-decoration: underline;
    }
+   .markdown-content table {
+      min-width: 100%;
+   }
+   .markdown-content th {
+      padding-left: 0.5rem;    
+      padding-right: 0.5rem;   
+      padding-top: 0.5rem;     
+      padding-bottom: 0.5rem;  
+      text-align: left;        
+      font-size: 0.875rem;     
+      line-height: 1.25rem;    
+      font-weight: 500;        
+      border: 1px solid;       
+      border-color: #e5e7eb;
+   }
+   .markdown-content td {
+      padding: 0.75rem 0.5rem;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      border: 1px solid #e5e7eb;
+   }
 </style>
 
-## <a id="1">Что понадобится?</a>
+## <a id="1">Актуальные версии</a>
+
+<div class="overflow-x-auto whitespace-nowrap">
+
+| UPOS                           | Прошивка | Upos native | Подключается к:                                                    |
+| ------------------------------ | -------- | ----------- | ------------------------------------------------------------------ |
+| 33.33.07 (АН)<br>33.42.02 (ОЭ) | 1.4.5    | 1.104.53    | ИКР;<br>Все Эвотор, кроме <br>банковских 5i;<br>ICT 2Х0, VX520, T2 |
+
+</div>
+
+## <a id="2">Что понадобится?</a>
 
 - Программа [Flash Tool](https://disk.yandex.ru/d/rd08ougjIKg4Lg)
 - [Папка с файлами](https://drive.google.com/file/d/1rseX8SzaCr5X41YLjX9kcvzj4SdPE1ZX/view?usp=drive_link)
 
-## <a id="2">Как прошить?</a>
+## <a id="3">Как прошить?</a>
 
 - Заходим в программу **Flash Tool**.
 - В поле **Download-Agent** указываем путь к файлу **?**.
@@ -32,7 +63,7 @@
 - Подключаем терминал к компьютеру.
 - Дожидаемся окончания прошивки.
 
-## <a id="3">Видео</a>
+## <a id="4">Видео</a>
 
 <video width="320" height="180" controls>
   <source src="/content/kozen-p10/video/KOZEN.mp4" type="video/mp4" />
