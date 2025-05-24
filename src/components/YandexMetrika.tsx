@@ -15,11 +15,10 @@ export default function YandexMetrika() {
 
 	useEffect(() => {
 		const url = `${pathname}?${searchParams}`
-		ym(102141824, 'hit', url)
+		if (window.ym) {
+			window.ym(102141824, 'hit', url)
+		}
 	}, [pathname, searchParams])
 
 	return null
-}
-function ym(_arg0: number, _arg1: string, _url: string) {
-	throw new Error('Function not implemented.')
 }
