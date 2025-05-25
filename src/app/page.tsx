@@ -24,6 +24,7 @@ export default function Home() {
 	const [tags, setTags] = useState([
 		{ id: v4(), title: '#Сбер', isActive: false, borderColor: '#0dd72d' },
 		{ id: v4(), title: '#Прошивка', isActive: false, borderColor: '#e5e5e5' },
+		{ id: v4(), title: '#Дефектовка', isActive: false, borderColor: '#e4e4e4' },
 		{ id: v4(), title: '#Эвотор', isActive: false, borderColor: '#f15024' },
 		{ id: v4(), title: '#Pax', isActive: false, borderColor: '#08a4e1' },
 		{ id: v4(), title: '#Ingenico', isActive: false, borderColor: '#41e747' },
@@ -117,7 +118,7 @@ export default function Home() {
 					<div
 						key={tag.id}
 						onClick={() => handleClickTag(tag.id)}
-						className='w-32 h-12 px-4 py-2 text-xl flex items-center justify-center transition duration-300 ease-in-out cursor-pointer
+						className='h-12 px-4 py-2 text-xl flex items-center justify-center transition duration-300 ease-in-out cursor-pointer
 						'
 						style={{
 							border: tag.isActive ? `2px solid ${tag.borderColor}` : '',
