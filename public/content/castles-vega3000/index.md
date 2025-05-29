@@ -42,9 +42,9 @@
 
 <div class="overflow-x-auto whitespace-nowrap">
 
-| UPOS     | OS         |
-| -------- | ---------- |
-| 33.33.07 | VR0028-201 |
+| UPOS          | OS         |
+| ------------- | ---------- |
+| 33.33.07 (АН) | VR0028-201 |
 
 </div>
 
