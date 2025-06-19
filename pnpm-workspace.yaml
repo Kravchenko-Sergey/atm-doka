@@ -1,3 +1,4 @@
-ignoredBuiltDependencies:
-  - sharp
-  - unrs-resolver
+packages:
+  - "packages/**"    # Включает все подпакеты в директории packages
+  - "apps/**"       # Включает все подпакеты в директории apps
+  - "."             # Включает корневой проект (если нужно)
