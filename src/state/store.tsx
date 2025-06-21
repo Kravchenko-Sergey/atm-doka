@@ -3,6 +3,11 @@ import { create } from 'zustand'
 import { JSX } from 'react'
 import { ScanFace } from 'lucide-react'
 
+type contentItem = {
+	title: string
+	children?: string[]
+}
+
 export type Post = {
 	id: string
 	url: string
@@ -14,7 +19,7 @@ export type Post = {
 	linkToEdit: string
 	updatedAt: string
 	tags: string[]
-	contentItems: string[]
+	contentItems: contentItem[]
 }
 
 type Person = {
@@ -45,8 +50,8 @@ export const useRootStore = create<RootState>((set) => ({
 			id: v4(),
 			url: 'evotor5i',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Evotor 5i?',
-			description: 'Руководство по прошивке Evotor 5i',
+			title: 'Эвотор 5i',
+			description: 'Руководство по прошивке',
 			image: '/evo5i.png',
 			bgColor: '#f15024',
 			linkToEdit:
@@ -54,67 +59,75 @@ export const useRootStore = create<RootState>((set) => ({
 			updatedAt: '19 июня 2025',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий']
+				},
+				{ title: 'Читайте также' }
 			]
 		},
 		{
 			id: v4(),
 			url: 'evotor72',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Evotor 7.2?',
-			description: 'Руководство по прошивке Evotor 7.2',
+			title: 'Эвотор 7.2',
+			description: 'Руководство по прошивке',
 			image: '/evo72.png',
 			bgColor: '#f15024',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/evotor72/index.md',
-			updatedAt: '24 мая 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий']
+				},
+				{ title: 'Читайте также' }
 			]
 		},
 		{
 			id: v4(),
 			url: 'evotor73',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Evotor 7.3?',
-			description: 'Руководство по прошивке Evotor 7.3',
+			title: 'Эвотор 7.3',
+			description: 'Руководство по прошивке',
 			image: '/evo73.png',
 			bgColor: '#f15024',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/evotor73/index.md',
-			updatedAt: '24 мая 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий']
+				},
+				{ title: 'Читайте также' }
 			]
 		},
 		{
 			id: v4(),
 			url: 'evotor10',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Evotor 10?',
-			description: 'Руководство по прошивке Evotor 10',
+			title: 'Эвотор 10',
+			description: 'Руководство по прошивке',
 			image: '/evo10.png',
 			bgColor: '#f15024',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/evotor10/index.md',
-			updatedAt: '24 мая 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий']
+				},
+				{ title: 'Читайте также' }
 			]
 		},
 		{
@@ -122,419 +135,478 @@ export const useRootStore = create<RootState>((set) => ({
 			url: 'evotor6',
 			author: 'Сергей Кравченко',
 			title: 'Эвотор 6',
-			description: 'Руководство по прошивке, настройке и эксплуатации',
+			description: 'Руководство по прошивке',
 			image: '/evo6.png',
 			bgColor: '#f15024',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/evotor6/index.md',
-			updatedAt: '19 июня 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Как добавить eSIM?',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий', 'Как добавить eSIM?']
+				},
+				{ title: 'Читайте также' }
 			]
 		},
 		{
 			id: v4(),
 			url: 'kozen-p10',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Kozen P10?',
-			description: 'Руководство по прошивке Kozen P10',
+			title: 'Kozen P10',
+			description: 'Руководство по прошивке',
 			image: '/p10.png',
 			bgColor: '#C0C0C0',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/kozen-p10/index.md',
-			updatedAt: '29 мая 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#Kozen', '#Прошивка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Видео',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий']
+				},
+				{ title: 'Читайте также' }
 			]
 		},
 		{
 			id: v4(),
 			url: 'kozen-p12',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Kozen P12?',
-			description: 'Руководство по прошивке Kozen P12',
+			title: 'Kozen P12',
+			description: 'Руководство по прошивке',
 			image: '/p12.png',
 			bgColor: '#C0C0C0',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/kozen-p12/index.md',
-			updatedAt: '29 мая 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#Kozen', '#Прошивка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Видео',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий', 'Видео']
+				},
+				{ title: 'Читайте также' }
 			]
 		},
 		{
 			id: v4(),
 			url: 'pax-s80',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Pax S80?',
-			description: 'Руководство по прошивке Pax S80',
+			title: 'Pax S80',
+			description: 'Руководство по прошивке и дефектовке',
 			image: '/s80.png',
 			bgColor: '#08a4e1',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-s80/index.md',
-			updatedAt: '25 мая 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#Pax', '#Прошивка', '#Дефектовка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Видео',
-				'Дефектовка',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий', 'Видео']
+				},
+				{
+					title: 'Дефектовка',
+					children: [
+						'Внешний вид',
+						'Включение',
+						'Магнитный ридер',
+						'Чиповый ридер',
+						'Бесконтактный ридер',
+						'Клавиатура',
+						'GPRS',
+						'Ethernet'
+					]
+				},
+				{ title: 'Читайте также' }
 			]
 		},
 		{
 			id: v4(),
 			url: 'pax-s90',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Pax S90?',
-			description: 'Руководство по прошивке Pax S90',
+			title: 'Pax S90',
+			description: 'Руководство по прошивке и дефектовке',
 			image: '/s90.png',
 			bgColor: '#08a4e1',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-s90/index.md',
-			updatedAt: '25 мая 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#Pax', '#Прошивка', '#Дефектовка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Видео',
-				'Дефектовка',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий', 'Видео']
+				},
+				{
+					title: 'Дефектовка',
+					children: [
+						'Внешний вид',
+						'Включение',
+						'Магнитный ридер',
+						'Чиповый ридер',
+						'Бесконтактный ридер',
+						'Клавиатура',
+						'GPRS',
+						'Ethernet'
+					]
+				},
+				{ title: 'Читайте также' }
 			]
 		},
 		{
 			id: v4(),
 			url: 'pax-sp30',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Pax SP30?',
-			description: 'Руководство по прошивке Pax SP30',
+			title: 'Pax SP30',
+			description: 'Руководство по прошивке',
 			image: '/sp30.png',
 			bgColor: '#08a4e1',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-sp30/index.md',
-			updatedAt: '24 мая 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Видео',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий', 'Видео']
+				},
+				{ title: 'Читайте также' }
 			]
 		},
 		{
 			id: v4(),
 			url: 'pax-s300',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Pax S300?',
-			description: 'Руководство по прошивке Pax S300',
+			title: 'Pax S300',
+			description: 'Руководство по прошивке',
 			image: '/s300.png',
 			bgColor: '#08a4e1',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-s300/index.md',
-			updatedAt: '24 мая 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Видео',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий', 'Видео']
+				},
+				{ title: 'Читайте также' }
 			]
 		},
 		{
 			id: v4(),
 			url: 'pax-s200',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Pax S200?',
-			description: 'Руководство по прошивке Pax S200',
+			title: 'Pax S200',
+			description: 'Руководство по прошивке',
 			image: '/s200.png',
 			bgColor: '#08a4e1',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-s200/index.md',
-			updatedAt: '24 мая 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Видео',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий', 'Видео']
+				},
+				{ title: 'Читайте также' }
 			]
 		},
 		{
 			id: v4(),
 			url: 'pax-q25',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Pax Q25?',
-			description: 'Руководство по прошивке Pax Q25',
+			title: 'Pax Q25',
+			description: 'Руководство по прошивке',
 			image: '/q25.png',
 			bgColor: '#08a4e1',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-q25/index.md',
-			updatedAt: '24 мая 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Видео',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий', 'Видео']
+				},
+				{ title: 'Читайте также' }
 			]
 		},
 		{
 			id: v4(),
 			url: 'pax-d230',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Pax D230?',
-			description: 'Руководство по прошивке Pax D230',
+			title: 'Pax D230',
+			description: 'Руководство по прошивке',
 			image: '/pax-d230.png',
 			bgColor: '#08a4e1',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-d230/index.md',
-			updatedAt: '24 мая 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий']
+				},
+				{ title: 'Читайте также' }
 			]
 		},
 		{
 			id: v4(),
 			url: 'pax-d230-mob',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Pax D230 mob?',
-			description: 'Руководство по прошивке Pax D230 mob',
+			title: 'Pax D230 mob',
+			description: 'Руководство по прошивке',
 			image: '/pax-d230-mob.png',
 			bgColor: '#08a4e1',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-d230-mob/index.md',
-			updatedAt: '24 мая 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#Pax', '#Прошивка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий']
+				},
+				{ title: 'Читайте также' }
 			]
 		},
 		{
 			id: v4(),
 			url: 'verifone-vx520',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить VeriFone VX520?',
-			description: 'Руководство по прошивке VeriFone VX520',
+			title: 'VeriFone VX520',
+			description: 'Руководство по прошивке и дефектовке',
 			image: '/vx520.png',
 			bgColor: '#6effd2',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/verifone-vx520/index.md',
-			updatedAt: '29 мая 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#VeriFone', '#Прошивка', '#Дефектовка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Видео',
-				'Дефектовка',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий', 'Видео']
+				},
+				{
+					title: 'Дефектовка',
+					children: [
+						'Магнитный ридер',
+						'Смарт-ридер',
+						'Модуль STLS',
+						'Клавиатура',
+						'Принтер',
+						'GPRS',
+						'Ethernet порт'
+					]
+				},
+				{ title: 'Читайте также' }
 			]
 		},
 		{
 			id: v4(),
 			url: 'verifone-vx820',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить VeriFone VX820?',
-			description: 'Руководство по прошивке VeriFone VX820',
+			title: 'VeriFone VX820',
+			description: 'Руководство по прошивке',
 			image: '/vx820.png',
 			bgColor: '#6effd2',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/verifone-vx820/index.md',
-			updatedAt: '24 мая 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#VeriFone', '#Прошивка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Видео',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий', 'Видео']
+				},
+				{ title: 'Читайте также' }
 			]
 		},
 		{
 			id: v4(),
 			url: 'ingenico-ict220-ict250',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Ingenico ICT220-ICT250?',
-			description: 'Руководство по прошивке Ingenico ICT220-ICT250',
+			title: 'Ingenico ICT220-ICT250',
+			description: 'Руководство по прошивке',
 			image: '/ict220.png',
 			bgColor: '#41e747',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/ingenico-ict220-ict250/index.md',
-			updatedAt: '29 мая 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Видео',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий', 'Видео']
+				},
+				{ title: 'Читайте также' }
 			]
 		},
 		{
 			id: v4(),
 			url: 'ingenico-ipp320-ipp350',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Ingenico IPP320-IPP350?',
-			description: 'Руководство по прошивке Ingenico IPP320-IPP350',
+			title: 'Ingenico IPP320-IPP350',
+			description: 'Руководство по прошивке',
 			image: '/ipp320.png',
 			bgColor: '#41e747',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/ingenico-ipp320-ipp350/index.md',
-			updatedAt: '24 мая 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Видео',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий', 'Видео']
+				},
+				{ title: 'Читайте также' }
 			]
 		},
 		{
 			id: v4(),
 			url: 'ingenico-iwl320-iwl350',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Ingenico IWL220-IWL250?',
-			description: 'Руководство по прошивке Ingenico IWL220-IWL250',
+			title: 'Ingenico IWL320-IWL350',
+			description: 'Руководство по прошивке',
 			image: '/iwl220.png',
 			bgColor: '#41e747',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/ingenico-iwl320-iwl350/index.md',
-			updatedAt: '29 мая 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Видео',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий', 'Видео']
+				},
+				{ title: 'Читайте также' }
 			]
 		},
 		{
 			id: v4(),
 			url: 'tactilion-t2',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Tactilion T2?',
-			description: 'Руководство по прошивке Tactilion T2',
+			title: 'Tactilion T2',
+			description: 'Руководство по прошивке',
 			image: '/t2.png',
 			bgColor: '#ffd829',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/tactilion-t2/index.md',
-			updatedAt: '29 мая 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#Tactilion', '#Прошивка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Видео',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий', 'Видео']
+				},
+				{ title: 'Читайте также' }
 			]
 		},
 		{
 			id: v4(),
 			url: 'tactilion-g3',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Tactilion G3?',
-			description: 'Руководство по прошивке Tactilion G3',
+			title: 'Tactilion G3',
+			description: 'Руководство по прошивке',
 			image: '/g3.png',
 			bgColor: '#ffd829',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/tactilion-g3/index.md',
-			updatedAt: '29 мая 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#Tactilion', '#Прошивка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий']
+				},
+				{ title: 'Читайте также' }
 			]
 		},
 		{
 			id: v4(),
 			url: 'castles-vega3000',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Castles Vega3000 стац?',
-			description: 'Руководство по прошивке Castles Vega3000 стац',
+			title: 'Castles Vega3000 стац?',
+			description: 'Руководство по прошивке',
 			image: '/v3st.png',
 			bgColor: '#704ecc',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/castles-vega3000/index.md',
-			updatedAt: '29 мая 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#Castles', '#Прошивка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Видео',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий', 'Видео']
+				},
+				{ title: 'Читайте также' }
 			]
 		},
 		{
 			id: v4(),
 			url: 'castles-vega3000-mob',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Castles Vega3000 моб?',
-			description: 'Руководство по прошивке Castles Vega3000 моб',
+			title: 'Castles Vega3000 моб?',
+			description: 'Руководство по прошивке',
 			image: '/v3mob.png',
 			bgColor: '#704ecc',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/castles-vega3000-mob/index.md',
-			updatedAt: '24 мая 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#Castles', '#Прошивка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Видео',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий', 'Видео']
+				},
+				{ title: 'Читайте также' }
 			]
 		},
 		{
 			id: v4(),
 			url: 'castles-vega3000-ikr',
 			author: 'Сергей Кравченко',
-			title: 'Как прошить Castles Vega3000 ИКР?',
-			description: 'Руководство по прошивке Castles Vega3000 ИКР',
+			title: 'Castles Vega3000 ИКР?',
+			description: 'Руководство по прошивке',
 			image: '/v3ikr.png',
 			bgColor: '#704ecc',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/castles-vega3000-ikr/index.md',
-			updatedAt: '24 мая 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#Castles', '#Прошивка'],
 			contentItems: [
-				'Актуальные версии',
-				'Что понадобится?',
-				'Как прошить?',
-				'Видео',
-				'Читайте также'
+				{ title: 'Актуальные версии' },
+				{
+					title: 'Прошивка',
+					children: ['Что понадобится?', 'План действий', 'Видео']
+				},
+				{ title: 'Читайте также' }
 			]
 		}
 	],

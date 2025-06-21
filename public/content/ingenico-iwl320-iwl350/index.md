@@ -6,7 +6,7 @@
    }
    .markdown-content ul {
       list-style-type: disc; 
-      font-size: 1.25rem; 
+      font-size: 1.125rem; 
       display: flex; 
       flex-direction: column; 
       gap: 1rem; 
@@ -36,6 +36,9 @@
       line-height: 1.25rem;
       border: 1px solid #e5e7eb;
    }
+   .markdown-content p {
+      font-size: 1.125rem;
+   }
 </style>
 
 ## <a id="1">Актуальные версии</a>
@@ -48,12 +51,14 @@
 
 </div>
 
-## <a id="2">Что понадобится?</a>
+## <a id="2">Прошивка</a>
+
+## <a id="2.1" class="text-2xl">Что понадобится?</a>
 
 - Переходник USB мама - mini USB папа
 - [Папка с файлами](https://disk.yandex.ru/d/-L6rGWh_bGYcog)
 
-## <a id="3">Как прошить?</a>
+## <a id="2.2" class="text-2xl">План действий</a>
 
 - Подключаем флешку с помощью переходника.
 - Включаем терминал нажатием на зелёную кнопку и сразу же зажимаем **F4**. Должна появиться надпись **USB MASS STORAGE**.
@@ -72,7 +77,7 @@
 - В меню выбираем файл с названием модели нашего устройства.
 - После того как терминал перезагрузится, останется дождаться загрузки UPOS.
 
-## <a id="4">Видео</a>
+## <a id="2.3" class="text-2xl">Видео</a>
 
 <video width="320" height="180" controls>
   <source src="/content/ingenico-iwl320-iwl350/video/IWL220-IWL250.mp4" type="video/mp4" />

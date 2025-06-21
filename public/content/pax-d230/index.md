@@ -6,7 +6,7 @@
    }
    .markdown-content ul {
       list-style-type: disc; 
-      font-size: 1.25rem; 
+      font-size: 1.125rem; 
       display: flex; 
       flex-direction: column; 
       gap: 1rem; 
@@ -36,6 +36,9 @@
       line-height: 1.25rem;
       border: 1px solid #e5e7eb;
    }
+   .markdown-content p {
+      font-size: 1.125rem;
+   }
 </style>
 
 ## <a id="1">Актуальные версии</a>
@@ -48,14 +51,16 @@
 
 </div>
 
-## <a id="2">Что понадобится?</a>
+## <a id="2">Прошивка</a>
+
+## <a id="2.1" class="text-2xl">Что понадобится?</a>
 
 - Компьютер
 - [Папка для компьютера](https://disk.yandex.ru/d/jt5WS_fWPZHaUg)
 - Комплектный провод
 - [Драйвер](https://disk.yandex.ru/d/0XtlL9aZeqnAHA)
 
-## <a id="3">Как прошить?</a>
+## <a id="2.2" class="text-2xl">План действий</a>
 
 - Проверяем установлен ли драйвер на компьютере. Заходим в диспетчер устройств. Если терминал не присвоил себе порт, то устанавливаем драйвер.
 - Подключаем терминал к порту USB компьютера.

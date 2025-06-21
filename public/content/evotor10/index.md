@@ -6,7 +6,7 @@
    }
    .markdown-content ul {
       list-style-type: disc; 
-      font-size: 1.25rem; 
+      font-size: 1.125rem; 
       display: flex; 
       flex-direction: column; 
       gap: 1rem; 
@@ -36,6 +36,9 @@
       line-height: 1.25rem;
       border: 1px solid #e5e7eb;
    }
+   .markdown-content p {
+      font-size: 1.125rem;
+   }
 </style>
 
 ## <a id="1">Актуальные версии</a>
@@ -48,12 +51,14 @@
 
 </div>
 
-## <a id="2">Что понадобится?</a>
+## <a id="2">Прошивка</a>
+
+## <a id="2.1" class="text-2xl">Что понадобится?</a>
 
 - Флешка в формате FAT32
 - [Файл прошивки](https://disk.yandex.ru/d/wQphqGBH5Eh7Hg)
 
-## <a id="3">Как прошить?</a>
+## <a id="2.2" class="text-2xl">План действий</a>
 
 - Скачайте [файл прошивки](https://disk.yandex.ru/d/wQphqGBH5Eh7Hg). На данный момент актуальная версия прошивки **4.9.11**.
 - Подготовьте флешку в формате FAT32.

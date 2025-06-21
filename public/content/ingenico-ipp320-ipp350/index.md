@@ -6,7 +6,7 @@
    }
    .markdown-content ul {
       list-style-type: disc; 
-      font-size: 1.25rem; 
+      font-size: 1.125rem; 
       display: flex; 
       flex-direction: column; 
       gap: 1rem; 
@@ -36,6 +36,9 @@
       line-height: 1.25rem;
       border: 1px solid #e5e7eb;
    }
+   .markdown-content p {
+      font-size: 1.125rem;
+   }
 </style>
 
 ## <a id="1">Актуальные версии</a>
@@ -48,12 +51,14 @@
 
 </div>
 
-## <a id="2">Что понадобится?</a>
+## <a id="2">Прошивка</a>
+
+## <a id="2.1" class="text-2xl">Что понадобится?</a>
 
 - **Программа** [LLT](https://disk.yandex.ru/d/BbiiXdxjEfw_PA)
 - [Папка с файлами](https://disk.yandex.ru/d/-L6rGWh_bGYcog)
 
-## <a id="3">Как прошить?</a>
+## <a id="2.2" class="text-2xl">Как прошить?</a>
 
 - Запускаем программу **LLT**
 - Нажимаем **New Catalogue**
@@ -81,7 +86,7 @@
 - После окончания прошивки дважды нажимаем на значок. Ждём перезагрузки терминала.
 - Осталось дождаться загрузки UPOS.
 
-## <a id="4">Видео</a>
+## <a id="2.3" class="text-2xl">Видео</a>
 
 <video width="320" height="180" controls>
   <source src="/content/ingenico-ipp320-ipp350/video/IPP320-350.mp4" type="video/mp4">

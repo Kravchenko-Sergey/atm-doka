@@ -58,6 +58,8 @@ const DevicePage = () => {
 		redirect(`/not-found`)
 	}
 
+	console.log(post)
+
 	return (
 		post && (
 			<div className='w-full flex flex-col'>
@@ -91,28 +93,58 @@ const DevicePage = () => {
 								Содержание
 							</AccordionTrigger>
 							<AccordionContent className='flex flex-col'>
-								{post?.contentItems.map((item, index) => (
-									<a
-										href={`#${index + 1}`}
-										key={item}
-										className='min-w-[140px] text-lg hover:underline'
-									>
-										{item}
-									</a>
-								))}
+								<div className='flex flex-col sticky top-[102px] left-0 z-20'>
+									{post.contentItems.map((item, itemIndex) => (
+										<div key={itemIndex}>
+											<a
+												href={`#${itemIndex + 1}`}
+												className='min-w-[140px] text-lg hover:underline'
+											>
+												{item.title}
+											</a>
+											<div className='pl-8 flex flex-col'>
+												{item.children?.map((child, childIndex) => (
+													<a
+														key={childIndex}
+														href={`#${itemIndex + 1}.${childIndex + 1}`}
+														className='min-w-[140px] text-lg hover:underline'
+													>
+														{child}
+													</a>
+												))}
+											</div>
+										</div>
+									))}
+								</div>
 							</AccordionContent>
 						</AccordionItem>
 					</Accordion>
 				</div>
 				<div className='flex'>
 					<aside className='flex-col flex-auto justify-between min-w-[240px] hidden md:flex'>
-						<ul className='p-6 flex flex-col sticky top-[102px] left-0 z-20'>
-							{post?.contentItems.map((item, index) => (
-								<li key={item} className='min-w-[140px] hover:underline'>
-									<a href={`#${index + 1}`}>{item}</a>
-								</li>
+						<div className='p-6 flex flex-col sticky top-[102px] left-0 z-20'>
+							{post.contentItems.map((item, itemIndex) => (
+								<div key={itemIndex}>
+									<a
+										href={`#${itemIndex + 1}`}
+										className='min-w-[140px] text-md hover:underline'
+									>
+										{item.title}
+									</a>
+									<div className='pl-8 flex flex-col'>
+										{item.children?.map((child, childIndex) => (
+											<a
+												key={childIndex}
+												href={`#${itemIndex + 1}.${childIndex + 1}`}
+												className='min-w-[140px] text-md hover:underline'
+											>
+												{child}
+											</a>
+										))}
+									</div>
+								</div>
 							))}
-						</ul>
+						</div>
 						<footer
 							className='px-6 py-8 text-sm sticky bottom-0 z-10 flex flex-col'
 							aria-label='Информация об обновлении'
