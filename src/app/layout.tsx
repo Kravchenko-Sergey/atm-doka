@@ -73,7 +73,7 @@ export default function RootLayout({
 			suppressHydrationWarning
 		>
 			<head>
-				<title>Дока — Документация для POS-инженеров</title>
+				<title>Документация для POS-инженеров</title>
 				<meta charSet='UTF-8' />
 				<meta name='viewport' content='width=device-width, initial-scale=1.0' />
 				<meta

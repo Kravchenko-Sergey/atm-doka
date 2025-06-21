@@ -58,8 +58,6 @@ const DevicePage = () => {
 		redirect(`/not-found`)
 	}
 
-	console.log(post)
-
 	return (
 		post && (
 			<div className='w-full flex flex-col'>
@@ -122,7 +120,7 @@ const DevicePage = () => {
 				</div>
 				<div className='flex'>
 					<aside className='flex-col flex-auto justify-between min-w-[240px] hidden md:flex'>
-						<div className='p-6 flex flex-col sticky top-[102px] left-0 z-20'>
+						<div className='p-6 flex flex-col sticky top-[102px] left-0'>
 							{post.contentItems.map((item, itemIndex) => (
 								<div key={itemIndex}>
 									<a
@@ -146,7 +144,7 @@ const DevicePage = () => {
 							))}
 						</div>
 						<footer
-							className='px-6 py-8 text-sm sticky bottom-0 z-10 flex flex-col'
+							className='px-6 py-8 text-sm sticky bottom-0 z-20 flex flex-col bg-white dark:bg-[#292a2e]'
 							aria-label='Информация об обновлении'
 						>
 							<div className='flex flex-wrap gap-x-1'>

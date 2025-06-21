@@ -56,7 +56,7 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#f15024',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/evotor5i/index.md',
-			updatedAt: '19 июня 2025',
+			updatedAt: '21 июня 2025',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
@@ -414,7 +414,7 @@ export const useRootStore = create<RootState>((set) => ({
 						'Клавиатура',
 						'Принтер',
 						'GPRS',
-						'Ethernet порт'
+						'Ethernet'
 					]
 				},
 				{ title: 'Читайте также' }

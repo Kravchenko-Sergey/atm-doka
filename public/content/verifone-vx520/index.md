@@ -82,7 +82,7 @@
 
 <video width='320' height='180' controls>
     <source src='/content/verifone-vx520/video/VX520.mp4' type='video/mp4' />
-</video
+</video>
 
 ## <a id="3">Дефектовка</a>
 
@@ -119,7 +119,7 @@
 - Заходим в **Download** → нажимаем клавишу ввода зелёная → вводим пароль **1 alpha alpha 6 6 8 3 1** → **Multi-app** → **Partial dnld** → **TCPIP**
 - Нажимаем красную клавишу на клавиатуре , затем под надписью **Menu[0]** на дисплее нажимаем кнопку на клавиатуре, подаем в меню **Control Panel** → **Tools** → **Network Maint** → **GPRS** → **Network Start GPRS**. Модуль подключается к сети GSM около минуты. При успешном подключении на дисплее будет надпись **Сonnected ( ----ms)**. При сообщении на дисплее **Already online** выполните переподключение через пункт меню **Network Restart**. Для теста необходима рабочая сим карта, предустановленный EOS
 
-## <a id="3.7" class="text-2xl">Ethernet порт</a>
+## <a id="3.7" class="text-2xl">Ethernet</a>
 
 - Заходим в **Download** → нажимаем клавишу ввода зелёная → вводим пароль **1 alpha alpha 6 6 8 3 1** → **Multi-app** → **Partial dnld** → **TCPIP**
 - Нажимаем красную клавишу на клавиатуре, затем под надписью **Menu[0]** на дисплее нажимаем кнопку на клавиатуре, попадаем в меню **Control Panel** → **Tools** → **Network Maint** → **Ethernet** → **Network Start**. При успешном подключении на дисплее будет надпись **Сonnected ( ----ms)**. При сообщении на дисплее -> **Already online** выполните переподключение через пункт меню **Network Restart**.
