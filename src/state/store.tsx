@@ -103,7 +103,7 @@ export const useRootStore = create<RootState>(set => ({
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'План действий']
 				},
-				{ title: 'Замена принтера', children: ['Видео'] },
+				{ title: 'На практике', children: ['Как избежать ГЗ, если проблема в принтере', 'Видео'] },
 				{ title: 'Читайте также' }
 			]
 		},
