@@ -45,9 +45,9 @@
 
 <div class="overflow-x-auto whitespace-nowrap">
 
-| UPOS     | Telium OS       |
-| -------- | --------------- |
-| 33.33.07 | 9.32<br>9.32.3v |
+| UPOS          | Telium OS       |
+| ------------- | --------------- |
+| 33.33.07 (АН) | 9.32<br>9.32.3v |
 
 </div>
 
