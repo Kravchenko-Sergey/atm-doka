@@ -131,7 +131,7 @@ export default function Home() {
 			</div>
 			<div className='px-4 py-8 max-w-[1566px]'>
 				{filteredPosts.length > 0 ? (
-					<div className='flex flex-col items-center gap-8'>
+					<div className='flex flex-col gap-8'>
 						<div className='flex justify-center gap-4 flex-wrap'>
 							{filteredPosts
 								.map((post) => (
@@ -160,13 +160,15 @@ export default function Home() {
 								.slice(0, count)}
 						</div>
 						{filteredPosts.length > count && (
-							<Button
-								onClick={() => setCount(count + 6)}
-								variant={'outline'}
-								className='p-8 w-fit font-roboto font-normal text-xl rounded-xl'
-							>
-								Показать ещё
-							</Button>
+							<div className='flex justify-center'>
+								<Button
+									onClick={() => setCount(count + 6)}
+									variant={'outline'}
+									className='p-8 w-fit font-roboto font-normal text-xl rounded-xl'
+								>
+									Показать ещё
+								</Button>
+							</div>
 						)}
 					</div>
 				) : (

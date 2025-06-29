@@ -2,7 +2,7 @@
 
 export default function About() {
 	return (
-		<div className='px-4 pt-[102px] mt-[-102px] h-full max-w-[1572px] flex flex-col'>
+		<div className='px-4 h-[calc(100vh-191px)] max-w-[1572px] flex flex-col'>
 			<h2 className='text-2xl'>Что такое Дока</h2>
 			<p className='pt-8 text-xl'>
 				Дока — это полезный справочник для POS-инженеров. Мы создаем материалы,
