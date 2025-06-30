@@ -560,13 +560,32 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#704ecc',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/castles-vega3000/index.md',
-			updatedAt: '29 мая 2025',
+			updatedAt: '30 июня 2025',
 			tags: ['#Сбер', '#Castles', '#Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'План действий', 'Видео']
+				},
+				{
+					title: 'Дефектовка',
+					children: [
+						'Внешний вид',
+						'Включение',
+						'Магнитный ридер',
+						'Чиповый ридер',
+						'Бесконтактный ридер',
+						'Принтер',
+						'Клавиатура и динамик',
+						'LCD',
+						'Светодиоды',
+						'USB',
+						'GPRS',
+						'Чтение sim',
+						'WI-FI',
+						'Ethernet'
+					]
 				},
 				{ title: 'Читайте также' }
 			]
