@@ -113,12 +113,12 @@ export default function Home() {
 					</div>
 				</div>
 			</div>
-			<div className='px-2 pt-8 max-w-[1580px] text-xl flex flex-wrap items-center justify-between gap-2'>
+			<div className='px-2 pt-8 max-w-[1580px] text-xl flex flex-wrap items-center justify-between'>
 				{tags.map((tag) => (
 					<div
 						key={tag.id}
 						onClick={() => handleClickTag(tag.id)}
-						className='h-12 px-4 py-2 text-xl flex items-center justify-center transition duration-300 ease-in-out cursor-pointer
+						className='h-12 p-2 text-xl flex items-center justify-center flex-auto transition duration-300 ease-in-out cursor-pointer
 						'
 						style={{
 							border: tag.isActive ? `2px solid ${tag.borderColor}` : '',
@@ -160,7 +160,10 @@ export default function Home() {
 								.slice(0, count)}
 						</div>
 						{filteredPosts.length > count && (
-							<div className='flex justify-center'>
+							<div
+								className='flex justify-center
+							'
+							>
 								<Button
 									onClick={() => setCount(count + 6)}
 									variant={'outline'}

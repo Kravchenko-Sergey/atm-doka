@@ -5,7 +5,7 @@ import { useRootStore } from '@/state/store'
 export default function People() {
 	const people = useRootStore((state) => state.people)
 	return (
-		<div className='px-4 w-full max-w-[1572px] mx-auto h-[calc(100vh-191px)] flex flex-col'>
+		<div className='px-4 w-full max-w-[1572px] mx-auto flex flex-col'>
 			<div className='w-full max-w-[1448px] mx-auto flex flex-col gap-8'>
 				<h1 className='text-3xl'>Участники</h1>
 				<div className='flex-1'>

@@ -96,7 +96,7 @@ export default function RootLayout({
 				<link rel='manifest' href='/site.webmanifest' />
 			</head>
 			<body
-				className={`min-h-screen w-full bg-white text-[#2C2C2C] dark:bg-[#292a2e] dark:text-white`}
+				className={`min-h-screen w-full bg-white text-[#2C2C2C] flex flex-col dark:bg-[#292a2e] dark:text-white`}
 			>
 				<Suspense fallback={<></>}>
 					<YandexMetrika />
@@ -108,7 +108,7 @@ export default function RootLayout({
 					<div className='mx-auto flex w-full max-w-[1540px] flex-col items-center justify-between gap-4 md:flex-row'>
 						<Link
 							href='/'
-							className='z-20 whitespace-nowrap rounded-xl border px-8 py-2 text-3xl transition-colors hover:opacity-80 dark:border-white dark:text-white'
+							className='w-full z-20 whitespace-nowrap rounded-xl border px-8 py-2 text-3xl flex items-center justify-center transition-colors hover:opacity-80 dark:border-white dark:text-white md:w-fit'
 							aria-label='На главную страницу'
 						>
 							АТМ Дока
@@ -116,7 +116,7 @@ export default function RootLayout({
 						<SearchInput className='min-h-[54px] w-full md:w-auto' />
 					</div>
 				</header>
-				<main className='mx-auto w-full max-w-[1540px] flex-1 pt-[102px]'>
+				<main className='mx-auto w-full max-w-[1540px] flex flex-col flex-1 justify-center pt-[102px]'>
 					{children}
 				</main>
 				<footer className='w-full border-t bg-white py-8 dark:bg-[#292a2e] dark:text-white'>
