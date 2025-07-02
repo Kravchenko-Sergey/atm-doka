@@ -12,9 +12,11 @@ import {
 	AccordionItem,
 	AccordionTrigger
 } from '@/components/ui/accordion'
+//import { ScrollArea } from '@/components/ui/scroll-area'
 import { marked as markdownParser } from 'marked'
 import { Button } from '@/components/ui/button'
 import { redirect } from 'next/navigation'
+import { ScrollArea } from '@/components/ui/scroll-area'
 
 const DevicePage = () => {
 	const params = useParams()
@@ -121,27 +123,29 @@ const DevicePage = () => {
 				<div className='flex'>
 					<aside className='flex-col flex-auto justify-between min-w-[240px] hidden md:flex'>
 						<div className='p-6 flex flex-col sticky top-[102px] left-0'>
-							{post.contentItems.map((item, itemIndex) => (
-								<div key={itemIndex}>
-									<a
-										href={`#${itemIndex + 1}`}
-										className='min-w-[140px] text-md hover:underline'
-									>
-										{item.title}
-									</a>
-									<div className='pl-8 flex flex-col'>
-										{item.children?.map((child, childIndex) => (
-											<a
-												key={childIndex}
-												href={`#${itemIndex + 1}.${childIndex + 1}`}
-												className='min-w-[140px] text-md hover:underline'
-											>
-												{child}
-											</a>
-										))}
+							<ScrollArea className='h-[640px]'>
+								{post.contentItems.map((item, itemIndex) => (
+									<div key={itemIndex}>
+										<a
+											href={`#${itemIndex + 1}`}
+											className='min-w-[140px] text-md hover:underline'
+										>
+											{item.title}
+										</a>
+										<div className='pl-8 flex flex-col'>
+											{item.children?.map((child, childIndex) => (
+												<a
+													key={childIndex}
+													href={`#${itemIndex + 1}.${childIndex + 1}`}
+													className='min-w-[140px] text-md hover:underline'
+												>
+													{child}
+												</a>
+											))}
+										</div>
 									</div>
-								</div>
-							))}
+								))}
+							</ScrollArea>
 						</div>
 						<footer
 							className='px-6 py-8 text-sm sticky bottom-0 z-20 flex flex-col bg-white dark:bg-[#292a2e]'
