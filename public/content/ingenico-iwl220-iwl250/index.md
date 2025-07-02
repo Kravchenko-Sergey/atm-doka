@@ -80,5 +80,5 @@
 ## <a id="2.3" class="text-2xl">Видео</a>
 
 <video width="320" height="180" controls>
-  <source src="/content/ingenico-iwl320-iwl350/video/IWL220-IWL250.mp4" type="video/mp4" />
+  <source src="/content/ingenico-iwl220-iwl250/video/IWL220-IWL250.mp4" type="video/mp4" />
 </video>
