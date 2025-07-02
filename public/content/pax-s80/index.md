@@ -73,7 +73,7 @@
 
 ## <a id="2.3" class="text-2xl">Видео</a>
 
-<video width="320" height="180" controls>
+<video width="320" height="180" controls class="w-full rounded-xl md:w-[32.5%]">
     <source src="/content/pax-s80/video/PAX S80.mp4" type="video/mp4" />
 </video>
 
