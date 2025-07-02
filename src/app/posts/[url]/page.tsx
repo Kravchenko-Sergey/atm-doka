@@ -197,6 +197,9 @@ const DevicePage = () => {
 											style={{ backgroundColor: post.bgColor }}
 										>
 											<div className='absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-20 dark:bg-gray-800 dark:hover:opacity-40 dark:opacity-20'></div>
+											<p className='text-xl self-start opacity-100 z-20'>
+												{post.title}
+											</p>
 											<p className='text-xl self-center opacity-100 z-20'>
 												{post.description}
 											</p>
