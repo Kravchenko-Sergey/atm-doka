@@ -55,13 +55,13 @@
 
 ## <a id="2">Прошивка</a>
 
-## <a id="2.1" class="text-2xl>Что понадобится?</a>
+## <a id="2.1" class="text-2xl">Что понадобится?</a>
 
-- Программа [PC Loader](https://disk.yandex.ru/d/qf8P-Mc4FOyUcQ)
+- Программа [**PC Loader**](https://disk.yandex.ru/d/qf8P-Mc4FOyUcQ)
 - Переходник
 - [Файл прошивки](#)
 
-## <a id="2.2" class="text-2xl>План действий</a>
+## <a id="2.2" class="text-2xl">План действий</a>
 
 - Подключаем терминал.
 - При включении многократно нажимаем кнопку **F1**.

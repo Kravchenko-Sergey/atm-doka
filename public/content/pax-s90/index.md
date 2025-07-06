@@ -39,6 +39,52 @@
    .markdown-content p {
       font-size: 1.125rem;
    }
+   .tooltip {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+      margin-left: 5px;
+   }
+   .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 240px;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 8px;
+      position: absolute;
+      z-index: 100;
+      left: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      margin-left: 10px;
+   }
+   .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 100%;
+      margin-top: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent #333 transparent transparent;
+   }
+   .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+   }
+   .tooltip img {
+      width: 20px;
+      height: 20px;
+   }
+   .tooltip .tooltiptext img {
+      width: 100%;
+      height: auto;
+      display: block;
+   }
 </style>
 
 ## <a id="1">Актуальные версии</a>
@@ -56,7 +102,14 @@
 ## <a id="2.1" class="text-2xl">Что понадобится?</a>
 
 - Флешка в формате FAT32
-- Переходник USB мама - mini USB папа
+- <div class="flex gap-2 w-full">Переходник USB мама - mini USB папа
+    <div class="tooltip">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye-icon lucide-eye"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+      <span class="tooltiptext background-color: bg-gray-50 dark:bg-[#333]">
+      <img src="/content/pax-s90/image/miniusb.png" alt=""/>
+      </span>
+    </div>
+    </div>
 - [Файл прошивки](https://disk.yandex.ru/d/GQPfUmSopiLFyA)
 
 ## <a id="2.2" class="text-2xl">Как прошить?</a>
@@ -73,7 +126,7 @@
 
 ## <a id="2.3" class="text-2xl">Видео</a>
 
-<video width="320" height="180" controls>
+<video width="320" height="180" controls class="w-full rounded-xl md:w-[32.5%]">
     <source src="/content/pax-s90/video/PAX S90.mp4" type="video/mp4" />
     Ваш браузер не поддерживает видео тег.
 </video>
