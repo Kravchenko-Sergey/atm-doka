@@ -45,7 +45,7 @@
 
 | МЭ           | ОС     | EvoPP          | UposNative | UPOS          |
 | ------------ | ------ | -------------- | ---------- | ------------- |
-| SP_V1.01.050 | 6.0.14 | Не применяется | 1.105.31   | 33.39.04 (АН) |
+| SP_V1.01.050 | 6.0.16 | Не применяется | 1.105.63   | 33.43.06 (АН) |
 
 ## <a id="2">Прошивка</a>
 
@@ -53,7 +53,7 @@
 
 - Флешка в формате FAT32
 - Переходник USB мама - Type-C папа
-- [Файл прошивки](https://drive.google.com/uc?export=download&id=1zp8lapO00GubC86cOwkxooq8cZBRzLb5)
+- [Файл прошивки](https://drive.google.com/uc?export=download&id=1f0PLsnjJLSsyf8BjNS7pERTeJYn48JLp)
 
 ## <a id="2.2" class="text-2xl">План действий</a>
 
