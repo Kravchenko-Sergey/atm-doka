@@ -144,7 +144,7 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#f15024',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/evotor6/index.md',
-			updatedAt: '1 августа 2025',
+			updatedAt: '15 ноября 2025',
 			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
@@ -165,7 +165,7 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#C0C0C0',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/kozen-p10/index.md',
-			updatedAt: '1 августа 2025',
+			updatedAt: '15 ноября 2025',
 			tags: ['#Сбер', '#Kozen', '#Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
@@ -186,7 +186,7 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#C0C0C0',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/kozen-p12/index.md',
-			updatedAt: '1 августа 2025',
+			updatedAt: '15 ноября 2025',
 			tags: ['#Сбер', '#Kozen', '#Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
@@ -401,7 +401,7 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#6effd2',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/verifone-vx520/index.md',
-			updatedAt: '1 августа 2025',
+			updatedAt: '15 ноября 2025',
 			tags: ['#Сбер', '#VeriFone', '#Прошивка', '#Дефектовка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
@@ -455,7 +455,7 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#41e747',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/ingenico-ict220-ict250/index.md',
-			updatedAt: '1 августа 2025',
+			updatedAt: '15 ноября 2025',
 			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
@@ -518,7 +518,7 @@ export const useRootStore = create<RootState>((set) => ({
 			bgColor: '#ffd829',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/tactilion-t2/index.md',
-			updatedAt: '1 августа 2025',
+			updatedAt: '15 ноября 2025',
 			tags: ['#Сбер', '#Tactilion', '#Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
