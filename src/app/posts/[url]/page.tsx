@@ -1,5 +1,9 @@
 'use client'
 
+interface CustomCSSProperties extends React.CSSProperties {
+	'--brand-color': string
+}
+
 import { useRootStore } from '@/state/store'
 import { CircleArrowLeft, CircleArrowRight } from 'lucide-react'
 import Link from 'next/link'
@@ -12,8 +16,6 @@ import {
 	AccordionItem,
 	AccordionTrigger
 } from '@/components/ui/accordion'
-//import { ScrollArea } from '@/components/ui/scroll-area'
-import { marked as markdownParser } from 'marked'
 import { Button } from '@/components/ui/button'
 import { redirect } from 'next/navigation'
 import { ScrollArea } from '@/components/ui/scroll-area'
@@ -22,10 +24,9 @@ const DevicePage = () => {
 	const params = useParams()
 	const posts = useRootStore((state) => state.posts)
 	const changeBgHeader = useRootStore((state) => state.changeBgHeader)
-	const [content, setContent] = useState<string | Promise<string>>('')
+	const [htmlContent, setHtmlContent] = useState<string>('')
 
 	const url = params?.url
-
 	const post = posts.find((post) => post.url === url)
 
 	const prevPost = posts[posts.findIndex((p) => p.id === post?.id) - 1] ?? post
@@ -38,22 +39,29 @@ const DevicePage = () => {
 	}, [post?.bgColor])
 
 	useEffect(() => {
-		const fetchMarkdownContent = async () => {
+		const fetchHtmlContent = async () => {
 			if (!url) return
 			try {
-				const response = await fetch(`/content/${url}/index.md`)
+				const response = await fetch(`/content/posts/${url}/index.html`)
 				if (!response.ok) {
 					throw new Error('Не удалось загрузить контент')
 				}
-				const markdown = await response.text()
-				const HTMLContent = markdownParser(markdown)
-				setContent(HTMLContent)
+				const html = await response.text()
+				setHtmlContent(html)
 			} catch (error) {
-				console.error('Ошибка загрузки Markdown файла:', error)
+				console.error('Ошибка загрузки HTML файла:', error)
+				// Fallback контент если HTML не найден
+				setHtmlContent(`
+					<div class="content-section">
+						<h2 class="section-title">Контент готовится</h2>
+						<p>Материал для этой статьи находится в разработке.</p>
+						<p>Хотите помочь с наполнением? Напишите нам!</p>
+					</div>
+				`)
 			}
 		}
 
-		fetchMarkdownContent()
+		fetchHtmlContent()
 	}, [url])
 
 	if (!post) {
@@ -70,16 +78,16 @@ const DevicePage = () => {
 					>
 						<div className='w-full px-4 max-w-[1308px] flex flex-col items-center md:flex-row'>
 							<Image
-								src={`/content/${post.url}/image${post!.image}`}
+								src={post.image}
 								width={320}
 								height={320}
 								priority
-								alt={post!.url}
+								alt={post.title}
 								style={{ width: 'auto', height: '320px' }}
 							/>
 							<div className='flex flex-col justify-between gap-4'>
-								<h1 className='text-3xl'>{post?.title}</h1>
-								<p className='text-xl'>{post?.description}</p>
+								<h1 className='text-3xl'>{post.title}</h1>
+								<p className='text-xl'>{post.description}</p>
 							</div>
 						</div>
 					</header>
@@ -152,38 +160,20 @@ const DevicePage = () => {
 							aria-label='Информация об обновлении'
 						>
 							<div className='flex flex-wrap gap-x-1'>
-								<p>Авторы:</p>
-								<p>команда АТМ</p>
-							</div>
-							<Button
-								variant={'outline'}
-								className='my-2 py-4 px-2 w-fit font-roboto font-normal text-md rounded-md'
-							>
-								<Link
-									href={post?.linkToEdit ? new URL(post?.linkToEdit) : '#'}
-									target='blank'
-								>
-									Редактировать на GitHub
-								</Link>
-							</Button>
-							<div className='flex flex-wrap gap-x-1'>
 								<p>Обновлено</p>
 								<time dateTime='2025-04-13'>{post?.updatedAt}</time>
 							</div>
 						</footer>
 					</aside>
 					<div className='w-full max-w-[1540px] flex-auto'>
+						{/* HTML контент */}
 						<div
-							className='px-4 w-full max-w-[1308px] markdown-content'
-							dangerouslySetInnerHTML={{ __html: content }}
+							className='px-4 w-full max-w-[1308px] markdown-content custom-links'
+							style={{ '--brand-color': post.bgColor } as CustomCSSProperties}
+							dangerouslySetInnerHTML={{ __html: htmlContent }}
 						/>
 						<div className='px-4 w-full max-w-[1308px]'>
-							<h2
-								id={String(post?.contentItems.length)}
-								className='my-8 text-3xl'
-							>
-								Читайте также
-							</h2>
+							<h2 className='my-8 text-3xl'>Читайте также</h2>
 							<div className='flex gap-4 flex-wrap md:gap-4'>
 								{[...posts]
 									.filter((post) => post.url !== url)
@@ -215,7 +205,7 @@ const DevicePage = () => {
 							</div>
 							<div className='my-8 flex flex-col items-center gap-8 md:flex-row justify-between'>
 								<Link
-									href={prevPost.url}
+									href={`/posts/${prevPost.url}`}
 									className='text-xl flex items-center gap-4 self-start'
 								>
 									<CircleArrowLeft
@@ -226,7 +216,7 @@ const DevicePage = () => {
 									</p>
 								</Link>
 								<Link
-									href={nextPost.url}
+									href={`/posts/${nextPost.url}`}
 									className='text-xl flex items-center gap-4 self-end'
 								>
 									<p
@@ -243,21 +233,6 @@ const DevicePage = () => {
 								className='mb-8 px-6 py-12 text-lg border rounded-md flex flex-col items-center justify-center md:hidden'
 								aria-label='Информация об обновлении'
 							>
-								<div className='flex flex-wrap gap-x-1'>
-									<p>Авторы:</p>
-									<p>команда АТМ</p>
-								</div>
-								<Button
-									variant={'outline'}
-									className='my-4 py-4 px-2 w-fit font-roboto font-normal text-md rounded-md'
-								>
-									<Link
-										href={post?.linkToEdit ? new URL(post?.linkToEdit) : '#'}
-										target='blank'
-									>
-										Редактировать на GitHub
-									</Link>
-								</Button>
 								<div className='flex flex-wrap gap-x-1'>
 									<p>Обновлено</p>
 									<time dateTime='2025-04-13'>{post?.updatedAt}</time>

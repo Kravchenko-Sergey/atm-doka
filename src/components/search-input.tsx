@@ -57,7 +57,7 @@ export const SearchInput = ({ className }: SearchInputProps) => {
 			>
 				<Search className='absolute top-1/2 translate-y-[-50%] left-3 h-5 text-gray-400 dark:text-white' />
 				<input
-					className='rounded-2xl outline-none w-full bg-gray-100 pl-11 dark:bg-[#42454c] dark:placeholder-white'
+					className='rounded-2xl outline-none w-full bg-gray-100 pl-11 dark:bg-[#42454c] placeholder-black/50 dark:placeholder-white'
 					type='text'
 					placeholder='Найти статью...'
 					onFocus={() => setFocused(true)}

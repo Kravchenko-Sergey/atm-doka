@@ -52,12 +52,12 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Эвотор 5i',
 			description: 'Руководство по прошивке',
-			image: '/evo5i.png',
+			image: '/content/posts/evotor5i/evo5i.png',
 			bgColor: '#f15024',
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/evotor5i/index.md',
 			updatedAt: '1 августа 2025',
-			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
+			tags: ['Сбер', 'Эвотор', 'Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
@@ -78,7 +78,7 @@ export const useRootStore = create<RootState>((set) => ({
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/evotor72/index.md',
 			updatedAt: '24 мая 2025',
-			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
+			tags: ['Сбер', 'Эвотор', 'Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
@@ -99,7 +99,7 @@ export const useRootStore = create<RootState>((set) => ({
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/evotor73/index.md',
 			updatedAt: '23 июня 2025',
-			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
+			tags: ['Сбер', 'Эвотор', 'Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
@@ -124,7 +124,7 @@ export const useRootStore = create<RootState>((set) => ({
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/evotor10/index.md',
 			updatedAt: '24 мая 2025',
-			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
+			tags: ['Сбер', 'Эвотор', 'Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
@@ -145,7 +145,7 @@ export const useRootStore = create<RootState>((set) => ({
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/evotor6/index.md',
 			updatedAt: '15 ноября 2025',
-			tags: ['#Сбер', '#Эвотор', '#Прошивка'],
+			tags: ['Сбер', 'Эвотор', 'Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
@@ -166,7 +166,7 @@ export const useRootStore = create<RootState>((set) => ({
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/kozen-p10/index.md',
 			updatedAt: '15 ноября 2025',
-			tags: ['#Сбер', '#Kozen', '#Прошивка'],
+			tags: ['Сбер', 'Kozen', 'Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
@@ -187,7 +187,7 @@ export const useRootStore = create<RootState>((set) => ({
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/kozen-p12/index.md',
 			updatedAt: '15 ноября 2025',
-			tags: ['#Сбер', '#Kozen', '#Прошивка'],
+			tags: ['Сбер', 'Kozen', 'Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
@@ -208,7 +208,7 @@ export const useRootStore = create<RootState>((set) => ({
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-s80/index.md',
 			updatedAt: '21 июня 2025',
-			tags: ['#Сбер', '#Pax', '#Прошивка', '#Дефектовка'],
+			tags: ['Сбер', 'Pax', 'Прошивка', 'Дефектовка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
@@ -242,7 +242,7 @@ export const useRootStore = create<RootState>((set) => ({
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-s90/index.md',
 			updatedAt: '21 июня 2025',
-			tags: ['#Сбер', '#Pax', '#Прошивка', '#Дефектовка'],
+			tags: ['Сбер', 'Pax', 'Прошивка', 'Дефектовка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
@@ -276,7 +276,7 @@ export const useRootStore = create<RootState>((set) => ({
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-sp30/index.md',
 			updatedAt: '24 мая 2025',
-			tags: ['#Сбер', '#Pax', '#Прошивка'],
+			tags: ['Сбер', 'Pax', 'Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
@@ -297,7 +297,7 @@ export const useRootStore = create<RootState>((set) => ({
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-s300/index.md',
 			updatedAt: '24 мая 2025',
-			tags: ['#Сбер', '#Pax', '#Прошивка'],
+			tags: ['Сбер', 'Pax', 'Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
@@ -318,7 +318,7 @@ export const useRootStore = create<RootState>((set) => ({
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-s200/index.md',
 			updatedAt: '29 июня 2025',
-			tags: ['#Сбер', '#Pax', '#Прошивка'],
+			tags: ['Сбер', 'Pax', 'Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
@@ -339,7 +339,7 @@ export const useRootStore = create<RootState>((set) => ({
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-q25/index.md',
 			updatedAt: '24 мая 2025',
-			tags: ['#Сбер', '#Pax', '#Прошивка'],
+			tags: ['Сбер', 'Pax', 'Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
@@ -360,7 +360,7 @@ export const useRootStore = create<RootState>((set) => ({
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-d230/index.md',
 			updatedAt: '24 мая 2025',
-			tags: ['#Сбер', '#Pax', '#Прошивка'],
+			tags: ['Сбер', 'Pax', 'Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
@@ -381,7 +381,7 @@ export const useRootStore = create<RootState>((set) => ({
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-d230-mob/index.md',
 			updatedAt: '24 мая 2025',
-			tags: ['#Сбер', '#Pax', '#Прошивка'],
+			tags: ['Сбер', 'Pax', 'Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
@@ -402,7 +402,7 @@ export const useRootStore = create<RootState>((set) => ({
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/verifone-vx520/index.md',
 			updatedAt: '15 ноября 2025',
-			tags: ['#Сбер', '#VeriFone', '#Прошивка', '#Дефектовка'],
+			tags: ['Сбер', 'VeriFone', 'Прошивка', 'Дефектовка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
@@ -435,7 +435,7 @@ export const useRootStore = create<RootState>((set) => ({
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/verifone-vx820/index.md',
 			updatedAt: '24 мая 2025',
-			tags: ['#Сбер', '#VeriFone', '#Прошивка'],
+			tags: ['Сбер', 'VeriFone', 'Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
@@ -456,7 +456,7 @@ export const useRootStore = create<RootState>((set) => ({
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/ingenico-ict220-ict250/index.md',
 			updatedAt: '15 ноября 2025',
-			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
+			tags: ['Сбер', 'Ingenico', 'Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
@@ -477,7 +477,7 @@ export const useRootStore = create<RootState>((set) => ({
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/ingenico-ipp320-ipp350/index.md',
 			updatedAt: '24 мая 2025',
-			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
+			tags: ['Сбер', 'Ingenico', 'Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
@@ -498,7 +498,7 @@ export const useRootStore = create<RootState>((set) => ({
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/ingenico-iwl320-iwl350/index.md',
 			updatedAt: '29 мая 2025',
-			tags: ['#Сбер', '#Ingenico', '#Прошивка'],
+			tags: ['Сбер', 'Ingenico', 'Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
@@ -519,7 +519,7 @@ export const useRootStore = create<RootState>((set) => ({
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/tactilion-t2/index.md',
 			updatedAt: '15 ноября 2025',
-			tags: ['#Сбер', '#Tactilion', '#Прошивка'],
+			tags: ['Сбер', 'Tactilion', 'Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
@@ -540,7 +540,7 @@ export const useRootStore = create<RootState>((set) => ({
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/tactilion-g3/index.md',
 			updatedAt: '21 июня 2025',
-			tags: ['#Сбер', '#Tactilion', '#Прошивка'],
+			tags: ['Сбер', 'Tactilion', 'Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
@@ -561,7 +561,7 @@ export const useRootStore = create<RootState>((set) => ({
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/castles-vega3000/index.md',
 			updatedAt: '30 июня 2025',
-			tags: ['#Сбер', '#Castles', '#Прошивка'],
+			tags: ['Сбер', 'Castles', 'Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
@@ -601,7 +601,7 @@ export const useRootStore = create<RootState>((set) => ({
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/castles-vega3000-mob/index.md',
 			updatedAt: '24 мая 2025',
-			tags: ['#Сбер', '#Castles', '#Прошивка'],
+			tags: ['Сбер', 'Castles', 'Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
@@ -622,7 +622,7 @@ export const useRootStore = create<RootState>((set) => ({
 			linkToEdit:
 				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/castles-vega3000-ikr/index.md',
 			updatedAt: '24 мая 2025',
-			tags: ['#Сбер', '#Castles', '#Прошивка'],
+			tags: ['Сбер', 'Castles', 'Прошивка'],
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{

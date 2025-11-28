@@ -124,3 +124,12 @@ body {
 		@apply bg-background text-foreground;
 	}
 }
+
+.markdown-content.custom-links a {
+	color: var(--brand-color) !important;
+	font-weight: 500;
+}
+
+.markdown-content.custom-links a:hover {
+	text-decoration: underline;
+}
