@@ -2,7 +2,6 @@ import { v4 } from 'uuid'
 import { create } from 'zustand'
 import { JSX } from 'react'
 import { ScanFace } from 'lucide-react'
-
 import Evotor5iContent from '@/components/content/evotor5i/evotor5i'
 import Evotor72Content from '@/components/content/evotor72/evotor72'
 import Evotor73Content from '@/components/content/evotor73/evotor73'
@@ -43,7 +42,7 @@ export type Post = {
 	description: string
 	image: string
 	bgColor: string
-	content: any
+	content: React.ComponentType<{ className?: string }>
 	updatedAt: string
 	tags: string[]
 	contentItems: contentItem[]

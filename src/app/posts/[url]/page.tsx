@@ -134,9 +134,8 @@ const DevicePage = () => {
 						</footer>
 					</aside>
 					<div className='w-full max-w-[1540px] flex-auto'>
-						{/* HTML контент */}
 						<div className='px-4 w-full max-w-[1308px]'>
-							<Content />
+							{Content ? <Content /> : <div>Контент недоступен</div>}
 						</div>
 						<div className='px-4 w-full max-w-[1308px]'>
 							<h2 className='my-8 text-3xl'>Читайте также</h2>
