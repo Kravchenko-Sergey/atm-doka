@@ -2,6 +2,32 @@ import { v4 } from 'uuid'
 import { create } from 'zustand'
 import { JSX } from 'react'
 import { ScanFace } from 'lucide-react'
+import Evotor5iContent from '@/components/content/evotor5i/evotor5i'
+import Evotor72Content from '@/components/content/evotor72/evotor72'
+import Evotor73Content from '@/components/evotor73/evotor73'
+import Evotor10Content from '@/components/content/evotor10/evotor10'
+import Evotor6Content from '@/components/evotor6/evotor6'
+import KozenP10Content from '@/components/content/kozen-p10/kozen-p10'
+import KozenP12Content from '@/components/content/kozen-p12/kozen-p12'
+import PaxS80Content from '@/components/content/pax-s80/pax-s80'
+import PaxS90Content from '@/components/content/pax-s90/pax-s90'
+import PaxSP30Content from '@/components/content/pax-sp30/pax-sp30'
+import PaxS300Content from '@/components/content/pax-s300/pax-s300'
+import PaxS200Content from '@/components/content/pax-s200/pax-s200'
+import PaxQ25Content from '@/components/content/pax-q25/pax-q25'
+import PaxD230Content from '@/components/content/pax-d230/pax-d230'
+import PaxD230MobContent from '@/components/content/pax-d230-mob/pax-d230-mob'
+import VerifoneVx520Content from '@/components/content/verifone-vx520/verifone-vx520'
+import VerifoneVx820Content from '@/components/content/verifone-vx820/verifone-vx820'
+import IngenicoICT220Content from '@/components/content/ingenico-ict220/ingenico-ict220'
+import IngenicoIPP320Content from '@/components/content/ingenico-ipp320/ingenico-ipp320'
+import IngenicoIWL220Content from '@/components/content/ingenico-iwl220/ingenico-iwl220'
+import TactilionT2Content from '@/components/content/tactilion-t2/tactilion-t2'
+import TactilionG3Content from '@/components/content/tactilion-g3/tactilion-g3'
+import CastlesVega3000Content from '@/components/content/castles-vega3000-st/castles-vega3000-st'
+import CastlesVega3000MobContent from '@/components/content/castles-vega3000-mob/castles-vega3000-mob'
+import CastlesVega3000IkrContent from '@/components/content/castles-vega3000-ikr/castles-vega3000-ikr'
+import Aqsi5fContent from '@/components/content/aqsi-5ф/aqsi-5ф'
 
 type contentItem = {
 	title: string
@@ -16,7 +42,7 @@ export type Post = {
 	description: string
 	image: string
 	bgColor: string
-	linkToEdit: string
+	content: any
 	updatedAt: string
 	tags: string[]
 	contentItems: contentItem[]
@@ -52,17 +78,16 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Эвотор 5i',
 			description: 'Руководство по прошивке',
-			image: '/content/posts/evotor5i/evo5i.png',
+			image: '/content/evotor5i/image/evo5i.png',
 			bgColor: '#f15024',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/evotor5i/index.md',
 			updatedAt: '1 августа 2025',
 			tags: ['Сбер', 'Эвотор', 'Прошивка'],
+			content: Evotor5iContent,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий']
+					children: ['Что понадобится?', 'Процесс прошивки']
 				},
 				{ title: 'Читайте также' }
 			]
@@ -73,17 +98,17 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Эвотор 7.2',
 			description: 'Руководство по прошивке',
-			image: '/evo72.png',
+			image: '/content/evotor72/image/evo72.png',
 			bgColor: '#f15024',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/evotor72/index.md',
+
 			updatedAt: '24 мая 2025',
 			tags: ['Сбер', 'Эвотор', 'Прошивка'],
+			content: Evotor72Content,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий']
+					children: ['Что понадобится?', 'Процесс прошивки']
 				},
 				{ title: 'Читайте также' }
 			]
@@ -94,17 +119,17 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Эвотор 7.3',
 			description: 'Руководство по прошивке',
-			image: '/evo73.png',
+			image: '/content/evotor73/image/evo73.png',
 			bgColor: '#f15024',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/evotor73/index.md',
+
 			updatedAt: '23 июня 2025',
 			tags: ['Сбер', 'Эвотор', 'Прошивка'],
+			content: Evotor73Content,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий']
+					children: ['Что понадобится?', 'Процесс прошивки']
 				},
 				{
 					title: 'На практике',
@@ -119,17 +144,17 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Эвотор 10',
 			description: 'Руководство по прошивке',
-			image: '/evo10.png',
+			image: '/content/evotor10/image/evo10.png',
 			bgColor: '#f15024',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/evotor10/index.md',
+
 			updatedAt: '24 мая 2025',
 			tags: ['Сбер', 'Эвотор', 'Прошивка'],
+			content: Evotor10Content,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий']
+					children: ['Что понадобится?', 'Процесс прошивки']
 				},
 				{ title: 'Читайте также' }
 			]
@@ -140,17 +165,21 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Эвотор 6',
 			description: 'Руководство по прошивке',
-			image: '/evo6.png',
+			image: '/content/evotor6/image/evo6.png',
 			bgColor: '#f15024',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/evotor6/index.md',
+
 			updatedAt: '15 ноября 2025',
 			tags: ['Сбер', 'Эвотор', 'Прошивка'],
+			content: Evotor6Content,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий', 'Как добавить eSIM?']
+					children: [
+						'Что понадобится?',
+						'Процесс прошивки',
+						'Как добавить eSIM?'
+					]
 				},
 				{ title: 'Читайте также' }
 			]
@@ -161,17 +190,16 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Kozen P10',
 			description: 'Руководство по прошивке',
-			image: '/p10.png',
+			image: '/content/kozen-p10/image/p10.png',
 			bgColor: '#C0C0C0',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/kozen-p10/index.md',
 			updatedAt: '15 ноября 2025',
 			tags: ['Сбер', 'Kozen', 'Прошивка'],
+			content: KozenP10Content,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий']
+					children: ['Что понадобится?', 'Процесс прошивки']
 				},
 				{ title: 'Читайте также' }
 			]
@@ -182,17 +210,17 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Kozen P12',
 			description: 'Руководство по прошивке',
-			image: '/p12.png',
+			image: '/content/kozen-p12/image/p12.png',
 			bgColor: '#C0C0C0',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/kozen-p12/index.md',
+
 			updatedAt: '15 ноября 2025',
 			tags: ['Сбер', 'Kozen', 'Прошивка'],
+			content: KozenP12Content,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий', 'Видео']
+					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				},
 				{ title: 'Читайте также' }
 			]
@@ -203,17 +231,16 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Pax S80',
 			description: 'Руководство по прошивке и дефектовке',
-			image: '/s80.png',
+			image: '/content/pax-s80/image/s80.png',
 			bgColor: '#08a4e1',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-s80/index.md',
 			updatedAt: '21 июня 2025',
 			tags: ['Сбер', 'Pax', 'Прошивка', 'Дефектовка'],
+			content: PaxS80Content,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий', 'Видео']
+					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				},
 				{
 					title: 'Дефектовка',
@@ -237,17 +264,16 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Pax S90',
 			description: 'Руководство по прошивке и дефектовке',
-			image: '/s90.png',
+			image: '/content/pax-s90/image/s90.png',
 			bgColor: '#08a4e1',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-s90/index.md',
 			updatedAt: '21 июня 2025',
 			tags: ['Сбер', 'Pax', 'Прошивка', 'Дефектовка'],
+			content: PaxS90Content,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий', 'Видео']
+					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				},
 				{
 					title: 'Дефектовка',
@@ -271,17 +297,16 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Pax SP30',
 			description: 'Руководство по прошивке',
-			image: '/sp30.png',
+			image: '/content/pax-sp30/image/sp30.png',
 			bgColor: '#08a4e1',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-sp30/index.md',
 			updatedAt: '24 мая 2025',
 			tags: ['Сбер', 'Pax', 'Прошивка'],
+			content: PaxSP30Content,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий', 'Видео']
+					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				},
 				{ title: 'Читайте также' }
 			]
@@ -292,17 +317,16 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Pax S300',
 			description: 'Руководство по прошивке',
-			image: '/s300.png',
+			image: '/content/pax-s300/image/s300.png',
 			bgColor: '#08a4e1',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-s300/index.md',
 			updatedAt: '24 мая 2025',
 			tags: ['Сбер', 'Pax', 'Прошивка'],
+			content: PaxS300Content,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий', 'Видео']
+					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				},
 				{ title: 'Читайте также' }
 			]
@@ -313,17 +337,16 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Pax S200',
 			description: 'Руководство по прошивке',
-			image: '/s200.png',
+			image: '/content/pax-s200/image/s200.png',
 			bgColor: '#08a4e1',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-s200/index.md',
 			updatedAt: '29 июня 2025',
 			tags: ['Сбер', 'Pax', 'Прошивка'],
+			content: PaxS200Content,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий', 'Видео']
+					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				},
 				{ title: 'Читайте также' }
 			]
@@ -334,17 +357,16 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Pax Q25',
 			description: 'Руководство по прошивке',
-			image: '/q25.png',
+			image: '/content/pax-q25/image/q25.png',
 			bgColor: '#08a4e1',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-q25/index.md',
 			updatedAt: '24 мая 2025',
 			tags: ['Сбер', 'Pax', 'Прошивка'],
+			content: PaxQ25Content,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий', 'Видео']
+					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				},
 				{ title: 'Читайте также' }
 			]
@@ -355,17 +377,16 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Pax D230',
 			description: 'Руководство по прошивке',
-			image: '/pax-d230.png',
+			image: '/content/pax-d230/image/pax-d230.png',
 			bgColor: '#08a4e1',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-d230/index.md',
 			updatedAt: '24 мая 2025',
 			tags: ['Сбер', 'Pax', 'Прошивка'],
+			content: PaxD230Content,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий']
+					children: ['Что понадобится?', 'Процесс прошивки']
 				},
 				{ title: 'Читайте также' }
 			]
@@ -376,17 +397,17 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Pax D230 mob',
 			description: 'Руководство по прошивке',
-			image: '/pax-d230-mob.png',
+			image: '/content/pax-d230-mob/image/pax-d230-mob.png',
 			bgColor: '#08a4e1',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/pax-d230-mob/index.md',
+
 			updatedAt: '24 мая 2025',
 			tags: ['Сбер', 'Pax', 'Прошивка'],
+			content: PaxD230MobContent,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий']
+					children: ['Что понадобится?', 'Процесс прошивки']
 				},
 				{ title: 'Читайте также' }
 			]
@@ -397,17 +418,16 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'VeriFone VX520',
 			description: 'Руководство по прошивке и дефектовке',
-			image: '/vx520.png',
+			image: '/content/verifone-vx520/image/vx520.png',
 			bgColor: '#6effd2',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/verifone-vx520/index.md',
 			updatedAt: '15 ноября 2025',
 			tags: ['Сбер', 'VeriFone', 'Прошивка', 'Дефектовка'],
+			content: VerifoneVx520Content,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий', 'Видео']
+					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				},
 				{
 					title: 'Дефектовка',
@@ -430,17 +450,16 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'VeriFone VX820',
 			description: 'Руководство по прошивке',
-			image: '/vx820.png',
+			image: '/content/verifone-vx820/image/vx820.png',
 			bgColor: '#6effd2',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/verifone-vx820/index.md',
 			updatedAt: '24 мая 2025',
 			tags: ['Сбер', 'VeriFone', 'Прошивка'],
+			content: VerifoneVx820Content,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий', 'Видео']
+					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				},
 				{ title: 'Читайте также' }
 			]
@@ -451,17 +470,16 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Ingenico ICT220-ICT250',
 			description: 'Руководство по прошивке',
-			image: '/ict220.png',
+			image: '/content/ingenico-ict220-ict250/image/ict220.png',
 			bgColor: '#41e747',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/ingenico-ict220-ict250/index.md',
 			updatedAt: '15 ноября 2025',
 			tags: ['Сбер', 'Ingenico', 'Прошивка'],
+			content: IngenicoICT220Content,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий', 'Видео']
+					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				},
 				{ title: 'Читайте также' }
 			]
@@ -472,17 +490,16 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Ingenico IPP320-IPP350',
 			description: 'Руководство по прошивке',
-			image: '/ipp320.png',
+			image: '/content/ingenico-ipp320-ipp350/image/ipp320.png',
 			bgColor: '#41e747',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/ingenico-ipp320-ipp350/index.md',
 			updatedAt: '24 мая 2025',
 			tags: ['Сбер', 'Ingenico', 'Прошивка'],
+			content: IngenicoIPP320Content,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий', 'Видео']
+					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				},
 				{ title: 'Читайте также' }
 			]
@@ -493,17 +510,16 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Ingenico IWL220-IWL250',
 			description: 'Руководство по прошивке',
-			image: '/iwl220.png',
+			image: '/content/ingenico-iwl220-iwl250/image/iwl220.png',
 			bgColor: '#41e747',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/ingenico-iwl320-iwl350/index.md',
 			updatedAt: '29 мая 2025',
 			tags: ['Сбер', 'Ingenico', 'Прошивка'],
+			content: IngenicoIWL220Content,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий', 'Видео']
+					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				},
 				{ title: 'Читайте также' }
 			]
@@ -514,17 +530,16 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Tactilion T2',
 			description: 'Руководство по прошивке',
-			image: '/t2.png',
+			image: '/content/tactilion-t2/image/t2.png',
 			bgColor: '#ffd829',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/tactilion-t2/index.md',
 			updatedAt: '15 ноября 2025',
 			tags: ['Сбер', 'Tactilion', 'Прошивка'],
+			content: TactilionT2Content,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий', 'Видео']
+					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				},
 				{ title: 'Читайте также' }
 			]
@@ -535,17 +550,16 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Tactilion G3',
 			description: 'Руководство по прошивке',
-			image: '/g3.png',
+			image: '/content/tactilion-g3/image/g3.png',
 			bgColor: '#ffd829',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/tactilion-g3/index.md',
 			updatedAt: '21 июня 2025',
 			tags: ['Сбер', 'Tactilion', 'Прошивка'],
+			content: TactilionG3Content,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий']
+					children: ['Что понадобится?', 'Процесс прошивки']
 				},
 				{ title: 'Читайте также' }
 			]
@@ -556,17 +570,16 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Castles Vega3000 стац',
 			description: 'Руководство по прошивке',
-			image: '/v3st.png',
+			image: '/content/castles-vega3000/image/v3st.png',
 			bgColor: '#704ecc',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/castles-vega3000/index.md',
 			updatedAt: '30 июня 2025',
 			tags: ['Сбер', 'Castles', 'Прошивка'],
+			content: CastlesVega3000Content,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий', 'Видео']
+					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				},
 				{
 					title: 'Дефектовка',
@@ -596,17 +609,16 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Castles Vega3000 моб',
 			description: 'Руководство по прошивке',
-			image: '/v3mob.png',
+			image: '/content/castles-vega3000-mob/image/v3mob.png',
 			bgColor: '#704ecc',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/castles-vega3000-mob/index.md',
 			updatedAt: '24 мая 2025',
 			tags: ['Сбер', 'Castles', 'Прошивка'],
+			content: CastlesVega3000MobContent,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий', 'Видео']
+					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				},
 				{ title: 'Читайте также' }
 			]
@@ -617,20 +629,32 @@ export const useRootStore = create<RootState>((set) => ({
 			author: 'Сергей Кравченко',
 			title: 'Castles Vega3000 ИКР',
 			description: 'Руководство по прошивке',
-			image: '/v3ikr.png',
+			image: '/content/castles-vega3000-ikr/image/v3ikr.png',
 			bgColor: '#704ecc',
-			linkToEdit:
-				'https://github.com/Kravchenko-Sergey/atm-doka/blob/main/public/content/castles-vega3000-ikr/index.md',
 			updatedAt: '24 мая 2025',
 			tags: ['Сбер', 'Castles', 'Прошивка'],
+			content: CastlesVega3000IkrContent,
 			contentItems: [
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'План действий', 'Видео']
+					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				},
 				{ title: 'Читайте также' }
 			]
+		},
+		{
+			id: v4(),
+			url: 'aqsi5-f',
+			author: 'Сергей Кравченко',
+			title: 'AQSI5-Ф',
+			description: '',
+			image: '/content/aqsi5-f/image/aqsi5f.png',
+			bgColor: '#0dd72d',
+			updatedAt: '29 ноября 2025',
+			tags: ['Сбер', 'Aqsi'],
+			content: Aqsi5fContent,
+			contentItems: []
 		}
 	],
 	bgHeader: 'white',

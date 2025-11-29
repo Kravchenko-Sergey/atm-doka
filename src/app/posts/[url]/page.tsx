@@ -1,15 +1,11 @@
 'use client'
 
-interface CustomCSSProperties extends React.CSSProperties {
-	'--brand-color': string
-}
-
 import { useRootStore } from '@/state/store'
 import { CircleArrowLeft, CircleArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import {
 	Accordion,
 	AccordionContent,
@@ -23,10 +19,9 @@ const DevicePage = () => {
 	const params = useParams()
 	const posts = useRootStore((state) => state.posts)
 	const changeBgHeader = useRootStore((state) => state.changeBgHeader)
-	const [htmlContent, setHtmlContent] = useState<string>('')
-
 	const url = params?.url
 	const post = posts.find((post) => post.url === url)
+	const Content = post?.content
 
 	const prevPost = posts[posts.findIndex((p) => p.id === post?.id) - 1] ?? post
 	const nextPost = posts[posts.findIndex((p) => p.id === post?.id) + 1] ?? post
@@ -36,32 +31,6 @@ const DevicePage = () => {
 			changeBgHeader(post.bgColor)
 		}
 	}, [post?.bgColor])
-
-	useEffect(() => {
-		const fetchHtmlContent = async () => {
-			if (!url) return
-			try {
-				const response = await fetch(`/content/posts/${url}/index.html`)
-				if (!response.ok) {
-					throw new Error('Не удалось загрузить контент')
-				}
-				const html = await response.text()
-				setHtmlContent(html)
-			} catch (error) {
-				console.error('Ошибка загрузки HTML файла:', error)
-				// Fallback контент если HTML не найден
-				setHtmlContent(`
-					<div class="content-section">
-						<h2 class="section-title">Контент готовится</h2>
-						<p>Материал для этой статьи находится в разработке.</p>
-						<p>Хотите помочь с наполнением? Напишите нам!</p>
-					</div>
-				`)
-			}
-		}
-
-		fetchHtmlContent()
-	}, [url])
 
 	if (!post) {
 		redirect(`/not-found`)
@@ -166,11 +135,9 @@ const DevicePage = () => {
 					</aside>
 					<div className='w-full max-w-[1540px] flex-auto'>
 						{/* HTML контент */}
-						<div
-							className='px-4 w-full max-w-[1308px] markdown-content custom-links'
-							style={{ '--brand-color': post.bgColor } as CustomCSSProperties}
-							dangerouslySetInnerHTML={{ __html: htmlContent }}
-						/>
+						<div className='px-4 w-full max-w-[1308px]'>
+							<Content />
+						</div>
 						<div className='px-4 w-full max-w-[1308px]'>
 							<h2 className='my-8 text-3xl'>Читайте также</h2>
 							<div className='flex gap-4 flex-wrap md:gap-4'>

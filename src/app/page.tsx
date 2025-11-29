@@ -49,7 +49,6 @@ export default function Home() {
 			borderColor: tag.borderColor
 		}))
 
-	// ИСПРАВЛЕНИЕ: используем some() вместо every()
 	const filteredPosts =
 		activeTags.length > 0
 			? sortedPosts.filter((post) =>
@@ -67,9 +66,11 @@ export default function Home() {
 		changeBgHeader('white')
 	}, [])
 
+	console.log(filteredPosts)
+
 	return (
 		<>
-			<div className='p-4 pb-10 max-w-[1580px] text-xl flex flex-wrap gap-4'>
+			<div className='pt-20 md:pt-4 p-4 pb-10 max-w-[1580px] text-xl flex flex-wrap gap-4'>
 				{tags.map((tag) => (
 					<div
 						key={tag.id}
