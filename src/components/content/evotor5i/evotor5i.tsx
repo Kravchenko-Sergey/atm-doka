@@ -7,13 +7,79 @@ interface Evotor5iContentProps {
 const Evotor5iContent: React.FC<Evotor5iContentProps> = ({
 	className = ''
 }) => {
+	const tableHeaders = ['Модель', 'МЭ', 'OC', 'EvoPP', 'UposNative', 'UPOS']
+
+	const tableData = [
+		{
+			model: '520 и 521',
+			me: '1.8.4.1',
+			oc: '4.9.11',
+			evoPP: '2.1.8',
+			uposNative: '1.105.63',
+			upos: '33.43.06 (АН)'
+		},
+		{
+			model: '522',
+			me: '3.1.4.1',
+			oc: '4.9.11',
+			evoPP: '2.1.8',
+			uposNative: '1.105.63',
+			upos: '33.43.06 (АН)'
+		}
+	]
+
 	return (
 		<div className={className}>
+			<div className='content-section'>
+				<h2 className='section-title text-3xl font-bold mb-8 mt-8' id='1'>
+					Актуальные версии
+				</h2>
+
+				<div className='overflow-x-auto whitespace-nowrap'>
+					<table className='min-w-full'>
+						<thead>
+							<tr>
+								{tableHeaders.map((header) => (
+									<th
+										key={header}
+										className='px-2 py-2 text-left text-sm font-medium border border-gray-300'
+									>
+										{header}
+									</th>
+								))}
+							</tr>
+						</thead>
+						<tbody>
+							{tableData.map((row, index) => (
+								<tr key={index}>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.model}
+									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.me}
+									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.oc}
+									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.evoPP}
+									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.uposNative}
+									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.upos}
+									</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</div>
+			</div>
 			<div className='content-section'>
 				<h2 className='section-title text-3xl font-bold mb-8 mt-8' id='2'>
 					Прошивка
 				</h2>
-
 				<div className='subsection mb-8'>
 					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.1'>
 						Что понадобится?
@@ -32,7 +98,6 @@ const Evotor5iContent: React.FC<Evotor5iContentProps> = ({
 						</li>
 					</ul>
 				</div>
-
 				<div className='subsection'>
 					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.2'>
 						Процесс прошивки
@@ -41,7 +106,6 @@ const Evotor5iContent: React.FC<Evotor5iContentProps> = ({
 						<li className='leading-7'>
 							Включите терминал и подключите к интернету
 						</li>
-
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>Очистите файловую систему:</span>
@@ -64,7 +128,6 @@ const Evotor5iContent: React.FC<Evotor5iContentProps> = ({
 								</div>
 							</div>
 						</li>
-
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>Обновите платёжный модуль:</span>
@@ -87,7 +150,6 @@ const Evotor5iContent: React.FC<Evotor5iContentProps> = ({
 								</div>
 							</div>
 						</li>
-
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>Проверьте версию эквайринга:</span>
@@ -110,7 +172,6 @@ const Evotor5iContent: React.FC<Evotor5iContentProps> = ({
 								</div>
 							</div>
 						</li>
-
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>Актуальные версии эквайринга:</span>
@@ -126,7 +187,6 @@ const Evotor5iContent: React.FC<Evotor5iContentProps> = ({
 								</div>
 							</div>
 						</li>
-
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>Скачайте</span>
@@ -145,14 +205,12 @@ const Evotor5iContent: React.FC<Evotor5iContentProps> = ({
 								<span>)</span>
 							</div>
 						</li>
-
 						<li className='leading-7'>
 							Подготовьте флешку FAT32 и запишите файл прошивки в корень
 						</li>
 						<li className='leading-7'>
 							Выключите терминал, вставьте флешку и включите питание
 						</li>
-
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>На экране появится</span>
@@ -165,7 +223,6 @@ const Evotor5iContent: React.FC<Evotor5iContentProps> = ({
 								</span>
 							</div>
 						</li>
-
 						<li className='leading-7'>
 							Дождитесь завершения процесса (терминал перезагрузится
 							автоматически)
