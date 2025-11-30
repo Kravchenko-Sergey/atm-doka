@@ -233,7 +233,7 @@ const DevicePage = () => {
 							{prevPost && (
 								<Link
 									href={`/posts/${prevPost.url}`}
-									className='flex items-center gap-3 text-lg hover:underline transition-all hover:scale-101 group'
+									className='flex items-center gap-3 text-lg hover:underline transition-all hover:scale-101 group mr-auto'
 								>
 									<CircleArrowLeft className='transition-transform group-hover:-translate-x-1' />
 									<span className='max-w-[200px] line-clamp-2 md:max-w-[300px]'>

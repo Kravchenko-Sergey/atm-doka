@@ -107,7 +107,7 @@ export default function Home() {
 						<p>Ваш опыт важен, ваш вклад бесценен.</p>
 					</div>
 					<Link
-						href='/people'
+						href='#'
 						className='mt-6 text-xl flex items-center gap-3 hover:underline'
 					>
 						<Users size={20} />
