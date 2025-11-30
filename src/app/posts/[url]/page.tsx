@@ -193,11 +193,14 @@ const DevicePage = () => {
 
 					{/* Related Posts */}
 					<div className='px-4 max-w-[1308px] mx-auto'>
-						<h2 className='my-12 text-3xl font-semibold' id='related-posts'>
+						<h2
+							className='my-12 text-3xl font-semibold'
+							id={String(post.contentItems.length)}
+						>
 							Читайте также
 						</h2>
 						<div className='flex gap-6 flex-wrap'>
-							{randomPosts.map((post, index) => (
+							{randomPosts.map((post) => (
 								<Link
 									href={`/posts/${post.url}`}
 									key={post.id}
