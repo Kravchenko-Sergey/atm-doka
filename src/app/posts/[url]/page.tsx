@@ -138,7 +138,12 @@ const DevicePage = () => {
 							{Content ? <Content /> : <div>Контент недоступен</div>}
 						</div>
 						<div className='px-4 w-full max-w-[1308px]'>
-							<h2 className='my-8 text-3xl'>Читайте также</h2>
+							<h2
+								className='my-8 text-3xl'
+								id={String(post.contentItems.length)}
+							>
+								Читайте также
+							</h2>
 							<div className='flex gap-4 flex-wrap md:gap-4'>
 								{[...posts]
 									.filter((post) => post.url !== url)
