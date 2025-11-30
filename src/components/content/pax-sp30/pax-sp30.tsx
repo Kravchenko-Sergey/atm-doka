@@ -5,6 +5,17 @@ interface PaxSP30ContentProps {
 }
 
 const PaxSP30Content: React.FC<PaxSP30ContentProps> = ({ className = '' }) => {
+	const tableHeaders = ['UPOS', 'OS Monitor+', 'BASE', 'API']
+
+	const tableData = [
+		{
+			upos: '33.33.07',
+			osMonitor: '3.84',
+			base: 'V1.55',
+			api: 'V010024'
+		}
+	]
+
 	return (
 		<div className={className}>
 			<div className='content-section'>
@@ -16,35 +27,33 @@ const PaxSP30Content: React.FC<PaxSP30ContentProps> = ({ className = '' }) => {
 					<table className='min-w-full'>
 						<thead>
 							<tr>
-								<th className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
-									UPOS
-								</th>
-								<th className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
-									OS Monitor+
-								</th>
-								<th className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
-									BASE
-								</th>
-								<th className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
-									API
-								</th>
+								{tableHeaders.map((header) => (
+									<th
+										key={header}
+										className='px-2 py-2 text-left text-sm font-medium border border-gray-300'
+									>
+										{header}
+									</th>
+								))}
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									33.33.07
-								</td>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									3.84
-								</td>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									V1.55
-								</td>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									V010024
-								</td>
-							</tr>
+							{tableData.map((row, index) => (
+								<tr key={index}>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.upos}
+									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.osMonitor}
+									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.base}
+									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.api}
+									</td>
+								</tr>
+							))}
 						</tbody>
 					</table>
 				</div>
@@ -55,21 +64,23 @@ const PaxSP30Content: React.FC<PaxSP30ContentProps> = ({ className = '' }) => {
 					Прошивка
 				</h2>
 
-				<div className='subsection mb-6'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='2.1'>
+				<div className='subsection mb-8'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.1'>
 						Что понадобится?
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>Комплектный провод подключения</li>
-						<li>Блок питания micro-USB</li>
-						<li>Флешка, отформатированная в FAT32</li>
-						<li>Переходник USB 2.0 (мама) — USB 2.0 (мама)</li>
-						<li>
+					<ul className='list-disc text-lg flex flex-col gap-4 pl-6'>
+						<li className='leading-7'>Комплектный провод подключения</li>
+						<li className='leading-7'>Блок питания micro-USB</li>
+						<li className='leading-7'>Флешка, отформатированная в FAT32</li>
+						<li className='leading-7'>
+							Переходник USB 2.0 (мама) — USB 2.0 (мама)
+						</li>
+						<li className='leading-7'>
 							<a
 								href='https://disk.yandex.ru/d/4fC0Y01j_Gu1-A'
 								target='_blank'
 								rel='noopener noreferrer'
-								className='hover:underline text-[#08a4e1]'
+								className='hover:underline text-[#08a4e1] font-medium transition-colors duration-200'
 							>
 								Файл прошивки
 							</a>
@@ -77,45 +88,76 @@ const PaxSP30Content: React.FC<PaxSP30ContentProps> = ({ className = '' }) => {
 					</ul>
 				</div>
 
-				<div className='subsection mb-6'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='2.2'>
+				<div className='subsection mb-8'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.2'>
 						Процесс прошивки
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>Подключите флешку через переходник к проводу пинпада</li>
-						<li>
-							Подключите питание — должен появиться статус{' '}
-							<strong>U-DISC_DOWNLOAD</strong>
+					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
+						<li className='leading-7'>
+							Подключите флешку через переходник к проводу пинпада
 						</li>
-						<li>
-							Выберите файл прошивки{' '}
-							<a
-								href='https://disk.yandex.ru/d/4fC0Y01j_Gu1-A'
-								target='_blank'
-								rel='noopener noreferrer'
-								className='hover:underline text-[#08a4e1]'
-							>
-								!SB_SP30_33.33
-							</a>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Подключите питание — должен появиться статус</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									U-DISC_DOWNLOAD
+								</span>
+							</div>
 						</li>
-						<li>
-							В меню выберите: <strong>DELETE APP</strong> →{' '}
-							<strong>Delete all app</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Выберите файл прошивки</span>
+								<a
+									href='https://disk.yandex.ru/d/4fC0Y01j_Gu1-A'
+									target='_blank'
+									rel='noopener noreferrer'
+									className='hover:underline text-[#08a4e1] font-medium transition-colors duration-200 mx-1'
+								>
+									!SB_SP30_33.33
+								</a>
+							</div>
 						</li>
-						<li>
-							Затем выберите <strong>DOWNLOAD ALL</strong> для начала загрузки
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>В меню выберите:</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									DELETE APP
+								</span>
+								<span>→</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
+									Delete all app
+								</span>
+							</div>
 						</li>
-						<li>
-							Нажмите красную кнопку — появится <strong>DOWNLOAD OVER</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Затем выберите</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									DOWNLOAD ALL
+								</span>
+								<span>для начала загрузки</span>
+							</div>
 						</li>
-						<li>Ещё раз нажмите красную кнопку для перезагрузки</li>
-						<li>Во время перезагрузки извлеките флешку</li>
-						<li>Дождитесь полной загрузки UPOS</li>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Нажмите красную кнопку — появится</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									DOWNLOAD OVER
+								</span>
+							</div>
+						</li>
+						<li className='leading-7'>
+							Ещё раз нажмите красную кнопку для перезагрузки
+						</li>
+						<li className='leading-7'>
+							Во время перезагрузки извлеките флешку
+						</li>
+						<li className='leading-7'>Дождитесь полной загрузки UPOS</li>
 					</ul>
 				</div>
 
 				<div className='subsection'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='2.3'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.3'>
 						Видеоинструкция
 					</h3>
 					<div className='flex'>

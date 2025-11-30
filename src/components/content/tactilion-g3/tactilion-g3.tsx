@@ -7,6 +7,15 @@ interface TactilionG3ContentProps {
 const TactilionG3Content: React.FC<TactilionG3ContentProps> = ({
 	className = ''
 }) => {
+	const tableHeaders = ['UPOS', 'OS']
+
+	const tableData = [
+		{
+			upos: '33.18.03 (АН)',
+			os: 'S190512349'
+		}
+	]
+
 	return (
 		<div className={className}>
 			<div className='content-section'>
@@ -18,23 +27,27 @@ const TactilionG3Content: React.FC<TactilionG3ContentProps> = ({
 					<table className='min-w-full'>
 						<thead>
 							<tr>
-								<th className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
-									UPOS
-								</th>
-								<th className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
-									OS
-								</th>
+								{tableHeaders.map((header) => (
+									<th
+										key={header}
+										className='px-2 py-2 text-left text-sm font-medium border border-gray-300'
+									>
+										{header}
+									</th>
+								))}
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									33.18.03 (АН)
-								</td>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									S190512349
-								</td>
-							</tr>
+							{tableData.map((row, index) => (
+								<tr key={index}>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.upos}
+									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.os}
+									</td>
+								</tr>
+							))}
 						</tbody>
 					</table>
 				</div>
@@ -45,86 +58,145 @@ const TactilionG3Content: React.FC<TactilionG3ContentProps> = ({
 					Прошивка
 				</h2>
 
-				<div className='subsection mb-6'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='2.1'>
+				<div className='subsection mb-8'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.1'>
 						Что понадобится?
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>
+					<ul className='list-disc text-lg flex flex-col gap-4 pl-6'>
+						<li className='leading-7'>
 							<a
 								href='https://disk.yandex.ru/d/Zo_BfaeJxsk8oA'
 								target='_blank'
 								rel='noopener noreferrer'
-								className='hover:underline text-[#ffd829]'
+								className='hover:underline text-[#ffd829] font-medium transition-colors duration-200'
 							>
 								Файл прошивки
 							</a>
 						</li>
-						<li>Провод USB - mini USB</li>
-						<li>
-							Программа{' '}
-							<a
-								href='https://disk.yandex.ru/d/ntxPwIVh8dASHg'
-								target='_blank'
-								rel='noopener noreferrer'
-								className='hover:underline text-[#ffd829]'
-							>
-								Nexgo TMU Tools
-							</a>
+						<li className='leading-7'>Провод USB - mini USB</li>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Программа</span>
+								<a
+									href='https://disk.yandex.ru/d/ntxPwIVh8dASHg'
+									target='_blank'
+									rel='noopener noreferrer'
+									className='hover:underline text-[#ffd829] font-medium transition-colors duration-200 mx-1'
+								>
+									Nexgo TMU Tools
+								</a>
+							</div>
 						</li>
 					</ul>
 				</div>
 
-				<div className='subsection mb-6'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='2.2'>
+				<div className='subsection'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.2'>
 						Процесс прошивки
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>Включаем терминал</li>
-						<li>
-							После звукового сигнала зажимаем <strong>1</strong> и{' '}
-							<strong>F</strong> и держим до появления системного меню
+					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
+						<li className='leading-7'>Включаем терминал</li>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>После звукового сигнала зажимаем</span>
+								<span className='bg-[#ffd829] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#e6c225] transition-colors duration-200 mx-1'>
+									1
+								</span>
+								<span>и</span>
+								<span className='bg-[#ffd829] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#e6c225] transition-colors duration-200 ml-1'>
+									F
+								</span>
+								<span>и держим до появления системного меню</span>
+							</div>
 						</li>
-						<li>
-							Выбираем пункт <strong>4</strong> - <strong>Clear APPs</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Выбираем пункт</span>
+								<span className='bg-[#ffd829] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#e6c225] transition-colors duration-200 mx-1'>
+									4
+								</span>
+								<span>-</span>
+								<span className='bg-[#ffd829] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#e6c225] transition-colors duration-200 ml-1'>
+									Clear APPs
+								</span>
+							</div>
 						</li>
-						<li>
-							Вводим пароль - <strong>83890345</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Вводим пароль -</span>
+								<span className='bg-[#ffd829] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#e6c225] transition-colors duration-200 mx-1'>
+									83890345
+								</span>
+							</div>
 						</li>
-						<li>Подтверждаем нажатием на зелёную кнопку</li>
-						<li>
-							Открываем на компьютере программу{' '}
-							<a
-								href='https://disk.yandex.ru/d/ntxPwIVh8dASHg'
-								target='_blank'
-								rel='noopener noreferrer'
-								className='hover:underline text-[#ffd829]'
-							>
-								Nexgo TMU Tools
-							</a>
+						<li className='leading-7'>
+							Подтверждаем нажатием на зелёную кнопку
 						</li>
-						<li>
-							Нажимаем <strong>Add local App</strong> и выбираем папку с
-							прошивкой
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Открываем на компьютере программу</span>
+								<a
+									href='https://disk.yandex.ru/d/ntxPwIVh8dASHg'
+									target='_blank'
+									rel='noopener noreferrer'
+									className='hover:underline text-[#ffd829] font-medium transition-colors duration-200 mx-1'
+								>
+									Nexgo TMU Tools
+								</a>
+							</div>
 						</li>
-						<li>
-							Нажимаем <strong>Download</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Нажимаем</span>
+								<span className='bg-[#ffd829] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#e6c225] transition-colors duration-200 mx-1'>
+									Add local App
+								</span>
+								<span>и выбираем папку с прошивкой</span>
+							</div>
 						</li>
-						<li>Перезагружаем терминал</li>
-						<li>
-							При включении снова зажимаем <strong>1</strong> и{' '}
-							<strong>F</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Нажимаем</span>
+								<span className='bg-[#ffd829] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#e6c225] transition-colors duration-200 mx-1'>
+									Download
+								</span>
+							</div>
 						</li>
-						<li>
-							В меню выбираем пункт <strong>1</strong> -{' '}
-							<strong>USB port</strong>
+						<li className='leading-7'>Перезагружаем терминал</li>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>При включении снова зажимаем</span>
+								<span className='bg-[#ffd829] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#e6c225] transition-colors duration-200 mx-1'>
+									1
+								</span>
+								<span>и</span>
+								<span className='bg-[#ffd829] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#e6c225] transition-colors duration-200 ml-1'>
+									F
+								</span>
+							</div>
 						</li>
-						<li>
-							После появления на экране компьютера надписи{' '}
-							<strong>Download success</strong> нажимаем любую кнопку на
-							терминале
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>В меню выбираем пункт</span>
+								<span className='bg-[#ffd829] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#e6c225] transition-colors duration-200 mx-1'>
+									1
+								</span>
+								<span>-</span>
+								<span className='bg-[#ffd829] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#e6c225] transition-colors duration-200 ml-1'>
+									USB port
+								</span>
+							</div>
 						</li>
-						<li>Осталось дождаться загрузки UPOS.</li>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>После появления на экране компьютера надписи</span>
+								<span className='bg-[#ffd829] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#e6c225] transition-colors duration-200 mx-1'>
+									Download success
+								</span>
+								<span>нажимаем любую кнопку на терминале</span>
+							</div>
+						</li>
+						<li className='leading-7'>Осталось дождаться загрузки UPOS.</li>
 					</ul>
 				</div>
 			</div>

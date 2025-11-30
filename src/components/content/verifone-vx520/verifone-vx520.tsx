@@ -7,6 +7,25 @@ interface VerifoneVx520ContentProps {
 const VerifoneVx520Content: React.FC<VerifoneVx520ContentProps> = ({
 	className = ''
 }) => {
+	const tableHeaders = ['Модель', 'UPOS', 'OS Verix', 'EOS', 'VX-CTLS-2']
+
+	const tableData = [
+		{
+			model: 'VX520',
+			upos: '33.18.03',
+			osVerix: 'QT00050',
+			eos: '3.3.2.0',
+			vxCtls: '01.30.02M6'
+		},
+		{
+			model: 'VX520 + Kozen P10/P12',
+			upos: '33.42.06 (АН)\n(ОЭ) 34.00.04',
+			osVerix: 'QT00050',
+			eos: '3.3.2.0',
+			vxCtls: '01.30.02M6'
+		}
+	]
+
 	return (
 		<div className={className}>
 			<div className='content-section'>
@@ -18,60 +37,36 @@ const VerifoneVx520Content: React.FC<VerifoneVx520ContentProps> = ({
 					<table className='min-w-full'>
 						<thead>
 							<tr>
-								<th className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
-									Модель
-								</th>
-								<th className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
-									UPOS
-								</th>
-								<th className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
-									OS Verix
-								</th>
-								<th className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
-									EOS
-								</th>
-								<th className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
-									VX-CTLS-2
-								</th>
+								{tableHeaders.map((header) => (
+									<th
+										key={header}
+										className='px-2 py-2 text-left text-sm font-medium border border-gray-300'
+									>
+										{header}
+									</th>
+								))}
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									VX520
-								</td>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									33.18.03
-								</td>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									QT00050
-								</td>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									3.3.2.0
-								</td>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									01.30.02M6
-								</td>
-							</tr>
-							<tr>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									VX520 + Kozen P10/P12
-								</td>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									33.42.06 (АН)
-									<br />
-									(ОЭ) 34.00.04
-								</td>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									QT00050
-								</td>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									3.3.2.0
-								</td>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									01.30.02M6
-								</td>
-							</tr>
+							{tableData.map((row, index) => (
+								<tr key={index}>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.model}
+									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300 whitespace-pre-line'>
+										{row.upos}
+									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.osVerix}
+									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.eos}
+									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.vxCtls}
+									</td>
+								</tr>
+							))}
 						</tbody>
 					</table>
 				</div>
@@ -82,18 +77,18 @@ const VerifoneVx520Content: React.FC<VerifoneVx520ContentProps> = ({
 					Прошивка
 				</h2>
 
-				<div className='subsection mb-6'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='2.1'>
+				<div className='subsection mb-8'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.1'>
 						Что понадобится?
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>Флешка, отформатированная в FAT32</li>
-						<li>
+					<ul className='list-disc text-lg flex flex-col gap-4 pl-6'>
+						<li className='leading-7'>Флешка, отформатированная в FAT32</li>
+						<li className='leading-7'>
 							<a
 								href='https://disk.yandex.ru/d/Ym5ZizF5xbCEHQ'
 								target='_blank'
 								rel='noopener noreferrer'
-								className='hover:underline text-[#6effd2]'
+								className='hover:underline text-[#6effd2] font-medium transition-colors duration-200'
 							>
 								Папка с файлами прошивки
 							</a>
@@ -101,48 +96,97 @@ const VerifoneVx520Content: React.FC<VerifoneVx520ContentProps> = ({
 					</ul>
 				</div>
 
-				<div className='subsection mb-6'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='2.2'>
+				<div className='subsection mb-8'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.2'>
 						Процесс прошивки
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>Включите терминал и подключите флешку</li>
-						<li>
-							Для входа в меню зажмите зелёную кнопку и цифру <strong>7</strong>
+					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
+						<li className='leading-7'>Включите терминал и подключите флешку</li>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Для входа в меню зажмите зелёную кнопку и цифру</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									7
+								</span>
+							</div>
 						</li>
-						<li>
-							Введите пароль: <strong>1 alpha alpha 6 6 8 3 1</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Введите пароль:</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									1 alpha alpha 6 6 8 3 1
+								</span>
+							</div>
 						</li>
-						<li>
-							Выберите: <strong>Memory Function</strong> →{' '}
-							<strong>Clear Mem</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Выберите:</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Memory Function
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 ml-1'>
+									Clear Mem
+								</span>
+							</div>
 						</li>
-						<li>Повторно введите пароль</li>
-						<li>
-							Выберите <strong>Clear all Groups</strong> и подтвердите кнопкой{' '}
-							<strong>2</strong>
+						<li className='leading-7'>Повторно введите пароль</li>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Выберите</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Clear all Groups
+								</span>
+								<span>и подтвердите кнопкой</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 ml-1'>
+									2
+								</span>
+							</div>
 						</li>
-						<li>После очистки нажмите красную кнопку</li>
-						<li>
-							Выберите <strong>Restart</strong> для перезагрузки
+						<li className='leading-7'>После очистки нажмите красную кнопку</li>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Выберите</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Restart
+								</span>
+								<span>для перезагрузки</span>
+							</div>
 						</li>
-						<li>
-							При предложении загрузить все файлы выберите <strong>NO</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>При предложении загрузить все файлы выберите</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									NO
+								</span>
+							</div>
 						</li>
-						<li>
-							Выберите нужную прошивку и нажмите <strong>YES</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Выберите нужную прошивку и нажмите</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									YES
+								</span>
+							</div>
 						</li>
-						<li>
-							Остальные шаги пропустите, нажимая <strong>NO</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Остальные шаги пропустите, нажимая</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									NO
+								</span>
+							</div>
 						</li>
-						<li>Извлеките флешку по запросу системы</li>
-						<li>Нажмите зелёную кнопку</li>
-						<li>Дождитесь завершения прошивки и загрузки UPOS</li>
+						<li className='leading-7'>Извлеките флешку по запросу системы</li>
+						<li className='leading-7'>Нажмите зелёную кнопку</li>
+						<li className='leading-7'>
+							Дождитесь завершения прошивки и загрузки UPOS
+						</li>
 					</ul>
 				</div>
 
 				<div className='subsection'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='2.3'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.3'>
 						Видеоинструкция
 					</h3>
 					<div className='flex'>
@@ -162,126 +206,304 @@ const VerifoneVx520Content: React.FC<VerifoneVx520ContentProps> = ({
 					Дефектовка
 				</h2>
 
-				<div className='subsection mb-6'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='3.1'>
+				<div className='subsection mb-8'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='3.1'>
 						Магнитный ридер
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>
-							Выберите: <strong>Terminal Info</strong> →{' '}
-							<strong>Diagnostics</strong> → <strong>Mag Card Diag</strong>
+					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Выберите:</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Terminal Info
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Diagnostics
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 ml-1'>
+									Mag Card Diag
+								</span>
+							</div>
 						</li>
-						<li>
-							Проведите карту — на всех дорожках должно отображаться{' '}
-							<strong>VALID</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>
+									Проведите карту — на всех дорожках должно отображаться
+								</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									VALID
+								</span>
+							</div>
 						</li>
 					</ul>
 				</div>
 
-				<div className='subsection mb-6'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='3.2'>
+				<div className='subsection mb-8'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='3.2'>
 						Чиповый ридер
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>
-							Выберите: <strong>Terminal Info</strong> →{' '}
-							<strong>Diagnostics</strong> → <strong>Smart Card Diag</strong> →{' '}
-							<strong>CHIP CARD DIAG</strong> → <strong>CUST SLOT DIAG</strong>
+					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Выберите:</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Terminal Info
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Diagnostics
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Smart Card Diag
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									CHIP CARD DIAG
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 ml-1'>
+									CUST SLOT DIAG
+								</span>
+							</div>
 						</li>
-						<li>
-							Вставьте карту и нажмите <strong>CUST SLOT DIAG</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Вставьте карту и нажмите</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									CUST SLOT DIAG
+								</span>
+							</div>
 						</li>
-						<li>
-							Должны отображаться: <strong>POWER UP: PASSED</strong> и{' '}
-							<strong>GET ATR: PASSED</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Должны отображаться:</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									POWER UP: PASSED
+								</span>
+								<span>и</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 ml-1'>
+									GET ATR: PASSED
+								</span>
+							</div>
 						</li>
 					</ul>
 				</div>
 
-				<div className='subsection mb-6'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='3.3'>
+				<div className='subsection mb-8'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='3.3'>
 						Бесконтактный модуль
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>
-							Выберите: <strong>Terminal Info</strong> →{' '}
-							<strong>Diagnostics</strong> → <strong>Smart Card Diag</strong> →{' '}
-							<strong>CONTACTLESS DIAG</strong> → <strong>TAP AND TEST</strong>
+					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Выберите:</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Terminal Info
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Diagnostics
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Smart Card Diag
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									CONTACTLESS DIAG
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 ml-1'>
+									TAP AND TEST
+								</span>
+							</div>
 						</li>
-						<li>
-							Поднесите карту — должен отображаться{' '}
-							<strong>SW1_SW2=0x9000 card_type=1</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Поднесите карту — должен отображаться</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									SW1_SW2=0x9000 card_type=1
+								</span>
+							</div>
 						</li>
 					</ul>
 				</div>
 
-				<div className='subsection mb-6'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='3.4'>
+				<div className='subsection mb-8'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='3.4'>
 						Клавиатура
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>
-							Выберите: <strong>Terminal Info</strong> →{' '}
-							<strong>Diagnostics</strong> → <strong>Keybord Diag</strong>
+					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Выберите:</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Terminal Info
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Diagnostics
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 ml-1'>
+									Keybord Diag
+								</span>
+							</div>
 						</li>
-						<li>
+						<li className='leading-7'>
 							Проверьте все клавиши — значения должны отображаться на экране
 						</li>
 					</ul>
 				</div>
 
-				<div className='subsection mb-6'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='3.5'>
+				<div className='subsection mb-8'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='3.5'>
 						Принтер
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>
-							Выберите: <strong>Terminal Info</strong> →{' '}
-							<strong>Diagnostics</strong> → <strong>Printer Diag</strong> →{' '}
-							<strong>Test</strong>
+					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Выберите:</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Terminal Info
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Diagnostics
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Printer Diag
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 ml-1'>
+									Test
+								</span>
+							</div>
 						</li>
-						<li>Должен распечататься тестовый чек</li>
+						<li className='leading-7'>Должен распечататься тестовый чек</li>
 					</ul>
 				</div>
 
-				<div className='subsection mb-6'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='3.6'>
+				<div className='subsection mb-8'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='3.6'>
 						GPRS
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>
-							Выберите: <strong>Download</strong> → введите пароль →{' '}
-							<strong>Multi-app</strong> → <strong>Partial dnld</strong> →{' '}
-							<strong>TCPIP</strong>
+					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Выберите:</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Download
+								</span>
+								<span>→ введите пароль →</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Multi-app
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Partial dnld
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 ml-1'>
+									TCPIP
+								</span>
+							</div>
 						</li>
-						<li>
-							Нажмите красную кнопку и выберите: <strong>Control Panel</strong>{' '}
-							→ <strong>Tools</strong> → <strong>Network Maint</strong> →{' '}
-							<strong>GPRS</strong> → <strong>Network Start GPRS</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Нажмите красную кнопку и выберите:</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Control Panel
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Tools
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Network Maint
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									GPRS
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 ml-1'>
+									Network Start GPRS
+								</span>
+							</div>
 						</li>
-						<li>
-							Должен отображаться статус <strong>Connected</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Должен отображаться статус</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Connected
+								</span>
+							</div>
 						</li>
 					</ul>
 				</div>
 
 				<div className='subsection'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='3.7'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='3.7'>
 						Ethernet
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>
-							Выберите: <strong>Download</strong> → введите пароль →{' '}
-							<strong>Multi-app</strong> → <strong>Partial dnld</strong> →{' '}
-							<strong>TCPIP</strong>
+					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Выберите:</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Download
+								</span>
+								<span>→ введите пароль →</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Multi-app
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Partial dnld
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 ml-1'>
+									TCPIP
+								</span>
+							</div>
 						</li>
-						<li>
-							Нажмите красную кнопку и выберите: <strong>Control Panel</strong>{' '}
-							→ <strong>Tools</strong> → <strong>Network Maint</strong> →{' '}
-							<strong>Ethernet</strong> → <strong>Network Start</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Нажмите красную кнопку и выберите:</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Control Panel
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Tools
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Network Maint
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Ethernet
+								</span>
+								<span>→</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 ml-1'>
+									Network Start
+								</span>
+							</div>
 						</li>
-						<li>
-							Должен отображаться статус <strong>Connected</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Должен отображаться статус</span>
+								<span className='bg-[#6effd2] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#5ae0b8] transition-colors duration-200 mx-1'>
+									Connected
+								</span>
+							</div>
 						</li>
 					</ul>
 				</div>

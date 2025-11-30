@@ -133,7 +133,7 @@ export const useRootStore = create<RootState>((set) => ({
 				},
 				{
 					title: 'На практике',
-					children: ['Как избежать ГЗ, если проблема в принтере', 'Видео']
+					children: ['Как избежать ГЗ', 'Видеоинструкция']
 				},
 				{ title: 'Читайте также' }
 			]
@@ -191,7 +191,7 @@ export const useRootStore = create<RootState>((set) => ({
 			title: 'Kozen P10',
 			description: 'Руководство по прошивке',
 			image: '/content/kozen-p10/image/p10.png',
-			bgColor: '#C0C0C0',
+			bgColor: '#DC2626',
 			updatedAt: '15 ноября 2025',
 			tags: ['Сбер', 'Kozen', 'Прошивка'],
 			content: KozenP10Content,
@@ -211,8 +211,7 @@ export const useRootStore = create<RootState>((set) => ({
 			title: 'Kozen P12',
 			description: 'Руководство по прошивке',
 			image: '/content/kozen-p12/image/p12.png',
-			bgColor: '#C0C0C0',
-
+			bgColor: '#DC2626',
 			updatedAt: '15 ноября 2025',
 			tags: ['Сбер', 'Kozen', 'Прошивка'],
 			content: KozenP12Content,

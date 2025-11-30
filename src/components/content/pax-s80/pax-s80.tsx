@@ -5,6 +5,17 @@ interface PaxS80ContentProps {
 }
 
 const PaxS80Content: React.FC<PaxS80ContentProps> = ({ className = '' }) => {
+	const tableHeaders = ['UPOS', 'OS Monitor+', 'BASE', 'API']
+
+	const tableData = [
+		{
+			upos: '33.33.07',
+			osMonitor: '3.84',
+			base: 'V1.55',
+			api: 'V010024'
+		}
+	]
+
 	return (
 		<div className={className}>
 			<div className='content-section'>
@@ -16,35 +27,33 @@ const PaxS80Content: React.FC<PaxS80ContentProps> = ({ className = '' }) => {
 					<table className='min-w-full'>
 						<thead>
 							<tr>
-								<th className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
-									UPOS
-								</th>
-								<th className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
-									OS Monitor+
-								</th>
-								<th className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
-									BASE
-								</th>
-								<th className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
-									API
-								</th>
+								{tableHeaders.map((header) => (
+									<th
+										key={header}
+										className='px-2 py-2 text-left text-sm font-medium border border-gray-300'
+									>
+										{header}
+									</th>
+								))}
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									33.33.07
-								</td>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									3.84
-								</td>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									V1.55
-								</td>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									V010024
-								</td>
-							</tr>
+							{tableData.map((row, index) => (
+								<tr key={index}>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.upos}
+									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.osMonitor}
+									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.base}
+									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.api}
+									</td>
+								</tr>
+							))}
 						</tbody>
 					</table>
 				</div>
@@ -55,19 +64,21 @@ const PaxS80Content: React.FC<PaxS80ContentProps> = ({ className = '' }) => {
 					Прошивка
 				</h2>
 
-				<div className='subsection mb-6'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='2.1'>
+				<div className='subsection mb-8'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.1'>
 						Что понадобится?
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>Флешка, отформатированная в FAT32</li>
-						<li>Переходник USB (мама) — mini-USB (папа)</li>
-						<li>
+					<ul className='list-disc text-lg flex flex-col gap-4 pl-6'>
+						<li className='leading-7'>Флешка, отформатированная в FAT32</li>
+						<li className='leading-7'>
+							Переходник USB (мама) — mini-USB (папа)
+						</li>
+						<li className='leading-7'>
 							<a
 								href='https://disk.yandex.ru/d/1Ei0svpswKnAOQ'
 								target='_blank'
 								rel='noopener noreferrer'
-								className='hover:underline text-[#08a4e1]'
+								className='hover:underline text-[#08a4e1] font-medium transition-colors duration-200'
 							>
 								Файл прошивки
 							</a>
@@ -75,41 +86,58 @@ const PaxS80Content: React.FC<PaxS80ContentProps> = ({ className = '' }) => {
 					</ul>
 				</div>
 
-				<div className='subsection mb-6'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='2.2'>
+				<div className='subsection mb-8'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.2'>
 						Процесс прошивки
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>Подключите флешку через переходник</li>
-						<li>Включите терминал</li>
-						<li>
-							Выберите файл прошивки{' '}
-							<a
-								href='https://disk.yandex.ru/d/1Ei0svpswKnAOQ'
-								target='_blank'
-								rel='noopener noreferrer'
-								className='hover:underline text-[#08a4e1]'
-							>
-								!SB_S80_33.33
-							</a>{' '}
-							и подтвердите выбор
+					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
+						<li className='leading-7'>Подключите флешку через переходник</li>
+						<li className='leading-7'>Включите терминал</li>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Выберите файл прошивки</span>
+								<a
+									href='https://disk.yandex.ru/d/1Ei0svpswKnAOQ'
+									target='_blank'
+									rel='noopener noreferrer'
+									className='hover:underline text-[#08a4e1] font-medium transition-colors duration-200 mx-1'
+								>
+									!SB_S80_33.33
+								</a>
+								<span>и подтвердите выбор</span>
+							</div>
 						</li>
-						<li>
-							В меню выберите: <strong>DELETE APP</strong> →{' '}
-							<strong>Delete all app</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>В меню выберите:</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									DELETE APP
+								</span>
+								<span>→</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
+									Delete all app
+								</span>
+							</div>
 						</li>
-						<li>
-							После очистки выберите <strong>DOWNLOAD ALL</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>После очистки выберите</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									DOWNLOAD ALL
+								</span>
+							</div>
 						</li>
-						<li>
+						<li className='leading-7'>
 							По завершении дважды нажмите красную кнопку и извлеките флешку
 						</li>
-						<li>Дождитесь перезагрузки и загрузки UPOS</li>
+						<li className='leading-7'>
+							Дождитесь перезагрузки и загрузки UPOS
+						</li>
 					</ul>
 				</div>
 
 				<div className='subsection'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='2.3'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.3'>
 						Видеоинструкция
 					</h3>
 					<div className='flex'>
@@ -129,129 +157,274 @@ const PaxS80Content: React.FC<PaxS80ContentProps> = ({ className = '' }) => {
 					Дефектовка
 				</h2>
 
-				<div className='subsection mb-6'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='3.1'>
+				<div className='subsection mb-8'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='3.1'>
 						Внешний осмотр
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>Проверьте отсутствие посторонних предметов в ридерах</li>
-						<li>Осмотрите корпус на наличие повреждений и загрязнений</li>
-						<li>Проверьте целостность контактов SIM-слота и Ethernet-порта</li>
-						<li>Оцените общее состояние терминала</li>
+					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
+						<li className='leading-7'>
+							Проверьте отсутствие посторонних предметов в ридерах
+						</li>
+						<li className='leading-7'>
+							Осмотрите корпус на наличие повреждений и загрязнений
+						</li>
+						<li className='leading-7'>
+							Проверьте целостность контактов SIM-слота и Ethernet-порта
+						</li>
+						<li className='leading-7'>Оцените общее состояние терминала</li>
 					</ul>
 				</div>
 
-				<div className='subsection mb-6'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='3.3'>
+				<div className='subsection mb-8'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='3.3'>
 						Магнитный ридер
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>
-							Зажмите кнопку <strong>func</strong> при включении
+					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Зажмите кнопку</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									func
+								</span>
+								<span>при включении</span>
+							</div>
 						</li>
-						<li>
-							Выберите: <strong>Module Test</strong> →{' '}
-							<strong>Magcard Reader</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Выберите:</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									Module Test
+								</span>
+								<span>→</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
+									Magcard Reader
+								</span>
+							</div>
 						</li>
-						<li>
-							Проведите карту — должен отображаться{' '}
-							<strong>READ TRACK OK</strong> или <strong>Status=0</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Проведите карту — должен отображаться</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									READ TRACK OK
+								</span>
+								<span>или</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
+									Status=0
+								</span>
+							</div>
 						</li>
 					</ul>
 				</div>
 
-				<div className='subsection mb-6'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='3.4'>
+				<div className='subsection mb-8'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='3.4'>
 						Чиповый ридер
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>
-							Зажмите кнопку <strong>func</strong> при включении
+					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Зажмите кнопку</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									func
+								</span>
+								<span>при включении</span>
+							</div>
 						</li>
-						<li>
-							Выберите: <strong>Module Test</strong> →{' '}
-							<strong>Card Readers</strong> → <strong>User Card</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Выберите:</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									Module Test
+								</span>
+								<span>→</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									Card Readers
+								</span>
+								<span>→</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
+									User Card
+								</span>
+							</div>
 						</li>
-						<li>
-							Вставьте карту — должен отображаться <strong>OK</strong> или{' '}
-							<strong>Card test done</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Вставьте карту — должен отображаться</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									OK
+								</span>
+								<span>или</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
+									Card test done
+								</span>
+							</div>
 						</li>
 					</ul>
 				</div>
 
-				<div className='subsection mb-6'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='3.5'>
+				<div className='subsection mb-8'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='3.5'>
 						Бесконтактный ридер
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>
-							Зажмите кнопку <strong>func</strong> при включении
+					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Зажмите кнопку</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									func
+								</span>
+								<span>при включении</span>
+							</div>
 						</li>
-						<li>
-							Выберите: <strong>Module Test</strong> →{' '}
-							<strong>Card Readers</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Выберите:</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									Module Test
+								</span>
+								<span>→</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
+									Card Readers
+								</span>
+							</div>
 						</li>
-						<li>
-							Выберите <strong>A Type Card</strong> или поднесите карту при
-							появлении <strong>PLS SWIPED CARD</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Выберите</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									A Type Card
+								</span>
+								<span>или поднесите карту при появлении</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
+									PLS SWIPED CARD
+								</span>
+							</div>
 						</li>
-						<li>
-							Должен отображаться <strong>read succeeded</strong> или{' '}
-							<strong>A CARD TEST OK</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Должен отображаться</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									read succeeded
+								</span>
+								<span>или</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
+									A CARD TEST OK
+								</span>
+							</div>
 						</li>
 					</ul>
 				</div>
 
-				<div className='subsection mb-6'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='3.6'>
+				<div className='subsection mb-8'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='3.6'>
 						Клавиатура
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>
-							Зажмите кнопку <strong>func</strong> при включении
+					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Зажмите кнопку</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									func
+								</span>
+								<span>при включении</span>
+							</div>
 						</li>
-						<li>
-							Выберите: <strong>Module Test</strong> → <strong>KEY TEST</strong>{' '}
-							→ <strong>User Interface</strong> → <strong>Keyboard</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Выберите:</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									Module Test
+								</span>
+								<span>→</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									KEY TEST
+								</span>
+								<span>→</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									User Interface
+								</span>
+								<span>→</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
+									Keyboard
+								</span>
+							</div>
 						</li>
-						<li>
+						<li className='leading-7'>
 							Нажмите все клавиши — значения должны отображаться на экране
 						</li>
-						<li>
-							Для выхода нажмите дважды <strong>0</strong> или{' '}
-							<strong>1</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Для выхода нажмите дважды</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									0
+								</span>
+								<span>или</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
+									1
+								</span>
+							</div>
 						</li>
 					</ul>
 				</div>
 
-				<div className='subsection mb-6'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='3.7'>
+				<div className='subsection mb-8'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='3.7'>
 						GPRS
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>
-							Зажмите кнопку <strong>func</strong> при включении
+					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Зажмите кнопку</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									func
+								</span>
+								<span>при включении</span>
+							</div>
 						</li>
-						<li>
-							Выберите: <strong>Module Check</strong> → <strong>WNET</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Выберите:</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									Module Check
+								</span>
+								<span>→</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
+									WNET
+								</span>
+							</div>
 						</li>
-						<li>
-							Нажимайте <strong>Enter</strong> до появления{' '}
-							<strong>WNET DIALING</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Нажимайте</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									Enter
+								</span>
+								<span>до появления</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
+									WNET DIALING
+								</span>
+							</div>
 						</li>
-						<li>Должна появиться шкала уровня сигнала</li>
+						<li className='leading-7'>Должна появиться шкала уровня сигнала</li>
 					</ul>
 				</div>
 
 				<div className='subsection'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='3.8'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='3.8'>
 						Ethernet
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>Визуально проверьте разъём на повреждения</li>
-						<li>Подключите терминал к ноутбуку патч-кордом</li>
-						<li>Проверьте сетевые подключения ноутбука</li>
-						<li>Должно появиться новое сетевое подключение</li>
+					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
+						<li className='leading-7'>
+							Визуально проверьте разъём на повреждения
+						</li>
+						<li className='leading-7'>
+							Подключите терминал к ноутбуку патч-кордом
+						</li>
+						<li className='leading-7'>
+							Проверьте сетевые подключения ноутбука
+						</li>
+						<li className='leading-7'>
+							Должно появиться новое сетевое подключение
+						</li>
 					</ul>
 				</div>
 			</div>

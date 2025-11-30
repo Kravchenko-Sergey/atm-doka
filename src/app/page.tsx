@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { Post, useRootStore } from '@/state/store'
 import { Send, Users } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo, useCallback } from 'react'
 import Link from 'next/link'
 import { v4 } from 'uuid'
 
@@ -14,71 +14,77 @@ type Tag = {
 	borderColor: string
 }
 
+const TAGS_CONFIG = [
+	{ title: 'Эвотор', borderColor: '#f15024' },
+	{ title: 'Kozen', borderColor: '#DC2626' },
+	{ title: 'Pax', borderColor: '#08a4e1' },
+	{ title: 'Tactilion', borderColor: '#ffd829' },
+	{ title: 'Ingenico', borderColor: '#41e747' },
+	{ title: 'VeriFone', borderColor: '#6effd2' },
+	{ title: 'Castles', borderColor: '#704ecc' },
+	{ title: 'Aqsi', borderColor: '#0dd72d' }
+] as const
+
 export default function Home() {
 	const posts = useRootStore((state) => state.posts)
 	const changeBgHeader = useRootStore((state) => state.changeBgHeader)
 
 	const [sortedPosts, setSortedPosts] = useState<Post[]>([])
-	const [count, setCount] = useState(6)
+	const [visibleCount, setVisibleCount] = useState(6)
 
-	const [tags, setTags] = useState([
-		{ id: v4(), title: 'Эвотор', isActive: false, borderColor: '#f15024' },
-		{ id: v4(), title: 'Kozen', isActive: false, borderColor: '#C0C0C0' },
-		{ id: v4(), title: 'Pax', isActive: false, borderColor: '#08a4e1' },
-		{ id: v4(), title: 'Tactilion', isActive: false, borderColor: '#ffd829' },
-		{ id: v4(), title: 'Ingenico', isActive: false, borderColor: '#41e747' },
-		{ id: v4(), title: 'VeriFone', isActive: false, borderColor: '#6effd2' },
-		{ id: v4(), title: 'Castles', isActive: false, borderColor: '#704ecc' },
-		{ id: v4(), title: 'Aqsi', isActive: false, borderColor: '#0dd72d' }
-	])
+	const [tags, setTags] = useState<Tag[]>(() =>
+		TAGS_CONFIG.map((tag) => ({
+			...tag,
+			id: v4(),
+			isActive: false
+		}))
+	)
 
-	const toggleActive = (id: string) => {
+	const toggleActive = useCallback((id: string) => {
 		setTags((prevTags) =>
 			prevTags.map((tag) =>
 				tag.id === id ? { ...tag, isActive: !tag.isActive } : tag
 			)
 		)
-	}
-
-	const activeTags: Tag[] = tags
-		.filter((tag) => tag.isActive)
-		.map((tag) => ({
-			id: tag.id,
-			title: tag.title,
-			isActive: tag.isActive,
-			borderColor: tag.borderColor
-		}))
-
-	const filteredPosts =
-		activeTags.length > 0
-			? sortedPosts.filter((post) =>
-					activeTags.some((activeTag) => post.tags.includes(activeTag.title))
-				)
-			: sortedPosts
-
-	const handleClickTag = (id: string) => {
-		toggleActive(id)
-	}
-
-	useEffect(() => {
-		const shuffledPosts: Post[] = [...posts].sort(() => Math.random() - 0.5)
-		setSortedPosts(shuffledPosts)
-		changeBgHeader('white')
 	}, [])
 
-	console.log(filteredPosts)
+	const activeTags = useMemo(() => tags.filter((tag) => tag.isActive), [tags])
+
+	const filteredPosts = useMemo(() => {
+		if (activeTags.length === 0) return sortedPosts
+
+		return sortedPosts.filter((post) =>
+			activeTags.some((activeTag) => post.tags.includes(activeTag.title))
+		)
+	}, [sortedPosts, activeTags])
+
+	const displayedPosts = useMemo(
+		() => filteredPosts.slice(0, visibleCount),
+		[filteredPosts, visibleCount]
+	)
+
+	const handleLoadMore = useCallback(() => {
+		setVisibleCount((prev) => prev + 6)
+	}, [])
+
+	useEffect(() => {
+		const shuffledPosts = [...posts].sort(() => Math.random() - 0.5)
+		setSortedPosts(shuffledPosts)
+		changeBgHeader('white')
+	}, [posts, changeBgHeader])
 
 	return (
 		<>
+			{/* Tags Grid */}
 			<div className='pt-20 md:pt-4 p-4 pb-10 max-w-[1580px] text-xl flex flex-wrap gap-4'>
 				{tags.map((tag) => (
-					<div
+					<button
 						key={tag.id}
-						onClick={() => handleClickTag(tag.id)}
-						className='h-12 p-8 text-xl flex items-center justify-center transition-colors duration-300 ease-in-out cursor-pointer
-            border rounded-xl select-none flex-1 min-w-[calc(50%-8px)] md:min-w-[calc(25%-12px)]'
+						onClick={() => toggleActive(tag.id)}
+						className='h-12 p-8 text-xl flex items-center justify-center transition-all duration-300 ease-in-out cursor-pointer
+              border rounded-xl select-none flex-1 min-w-[calc(50%-8px)] md:min-w-[calc(25%-12px)] hover:scale-101'
 						style={{
-							borderColor: tag.isActive ? tag.borderColor : '',
+							borderColor: tag.isActive ? tag.borderColor : 'currentColor',
 							borderRadius: '0.5rem',
 							backgroundColor: tag.isActive
 								? `${tag.borderColor}20`
@@ -86,83 +92,87 @@ export default function Home() {
 						}}
 					>
 						{tag.title}
-					</div>
+					</button>
 				))}
 			</div>
-			<div className='px-4 max-w-[1580px] flex gap-4 flex-wrap lg:flex-nowrap'>
-				<div className='p-4 w-[50%] bg-gray-300 rounded-xl flex-auto dark:bg-[#42454c]'>
-					<div className='pb-8 text-2xl'>Вместе и для каждого</div>
-					<div className='text-xl'>
+
+			{/* Info Cards */}
+			<div className='px-4 max-w-[1580px] flex gap-4 flex-col lg:flex-row'>
+				<div className='p-6 bg-gray-100 rounded-xl flex-1 dark:bg-[#42454c]'>
+					<h2 className='pb-6 text-2xl font-semibold'>Вместе и для каждого</h2>
+					<div className='text-xl space-y-3'>
 						<p>Дока — это документация для POS-инженеров на понятном языке.</p>
 						<p>Каждый участник сообщества — это ценный источник информации.</p>
 						<p>Делитесь своими знаниями, помогайте коллегам.</p>
 						<p>Ваш опыт важен, ваш вклад бесценен.</p>
 					</div>
-					<div>
-						<Link href='/people' className='mt-8 text-xl flex gap-4'>
-							<Users />
-							<div>Участники</div>
-						</Link>
-					</div>
+					<Link
+						href='/people'
+						className='mt-6 text-xl flex items-center gap-3 hover:underline'
+					>
+						<Users size={20} />
+						<span>Участники</span>
+					</Link>
 				</div>
-				<div className='p-4 w-[50%] border rounded-xl flex flex-col flex-auto'>
-					<div className='pb-8 text-2xl'>Станьте автором Доки</div>
-					<div className='text-xl flex-auto'>
+
+				<div className='p-6 border border-gray-200 rounded-xl flex flex-col flex-1 dark:border-gray-600'>
+					<h2 className='pb-6 text-2xl font-semibold'>Станьте автором Доки</h2>
+					<div className='text-xl space-y-3 flex-1'>
 						<p>Дополните документацию реальными кейсами из практики.</p>
 						<p>Предложите идею для новой статьи.</p>
 						<p>Исправьте неточность в материалах.</p>
 						<p>Ваши правки экономят время и решают проблемы коллег.</p>
 					</div>
-					<div>
-						<Link
-							href='https://t.me/+CznWcCGr6H03NjMy'
-							className='mt-8 text-xl flex gap-4'
-							target='_blank'
-						>
-							<Send />
-							<p>Написать нам</p>
-						</Link>
-					</div>
+					<Link
+						href='https://t.me/+CznWcCGr6H03NjMy'
+						className='mt-6 text-xl flex items-center gap-3 hover:underline'
+						target='_blank'
+						rel='noopener noreferrer'
+					>
+						<Send size={20} />
+						<span>Написать нам</span>
+					</Link>
 				</div>
 			</div>
+
+			{/* Posts Grid */}
 			<div className='px-4 py-8 max-w-[1566px]'>
 				<div className='flex flex-col gap-8'>
-					<div className='flex justify-center gap-4 flex-wrap'>
-						{filteredPosts
-							.map((post) => (
-								<Link
-									href={`/posts/${post.url}`}
-									key={post.id}
-									className='relative p-4 min-w-[320px] h-[330px] flex flex-col items-center justify-between flex-1 rounded-xl overflow-hidden transition duration-300 ease-in-out sm:h-[480px] sm:min-w-[400px]'
-									style={{ backgroundColor: post.bgColor }}
-								>
-									<div className='absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-20 dark:bg-gray-800 dark:hover:opacity-40 dark:opacity-20'></div>
-									<p className='text-2xl self-start opacity-100 z-20'>
-										{post.title}
-									</p>
-									<p className='text-xl self-center opacity-100 z-10'>
-										{post.description}
-									</p>
-									<div className='flex gap-4 self-end'>
-										{[...post.tags].map((tag) => (
-											<p key={tag} className='opacity-100 z-10'>
-												{tag}
-											</p>
-										))}
-									</div>
-								</Link>
-							))
-							.slice(0, count)}
+					<div className='flex justify-center gap-6 flex-wrap'>
+						{displayedPosts.map((post) => (
+							<Link
+								href={`/posts/${post.url}`}
+								key={post.id}
+								className='relative p-6 min-w-[320px] h-[330px] flex flex-col items-center justify-between flex-1 rounded-xl overflow-hidden transition-all duration-300 ease-in-out sm:h-[480px] sm:min-w-[400px] hover:shadow-lg hover:scale-101'
+								style={{ backgroundColor: post.bgColor }}
+							>
+								<div className='absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-20 dark:bg-gray-800 dark:hover:opacity-40' />
+								<h3 className='text-2xl font-semibold self-start z-10'>
+									{post.title}
+								</h3>
+								<p className='text-xl text-center self-center z-10 line-clamp-3'>
+									{post.description}
+								</p>
+								<div className='flex gap-3 flex-wrap self-end z-10'>
+									{post.tags.map((tag) => (
+										<span
+											key={tag}
+											className='px-2 py-1 text-sm bg-black/10 rounded-md'
+										>
+											{tag}
+										</span>
+									))}
+								</div>
+							</Link>
+						))}
 					</div>
-					{filteredPosts.length > count && (
-						<div
-							className='flex justify-center
-							'
-						>
+
+					{filteredPosts.length > visibleCount && (
+						<div className='flex justify-center'>
 							<Button
-								onClick={() => setCount(count + 6)}
-								variant={'outline'}
-								className='p-8 w-fit font-roboto font-normal text-xl rounded-xl'
+								onClick={handleLoadMore}
+								variant='outline'
+								className='p-6 text-xl rounded-xl font-normal min-w-[200px] hover:scale-105 transition-transform'
 							>
 								Показать ещё
 							</Button>

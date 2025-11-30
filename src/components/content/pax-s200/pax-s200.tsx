@@ -5,6 +5,26 @@ interface PaxS200ContentProps {
 }
 
 const PaxS200Content: React.FC<PaxS200ContentProps> = ({ className = '' }) => {
+	const tableHeaders = ['Модель', 'UPOS', 'OS Monitor+']
+
+	const tableData = [
+		{
+			model: 'S200 PCI PED 3',
+			upos: '33.33.07',
+			osMonitor: '3.12 (любые 3.1Х)'
+		},
+		{
+			model: 'S200 PCI PED 5',
+			upos: '33.33.07',
+			osMonitor: '5.0X'
+		},
+		{
+			model: 'VX520 + S200',
+			upos: '33.18.03',
+			osMonitor: '3.12 (любые 3.1Х)'
+		}
+	]
+
 	return (
 		<div className={className}>
 			<div className='content-section'>
@@ -16,51 +36,30 @@ const PaxS200Content: React.FC<PaxS200ContentProps> = ({ className = '' }) => {
 					<table className='min-w-full'>
 						<thead>
 							<tr>
-								<th className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
-									Модель
-								</th>
-								<th className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
-									UPOS
-								</th>
-								<th className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
-									OS Monitor+
-								</th>
+								{tableHeaders.map((header) => (
+									<th
+										key={header}
+										className='px-2 py-2 text-left text-sm font-medium border border-gray-300'
+									>
+										{header}
+									</th>
+								))}
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									S200 PCI PED 3
-								</td>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									33.33.07
-								</td>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									3.12 (любые 3.1Х)
-								</td>
-							</tr>
-							<tr>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									S200 PCI PED 5
-								</td>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									33.33.07
-								</td>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									5.0X
-								</td>
-							</tr>
-							<tr>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									VX520 + S200
-								</td>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									33.18.03
-								</td>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									3.12 (любые 3.1Х)
-								</td>
-							</tr>
+							{tableData.map((row, index) => (
+								<tr key={index}>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.model}
+									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.upos}
+									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.osMonitor}
+									</td>
+								</tr>
+							))}
 						</tbody>
 					</table>
 				</div>
@@ -71,66 +70,117 @@ const PaxS200Content: React.FC<PaxS200ContentProps> = ({ className = '' }) => {
 					Прошивка
 				</h2>
 
-				<div className='subsection mb-6'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='2.1'>
+				<div className='subsection mb-8'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.1'>
 						Что понадобится?
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>
+					<ul className='list-disc text-lg flex flex-col gap-4 pl-6'>
+						<li className='leading-7'>
 							<a
 								href='https://disk.yandex.ru/d/qf8P-Mc4FOyUcQ'
 								target='_blank'
 								rel='noopener noreferrer'
-								className='hover:underline text-[#08a4e1]'
+								className='hover:underline text-[#08a4e1] font-medium transition-colors duration-200'
 							>
 								Программа PC Loader
 							</a>
 						</li>
-						<li>Переходник для подключения</li>
-						<li>Файл прошивки для соответствующей модели</li>
+						<li className='leading-7'>Переходник для подключения</li>
+						<li className='leading-7'>
+							Файл прошивки для соответствующей модели
+						</li>
 					</ul>
 				</div>
 
-				<div className='subsection mb-6'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='2.2'>
+				<div className='subsection mb-8'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.2'>
 						Процесс прошивки
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>Подключите терминал к компьютеру</li>
-						<li>
-							При включении многократно нажимайте кнопку <strong>F1</strong>
+					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
+						<li className='leading-7'>Подключите терминал к компьютеру</li>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>При включении многократно нажимайте кнопку</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									F1
+								</span>
+							</div>
 						</li>
-						<li>После появления меню нажмите красную кнопку</li>
-						<li>
-							Запустите программу <strong>PC Loader</strong> на компьютере
+						<li className='leading-7'>
+							После появления меню нажмите красную кнопку
 						</li>
-						<li>
-							Перейдите в раздел <strong>Setting</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Запустите программу</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									PC Loader
+								</span>
+								<span>на компьютере</span>
+							</div>
 						</li>
-						<li>
-							В поле <strong>Serial Port</strong> выберите COM-порт терминала
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Перейдите в раздел</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									Setting
+								</span>
+							</div>
 						</li>
-						<li>
-							Перейдите в раздел <strong>Application</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>В поле</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									Serial Port
+								</span>
+								<span>выберите COM-порт терминала</span>
+							</div>
 						</li>
-						<li>Укажите путь к файлу прошивки</li>
-						<li>
-							Нажмите <strong>APP Info</strong> и затем <strong>Refresh</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Перейдите в раздел</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									Application
+								</span>
+							</div>
 						</li>
-						<li>
-							Удалите все найденные файлы кнопкой <strong>Delete</strong>
+						<li className='leading-7'>Укажите путь к файлу прошивки</li>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Нажмите</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									APP Info
+								</span>
+								<span>и затем</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
+									Refresh
+								</span>
+							</div>
 						</li>
-						<li>
-							Нажмите <strong>Download</strong> для начала прошивки
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Удалите все найденные файлы кнопкой</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									Delete
+								</span>
+							</div>
 						</li>
-						<li>Дождитесь завершения процесса</li>
-						<li>Нажмите красную кнопку на терминале</li>
-						<li>Дождитесь загрузки UPOS</li>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Нажмите</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+									Download
+								</span>
+								<span>для начала прошивки</span>
+							</div>
+						</li>
+						<li className='leading-7'>Дождитесь завершения процесса</li>
+						<li className='leading-7'>Нажмите красную кнопку на терминале</li>
+						<li className='leading-7'>Дождитесь загрузки UPOS</li>
 					</ul>
 				</div>
 
 				<div className='subsection'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='2.3'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.3'>
 						Видеоинструкция
 					</h3>
 					<div className='flex'>

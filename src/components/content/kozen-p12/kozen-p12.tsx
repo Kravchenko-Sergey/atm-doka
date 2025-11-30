@@ -7,6 +7,23 @@ interface KozenP12ContentProps {
 const KozenP12Content: React.FC<KozenP12ContentProps> = ({
 	className = ''
 }) => {
+	const tableHeaders = [
+		'UPOS',
+		'Прошивка',
+		'Upos native',
+		'Виды оборудования к которому подключается'
+	]
+
+	const tableData = [
+		{
+			upos: '33.42.02 (АН)\n(На ограниченном количестве 33.47.04)\n(ОЭ) 34.00.04',
+			firmware: '1.4.5',
+			uposNative: '1.104.53',
+			equipment:
+				'ИКР Атол Sigma\nТерминалы Эвотор (кроме банковских 5i)\nIngenico ICT 220, 250\nVerifone VX 520\nTactilion T2'
+		}
+	]
+
 	return (
 		<div className={className}>
 			<div className='content-section'>
@@ -18,47 +35,33 @@ const KozenP12Content: React.FC<KozenP12ContentProps> = ({
 					<table className='min-w-full'>
 						<thead>
 							<tr>
-								<th className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
-									UPOS
-								</th>
-								<th className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
-									Прошивка
-								</th>
-								<th className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
-									Upos native
-								</th>
-								<th className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
-									Виды оборудования к которому подключается
-								</th>
+								{tableHeaders.map((header) => (
+									<th
+										key={header}
+										className='px-2 py-2 text-left text-sm font-medium border border-gray-300'
+									>
+										{header}
+									</th>
+								))}
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									33.42.02 (АН)
-									<br />
-									(На ограниченном количестве 33.47.04)
-									<br />
-									(ОЭ) 34.00.04
-								</td>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									1.4.5
-								</td>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									1.104.53
-								</td>
-								<td className='px-3 py-3 text-sm border border-gray-300'>
-									ИКР Атол Sigma
-									<br />
-									Терминалы Эвотор (кроме банковских 5i)
-									<br />
-									Ingenico ICT 220, 250
-									<br />
-									Verifone VX 520
-									<br />
-									Tactilion T2
-								</td>
-							</tr>
+							{tableData.map((row, index) => (
+								<tr key={index}>
+									<td className='px-3 py-3 text-sm border border-gray-300 whitespace-pre-line'>
+										{row.upos}
+									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.firmware}
+									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.uposNative}
+									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300 whitespace-pre-line'>
+										{row.equipment}
+									</td>
+								</tr>
+							))}
 						</tbody>
 					</table>
 				</div>
@@ -69,27 +72,27 @@ const KozenP12Content: React.FC<KozenP12ContentProps> = ({
 					Прошивка
 				</h2>
 
-				<div className='subsection mb-6'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='2.1'>
+				<div className='subsection mb-8'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.1'>
 						Что понадобится?
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>
+					<ul className='list-disc text-lg flex flex-col gap-4 pl-6'>
+						<li className='leading-7'>
 							<a
 								href='https://disk.yandex.ru/d/rd08ougjIKg4Lg'
 								target='_blank'
 								rel='noopener noreferrer'
-								className='hover:underline text-[#C0C0C0]'
+								className='hover:underline text-[#EF4444] font-medium transition-colors duration-200'
 							>
 								Программа Flash Tool
 							</a>
 						</li>
-						<li>
+						<li className='leading-7'>
 							<a
 								href='https://drive.google.com/file/d/1QjZNdEqwrSw07ZGy8s1vZ6f3xOH-NxSk/view?usp=drive_link'
 								target='_blank'
 								rel='noopener noreferrer'
-								className='hover:underline text-[#C0C0C0]'
+								className='hover:underline text-[#EF4444] font-medium transition-colors duration-200'
 							>
 								Файлы прошивки
 							</a>
@@ -97,33 +100,55 @@ const KozenP12Content: React.FC<KozenP12ContentProps> = ({
 					</ul>
 				</div>
 
-				<div className='subsection mb-6'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='2.2'>
+				<div className='subsection mb-8'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.2'>
 						Процесс прошивки
 					</h3>
-					<ul className='list-disc text-lg flex flex-col gap-3 pl-5'>
-						<li>Запустите программу Flash Tool</li>
-						<li>
-							В поле <strong>Download-Agent</strong> укажите путь к
-							соответствующему файлу
+					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
+						<li className='leading-7'>Запустите программу Flash Tool</li>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>В поле</span>
+								<span className='bg-[#EF4444] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#eb3131] transition-colors duration-200 mx-1'>
+									Download-Agent
+								</span>
+								<span>укажите путь к соответствующему файлу</span>
+							</div>
 						</li>
-						<li>
-							В поле <strong>Scatter-loading File</strong> укажите путь к
-							scatter-файлу
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>В поле</span>
+								<span className='bg-[#EF4444] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#eb3131] transition-colors duration-200 mx-1'>
+									Scatter-loading File
+								</span>
+								<span>укажите путь к scatter-файлу</span>
+							</div>
 						</li>
-						<li>
-							Выберите режим <strong>Firmware Upgrade</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Выберите режим</span>
+								<span className='bg-[#EF4444] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#eb3131] transition-colors duration-200 mx-1'>
+									Firmware Upgrade
+								</span>
+							</div>
 						</li>
-						<li>
-							Нажмите кнопку <strong>Download</strong>
+						<li className='leading-7'>
+							<div className='flex flex-wrap items-center gap-2 mt-1'>
+								<span>Нажмите кнопку</span>
+								<span className='bg-[#EF4444] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#eb3131] transition-colors duration-200 mx-1'>
+									Download
+								</span>
+							</div>
 						</li>
-						<li>Подключите терминал к компьютеру</li>
-						<li>Дождитесь завершения процесса прошивки</li>
+						<li className='leading-7'>Подключите терминал к компьютеру</li>
+						<li className='leading-7'>
+							Дождитесь завершения процесса прошивки
+						</li>
 					</ul>
 				</div>
 
 				<div className='subsection'>
-					<h3 className='subsection-title text-2xl font-semibold mb-4' id='2.3'>
+					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.3'>
 						Видеоинструкция
 					</h3>
 					<div className='flex'>
