@@ -115,7 +115,7 @@ export default function Home() {
 					</Link>
 				</div>
 
-				<div className='p-6 border border-gray-200 rounded-xl flex flex-col flex-1 dark:border-gray-600'>
+				<div className='p-6 border border-gray-200 rounded-xl flex flex-col flex-1 '>
 					<h2 className='pb-6 text-2xl font-semibold'>Станьте автором Доки</h2>
 					<div className='text-xl space-y-3 flex-1'>
 						<p>Дополните документацию реальными кейсами из практики.</p>
