@@ -76,7 +76,7 @@ export default function Home() {
 	return (
 		<>
 			{/* Tags Grid */}
-			<div className='pt-20 md:pt-4 p-4 pb-10 max-w-[1580px] text-xl flex flex-wrap gap-4'>
+			<div className='pt-20 md:pt-4 px-4 max-w-[1572px] text-xl flex flex-wrap gap-4 pb-10'>
 				{tags.map((tag) => (
 					<button
 						key={tag.id}
@@ -97,7 +97,7 @@ export default function Home() {
 			</div>
 
 			{/* Info Cards */}
-			<div className='px-4 max-w-[1580px] flex gap-4 flex-col lg:flex-row'>
+			<div className='px-4 max-w-[1572px] flex gap-4 flex-col lg:flex-row'>
 				<div className='p-6 bg-gray-100 rounded-xl flex-1 dark:bg-[#42454c]'>
 					<h2 className='pb-6 text-2xl font-semibold'>Вместе и для каждого</h2>
 					<div className='text-xl space-y-3'>
@@ -136,7 +136,7 @@ export default function Home() {
 			</div>
 
 			{/* Posts Grid */}
-			<div className='px-4 py-8 max-w-[1566px]'>
+			<div className='px-4 py-8 max-w-[1572px]'>
 				<div className='flex flex-col gap-8'>
 					<div className='flex justify-center gap-6 flex-wrap'>
 						{displayedPosts.map((post) => (

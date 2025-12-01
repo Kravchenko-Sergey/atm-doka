@@ -102,25 +102,27 @@ export default function RootLayout({
 					<YandexMetrika />
 				</Suspense>
 				<header
-					className='fixed top-0 z-30 w-full px-4 py-4 transition-colors duration-300 md:py-6'
+					className='fixed top-0 z-30 w-full py-4 transition-colors duration-300 md:py-6'
 					style={{ backgroundColor: headerBgColor }}
 				>
-					<div className='mx-auto flex w-full max-w-[1540px] flex-col items-center justify-between gap-4 md:flex-row'>
-						<Link
-							href='/'
-							className='w-full z-20 whitespace-nowrap rounded-xl px-8 py-2 text-3xl flex items-center justify-center transition-colors  dark:text-white md:w-fit bg-gray-100 dark:bg-[#42454c]'
-							aria-label='На главную страницу'
-						>
-							АТМ Дока
-						</Link>
-						<SearchInput className='min-h-[54px] w-full md:w-auto' />
+					<div className='mx-auto w-full max-w-[1572px] px-4'>
+						<div className='flex flex-col items-center justify-between gap-4 md:flex-row'>
+							<Link
+								href='/'
+								className='w-full z-20 whitespace-nowrap rounded-xl px-8 py-2 text-3xl flex items-center justify-center transition-colors  dark:text-white md:w-fit bg-gray-100 dark:bg-[#42454c]'
+								aria-label='На главную страницу'
+							>
+								АТМ Дока
+							</Link>
+							<SearchInput className='min-h-[54px] w-full md:w-auto' />
+						</div>
 					</div>
 				</header>
-				<main className='mx-auto w-full max-w-[1540px] flex flex-col flex-1 justify-center pt-[102px]'>
+				<main className='mx-auto w-full max-w-[1572px] flex flex-col flex-1 justify-center pt-[102px]'>
 					{children}
 				</main>
 				<footer className='w-full border-t bg-white py-8 dark:bg-[#292a2e] dark:text-white'>
-					<div className='mx-auto flex w-full max-w-[1540px] items-center justify-between px-4'>
+					<div className='mx-auto flex w-full max-w-[1572px] items-center justify-between px-4'>
 						<div className='flex items-center gap-2'>
 							<Sun size={20} />
 							<Switch
