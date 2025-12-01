@@ -66,12 +66,10 @@ const KozenP12Content: React.FC<KozenP12ContentProps> = ({
 					</table>
 				</div>
 			</div>
-
 			<div className='content-section'>
 				<h2 className='section-title text-3xl font-bold mb-8 mt-8' id='2'>
 					Прошивка
 				</h2>
-
 				<div className='subsection mb-8'>
 					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.1'>
 						Что понадобится?

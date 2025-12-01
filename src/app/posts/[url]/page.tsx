@@ -13,6 +13,7 @@ import {
 	AccordionTrigger
 } from '@/components/ui/accordion'
 import { ScrollArea } from '@/components/ui/scroll-area'
+import { ScrollToTop } from '@/components/scroll-to-top'
 
 const DevicePage = () => {
 	const params = useParams()
@@ -254,6 +255,11 @@ const DevicePage = () => {
 								</Link>
 							)}
 						</div>
+
+						<ScrollToTop
+							progressColor={post.bgColor}
+							iconColor={post.bgColor}
+						/>
 
 						{/* Mobile Footer */}
 						<div className='mb-8 px-6 py-8 text-lg border rounded-lg flex items-center justify-center lg:hidden'>
