@@ -5,7 +5,7 @@ import { CircleArrowLeft, CircleArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
 import Image from 'next/image'
-import { useEffect, useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import {
 	Accordion,
 	AccordionContent,
@@ -14,12 +14,15 @@ import {
 } from '@/components/ui/accordion'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { ScrollToTop } from '@/components/scroll-to-top'
+import { useActiveSection } from '@/components/use-active-section'
 
 const DevicePage = () => {
 	const params = useParams()
 	const router = useRouter()
 	const posts = useRootStore((state) => state.posts)
 	const changeBgHeader = useRootStore((state) => state.changeBgHeader)
+	const [sectionIds, setSectionIds] = useState<string[]>([])
+	const activeSectionId = useActiveSection(sectionIds)
 
 	const url = params?.url as string
 	const post = useMemo(
@@ -51,7 +54,29 @@ const DevicePage = () => {
 		[posts, url]
 	)
 
-	const Content = post?.content
+	const getAllSectionIds = () => {
+		if (!post?.contentItems) return []
+
+		const ids: string[] = []
+		post.contentItems.forEach((item, itemIndex) => {
+			ids.push(`${itemIndex + 1}`)
+
+			if (item.children) {
+				item.children.forEach((_, childIndex) => {
+					ids.push(`${itemIndex + 1}.${childIndex + 1}`)
+				})
+			}
+		})
+
+		ids.push(String(post.contentItems.length))
+
+		return ids
+	}
+
+	useEffect(() => {
+		const ids = getAllSectionIds()
+		setSectionIds(ids)
+	}, [post])
 
 	useEffect(() => {
 		if (!post) {
@@ -63,6 +88,19 @@ const DevicePage = () => {
 			changeBgHeader(post.bgColor)
 		}
 	}, [post, changeBgHeader, router])
+
+	const isSectionActive = (sectionId: string) => {
+		return activeSectionId === sectionId
+	}
+
+	const getActiveStyles = (sectionId: string) => {
+		if (isSectionActive(sectionId)) {
+			return { color: post?.bgColor }
+		}
+		return {}
+	}
+
+	const Content = post?.content
 
 	if (!post) {
 		return null
@@ -98,7 +136,7 @@ const DevicePage = () => {
 				<Accordion
 					type='single'
 					collapsible
-					className='w-full border-b border-gray-200 dark:border-gray-700 block md:hidden'
+					className='w-full border-b border-gray-200 dark:border-gray-700 block lg:hidden'
 				>
 					<AccordionItem value='table-of-contents'>
 						<AccordionTrigger className='text-xl font-normal px-4 hover:no-underline'>
@@ -143,21 +181,55 @@ const DevicePage = () => {
 						<ScrollArea className='h-[calc(100vh-200px)]'>
 							<nav className='space-y-4'>
 								{post.contentItems.map((item, itemIndex) => (
-									<div key={itemIndex}>
+									<div key={itemIndex} className='mb-2'>
 										<a
 											href={`#${itemIndex + 1}`}
-											className='block min-w-[140px] text-md hover:underline transition-colors font-medium'
+											className={`block min-w-[140px] text-md hover:underline transition-colors font-medium pl-6 relative ${
+												isSectionActive(`${itemIndex + 1}`)
+													? 'font-semibold'
+													: ''
+											}`}
+											style={getActiveStyles(`${itemIndex + 1}`)}
 										>
+											{isSectionActive(`${itemIndex + 1}`) && (
+												<div
+													className='absolute left-0 top-1 bottom-1 w-1.5 rounded-full'
+													style={{
+														backgroundColor: post.bgColor,
+														transition: 'background-color 0.3s ease'
+													}}
+												/>
+											)}
 											{item.title}
 										</a>
 										{item.children && (
-											<div className='pl-4 flex flex-col mt-2 space-y-2'>
+											<div className='pl-6 flex flex-col mt-2 space-y-2'>
 												{item.children.map((child, childIndex) => (
 													<a
 														key={childIndex}
 														href={`#${itemIndex + 1}.${childIndex + 1}`}
-														className='block min-w-[140px] text-md hover:underline transition-colors text-gray-600 dark:text-gray-400'
+														className={`block min-w-[140px] text-md hover:underline transition-colors text-gray-600 dark:text-gray-400 pl-6 relative ${
+															isSectionActive(
+																`${itemIndex + 1}.${childIndex + 1}`
+															)
+																? 'font-medium'
+																: ''
+														}`}
+														style={getActiveStyles(
+															`${itemIndex + 1}.${childIndex + 1}`
+														)}
 													>
+														{isSectionActive(
+															`${itemIndex + 1}.${childIndex + 1}`
+														) && (
+															<div
+																className='absolute left-0 top-1 bottom-1 w-1.5 rounded-full'
+																style={{
+																	backgroundColor: post.bgColor,
+																	transition: 'background-color 0.3s ease'
+																}}
+															/>
+														)}
 														{child}
 													</a>
 												))}
@@ -195,8 +267,9 @@ const DevicePage = () => {
 					{/* Related Posts */}
 					<div className='px-4 max-w-[1308px] mx-auto'>
 						<h2
-							className='my-12 text-3xl font-semibold'
+							className='my-12 text-3xl font-semibold transition-colors duration-300'
 							id={String(post.contentItems.length)}
+							style={getActiveStyles(String(post.contentItems.length))}
 						>
 							Читайте также
 						</h2>
