@@ -28,33 +28,43 @@ const TAGS_CONFIG = [
 export default function Home() {
 	const posts = useRootStore((state) => state.posts)
 	const changeBgHeader = useRootStore((state) => state.changeBgHeader)
+	const activeTags = useRootStore((state) => state.activeTags)
+	const toggleTag = useRootStore((state) => state.toggleTag)
 
 	const [sortedPosts, setSortedPosts] = useState<Post[]>([])
 	const [visibleCount, setVisibleCount] = useState(6)
 
+	// Инициализируем теги с учетом активных тегов из store
 	const [tags, setTags] = useState<Tag[]>(() =>
 		TAGS_CONFIG.map((tag) => ({
 			...tag,
 			id: v4(),
-			isActive: false
+			isActive: activeTags.includes(tag.title)
 		}))
 	)
 
-	const toggleActive = useCallback((id: string) => {
+	// Синхронизируем локальное состояние тегов с store
+	useEffect(() => {
 		setTags((prevTags) =>
-			prevTags.map((tag) =>
-				tag.id === id ? { ...tag, isActive: !tag.isActive } : tag
-			)
+			prevTags.map((tag) => ({
+				...tag,
+				isActive: activeTags.includes(tag.title)
+			}))
 		)
-	}, [])
+	}, [activeTags])
 
-	const activeTags = useMemo(() => tags.filter((tag) => tag.isActive), [tags])
+	const toggleActive = useCallback(
+		(title: string) => {
+			toggleTag(title)
+		},
+		[toggleTag]
+	)
 
 	const filteredPosts = useMemo(() => {
 		if (activeTags.length === 0) return sortedPosts
 
 		return sortedPosts.filter((post) =>
-			activeTags.some((activeTag) => post.tags.includes(activeTag.title))
+			activeTags.some((activeTag) => post.tags.includes(activeTag))
 		)
 	}, [sortedPosts, activeTags])
 
@@ -80,7 +90,7 @@ export default function Home() {
 				{tags.map((tag) => (
 					<button
 						key={tag.id}
-						onClick={() => toggleActive(tag.id)}
+						onClick={() => toggleActive(tag.title)}
 						className='h-12 p-8 text-xl flex items-center justify-center transition-all duration-300 ease-in-out cursor-pointer
               border rounded-xl select-none flex-1 min-w-[calc(50%-8px)] md:min-w-[calc(25%-12px)] hover:scale-101'
 						style={{

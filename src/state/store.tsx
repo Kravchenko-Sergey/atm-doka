@@ -60,6 +60,9 @@ type RootState = {
 	people: Person[]
 	bgHeader: string
 	changeBgHeader: (bgHeader: string) => { bgHeader: string }
+	activeTags: string[]
+	setActiveTags: (tags: string[]) => void
+	toggleTag: (tagTitle: string) => void
 }
 
 export const useRootStore = create<RootState>((set) => ({
@@ -660,5 +663,29 @@ export const useRootStore = create<RootState>((set) => ({
 	changeBgHeader: (bgHeader: string) => {
 		set(() => ({ bgHeader }))
 		return { bgHeader }
+	},
+	activeTags: [],
+
+	toggleTag: (tagTitle: string) => {
+		set((state) => {
+			const isActive = state.activeTags.includes(tagTitle)
+			if (isActive) {
+				return {
+					activeTags: state.activeTags.filter((tag) => tag !== tagTitle)
+				}
+			} else {
+				return {
+					activeTags: [...state.activeTags, tagTitle]
+				}
+			}
+		})
+	},
+
+	clearTags: () => {
+		set({ activeTags: [] })
+	},
+
+	setActiveTags: (tags: string[]) => {
+		set({ activeTags: tags })
 	}
 }))
