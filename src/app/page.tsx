@@ -80,7 +80,7 @@ export default function Home() {
 	useEffect(() => {
 		const shuffledPosts = [...posts].sort(() => Math.random() - 0.5)
 		setSortedPosts(shuffledPosts)
-		changeBgHeader('white')
+		changeBgHeader('#fafafa')
 	}, [posts, changeBgHeader])
 
 	return (
@@ -108,7 +108,7 @@ export default function Home() {
 
 			{/* Info Cards */}
 			<div className='px-4 max-w-[1572px] flex gap-4 flex-col lg:flex-row'>
-				<div className='p-6 bg-gray-100 rounded-xl flex-1 dark:bg-[#42454c]'>
+				<div className='p-6 bg-gray-200 rounded-xl flex-1 dark:bg-[#42454c]'>
 					<h2 className='pb-6 text-2xl font-semibold'>Вместе и для каждого</h2>
 					<div className='text-xl space-y-3'>
 						<p>Дока — это документация для POS-инженеров на понятном языке.</p>

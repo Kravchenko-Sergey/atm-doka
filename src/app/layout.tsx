@@ -60,9 +60,9 @@ export default function RootLayout({
 	}
 
 	const headerBgColor =
-		bgHeader === 'white'
+		bgHeader === '#fafafa'
 			? theme === 'light'
-				? '#ffffff'
+				? '#fafafa'
 				: '#292a2e'
 			: bgHeader
 
@@ -96,7 +96,7 @@ export default function RootLayout({
 				<link rel='manifest' href='/site.webmanifest' />
 			</head>
 			<body
-				className={`min-h-screen w-full bg-white text-[#2C2C2C] flex flex-col dark:bg-[#292a2e] dark:text-white`}
+				className={`min-h-screen w-full bg-[#fafafa] text-[#2C2C2C] flex flex-col dark:bg-[#292a2e] dark:text-[#fafafa]`}
 			>
 				<Suspense fallback={<></>}>
 					<YandexMetrika />
@@ -109,7 +109,7 @@ export default function RootLayout({
 						<div className='flex flex-col items-center justify-between gap-4 md:flex-row'>
 							<Link
 								href='/'
-								className='w-full z-20 whitespace-nowrap rounded-xl px-8 py-2 text-3xl flex items-center justify-center transition-colors  dark:text-white md:w-fit bg-gray-100 dark:bg-[#42454c]'
+								className='w-full z-20 whitespace-nowrap rounded-xl px-8 py-2 text-3xl flex items-center justify-center transition-colors  dark:text-[#fafafa] md:w-fit bg-gray-200 dark:bg-[#42454c]'
 								aria-label='На главную страницу'
 							>
 								АТМ Дока
@@ -121,7 +121,7 @@ export default function RootLayout({
 				<main className='mx-auto w-full max-w-[1572px] flex flex-col flex-1 justify-center pt-[102px]'>
 					{children}
 				</main>
-				<footer className='w-full border-t bg-white py-8 dark:bg-[#292a2e] dark:text-white'>
+				<footer className='w-full border-t bg-#fafafa py-8 dark:bg-[#292a2e] dark:text-[#fafafa]'>
 					<div className='mx-auto flex w-full max-w-[1572px] items-center justify-between px-4'>
 						<div className='flex items-center gap-2'>
 							<Sun size={20} />

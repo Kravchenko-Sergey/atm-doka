@@ -15,6 +15,7 @@ import {
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { ScrollToTop } from '@/components/scroll-to-top'
 import { useActiveSection } from '@/components/use-active-section'
+import { Feedback } from '@/components/feedback'
 
 const DevicePage = () => {
 	const params = useParams()
@@ -176,7 +177,7 @@ const DevicePage = () => {
 			{/* Main Content */}
 			<div className='flex flex-col lg:flex-row'>
 				{/* Desktop Sidebar */}
-				<aside className='hidden lg:flex flex-col min-w-[280px] bg-white dark:bg-[#292a2e]'>
+				<aside className='hidden lg:flex flex-col min-w-[280px] bg-[#fafafa] dark:bg-[#292a2e]'>
 					<div className='p-6 sticky top-[102px]'>
 						<ScrollArea className='h-[calc(100vh-200px)]'>
 							<nav className='space-y-4'>
@@ -242,7 +243,7 @@ const DevicePage = () => {
 					</div>
 
 					<footer
-						className='p-6 mt-auto bg-white dark:bg-[#292a2e] sticky bottom-0'
+						className='p-6 mt-auto bg-[#fafafa] dark:bg-[#292a2e] sticky bottom-0'
 						aria-label='Информация об обновлении'
 					>
 						<div className='flex flex-wrap gap-1 text-sm text-gray-600 dark:text-gray-400'>
@@ -262,6 +263,11 @@ const DevicePage = () => {
 								Контент недоступен
 							</div>
 						)}
+					</div>
+
+					{/*Feedback*/}
+					<div className='mt-16 px-4 max-w-[1308px] mx-auto'>
+						<Feedback postId={post.id} />
 					</div>
 
 					{/* Related Posts */}
