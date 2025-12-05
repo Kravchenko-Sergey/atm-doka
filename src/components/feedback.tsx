@@ -1,16 +1,17 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { ThumbsUp, ThumbsDown, MessageSquare, Send } from 'lucide-react'
+import { Send } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
 
 interface FeedbackProps {
 	postId?: string
 	className?: string
+	color: string
 }
 
-export function Feedback({ postId, className }: FeedbackProps) {
+export function Feedback({ className, color }: FeedbackProps) {
 	const [userVote, setUserVote] = useState<'like' | 'dislike' | null>(null)
 	const [showDislikeReasons, setShowDislikeReasons] = useState(false)
 	const [selectedReason, setSelectedReason] = useState<string | null>(null)
@@ -197,7 +198,7 @@ export function Feedback({ postId, className }: FeedbackProps) {
 				<div className='text-center'>
 					<p className='text-gray-600 dark:text-gray-400 mb-0 whitespace-nowrap'>
 						Если вы нашли ошибку,{' '}
-						<a href='https://t.me/+CznWcCGr6H03NjMy' target='_blank' rel='noopener noreferrer' className='text-blue-600 dark:text-blue-400 hover:underline font-medium'>
+						<a href='https://t.me/+CznWcCGr6H03NjMy' target='_blank' rel='noopener noreferrer' className='text-blue-600 dark:text-blue-400 hover:underline font-medium' style={{ color: color }}>
 							напишите нам
 						</a>
 						!
