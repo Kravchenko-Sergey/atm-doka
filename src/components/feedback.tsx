@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { ThumbsUp, ThumbsDown, MessageSquare, Send, CheckCircle } from 'lucide-react'
+import { ThumbsUp, ThumbsDown, MessageSquare, Send } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
 
@@ -25,17 +25,19 @@ export function Feedback({ postId, className }: FeedbackProps) {
 	const dislikeReasons = ['Слишком сложно', 'Мало примеров', 'Нет нужной информации', 'Устаревшие данные', 'Плохое оформление', 'Другое']
 
 	const handleVote = (vote: 'like' | 'dislike') => {
-		if (voteSubmitted && userVote !== vote) return
+		// Если уже проголосовали, ничего не делаем
+		if (voteSubmitted) return
 
 		if (userVote === vote) {
-			// Отмена голоса
-			setUserVote(null)
-			setShowDislikeReasons(false)
-			setSelectedReason(null)
-			setShowCustomTextarea(false)
-			setCustomFeedback('')
-			setVoteSubmitted(false)
-			setCustomSubmitted(false)
+			// Отмена голоса - разрешено только если НЕ было отправки
+			if (!voteSubmitted) {
+				setUserVote(null)
+				setShowDislikeReasons(false)
+				setSelectedReason(null)
+				setShowCustomTextarea(false)
+				setCustomFeedback('')
+				setCustomSubmitted(false)
+			}
 		} else {
 			setUserVote(vote)
 			if (vote === 'dislike') {
@@ -49,11 +51,21 @@ export function Feedback({ postId, className }: FeedbackProps) {
 	}
 
 	const handleReasonSelect = (reason: string) => {
+		// Если уже выбрали причину (кроме "Другое" без отправки), ничего не делаем
+		if (selectedReason !== null) {
+			// Если уже выбрали другую причину и не "Другое" с textarea
+			if (selectedReason !== 'Другое' || customSubmitted) {
+				return // Ничего не делаем
+			}
+			// Если выбрали "Другое" но textarea открыта, можно переключиться на другую причину?
+			// Давайте тоже блокируем
+			return
+		}
+
 		setSelectedReason(reason)
 
 		if (reason === 'Другое') {
 			setShowCustomTextarea(true)
-			// Не ставим voteSubmitted в true сразу
 		} else {
 			setShowCustomTextarea(false)
 			setVoteSubmitted(true)
@@ -127,8 +139,8 @@ export function Feedback({ postId, className }: FeedbackProps) {
 								<button
 									key={reason}
 									onClick={() => handleReasonSelect(reason)}
-									disabled={!!(customSubmitted || (selectedReason && selectedReason !== reason))}
-									className={`p-4 text-left border rounded-lg transition-all duration-200 ${selectedReason === reason ? 'bg-red-50 dark:bg-red-900/20 border-red-300' : customSubmitted || (selectedReason && selectedReason !== reason) ? 'opacity-60 cursor-not-allowed' : 'hover:border-red-300 hover:bg-red-50 dark:hover:bg-red-900/10'}`}>
+									disabled={customSubmitted || (selectedReason !== null && selectedReason !== reason)}
+									className={`p-4 text-left border rounded-lg transition-all duration-200 ${selectedReason === reason ? 'bg-red-50 dark:bg-red-900/20 border-red-300' : customSubmitted || (selectedReason !== null && selectedReason !== reason) ? 'opacity-60 cursor-not-allowed' : 'hover:border-red-300 hover:bg-red-50 dark:hover:bg-red-900/10'}`}>
 									<div className='flex items-center gap-3'>
 										<div className='h-6 w-6 flex items-center justify-center border rounded-full'>
 											{reason === 'Другое' && '✏️'}
