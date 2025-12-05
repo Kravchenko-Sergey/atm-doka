@@ -65,7 +65,7 @@ type RootState = {
 	toggleTag: (tagTitle: string) => void
 }
 
-export const useRootStore = create<RootState>((set) => ({
+export const useRootStore = create<RootState>(set => ({
 	people: [
 		{
 			id: v4(),
@@ -91,8 +91,7 @@ export const useRootStore = create<RootState>((set) => ({
 				{
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки']
-				},
-				{ title: 'Читайте также' }
+				}
 			]
 		},
 		{
@@ -112,8 +111,7 @@ export const useRootStore = create<RootState>((set) => ({
 				{
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки']
-				},
-				{ title: 'Читайте также' }
+				}
 			]
 		},
 		{
@@ -137,8 +135,7 @@ export const useRootStore = create<RootState>((set) => ({
 				{
 					title: 'На практике',
 					children: ['Как избежать ГЗ', 'Видеоинструкция']
-				},
-				{ title: 'Читайте также' }
+				}
 			]
 		},
 		{
@@ -158,8 +155,7 @@ export const useRootStore = create<RootState>((set) => ({
 				{
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки']
-				},
-				{ title: 'Читайте также' }
+				}
 			]
 		},
 		{
@@ -178,13 +174,8 @@ export const useRootStore = create<RootState>((set) => ({
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: [
-						'Что понадобится?',
-						'Процесс прошивки',
-						'Как добавить eSIM?'
-					]
-				},
-				{ title: 'Читайте также' }
+					children: ['Что понадобится?', 'Процесс прошивки', 'Как добавить eSIM?']
+				}
 			]
 		},
 		{
@@ -203,8 +194,7 @@ export const useRootStore = create<RootState>((set) => ({
 				{
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки']
-				},
-				{ title: 'Читайте также' }
+				}
 			]
 		},
 		{
@@ -223,8 +213,7 @@ export const useRootStore = create<RootState>((set) => ({
 				{
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
-				},
-				{ title: 'Читайте также' }
+				}
 			]
 		},
 		{
@@ -246,18 +235,8 @@ export const useRootStore = create<RootState>((set) => ({
 				},
 				{
 					title: 'Дефектовка',
-					children: [
-						'Внешний вид',
-						'Включение',
-						'Магнитный ридер',
-						'Чиповый ридер',
-						'Бесконтактный ридер',
-						'Клавиатура',
-						'GPRS',
-						'Ethernet'
-					]
-				},
-				{ title: 'Читайте также' }
+					children: ['Внешний вид', 'Включение', 'Магнитный ридер', 'Чиповый ридер', 'Бесконтактный ридер', 'Клавиатура', 'GPRS', 'Ethernet']
+				}
 			]
 		},
 		{
@@ -279,18 +258,8 @@ export const useRootStore = create<RootState>((set) => ({
 				},
 				{
 					title: 'Дефектовка',
-					children: [
-						'Внешний вид',
-						'Включение',
-						'Магнитный ридер',
-						'Чиповый ридер',
-						'Бесконтактный ридер',
-						'Клавиатура',
-						'GPRS',
-						'Ethernet'
-					]
-				},
-				{ title: 'Читайте также' }
+					children: ['Внешний вид', 'Включение', 'Магнитный ридер', 'Чиповый ридер', 'Бесконтактный ридер', 'Клавиатура', 'GPRS', 'Ethernet']
+				}
 			]
 		},
 		{
@@ -309,8 +278,7 @@ export const useRootStore = create<RootState>((set) => ({
 				{
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
-				},
-				{ title: 'Читайте также' }
+				}
 			]
 		},
 		{
@@ -329,8 +297,7 @@ export const useRootStore = create<RootState>((set) => ({
 				{
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
-				},
-				{ title: 'Читайте также' }
+				}
 			]
 		},
 		{
@@ -349,8 +316,7 @@ export const useRootStore = create<RootState>((set) => ({
 				{
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
-				},
-				{ title: 'Читайте также' }
+				}
 			]
 		},
 		{
@@ -369,8 +335,7 @@ export const useRootStore = create<RootState>((set) => ({
 				{
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
-				},
-				{ title: 'Читайте также' }
+				}
 			]
 		},
 		{
@@ -389,8 +354,7 @@ export const useRootStore = create<RootState>((set) => ({
 				{
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки']
-				},
-				{ title: 'Читайте также' }
+				}
 			]
 		},
 		{
@@ -410,8 +374,7 @@ export const useRootStore = create<RootState>((set) => ({
 				{
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки']
-				},
-				{ title: 'Читайте также' }
+				}
 			]
 		},
 		{
@@ -433,17 +396,8 @@ export const useRootStore = create<RootState>((set) => ({
 				},
 				{
 					title: 'Дефектовка',
-					children: [
-						'Магнитный ридер',
-						'Смарт-ридер',
-						'Модуль STLS',
-						'Клавиатура',
-						'Принтер',
-						'GPRS',
-						'Ethernet'
-					]
-				},
-				{ title: 'Читайте также' }
+					children: ['Магнитный ридер', 'Смарт-ридер', 'Модуль STLS', 'Клавиатура', 'Принтер', 'GPRS', 'Ethernet']
+				}
 			]
 		},
 		{
@@ -462,8 +416,7 @@ export const useRootStore = create<RootState>((set) => ({
 				{
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
-				},
-				{ title: 'Читайте также' }
+				}
 			]
 		},
 		{
@@ -482,8 +435,7 @@ export const useRootStore = create<RootState>((set) => ({
 				{
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
-				},
-				{ title: 'Читайте также' }
+				}
 			]
 		},
 		{
@@ -502,8 +454,7 @@ export const useRootStore = create<RootState>((set) => ({
 				{
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
-				},
-				{ title: 'Читайте также' }
+				}
 			]
 		},
 		{
@@ -522,8 +473,7 @@ export const useRootStore = create<RootState>((set) => ({
 				{
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
-				},
-				{ title: 'Читайте также' }
+				}
 			]
 		},
 		{
@@ -542,8 +492,7 @@ export const useRootStore = create<RootState>((set) => ({
 				{
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
-				},
-				{ title: 'Читайте также' }
+				}
 			]
 		},
 		{
@@ -562,8 +511,7 @@ export const useRootStore = create<RootState>((set) => ({
 				{
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки']
-				},
-				{ title: 'Читайте также' }
+				}
 			]
 		},
 		{
@@ -585,24 +533,8 @@ export const useRootStore = create<RootState>((set) => ({
 				},
 				{
 					title: 'Дефектовка',
-					children: [
-						'Внешний вид',
-						'Включение',
-						'Магнитный ридер',
-						'Чиповый ридер',
-						'Бесконтактный ридер',
-						'Принтер',
-						'Клавиатура и динамик',
-						'LCD',
-						'Светодиоды',
-						'USB',
-						'GPRS',
-						'Чтение sim',
-						'WI-FI',
-						'Ethernet'
-					]
-				},
-				{ title: 'Читайте также' }
+					children: ['Внешний вид', 'Включение', 'Магнитный ридер', 'Чиповый ридер', 'Бесконтактный ридер', 'Принтер', 'Клавиатура и динамик', 'LCD', 'Светодиоды', 'USB', 'GPRS', 'Чтение sim', 'WI-FI', 'Ethernet']
+				}
 			]
 		},
 		{
@@ -621,8 +553,7 @@ export const useRootStore = create<RootState>((set) => ({
 				{
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
-				},
-				{ title: 'Читайте также' }
+				}
 			]
 		},
 		{
@@ -641,8 +572,7 @@ export const useRootStore = create<RootState>((set) => ({
 				{
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
-				},
-				{ title: 'Читайте также' }
+				}
 			]
 		},
 		{
@@ -667,11 +597,11 @@ export const useRootStore = create<RootState>((set) => ({
 	activeTags: [],
 
 	toggleTag: (tagTitle: string) => {
-		set((state) => {
+		set(state => {
 			const isActive = state.activeTags.includes(tagTitle)
 			if (isActive) {
 				return {
-					activeTags: state.activeTags.filter((tag) => tag !== tagTitle)
+					activeTags: state.activeTags.filter(tag => tag !== tagTitle)
 				}
 			} else {
 				return {
