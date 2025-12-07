@@ -92,7 +92,7 @@ export default function Home() {
 						key={tag.id}
 						onClick={() => toggleActive(tag.title)}
 						className={`h-12 p-8 text-xl flex items-center justify-center transition-all duration-300 ease-in-out cursor-pointer
-				border border-[1px] rounded-lg select-none flex-1 min-w-[calc(50%-8px)] md:min-w-[calc(25%-12px)] hover:scale-101
+				border border-[1px] rounded-xl select-none flex-1 min-w-[calc(50%-8px)] md:min-w-[calc(25%-12px)] hover:scale-101
 				${tag.isActive ? '' : 'border-gray-300 dark:border-gray-600'}`}
 						style={{
 							borderColor: tag.isActive ? tag.borderColor : undefined,
@@ -109,7 +109,7 @@ export default function Home() {
 
 			{/* Info Cards */}
 			<div className='px-4 max-w-[1572px] flex gap-4 flex-col lg:flex-row'>
-				<div className='p-6 bg-gray-200 rounded-lg flex-1 dark:bg-[#42454c]'>
+				<div className='p-6 bg-gray-200 rounded-xl flex-1 dark:bg-[#42454c]'>
 					<h2 className='pb-6 text-2xl font-semibold'>Вместе и для каждого</h2>
 					<div className='text-xl space-y-3'>
 						<p>Дока — это документация для POS-инженеров на понятном языке.</p>
@@ -126,7 +126,7 @@ export default function Home() {
 					</Link>
 				</div>
 
-				<div className='p-6 border border-[1px] border-gray-300 dark:border-gray-600 rounded-lg flex flex-col flex-1'>
+				<div className='p-6 border border-[1px] border-gray-300 dark:border-gray-600 rounded-xl flex flex-col flex-1'>
 					<h2 className='pb-6 text-2xl font-semibold'>Станьте автором Доки</h2>
 					<div className='text-xl space-y-3 flex-1'>
 						<p>Дополните документацию реальными кейсами из практики.</p>
@@ -154,7 +154,7 @@ export default function Home() {
 							<Link
 								href={`/posts/${post.url}`}
 								key={post.id}
-								className='relative p-6 min-w-[320px] h-[330px] flex flex-col items-center justify-between flex-1 rounded-lg overflow-hidden transition-all duration-300 ease-in-out sm:h-[480px] sm:min-w-[400px] hover:shadow-lg hover:scale-101'
+								className='relative p-6 min-w-[320px] h-[330px] flex flex-col items-center justify-between flex-1 rounded-xl overflow-hidden transition-all duration-300 ease-in-out sm:h-[480px] sm:min-w-[400px] hover:shadow-lg hover:scale-101'
 								style={{ backgroundColor: post.bgColor }}
 							>
 								<div className='absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-20 dark:bg-gray-800 dark:hover:opacity-40' />
@@ -164,7 +164,7 @@ export default function Home() {
 								<p className='text-xl text-center self-center z-10 line-clamp-3'>
 									{post.description}
 								</p>
-								<div className='flex gap-3 flex-wrap self-end z-10'>
+								<div className='flex gap-3 flex-wrap self-end justify-end z-10'>
 									{post.tags.map((tag) => (
 										<span
 											key={tag}
@@ -183,7 +183,7 @@ export default function Home() {
 							<Button
 								onClick={handleLoadMore}
 								variant='outline'
-								className='p-6 text-xl rounded-lg font-normal min-w-[200px] hover:scale-105 transition-transform'
+								className='p-6 text-xl rounded-xl font-normal min-w-[200px] hover:scale-105 transition-transform'
 							>
 								Показать ещё
 							</Button>
