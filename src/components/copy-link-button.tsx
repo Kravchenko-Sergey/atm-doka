@@ -47,7 +47,7 @@ export function CopyLinkButton({
 
 			toast.custom(
 				(t) => (
-					<div className='bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 p-4'>
+					<div className='bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 p-3.5'>
 						<div className='flex items-center gap-2'>
 							<div className='flex-shrink-0 w-6 h-6 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center'>
 								<svg
@@ -126,7 +126,7 @@ export function CopyLinkButton({
 			aria-label='Копировать ссылку на этот раздел'
 		>
 			<LinkIcon
-				className='h-4 w-4 transition-colors duration-200'
+				className='h-4 w-4 transition-colors duration-200 cursor-pointer'
 				style={{
 					color: isCopied ? color : '#6b7280'
 				}}

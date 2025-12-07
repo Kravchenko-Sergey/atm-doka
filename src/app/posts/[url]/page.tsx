@@ -262,10 +262,7 @@ const DevicePage = () => {
 
 					{/* Related Posts */}
 					<div className='px-4 max-w-[1308px] mx-auto'>
-						<h2
-							className='my-12 text-3xl font-semibold transition-colors duration-300'
-							style={getActiveStyles(String(post.contentItems.length))}
-						>
+						<h2 className='my-12 text-3xl font-semibold transition-colors duration-300'>
 							Читайте также
 						</h2>
 						<div className='flex gap-6 flex-wrap'>
@@ -273,7 +270,7 @@ const DevicePage = () => {
 								<Link
 									href={`/posts/${post.url}`}
 									key={post.id}
-									className={`relative p-6 h-[380px] flex flex-col items-center justify-between rounded-xl overflow-hidden transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-101 flex-1 min-w-[280px] ${'max-w-full'}`}
+									className={`relative p-6 h-[380px] flex flex-col items-center justify-between rounded-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-101 flex-1 min-w-[280px] ${'max-w-full'}`}
 									style={{ backgroundColor: post.bgColor }}
 								>
 									<div className='absolute inset-0 bg-white opacity-0 transition-opacity duration-300 hover:opacity-20 dark:bg-gray-800 dark:hover:opacity-40' />
