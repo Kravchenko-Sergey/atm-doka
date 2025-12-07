@@ -1,117 +1,99 @@
-// useActiveSection.ts (с Intersection Observer - лучший вариант)
-import { useState, useEffect, useRef } from 'react'
+// hooks/useActiveSection.ts
+import { useState, useEffect } from 'react'
 
 export const useActiveSection = (sectionIds: string[]) => {
 	const [activeId, setActiveId] = useState<string>('')
-	const observerRef = useRef<IntersectionObserver | null>(null)
 
 	useEffect(() => {
 		if (sectionIds.length === 0) return
 
-		// Очищаем предыдущий observer
-		if (observerRef.current) {
-			observerRef.current.disconnect()
-		}
+		const handleScroll = () => {
+			let currentActive = ''
+			let smallestPositiveDistance = Infinity
+			let highestNegativeElement = { id: '', distance: -Infinity }
 
-		const elements = sectionIds
-			.map((id) => ({
-				id,
-				element: document.getElementById(id)
-			}))
-			.filter((item) => item.element !== null) as {
-			id: string
-			element: HTMLElement
-		}[]
-
-		if (elements.length === 0) return
-
-		const visibleElements = new Map<
-			string,
-			{
-				ratio: number
-				distanceToTop: number
-			}
-		>()
-
-		const options = {
-			root: null,
-			// Настройка области наблюдения:
-			// -100px сверху (учитываем фиксированный заголовок)
-			// -40% снизу (чтобы элемент считался активным, когда он в верхней части экрана)
-			rootMargin: '-100px 0px -40% 0px',
-			threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
-		}
-
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				const id = entry.target.id
-				const rect = entry.boundingClientRect
-
-				if (entry.isIntersecting) {
-					// Сохраняем информацию о видимом элементе
-					visibleElements.set(id, {
-						ratio: entry.intersectionRatio,
-						distanceToTop: Math.abs(rect.top)
-					})
-				} else {
-					visibleElements.delete(id)
-				}
-			})
-
-			// Находим наиболее подходящий активный элемент
-			let bestMatch = { id: '', score: -1 }
-
-			visibleElements.forEach((data, id) => {
-				// Вычисляем "score" - комбинация видимости и положения
-				// Больший вес даем элементам с большей видимостью
-				// и элементам, которые ближе к верхней части экрана
-				const visibilityScore = data.ratio * 100 // 0-100
-				const positionScore = Math.max(0, 50 - data.distanceToTop / 10) // 0-50
-				const totalScore = visibilityScore + positionScore
-
-				if (totalScore > bestMatch.score) {
-					bestMatch = { id, score: totalScore }
-				}
-			})
-
-			// Если есть видимые элементы, выбираем лучший
-			if (bestMatch.id && bestMatch.id !== activeId) {
-				setActiveId(bestMatch.id)
-			}
-
-			// Если нет видимых элементов, пытаемся определить последний пройденный
-			if (visibleElements.size === 0) {
-				// Находим элемент с наименьшим отрицательным top (самый нижний пройденный)
-				let lastPassedId = ''
-				let maxTop = -Infinity
-
-				elements.forEach(({ id, element }) => {
+			sectionIds.forEach((id) => {
+				const element = document.getElementById(id)
+				if (element) {
 					const rect = element.getBoundingClientRect()
-					// Ищем элемент, который уже проскроллили (top < 0)
-					// и который ближе всего к верху среди проскролленных
-					if (rect.top < 100 && rect.top > maxTop) {
-						maxTop = rect.top
-						lastPassedId = id
+					const elementTop = rect.top
+					const elementHeight = rect.height
+					const viewportHeight = window.innerHeight
+
+					// Расстояние от верха элемента до контрольной точки (150px от верха viewport)
+					const distance = elementTop - 150
+
+					// Элемент виден в viewport (или почти виден)
+					if (
+						elementTop <= viewportHeight * 0.7 &&
+						elementTop >= -elementHeight * 0.3
+					) {
+						// Если элемент выше контрольной точки (distance < 0)
+						if (distance < 0) {
+							// Ищем элемент, который максимально пересек контрольную точку
+							if (distance > highestNegativeElement.distance) {
+								highestNegativeElement = { id, distance }
+							}
+						}
+						// Если элемент ниже контрольной точки (distance >= 0)
+						else {
+							// Ищем самый близкий элемент к контрольной точке
+							if (distance < smallestPositiveDistance) {
+								smallestPositiveDistance = distance
+								currentActive = id
+							}
+						}
+					}
+				}
+			})
+
+			// Приоритет отдаем элементу, который пересек контрольную точку
+			if (highestNegativeElement.id) {
+				currentActive = highestNegativeElement.id
+			}
+
+			// Если не нашли ни одного подходящего элемента,
+			// выбираем последний элемент, который уже проскроллили
+			if (!currentActive) {
+				sectionIds.forEach((id) => {
+					const element = document.getElementById(id)
+					if (element) {
+						const rect = element.getBoundingClientRect()
+						// Если элемент уже полностью вышел за верх viewport
+						if (rect.bottom < 0) {
+							currentActive = id
+						}
 					}
 				})
-
-				if (lastPassedId && lastPassedId !== activeId) {
-					setActiveId(lastPassedId)
-				}
 			}
-		}, options)
 
-		// Начинаем наблюдение
-		elements.forEach(({ element }) => {
-			observer.observe(element)
-		})
+			// Если все еще не нашли, берем первый элемент
+			if (!currentActive && sectionIds.length > 0) {
+				currentActive = sectionIds[0]
+			}
 
-		observerRef.current = observer
+			if (currentActive && currentActive !== activeId) {
+				setActiveId(currentActive)
+			}
+		}
+
+		// Добавляем обработчик
+		let ticking = false
+		const onScroll = () => {
+			if (!ticking) {
+				requestAnimationFrame(() => {
+					handleScroll()
+					ticking = false
+				})
+				ticking = true
+			}
+		}
+
+		window.addEventListener('scroll', onScroll)
+		handleScroll() // Проверяем начальное состояние
 
 		return () => {
-			if (observerRef.current) {
-				observerRef.current.disconnect()
-			}
+			window.removeEventListener('scroll', onScroll)
 		}
 	}, [sectionIds, activeId])
 
