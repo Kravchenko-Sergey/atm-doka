@@ -21,20 +21,6 @@ export default function OpenGraphImage() {
 				position: 'relative'
 			}}
 		>
-			{/* Верхняя полоса с цветами устройств */}
-			<div
-				style={{
-					position: 'absolute',
-					top: 0,
-					left: 0,
-					width: '100%',
-					height: '120px',
-					background:
-						'linear-gradient(90deg, #f15024, #DC2626, #08a4e1, #6effd2, #41e747, #704ecc)',
-					opacity: 0.2
-				}}
-			/>
-
 			{/* Логотип */}
 			<div
 				style={{
