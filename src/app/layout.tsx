@@ -12,7 +12,7 @@ import './globals.css'
 
 const roboto = Roboto({
 	subsets: ['cyrillic', 'latin'],
-	weight: ['300', '400', '500', '600', '700', '800'],
+	weight: ['400', '500', '600', '700'],
 	display: 'swap'
 })
 
@@ -118,16 +118,16 @@ export default function RootLayout({
 				<main className='mx-auto w-full max-w-[1572px] flex flex-col flex-1 justify-center pt-[100px]'>
 					{children}
 				</main>
-				<footer className='w-full border-t bg-#fafafa py-8 dark:bg-[#292a2e] dark:text-[#fafafa]'>
+				<footer className='w-full border-t bg-[#fafafa] py-8 dark:bg-[#292a2e] dark:text-[#fafafa]'>
 					<div className='mx-auto flex w-full max-w-[1572px] items-center justify-between px-4'>
 						<div className='flex items-center gap-2'>
-							<Sun size={20} />
+							<Sun size={20} aria-hidden='true' />
 							<Switch
 								checked={theme === 'dark'}
 								onCheckedChange={toggleTheme}
 								aria-label='Переключить тему'
 							/>
-							<Moon size={20} />
+							<Moon size={20} aria-hidden='true' />
 						</div>
 						<Link
 							href='/about'
