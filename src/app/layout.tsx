@@ -80,6 +80,23 @@ export default function RootLayout({
 					name='description'
 					content='Дока — это документация для POS-инженеров на понятном языке.'
 				/>
+				<meta
+					property='og:title'
+					content='АТМ Дока — документация для POS-инженеров'
+				/>
+				<meta
+					property='og:description'
+					content='Руководства по прошивке и дефектовке POS-устройств: Эвотор, Pax, Verifone, Ingenico и других.'
+				/>
+				<meta
+					property='og:image'
+					content='https://atm-doka.vercel.app/opengraph-image'
+				/>
+				<meta property='og:url' content='https://atm-doka.vercel.app' />
+				<meta property='og:type' content='website' />
+				<meta name='twitter:card' content='summary_large_image' />
+				<meta name='twitter:site' content='@atmdoca' />{' '}
+				{/* если есть аккаунт */}
 				<link
 					rel='icon'
 					type='image/png'
