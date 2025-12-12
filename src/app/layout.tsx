@@ -8,6 +8,7 @@ import { Switch } from '@/components/ui/switch'
 import { useEffect, useState } from 'react'
 import { Moon, Sun } from 'lucide-react'
 import { Toaster } from '@/components/ui/sonner'
+import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const roboto = Roboto({
@@ -156,6 +157,7 @@ export default function RootLayout({
 					</div>
 				</footer>
 				<Toaster />
+				<Analytics />
 			</body>
 		</html>
 	)
