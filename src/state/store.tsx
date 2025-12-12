@@ -46,6 +46,7 @@ export type Post = {
 	updatedAt: string
 	tags: string[]
 	contentItems: contentItem[]
+	discussionId: string
 }
 
 type Person = {
@@ -65,7 +66,7 @@ type RootState = {
 	toggleTag: (tagTitle: string) => void
 }
 
-export const useRootStore = create<RootState>(set => ({
+export const useRootStore = create<RootState>((set) => ({
 	people: [
 		{
 			id: v4(),
@@ -92,7 +93,8 @@ export const useRootStore = create<RootState>(set => ({
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки']
 				}
-			]
+			],
+			discussionId: '4'
 		},
 		{
 			id: v4(),
@@ -102,7 +104,6 @@ export const useRootStore = create<RootState>(set => ({
 			description: 'Руководство по прошивке',
 			image: '/content/evotor72/image/evo72.png',
 			bgColor: '#f15024',
-
 			updatedAt: '24 мая 2025',
 			tags: ['Сбер', 'Эвотор', 'Прошивка'],
 			content: Evotor72Content,
@@ -112,7 +113,8 @@ export const useRootStore = create<RootState>(set => ({
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки']
 				}
-			]
+			],
+			discussionId: 'evotor72-discussion' // Добавлено
 		},
 		{
 			id: v4(),
@@ -122,7 +124,6 @@ export const useRootStore = create<RootState>(set => ({
 			description: 'Руководство по прошивке',
 			image: '/content/evotor73/image/evo73.png',
 			bgColor: '#f15024',
-
 			updatedAt: '23 июня 2025',
 			tags: ['Сбер', 'Эвотор', 'Прошивка'],
 			content: Evotor73Content,
@@ -136,7 +137,8 @@ export const useRootStore = create<RootState>(set => ({
 					title: 'На практике',
 					children: ['Как избежать ГЗ', 'Видеоинструкция']
 				}
-			]
+			],
+			discussionId: 'evotor73-discussion' // Добавлено
 		},
 		{
 			id: v4(),
@@ -146,7 +148,6 @@ export const useRootStore = create<RootState>(set => ({
 			description: 'Руководство по прошивке',
 			image: '/content/evotor10/image/evo10.png',
 			bgColor: '#f15024',
-
 			updatedAt: '24 мая 2025',
 			tags: ['Сбер', 'Эвотор', 'Прошивка'],
 			content: Evotor10Content,
@@ -156,7 +157,8 @@ export const useRootStore = create<RootState>(set => ({
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки']
 				}
-			]
+			],
+			discussionId: 'evotor10-discussion' // Добавлено
 		},
 		{
 			id: v4(),
@@ -166,7 +168,6 @@ export const useRootStore = create<RootState>(set => ({
 			description: 'Руководство по прошивке',
 			image: '/content/evotor6/image/evo6.png',
 			bgColor: '#f15024',
-
 			updatedAt: '15 ноября 2025',
 			tags: ['Сбер', 'Эвотор', 'Прошивка'],
 			content: Evotor6Content,
@@ -174,9 +175,14 @@ export const useRootStore = create<RootState>(set => ({
 				{ title: 'Актуальные версии' },
 				{
 					title: 'Прошивка',
-					children: ['Что понадобится?', 'Процесс прошивки', 'Как добавить eSIM?']
+					children: [
+						'Что понадобится?',
+						'Процесс прошивки',
+						'Как добавить eSIM?'
+					]
 				}
-			]
+			],
+			discussionId: 'evotor6-discussion' // Добавлено
 		},
 		{
 			id: v4(),
@@ -195,7 +201,8 @@ export const useRootStore = create<RootState>(set => ({
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки']
 				}
-			]
+			],
+			discussionId: 'kozen-p10-discussion' // Добавлено
 		},
 		{
 			id: v4(),
@@ -214,7 +221,8 @@ export const useRootStore = create<RootState>(set => ({
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
-			]
+			],
+			discussionId: 'kozen-p12-discussion' // Добавлено
 		},
 		{
 			id: v4(),
@@ -235,9 +243,19 @@ export const useRootStore = create<RootState>(set => ({
 				},
 				{
 					title: 'Дефектовка',
-					children: ['Внешний вид', 'Включение', 'Магнитный ридер', 'Чиповый ридер', 'Бесконтактный ридер', 'Клавиатура', 'GPRS', 'Ethernet']
+					children: [
+						'Внешний вид',
+						'Включение',
+						'Магнитный ридер',
+						'Чиповый ридер',
+						'Бесконтактный ридер',
+						'Клавиатура',
+						'GPRS',
+						'Ethernet'
+					]
 				}
-			]
+			],
+			discussionId: 'pax-s80-discussion' // Добавлено
 		},
 		{
 			id: v4(),
@@ -258,9 +276,19 @@ export const useRootStore = create<RootState>(set => ({
 				},
 				{
 					title: 'Дефектовка',
-					children: ['Внешний вид', 'Включение', 'Магнитный ридер', 'Чиповый ридер', 'Бесконтактный ридер', 'Клавиатура', 'GPRS', 'Ethernet']
+					children: [
+						'Внешний вид',
+						'Включение',
+						'Магнитный ридер',
+						'Чиповый ридер',
+						'Бесконтактный ридер',
+						'Клавиатура',
+						'GPRS',
+						'Ethernet'
+					]
 				}
-			]
+			],
+			discussionId: 'pax-s90-discussion' // Добавлено
 		},
 		{
 			id: v4(),
@@ -279,7 +307,8 @@ export const useRootStore = create<RootState>(set => ({
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
-			]
+			],
+			discussionId: 'pax-sp30-discussion' // Добавлено
 		},
 		{
 			id: v4(),
@@ -298,7 +327,8 @@ export const useRootStore = create<RootState>(set => ({
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
-			]
+			],
+			discussionId: 'pax-s300-discussion' // Добавлено
 		},
 		{
 			id: v4(),
@@ -317,7 +347,8 @@ export const useRootStore = create<RootState>(set => ({
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
-			]
+			],
+			discussionId: 'pax-s200-discussion' // Добавлено
 		},
 		{
 			id: v4(),
@@ -336,7 +367,8 @@ export const useRootStore = create<RootState>(set => ({
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
-			]
+			],
+			discussionId: 'pax-q25-discussion' // Добавлено
 		},
 		{
 			id: v4(),
@@ -355,7 +387,8 @@ export const useRootStore = create<RootState>(set => ({
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки']
 				}
-			]
+			],
+			discussionId: 'pax-d230-discussion' // Добавлено
 		},
 		{
 			id: v4(),
@@ -365,7 +398,6 @@ export const useRootStore = create<RootState>(set => ({
 			description: 'Руководство по прошивке',
 			image: '/content/pax-d230-mob/image/pax-d230-mob.png',
 			bgColor: '#08a4e1',
-
 			updatedAt: '24 мая 2025',
 			tags: ['Сбер', 'Pax', 'Прошивка'],
 			content: PaxD230MobContent,
@@ -375,7 +407,8 @@ export const useRootStore = create<RootState>(set => ({
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки']
 				}
-			]
+			],
+			discussionId: 'pax-d230-mob-discussion' // Добавлено
 		},
 		{
 			id: v4(),
@@ -396,9 +429,18 @@ export const useRootStore = create<RootState>(set => ({
 				},
 				{
 					title: 'Дефектовка',
-					children: ['Магнитный ридер', 'Смарт-ридер', 'Модуль STLS', 'Клавиатура', 'Принтер', 'GPRS', 'Ethernet']
+					children: [
+						'Магнитный ридер',
+						'Смарт-ридер',
+						'Модуль STLS',
+						'Клавиатура',
+						'Принтер',
+						'GPRS',
+						'Ethernet'
+					]
 				}
-			]
+			],
+			discussionId: 'verifone-vx520-discussion' // Добавлено
 		},
 		{
 			id: v4(),
@@ -417,7 +459,8 @@ export const useRootStore = create<RootState>(set => ({
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
-			]
+			],
+			discussionId: 'verifone-vx820-discussion' // Добавлено
 		},
 		{
 			id: v4(),
@@ -436,7 +479,8 @@ export const useRootStore = create<RootState>(set => ({
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
-			]
+			],
+			discussionId: 'ingenico-ict220-discussion' // Добавлено
 		},
 		{
 			id: v4(),
@@ -455,7 +499,8 @@ export const useRootStore = create<RootState>(set => ({
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
-			]
+			],
+			discussionId: 'ingenico-ipp320-discussion' // Добавлено
 		},
 		{
 			id: v4(),
@@ -474,7 +519,8 @@ export const useRootStore = create<RootState>(set => ({
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
-			]
+			],
+			discussionId: 'ingenico-iwl220-discussion' // Добавлено
 		},
 		{
 			id: v4(),
@@ -493,7 +539,8 @@ export const useRootStore = create<RootState>(set => ({
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
-			]
+			],
+			discussionId: 'tactilion-t2-discussion' // Добавлено
 		},
 		{
 			id: v4(),
@@ -512,7 +559,8 @@ export const useRootStore = create<RootState>(set => ({
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки']
 				}
-			]
+			],
+			discussionId: 'tactilion-g3-discussion' // Добавлено
 		},
 		{
 			id: v4(),
@@ -533,9 +581,25 @@ export const useRootStore = create<RootState>(set => ({
 				},
 				{
 					title: 'Дефектовка',
-					children: ['Внешний вид', 'Включение', 'Магнитный ридер', 'Чиповый ридер', 'Бесконтактный ридер', 'Принтер', 'Клавиатура и динамик', 'LCD', 'Светодиоды', 'USB', 'GPRS', 'Чтение sim', 'WI-FI', 'Ethernet']
+					children: [
+						'Внешний вид',
+						'Включение',
+						'Магнитный ридер',
+						'Чиповый ридер',
+						'Бесконтактный ридер',
+						'Принтер',
+						'Клавиатура и динамик',
+						'LCD',
+						'Светодиоды',
+						'USB',
+						'GPRS',
+						'Чтение sim',
+						'WI-FI',
+						'Ethernet'
+					]
 				}
-			]
+			],
+			discussionId: 'castles-vega3000-st-discussion' // Добавлено
 		},
 		{
 			id: v4(),
@@ -554,7 +618,8 @@ export const useRootStore = create<RootState>(set => ({
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
-			]
+			],
+			discussionId: 'castles-vega3000-mob-discussion' // Добавлено
 		},
 		{
 			id: v4(),
@@ -573,7 +638,8 @@ export const useRootStore = create<RootState>(set => ({
 					title: 'Прошивка',
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
-			]
+			],
+			discussionId: 'castles-vega3000-ikr-discussion' // Добавлено
 		},
 		{
 			id: v4(),
@@ -586,7 +652,8 @@ export const useRootStore = create<RootState>(set => ({
 			updatedAt: '29 ноября 2025',
 			tags: ['Сбер', 'Aqsi'],
 			content: Aqsi5fContent,
-			contentItems: []
+			contentItems: [],
+			discussionId: 'aqsi5-f-discussion' // Добавлено
 		}
 	],
 	bgHeader: '#fafafa',
@@ -597,11 +664,11 @@ export const useRootStore = create<RootState>(set => ({
 	activeTags: [],
 
 	toggleTag: (tagTitle: string) => {
-		set(state => {
+		set((state) => {
 			const isActive = state.activeTags.includes(tagTitle)
 			if (isActive) {
 				return {
-					activeTags: state.activeTags.filter(tag => tag !== tagTitle)
+					activeTags: state.activeTags.filter((tag) => tag !== tagTitle)
 				}
 			} else {
 				return {

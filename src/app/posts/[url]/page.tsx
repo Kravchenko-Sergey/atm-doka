@@ -257,7 +257,11 @@ const DevicePage = () => {
 
 					{/*Feedback*/}
 					<div className='mt-16 px-4 max-w-[1308px] mx-auto'>
-						<Feedback postId={post.id} color={post.bgColor} />
+						<Feedback
+							postId={post.id}
+							href={`https://t.me/atm_doka_f0rum/${post.discussionId}`}
+							color={post.bgColor}
+						/>
 					</div>
 
 					{/* Related Posts */}

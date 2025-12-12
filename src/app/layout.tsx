@@ -96,8 +96,7 @@ export default function RootLayout({
 				<meta property='og:url' content='https://atm-doka.vercel.app' />
 				<meta property='og:type' content='website' />
 				<meta name='twitter:card' content='summary_large_image' />
-				<meta name='twitter:site' content='@atmdoca' />{' '}
-				{/* если есть аккаунт */}
+				<meta name='twitter:site' content='@atmdoca' />
 				<link
 					rel='icon'
 					type='image/png'

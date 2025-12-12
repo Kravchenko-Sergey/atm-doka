@@ -7,11 +7,12 @@ import { Textarea } from '@/components/ui/textarea'
 
 interface FeedbackProps {
 	postId?: string
+	href: string
 	className?: string
 	color: string
 }
 
-export function Feedback({ className, color }: FeedbackProps) {
+export function Feedback({ className, href, color }: FeedbackProps) {
 	const [userVote, setUserVote] = useState<'like' | 'dislike' | null>(null)
 	const [showDislikeReasons, setShowDislikeReasons] = useState(false)
 	const [selectedReason, setSelectedReason] = useState<string | null>(null)
@@ -23,7 +24,14 @@ export function Feedback({ className, color }: FeedbackProps) {
 
 	const textareaRef = useRef<HTMLTextAreaElement>(null)
 
-	const dislikeReasons = ['Слишком сложно', 'Мало примеров', 'Нет нужной информации', 'Устаревшие данные', 'Плохое оформление', 'Другое']
+	const dislikeReasons = [
+		'Слишком сложно',
+		'Мало примеров',
+		'Нет нужной информации',
+		'Устаревшие данные',
+		'Плохое оформление',
+		'Другое'
+	]
 
 	const handleVote = (vote: 'like' | 'dislike') => {
 		// Если уже проголосовали, ничего не делаем
@@ -109,7 +117,8 @@ export function Feedback({ className, color }: FeedbackProps) {
 						size='lg'
 						onClick={() => handleVote('like')}
 						disabled={voteSubmitted && userVote !== 'like'}
-						className={`gap-3 px-8 py-6 text-lg rounded-xl transition-all duration-200 ${userVote === 'like' ? 'bg-green-500 hover:bg-green-600 border-green-500' : voteSubmitted ? 'opacity-50 cursor-not-allowed' : 'hover:border-green-400 hover:text-green-600'}`}>
+						className={`gap-3 px-8 py-6 text-lg rounded-xl transition-all duration-200 ${userVote === 'like' ? 'bg-green-500 hover:bg-green-600 border-green-500' : voteSubmitted ? 'opacity-50 cursor-not-allowed' : 'hover:border-green-400 hover:text-green-600'}`}
+					>
 						<span className='flex flex-col items-start'>
 							<span className='text-2xl font-normal opacity-80'>^‿^</span>
 						</span>
@@ -120,7 +129,8 @@ export function Feedback({ className, color }: FeedbackProps) {
 						size='lg'
 						onClick={() => handleVote('dislike')}
 						disabled={voteSubmitted && userVote !== 'dislike'}
-						className={`gap-3 px-8 py-6 text-lg rounded-xl transition-all duration-200 ${userVote === 'dislike' ? 'bg-red-500 hover:bg-red-600 border-red-500' : voteSubmitted ? 'opacity-50 cursor-not-allowed' : 'hover:border-red-400 hover:text-red-600'}`}>
+						className={`gap-3 px-8 py-6 text-lg rounded-xl transition-all duration-200 ${userVote === 'dislike' ? 'bg-red-500 hover:bg-red-600 border-red-500' : voteSubmitted ? 'opacity-50 cursor-not-allowed' : 'hover:border-red-400 hover:text-red-600'}`}
+					>
 						<span className='flex flex-col items-start'>
 							<span className='text-2xl font-normal opacity-80'>ˇ⌒ˇ</span>
 						</span>
@@ -131,17 +141,23 @@ export function Feedback({ className, color }: FeedbackProps) {
 				{showDislikeReasons && (
 					<div className='space-y-4 animate-in fade-in duration-300'>
 						<div className='text-center'>
-							<h4 className='text-lg font-medium mb-0 flex items-center justify-center gap-2'>Расскажите, что не понравилось?</h4>
+							<h4 className='text-lg font-medium mb-0 flex items-center justify-center gap-2'>
+								Расскажите, что не понравилось?
+							</h4>
 						</div>
 
 						{/* Варианты причин - ВСЕГДА показываем все варианты */}
 						<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
-							{dislikeReasons.map(reason => (
+							{dislikeReasons.map((reason) => (
 								<button
 									key={reason}
 									onClick={() => handleReasonSelect(reason)}
-									disabled={customSubmitted || (selectedReason !== null && selectedReason !== reason)}
-									className={`p-4 text-left border rounded-lg transition-all duration-200 ${selectedReason === reason ? 'bg-red-50 dark:bg-red-900/20 border-red-300' : customSubmitted || (selectedReason !== null && selectedReason !== reason) ? 'opacity-60 cursor-not-allowed' : 'hover:border-red-300 hover:bg-red-50 dark:hover:bg-red-900/10'}`}>
+									disabled={
+										customSubmitted ||
+										(selectedReason !== null && selectedReason !== reason)
+									}
+									className={`p-4 text-left border rounded-lg transition-all duration-200 ${selectedReason === reason ? 'bg-red-50 dark:bg-red-900/20 border-red-300' : customSubmitted || (selectedReason !== null && selectedReason !== reason) ? 'opacity-60 cursor-not-allowed' : 'hover:border-red-300 hover:bg-red-50 dark:hover:bg-red-900/10'}`}
+								>
 									<div className='flex items-center gap-3'>
 										<div className='h-6 w-6 flex items-center justify-center border rounded-full'>
 											{reason === 'Другое' && '✏️'}
@@ -159,13 +175,17 @@ export function Feedback({ className, color }: FeedbackProps) {
 
 						{/* Textarea для "Другое" */}
 						{selectedReason === 'Другое' && (
-							<div className={`space-y-3 mt-4 transition-all duration-300 ${customSubmitted ? 'opacity-70' : ''}`}>
+							<div
+								className={`space-y-3 mt-4 transition-all duration-300 ${customSubmitted ? 'opacity-70' : ''}`}
+							>
 								<div className='relative'>
 									<Textarea
 										ref={textareaRef}
 										placeholder='Опишите, что именно не понравилось в статье...'
 										value={customFeedback}
-										onChange={e => !customSubmitted && setCustomFeedback(e.target.value)}
+										onChange={(e) =>
+											!customSubmitted && setCustomFeedback(e.target.value)
+										}
 										className={`min-h-[120px] resize-none text-base transition-all duration-300 ${customSubmitted ? 'bg-gray-50 dark:bg-gray-800/50 cursor-not-allowed border-gray-300 dark:border-gray-700' : ''}`}
 										disabled={customSubmitted || isSubmitting}
 									/>
@@ -173,8 +193,18 @@ export function Feedback({ className, color }: FeedbackProps) {
 
 								{!customSubmitted && (
 									<div className='flex justify-between items-center'>
-										<span className='text-sm text-gray-500 dark:text-gray-400'>Минимум 10 символов</span>
-										<Button onClick={handleSubmitCustomFeedback} disabled={!customFeedback.trim() || customFeedback.trim().length < 10 || isSubmitting} className='gap-2'>
+										<span className='text-sm text-gray-500 dark:text-gray-400'>
+											Минимум 10 символов
+										</span>
+										<Button
+											onClick={handleSubmitCustomFeedback}
+											disabled={
+												!customFeedback.trim() ||
+												customFeedback.trim().length < 10 ||
+												isSubmitting
+											}
+											className='gap-2'
+										>
 											{isSubmitting ? (
 												<>
 													<div className='h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin' />
@@ -198,7 +228,13 @@ export function Feedback({ className, color }: FeedbackProps) {
 				<div className='text-center'>
 					<p className='text-gray-600 dark:text-gray-400 mb-0 whitespace-nowrap'>
 						Если вы нашли ошибку,{' '}
-						<a href='https://t.me/+CznWcCGr6H03NjMy' target='_blank' rel='noopener noreferrer' className='text-blue-600 dark:text-blue-400 hover:underline font-medium' style={{ color: color }}>
+						<a
+							href={href}
+							target='_blank'
+							rel='noopener noreferrer'
+							className='text-blue-600 dark:text-blue-400 hover:underline font-medium'
+							style={{ color: color }}
+						>
 							напишите нам
 						</a>
 						!
@@ -209,7 +245,9 @@ export function Feedback({ className, color }: FeedbackProps) {
 				{userVote === 'like' && voteSubmitted && (
 					<div className='text-center animate-in fade-in duration-300'>
 						<div className='inline-flex items-center gap-2 px-4 py-3 rounded-lg'>
-							<span className='text-lg font-medium text-green-700 dark:text-green-300 mb-0'>Спасибо за оценку ❤️</span>
+							<span className='text-lg font-medium text-green-700 dark:text-green-300 mb-0'>
+								Спасибо за оценку ❤️
+							</span>
 						</div>
 					</div>
 				)}
@@ -218,7 +256,9 @@ export function Feedback({ className, color }: FeedbackProps) {
 				{selectedReason && selectedReason !== 'Другое' && voteSubmitted && (
 					<div className='text-center animate-in fade-in duration-300'>
 						<div className='inline-flex items-center gap-2 px-4 py-3 rounded-lg'>
-							<span className='text-lg font-medium text-red-700 dark:text-red-300 mb-0'>Спасибо за оценку ❤️</span>
+							<span className='text-lg font-medium text-red-700 dark:text-red-300 mb-0'>
+								Спасибо за оценку ❤️
+							</span>
 						</div>
 					</div>
 				)}
@@ -227,7 +267,9 @@ export function Feedback({ className, color }: FeedbackProps) {
 				{selectedReason === 'Другое' && customSubmitted && (
 					<div className='text-center animate-in fade-in duration-300'>
 						<div className='inline-flex items-center gap-2 py-3 rounded-lg whitespace-nowrap'>
-							<span className='text-lg font-medium text-red-700 dark:text-red-300 mb-0'>Спасибо за развернутый отзыв ❤️</span>
+							<span className='text-lg font-medium text-red-700 dark:text-red-300 mb-0'>
+								Спасибо за развернутый отзыв ❤️
+							</span>
 						</div>
 					</div>
 				)}
