@@ -1,3 +1,5 @@
+import { CopyLinkButton } from '@/components/copy-link-button'
+import { useDelayedHashScroll } from '@/hooks/use-delayed-hash-scroll'
 import React from 'react'
 
 interface PaxQ25ContentProps {
@@ -5,6 +7,8 @@ interface PaxQ25ContentProps {
 }
 
 const PaxQ25Content: React.FC<PaxQ25ContentProps> = ({ className = '' }) => {
+	useDelayedHashScroll()
+
 	const tableHeaders = ['UPOS', 'Prolin OS']
 
 	const tableData = [
@@ -17,9 +21,13 @@ const PaxQ25Content: React.FC<PaxQ25ContentProps> = ({ className = '' }) => {
 	return (
 		<div className={className}>
 			<div className='content-section'>
-				<h2 className='section-title text-3xl font-bold mb-8 mt-8' id='1'>
-					Актуальные версии
-				</h2>
+				{/* Контейнер с ID */}
+				<div className='flex items-center justify-start gap-4 mb-8 mt-8' id='1'>
+					<h2 className='section-title text-2xl md:text-3xl font-semibold md:font-bold'>
+						Актуальные версии
+					</h2>
+					<CopyLinkButton index='1' color='#08a4e1' />
+				</div>
 
 				<div className='overflow-x-auto whitespace-nowrap'>
 					<table className='min-w-full'>
@@ -52,14 +60,23 @@ const PaxQ25Content: React.FC<PaxQ25ContentProps> = ({ className = '' }) => {
 			</div>
 
 			<div className='content-section'>
-				<h2 className='section-title text-3xl font-bold mb-8 mt-8' id='2'>
-					Прошивка
-				</h2>
+				{/* Контейнер с ID */}
+				<div className='flex items-center justify-start gap-4 mb-8 mt-8' id='2'>
+					<h2 className='section-title text-2xl md:text-3xl font-semibold md:font-bold'>
+						Прошивка
+					</h2>
+					<CopyLinkButton index='2' color='#08a4e1' />
+				</div>
 
 				<div className='subsection mb-8'>
-					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.1'>
-						Что понадобится?
-					</h3>
+					{/* Контейнер с ID */}
+					<div className='flex items-center justify-start gap-4 mb-6' id='2.1'>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
+							Что понадобится?
+						</h3>
+						<CopyLinkButton index='2.1' color='#08a4e1' />
+					</div>
+
 					<ul className='list-disc text-lg flex flex-col gap-4 pl-6'>
 						<li className='leading-7'>Ноутбук</li>
 						<li className='leading-7'>
@@ -87,9 +104,14 @@ const PaxQ25Content: React.FC<PaxQ25ContentProps> = ({ className = '' }) => {
 				</div>
 
 				<div className='subsection mb-8'>
-					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.2'>
-						Процесс прошивки
-					</h3>
+					{/* Контейнер с ID */}
+					<div className='flex items-center justify-start gap-4 mb-6' id='2.2'>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
+							Процесс прошивки
+						</h3>
+						<CopyLinkButton index='2.2' color='#08a4e1' />
+					</div>
+
 					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
 						<li className='leading-7'>
 							Проверьте наличие драйвера в Диспетчере устройств
@@ -187,9 +209,13 @@ const PaxQ25Content: React.FC<PaxQ25ContentProps> = ({ className = '' }) => {
 				</div>
 
 				<div className='subsection'>
-					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.3'>
-						Видеоинструкция
-					</h3>
+					{/* Контейнер с ID */}
+					<div className='flex items-center justify-start gap-4 mb-6' id='2.3'>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
+							Видеоинструкция
+						</h3>
+						<CopyLinkButton index='2.3' color='#08a4e1' />
+					</div>
 					<div className='flex'>
 						<video controls className='w-full rounded-xl md:w-1/3 max-w-md'>
 							<source

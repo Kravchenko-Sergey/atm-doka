@@ -114,7 +114,7 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки']
 				}
 			],
-			discussionId: 'evotor72-discussion' // Добавлено
+			discussionId: '6'
 		},
 		{
 			id: v4(),
@@ -138,7 +138,7 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Как избежать ГЗ', 'Видеоинструкция']
 				}
 			],
-			discussionId: 'evotor73-discussion' // Добавлено
+			discussionId: '7'
 		},
 		{
 			id: v4(),
@@ -158,7 +158,7 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки']
 				}
 			],
-			discussionId: 'evotor10-discussion' // Добавлено
+			discussionId: '8'
 		},
 		{
 			id: v4(),
@@ -182,7 +182,7 @@ export const useRootStore = create<RootState>((set) => ({
 					]
 				}
 			],
-			discussionId: 'evotor6-discussion' // Добавлено
+			discussionId: '9'
 		},
 		{
 			id: v4(),
@@ -202,7 +202,7 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки']
 				}
 			],
-			discussionId: 'kozen-p10-discussion' // Добавлено
+			discussionId: '10'
 		},
 		{
 			id: v4(),
@@ -222,7 +222,7 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
 			],
-			discussionId: 'kozen-p12-discussion' // Добавлено
+			discussionId: '11'
 		},
 		{
 			id: v4(),
@@ -255,7 +255,7 @@ export const useRootStore = create<RootState>((set) => ({
 					]
 				}
 			],
-			discussionId: 'pax-s80-discussion' // Добавлено
+			discussionId: '12'
 		},
 		{
 			id: v4(),
@@ -288,7 +288,7 @@ export const useRootStore = create<RootState>((set) => ({
 					]
 				}
 			],
-			discussionId: 'pax-s90-discussion' // Добавлено
+			discussionId: '13'
 		},
 		{
 			id: v4(),
@@ -308,7 +308,7 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
 			],
-			discussionId: 'pax-sp30-discussion' // Добавлено
+			discussionId: '14'
 		},
 		{
 			id: v4(),
@@ -328,7 +328,7 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
 			],
-			discussionId: 'pax-s300-discussion' // Добавлено
+			discussionId: '15'
 		},
 		{
 			id: v4(),
@@ -348,7 +348,7 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
 			],
-			discussionId: 'pax-s200-discussion' // Добавлено
+			discussionId: '16'
 		},
 		{
 			id: v4(),
@@ -368,7 +368,7 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
 			],
-			discussionId: 'pax-q25-discussion' // Добавлено
+			discussionId: '17'
 		},
 		{
 			id: v4(),
@@ -388,7 +388,7 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки']
 				}
 			],
-			discussionId: 'pax-d230-discussion' // Добавлено
+			discussionId: '18'
 		},
 		{
 			id: v4(),
@@ -408,7 +408,7 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки']
 				}
 			],
-			discussionId: 'pax-d230-mob-discussion' // Добавлено
+			discussionId: '19'
 		},
 		{
 			id: v4(),
@@ -440,7 +440,7 @@ export const useRootStore = create<RootState>((set) => ({
 					]
 				}
 			],
-			discussionId: 'verifone-vx520-discussion' // Добавлено
+			discussionId: '20'
 		},
 		{
 			id: v4(),
@@ -460,7 +460,7 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
 			],
-			discussionId: 'verifone-vx820-discussion' // Добавлено
+			discussionId: '21'
 		},
 		{
 			id: v4(),
@@ -480,7 +480,7 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
 			],
-			discussionId: 'ingenico-ict220-discussion' // Добавлено
+			discussionId: '22'
 		},
 		{
 			id: v4(),
@@ -500,7 +500,7 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
 			],
-			discussionId: 'ingenico-ipp320-discussion' // Добавлено
+			discussionId: '23'
 		},
 		{
 			id: v4(),
@@ -520,7 +520,7 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
 			],
-			discussionId: 'ingenico-iwl220-discussion' // Добавлено
+			discussionId: '24'
 		},
 		{
 			id: v4(),
@@ -540,7 +540,7 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
 			],
-			discussionId: 'tactilion-t2-discussion' // Добавлено
+			discussionId: '25'
 		},
 		{
 			id: v4(),
@@ -560,7 +560,7 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки']
 				}
 			],
-			discussionId: 'tactilion-g3-discussion' // Добавлено
+			discussionId: '26'
 		},
 		{
 			id: v4(),
@@ -599,7 +599,7 @@ export const useRootStore = create<RootState>((set) => ({
 					]
 				}
 			],
-			discussionId: 'castles-vega3000-st-discussion' // Добавлено
+			discussionId: '27'
 		},
 		{
 			id: v4(),
@@ -619,7 +619,7 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
 			],
-			discussionId: 'castles-vega3000-mob-discussion' // Добавлено
+			discussionId: '28'
 		},
 		{
 			id: v4(),
@@ -639,7 +639,7 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
 			],
-			discussionId: 'castles-vega3000-ikr-discussion' // Добавлено
+			discussionId: '29'
 		},
 		{
 			id: v4(),
@@ -653,7 +653,7 @@ export const useRootStore = create<RootState>((set) => ({
 			tags: ['Сбер', 'Aqsi'],
 			content: Aqsi5fContent,
 			contentItems: [],
-			discussionId: 'aqsi5-f-discussion' // Добавлено
+			discussionId: '31'
 		}
 	],
 	bgHeader: '#fafafa',

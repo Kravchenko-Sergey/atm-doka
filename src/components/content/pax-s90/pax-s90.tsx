@@ -1,3 +1,5 @@
+import { CopyLinkButton } from '@/components/copy-link-button'
+import { useDelayedHashScroll } from '@/hooks/use-delayed-hash-scroll'
 import React from 'react'
 
 interface PaxS90ContentProps {
@@ -5,6 +7,8 @@ interface PaxS90ContentProps {
 }
 
 const PaxS90Content: React.FC<PaxS90ContentProps> = ({ className = '' }) => {
+	useDelayedHashScroll()
+
 	const tableHeaders = ['UPOS', 'OS Monitor+', 'BASE', 'API']
 
 	const tableData = [
@@ -19,9 +23,13 @@ const PaxS90Content: React.FC<PaxS90ContentProps> = ({ className = '' }) => {
 	return (
 		<div className={className}>
 			<div className='content-section'>
-				<h2 className='section-title text-3xl font-bold mb-8 mt-8' id='1'>
-					Актуальные версии
-				</h2>
+				{/* Контейнер с ID */}
+				<div className='flex items-center justify-start gap-4 mb-8 mt-8' id='1'>
+					<h2 className='section-title text-2xl md:text-3xl font-semibold md:font-bold'>
+						Актуальные версии
+					</h2>
+					<CopyLinkButton index='1' color='#08a4e1' />
+				</div>
 
 				<div className='overflow-x-auto whitespace-nowrap'>
 					<table className='min-w-full'>
@@ -60,14 +68,23 @@ const PaxS90Content: React.FC<PaxS90ContentProps> = ({ className = '' }) => {
 			</div>
 
 			<div className='content-section'>
-				<h2 className='section-title text-3xl font-bold mb-8 mt-8' id='2'>
-					Прошивка
-				</h2>
+				{/* Контейнер с ID */}
+				<div className='flex items-center justify-start gap-4 mb-8 mt-8' id='2'>
+					<h2 className='section-title text-2xl md:text-3xl font-semibold md:font-bold'>
+						Прошивка
+					</h2>
+					<CopyLinkButton index='2' color='#08a4e1' />
+				</div>
 
 				<div className='subsection mb-8'>
-					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.1'>
-						Что понадобится?
-					</h3>
+					{/* Контейнер с ID */}
+					<div className='flex items-center justify-start gap-4 mb-6' id='2.1'>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
+							Что понадобится?
+						</h3>
+						<CopyLinkButton index='2.1' color='#08a4e1' />
+					</div>
+
 					<ul className='list-disc text-lg flex flex-col gap-4 pl-6'>
 						<li className='leading-7'>Флешка, отформатированная в FAT32</li>
 						<li className='leading-7'>
@@ -87,9 +104,14 @@ const PaxS90Content: React.FC<PaxS90ContentProps> = ({ className = '' }) => {
 				</div>
 
 				<div className='subsection mb-8'>
-					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.2'>
-						Процесс прошивки
-					</h3>
+					{/* Контейнер с ID */}
+					<div className='flex items-center justify-start gap-4 mb-6' id='2.2'>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
+							Процесс прошивки
+						</h3>
+						<CopyLinkButton index='2.2' color='#08a4e1' />
+					</div>
+
 					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
 						<li className='leading-7'>Подключите флешку через переходник</li>
 						<li className='leading-7'>Включите терминал</li>
@@ -137,9 +159,13 @@ const PaxS90Content: React.FC<PaxS90ContentProps> = ({ className = '' }) => {
 				</div>
 
 				<div className='subsection'>
-					<h3 className='subsection-title text-2xl font-semibold mb-6' id='2.3'>
-						Видеоинструкция
-					</h3>
+					{/* Контейнер с ID */}
+					<div className='flex items-center justify-start gap-4 mb-6' id='2.3'>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
+							Видеоинструкция
+						</h3>
+						<CopyLinkButton index='2.3' color='#08a4e1' />
+					</div>
 					<div className='flex'>
 						<video controls className='w-full rounded-xl md:w-1/3 max-w-md'>
 							<source
@@ -153,14 +179,23 @@ const PaxS90Content: React.FC<PaxS90ContentProps> = ({ className = '' }) => {
 			</div>
 
 			<div className='content-section'>
-				<h2 className='section-title text-3xl font-bold mb-8 mt-8' id='3'>
-					Дефектовка
-				</h2>
+				{/* Контейнер с ID */}
+				<div className='flex items-center justify-start gap-4 mb-8 mt-8' id='3'>
+					<h2 className='section-title text-2xl md:text-3xl font-semibold md:font-bold'>
+						Дефектовка
+					</h2>
+					<CopyLinkButton index='3' color='#08a4e1' />
+				</div>
 
 				<div className='subsection mb-8'>
-					<h3 className='subsection-title text-2xl font-semibold mb-6' id='3.1'>
-						Внешний осмотр
-					</h3>
+					{/* Контейнер с ID */}
+					<div className='flex items-center justify-start gap-4 mb-6' id='3.1'>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
+							Внешний осмотр
+						</h3>
+						<CopyLinkButton index='3.1' color='#08a4e1' />
+					</div>
+
 					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
 						<li className='leading-7'>
 							Проверьте отсутствие посторонних предметов в ридерах
@@ -176,43 +211,54 @@ const PaxS90Content: React.FC<PaxS90ContentProps> = ({ className = '' }) => {
 				</div>
 
 				<div className='subsection mb-8'>
-					<h3 className='subsection-title text-2xl font-semibold mb-6' id='3.2'>
-						Включение и загрузка
-					</h3>
+					{/* Контейнер с ID */}
+					<div className='flex items-center justify-start gap-4 mb-6' id='3.2'>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
+							Включение терминала
+						</h3>
+						<CopyLinkButton index='3.2' color='#08a4e1' />
+					</div>
+
 					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
 						<li className='leading-7'>
-							Включите терминал и проверьте загрузку
+							Включите терминал и проверьте процесс загрузки
 						</li>
 						<li className='leading-7'>
-							<div className='flex flex-wrap items-center gap-2 mt-1'>
-								<span>При появлении ошибок:</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+							Убедитесь в отсутствии сообщений об ошибках:
+							<div className='mt-2 ml-4 flex flex-wrap gap-2'>
+								<span className='bg-[#08a4e1] text-white px-2 py-1 rounded text-base font-medium whitespace-nowrap'>
 									TAMPER
 								</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+								<span className='bg-[#08a4e1] text-white px-2 py-1 rounded text-base font-medium whitespace-nowrap'>
 									TAMPERED DEVICE
 								</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+								<span className='bg-[#08a4e1] text-white px-2 py-1 rounded text-base font-medium whitespace-nowrap'>
 									TAMPERING DETECTED
 								</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
+								<span className='bg-[#08a4e1] text-white px-2 py-1 rounded text-base font-medium whitespace-nowrap'>
 									PED TAMPERED
 								</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
+								<span className='bg-[#08a4e1] text-white px-2 py-1 rounded text-base font-medium whitespace-nowrap'>
 									PLS INPUT PWD
 								</span>
-								<span>
-									— терминал неисправен и подлежит отправке в сервисный центр
-								</span>
 							</div>
+						</li>
+						<li className='leading-7'>
+							При обнаружении ошибок — терминал неисправен, требуется отправка в
+							сервисный центр
 						</li>
 					</ul>
 				</div>
 
 				<div className='subsection mb-8'>
-					<h3 className='subsection-title text-2xl font-semibold mb-6' id='3.3'>
-						Магнитный ридер
-					</h3>
+					{/* Контейнер с ID */}
+					<div className='flex items-center justify-start gap-4 mb-6' id='3.3'>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
+							Магнитный ридер
+						</h3>
+						<CopyLinkButton index='3.3' color='#08a4e1' />
+					</div>
+
 					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
@@ -251,9 +297,14 @@ const PaxS90Content: React.FC<PaxS90ContentProps> = ({ className = '' }) => {
 				</div>
 
 				<div className='subsection mb-8'>
-					<h3 className='subsection-title text-2xl font-semibold mb-6' id='3.4'>
-						Чиповый ридер
-					</h3>
+					{/* Контейнер с ID */}
+					<div className='flex items-center justify-start gap-4 mb-6' id='3.4'>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
+							Чиповый ридер
+						</h3>
+						<CopyLinkButton index='3.4' color='#08a4e1' />
+					</div>
+
 					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
@@ -296,9 +347,14 @@ const PaxS90Content: React.FC<PaxS90ContentProps> = ({ className = '' }) => {
 				</div>
 
 				<div className='subsection mb-8'>
-					<h3 className='subsection-title text-2xl font-semibold mb-6' id='3.5'>
-						Бесконтактный ридер
-					</h3>
+					{/* Контейнер с ID */}
+					<div className='flex items-center justify-start gap-4 mb-6' id='3.5'>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
+							Бесконтактный ридер
+						</h3>
+						<CopyLinkButton index='3.5' color='#08a4e1' />
+					</div>
+
 					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
@@ -349,9 +405,14 @@ const PaxS90Content: React.FC<PaxS90ContentProps> = ({ className = '' }) => {
 				</div>
 
 				<div className='subsection mb-8'>
-					<h3 className='subsection-title text-2xl font-semibold mb-6' id='3.6'>
-						Клавиатура
-					</h3>
+					{/* Контейнер с ID */}
+					<div className='flex items-center justify-start gap-4 mb-6' id='3.6'>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
+							Клавиатура
+						</h3>
+						<CopyLinkButton index='3.6' color='#08a4e1' />
+					</div>
+
 					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
@@ -401,9 +462,14 @@ const PaxS90Content: React.FC<PaxS90ContentProps> = ({ className = '' }) => {
 				</div>
 
 				<div className='subsection mb-8'>
-					<h3 className='subsection-title text-2xl font-semibold mb-6' id='3.7'>
-						GPRS
-					</h3>
+					{/* Контейнер с ID */}
+					<div className='flex items-center justify-start gap-4 mb-6' id='3.7'>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
+							GPRS
+						</h3>
+						<CopyLinkButton index='3.7' color='#08a4e1' />
+					</div>
+
 					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
@@ -443,9 +509,14 @@ const PaxS90Content: React.FC<PaxS90ContentProps> = ({ className = '' }) => {
 				</div>
 
 				<div className='subsection'>
-					<h3 className='subsection-title text-2xl font-semibold mb-6' id='3.8'>
-						Ethernet
-					</h3>
+					{/* Контейнер с ID */}
+					<div className='flex items-center justify-start gap-4 mb-6' id='3.8'>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
+							Ethernet
+						</h3>
+						<CopyLinkButton index='3.8' color='#08a4e1' />
+					</div>
+
 					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
 						<li className='leading-7'>
 							Визуально проверьте разъём на повреждения
