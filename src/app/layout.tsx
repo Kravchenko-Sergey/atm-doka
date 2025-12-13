@@ -10,6 +10,7 @@ import { Moon, Sun } from 'lucide-react'
 import { Toaster } from '@/components/ui/sonner'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
+import Footer from '@/components/footer'
 
 const roboto = Roboto({
 	subsets: ['cyrillic', 'latin'],
@@ -135,26 +136,7 @@ export default function RootLayout({
 				<main className='mx-auto w-full max-w-[1572px] flex flex-col flex-1 justify-center pt-[100px]'>
 					{children}
 				</main>
-				<footer className='w-full border-t bg-[#fafafa] py-8 dark:bg-[#292a2e] dark:text-[#fafafa]'>
-					<div className='mx-auto flex w-full max-w-[1572px] items-center justify-between px-4'>
-						<div className='flex items-center gap-2'>
-							<Sun size={20} aria-hidden='true' />
-							<Switch
-								checked={theme === 'dark'}
-								onCheckedChange={toggleTheme}
-								aria-label='Переключить тему'
-							/>
-							<Moon size={20} aria-hidden='true' />
-						</div>
-						<Link
-							href='/about'
-							className='hover:underline'
-							aria-label='О проекте'
-						>
-							О проекте
-						</Link>
-					</div>
-				</footer>
+				<Footer theme={theme} toggleTheme={toggleTheme} />
 				<Toaster />
 				<Analytics />
 			</body>

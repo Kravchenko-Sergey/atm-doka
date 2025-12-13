@@ -70,7 +70,7 @@ export function ScrollToTop({
 		<button
 			onClick={scrollToTop}
 			className={`
-				fixed right-4 bottom-16 z-50
+				fixed right-6 bottom-6 z-50
 				w-12 h-12 rounded-full
 				bg-white dark:bg-gray-800
 				border border-gray-200 dark:border-gray-700
