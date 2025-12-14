@@ -4,13 +4,11 @@ import Link from 'next/link'
 import { Roboto } from 'next/font/google'
 import { useRootStore } from '@/state/store'
 import { SearchInput } from '@/components/search-input'
-import { Switch } from '@/components/ui/switch'
 import { useEffect, useState } from 'react'
-import { Moon, Sun } from 'lucide-react'
 import { Toaster } from '@/components/ui/sonner'
 import { Analytics } from '@vercel/analytics/next'
-import './globals.css'
 import Footer from '@/components/footer'
+import './globals.css'
 
 const roboto = Roboto({
 	subsets: ['cyrillic', 'latin'],

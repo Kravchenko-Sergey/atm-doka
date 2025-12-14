@@ -21,9 +21,7 @@ export default function Footer({ theme, toggleTheme }: FooterProps) {
 				<div className='px-4 max-w-[1572px] grid grid-cols-1 md:grid-cols-4 gap-8'>
 					{/* Лого и описание */}
 					<div className='md:col-span-1'>
-						<h3 className='text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent'>
-							АТМ Дока
-						</h3>
+						<h3 className='text-2xl font-bold mb-4'>АТМ Дока</h3>
 						<p className='text-gray-400 mb-6'>
 							База знаний по настройке и прошивке платёжных терминалов
 						</p>
