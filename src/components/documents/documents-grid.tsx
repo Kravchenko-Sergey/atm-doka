@@ -6,9 +6,26 @@ import DocumentCardSimple from './document-card'
 const documents = [
 	{
 		id: 1,
+		title: 'Акт принятия оказанных услуг',
+		description: 'Документ подтверждающий прием выполненных работ и услуг',
+		fileUrl: '/documents/installationCertificate.docx',
+		size: '18.5 KB',
+		format: 'docx'
+	},
+	{
+		id: 2,
+		title: 'Акт экспертизы оборудования и sim-карт',
+		description:
+			'Заключение о проверке и оценке состояния оборудования и sim-карт',
+		fileUrl: '/documents/expertReport.docx',
+		size: '23.2 KB',
+		format: 'docx'
+	},
+	{
+		id: 3,
 		title: 'Чек-лист X5',
 		description: 'Пошаговый список проверок перед сдачей',
-		fileUrl: '/documents//checklistX5.docx',
+		fileUrl: '/documents/checklistX5.docx',
 		size: '13.5 KB',
 		format: 'docx'
 	}
