@@ -263,7 +263,7 @@ export default function BrandPage() {
 					className='flex items-center justify-center w-screen'
 					style={{ backgroundColor: brand.color }}
 				>
-					<div className='w-full mb-6 px-4 max-w-[1572] flex flex-col items-center gap-6 md:flex-row md:gap-8'>
+					<div className='w-full mt-20 md:mt-0 mb-6 px-4 max-w-[1572] flex flex-col items-center gap-6 md:flex-row md:gap-8'>
 						{/* Иконка или лого бренда */}
 						<div
 							className='w-64 h-64 md:min-w-51.5 md:h-80 flex items-center justify-center rounded-2xl'
@@ -382,13 +382,6 @@ export default function BrandPage() {
 							</div>
 						</div>
 					)}
-					{/* Mobile Footer */}
-					<div className='mb-8 px-6 py-8 text-lg border rounded-lg flex items-center justify-center lg:hidden'>
-						<div className='flex flex-wrap gap-1 text-gray-600 dark:text-gray-400'>
-							<span>Всего моделей:</span>
-							<span className='font-semibold'>{brandDevices.length}</span>
-						</div>
-					</div>
 				</main>
 			</div>
 		</div>
