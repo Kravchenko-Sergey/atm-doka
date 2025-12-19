@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 import { useEffect, useRef, useState } from 'react'
 import { useClickAway } from 'react-use'
 import Link from 'next/link'
-import { Post, useRootStore } from '@/state/store'
+import { Device, useRootStore } from '@/state/store'
 
 type SearchInputProps = {
 	className?: string
@@ -14,8 +14,8 @@ type SearchInputProps = {
 export const SearchInput = ({ className }: SearchInputProps) => {
 	const [focused, setFocused] = useState(false)
 	const [searchQuery, setSearchQuery] = useState('')
-	const posts = useRootStore((state) => state.posts)
-	const [filteredPosts, setFilteredPosts] = useState<Post[]>([])
+	const devices = useRootStore((state) => state.devices)
+	const [filteredPosts, setFilteredPosts] = useState<Device[]>([])
 	const ref = useRef(null)
 
 	useClickAway(ref, () => {
@@ -28,20 +28,20 @@ export const SearchInput = ({ className }: SearchInputProps) => {
 	}
 
 	useEffect(() => {
-		setFilteredPosts(posts)
-	}, [posts])
+		setFilteredPosts(devices)
+	}, [devices])
 
 	useEffect(() => {
 		if (searchQuery) {
 			const lowerCaseQuery = searchQuery.toLowerCase()
-			const filtered = posts.filter((post) =>
-				post.title.toLowerCase().includes(lowerCaseQuery)
+			const filtered = devices.filter((device) =>
+				device.title.toLowerCase().includes(lowerCaseQuery)
 			)
 			setFilteredPosts(filtered)
 		} else {
-			setFilteredPosts(posts)
+			setFilteredPosts(devices)
 		}
-	}, [searchQuery, posts])
+	}, [searchQuery, devices])
 
 	return (
 		<>

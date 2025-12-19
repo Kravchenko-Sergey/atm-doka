@@ -29,12 +29,12 @@ import CastlesVega3000MobContent from '@/components/content/castles-vega3000-mob
 import CastlesVega3000IkrContent from '@/components/content/castles-vega3000-ikr/castles-vega3000-ikr'
 import Aqsi5fContent from '@/components/content/aqsi-5ф/aqsi-5ф'
 
-type contentItem = {
+type ContentItem = {
 	title: string
 	children?: string[]
 }
 
-export type Post = {
+export type Device = {
 	id: string
 	url: string
 	author: string
@@ -45,8 +45,39 @@ export type Post = {
 	content: React.ComponentType<{ className?: string }>
 	updatedAt: string
 	tags: string[]
-	contentItems: contentItem[]
+	contentItems: ContentItem[]
 	discussionId: string
+	brand: string // Добавлено: бренд устройства
+	model: string // Добавлено: модель устройства
+	manufacturer?: string // Опционально: производитель
+}
+
+export type Document = {
+	id: string
+	title: string
+	description: string
+	fileUrl: string
+	size: string
+	format: string
+	category: 'technical' | 'legal' | 'checklist' | 'report'
+	updatedAt: string
+	tags: string[]
+	downloadCount: number
+}
+
+export type FileItem = {
+	id: string
+	title: string
+	description: string
+	fileUrl: string
+	size: string
+	type: 'firmware' | 'driver' | 'utility' | 'software' | 'manual'
+	version?: string
+	updatedAt: string
+	deviceBrand?: string
+	deviceModel?: string
+	downloadCount: number
+	checksum?: string
 }
 
 type Person = {
@@ -57,27 +88,34 @@ type Person = {
 }
 
 type RootState = {
-	posts: Post[]
+	devices: Device[]
+	documents: Document[]
+	files: FileItem[]
 	people: Person[]
 	bgHeader: string
-	changeBgHeader: (bgHeader: string) => { bgHeader: string }
 	activeTags: string[]
-	setActiveTags: (tags: string[]) => void
+	changeBgHeader: (color: string) => void
 	toggleTag: (tagTitle: string) => void
+	clearTags: () => void
+	setActiveTags: (tags: string[]) => void
 }
 
-export const useRootStore = create<RootState>((set) => ({
-	people: [
+// Функция для нормализации строк для URL (создания slug)
+const createSlug = (str: string): string => {
+	return str
+		.toLowerCase()
+		.replace(/\s+/g, '-') // заменяем пробелы на дефисы
+		.replace(/[.,]/g, '') // убираем точки и запятые
+		.replace('стац', 'stationary')
+		.replace('моб', 'mobile')
+		.replace('икр', 'ikr')
+		.replace(/[^a-z0-9-]/g, '') // удаляем все не-буквенно-цифровые символы кроме дефисов
+}
+
+// Создаем устройства с правильными slug для URL
+const createDevices = (): Device[] => {
+	const baseDevices = [
 		{
-			id: v4(),
-			avatar: <ScanFace className='w-16 h-16' />,
-			name: 'Сергей Кравченко',
-			description: 'Не знал где скачать прошивку. Поэтому создал доку'
-		}
-	],
-	posts: [
-		{
-			id: v4(),
 			url: 'evotor5i',
 			author: 'Сергей Кравченко',
 			title: 'Эвотор 5i',
@@ -94,10 +132,11 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки']
 				}
 			],
-			discussionId: '4'
+			discussionId: '4',
+			brand: 'Evotor',
+			model: '5i'
 		},
 		{
-			id: v4(),
 			url: 'evotor72',
 			author: 'Сергей Кравченко',
 			title: 'Эвотор 7.2',
@@ -114,10 +153,11 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки']
 				}
 			],
-			discussionId: '6'
+			discussionId: '6',
+			brand: 'Эвотор',
+			model: '7.2'
 		},
 		{
-			id: v4(),
 			url: 'evotor73',
 			author: 'Сергей Кравченко',
 			title: 'Эвотор 7.3',
@@ -138,10 +178,11 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Как избежать ГЗ', 'Видеоинструкция']
 				}
 			],
-			discussionId: '7'
+			discussionId: '7',
+			brand: 'Эвотор',
+			model: '7.3'
 		},
 		{
-			id: v4(),
 			url: 'evotor10',
 			author: 'Сергей Кравченко',
 			title: 'Эвотор 10',
@@ -158,10 +199,11 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки']
 				}
 			],
-			discussionId: '8'
+			discussionId: '8',
+			brand: 'Эвотор',
+			model: '10'
 		},
 		{
-			id: v4(),
 			url: 'evotor6',
 			author: 'Сергей Кравченко',
 			title: 'Эвотор 6',
@@ -182,10 +224,11 @@ export const useRootStore = create<RootState>((set) => ({
 					]
 				}
 			],
-			discussionId: '9'
+			discussionId: '9',
+			brand: 'Эвотор',
+			model: '6'
 		},
 		{
-			id: v4(),
 			url: 'kozen-p10',
 			author: 'Сергей Кравченко',
 			title: 'Kozen P10',
@@ -202,10 +245,11 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки']
 				}
 			],
-			discussionId: '10'
+			discussionId: '10',
+			brand: 'Kozen',
+			model: 'P10'
 		},
 		{
-			id: v4(),
 			url: 'kozen-p12',
 			author: 'Сергей Кравченко',
 			title: 'Kozen P12',
@@ -242,10 +286,11 @@ export const useRootStore = create<RootState>((set) => ({
 					]
 				}
 			],
-			discussionId: '11'
+			discussionId: '11',
+			brand: 'Kozen',
+			model: 'P12'
 		},
 		{
-			id: v4(),
 			url: 'pax-s80',
 			author: 'Сергей Кравченко',
 			title: 'Pax S80',
@@ -275,10 +320,11 @@ export const useRootStore = create<RootState>((set) => ({
 					]
 				}
 			],
-			discussionId: '12'
+			discussionId: '12',
+			brand: 'Pax',
+			model: 'S80'
 		},
 		{
-			id: v4(),
 			url: 'pax-s90',
 			author: 'Сергей Кравченко',
 			title: 'Pax S90',
@@ -308,10 +354,11 @@ export const useRootStore = create<RootState>((set) => ({
 					]
 				}
 			],
-			discussionId: '13'
+			discussionId: '13',
+			brand: 'Pax',
+			model: 'S90'
 		},
 		{
-			id: v4(),
 			url: 'pax-sp30',
 			author: 'Сергей Кравченко',
 			title: 'Pax SP30',
@@ -328,10 +375,11 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
 			],
-			discussionId: '14'
+			discussionId: '14',
+			brand: 'Pax',
+			model: 'SP30'
 		},
 		{
-			id: v4(),
 			url: 'pax-s300',
 			author: 'Сергей Кравченко',
 			title: 'Pax S300',
@@ -348,10 +396,11 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
 			],
-			discussionId: '15'
+			discussionId: '15',
+			brand: 'Pax',
+			model: 'S300'
 		},
 		{
-			id: v4(),
 			url: 'pax-s200',
 			author: 'Сергей Кравченко',
 			title: 'Pax S200',
@@ -368,10 +417,11 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
 			],
-			discussionId: '16'
+			discussionId: '16',
+			brand: 'Pax',
+			model: 'S200'
 		},
 		{
-			id: v4(),
 			url: 'pax-q25',
 			author: 'Сергей Кравченко',
 			title: 'Pax Q25',
@@ -388,10 +438,11 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
 			],
-			discussionId: '17'
+			discussionId: '17',
+			brand: 'Pax',
+			model: 'Q25'
 		},
 		{
-			id: v4(),
 			url: 'pax-d230',
 			author: 'Сергей Кравченко',
 			title: 'Pax D230',
@@ -408,10 +459,11 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки']
 				}
 			],
-			discussionId: '18'
+			discussionId: '18',
+			brand: 'Pax',
+			model: 'D230'
 		},
 		{
-			id: v4(),
 			url: 'pax-d230-mob',
 			author: 'Сергей Кравченко',
 			title: 'Pax D230 mob',
@@ -428,10 +480,11 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки']
 				}
 			],
-			discussionId: '19'
+			discussionId: '19',
+			brand: 'Pax',
+			model: 'D230 mob'
 		},
 		{
-			id: v4(),
 			url: 'verifone-vx520',
 			author: 'Сергей Кравченко',
 			title: 'VeriFone VX520',
@@ -460,10 +513,11 @@ export const useRootStore = create<RootState>((set) => ({
 					]
 				}
 			],
-			discussionId: '20'
+			discussionId: '20',
+			brand: 'VeriFone',
+			model: 'VX520'
 		},
 		{
-			id: v4(),
 			url: 'verifone-vx820',
 			author: 'Сергей Кравченко',
 			title: 'VeriFone VX820',
@@ -480,10 +534,11 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
 			],
-			discussionId: '21'
+			discussionId: '21',
+			brand: 'VeriFone',
+			model: 'VX820'
 		},
 		{
-			id: v4(),
 			url: 'ingenico-ict220-ict250',
 			author: 'Сергей Кравченко',
 			title: 'Ingenico ICT220-ICT250',
@@ -500,10 +555,11 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
 			],
-			discussionId: '22'
+			discussionId: '22',
+			brand: 'Ingenico',
+			model: 'ICT220-ICT250'
 		},
 		{
-			id: v4(),
 			url: 'ingenico-ipp320-ipp350',
 			author: 'Сергей Кравченко',
 			title: 'Ingenico IPP320-IPP350',
@@ -520,10 +576,11 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
 			],
-			discussionId: '23'
+			discussionId: '23',
+			brand: 'Ingenico',
+			model: 'IPP320-IPP350'
 		},
 		{
-			id: v4(),
 			url: 'ingenico-iwl220-iwl250',
 			author: 'Сергей Кравченко',
 			title: 'Ingenico IWL220-IWL250',
@@ -540,10 +597,11 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
 			],
-			discussionId: '24'
+			discussionId: '24',
+			brand: 'Ingenico',
+			model: 'IWL220-IWL250'
 		},
 		{
-			id: v4(),
 			url: 'tactilion-t2',
 			author: 'Сергей Кравченко',
 			title: 'Tactilion T2',
@@ -560,10 +618,11 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
 			],
-			discussionId: '25'
+			discussionId: '25',
+			brand: 'Tactilion',
+			model: 'T2'
 		},
 		{
-			id: v4(),
 			url: 'tactilion-g3',
 			author: 'Сергей Кравченко',
 			title: 'Tactilion G3',
@@ -580,10 +639,11 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки']
 				}
 			],
-			discussionId: '26'
+			discussionId: '26',
+			brand: 'Tactilion',
+			model: 'G3'
 		},
 		{
-			id: v4(),
 			url: 'castles-vega3000',
 			author: 'Сергей Кравченко',
 			title: 'Castles Vega3000 стац',
@@ -619,10 +679,11 @@ export const useRootStore = create<RootState>((set) => ({
 					]
 				}
 			],
-			discussionId: '27'
+			discussionId: '27',
+			brand: 'Castles',
+			model: 'Vega3000 стац'
 		},
 		{
-			id: v4(),
 			url: 'castles-vega3000-mob',
 			author: 'Сергей Кравченко',
 			title: 'Castles Vega3000 моб',
@@ -639,10 +700,11 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
 			],
-			discussionId: '28'
+			discussionId: '28',
+			brand: 'Castles',
+			model: 'Vega3000 моб'
 		},
 		{
-			id: v4(),
 			url: 'castles-vega3000-ikr',
 			author: 'Сергей Кравченко',
 			title: 'Castles Vega3000 ИКР',
@@ -659,29 +721,221 @@ export const useRootStore = create<RootState>((set) => ({
 					children: ['Что понадобится?', 'Процесс прошивки', 'Видеоинструкция']
 				}
 			],
-			discussionId: '29'
+			discussionId: '29',
+			brand: 'Castles',
+			model: 'Vega3000 ИКР'
+		}
+	]
+
+	// Добавляем id к каждому устройству и нормализуем URL
+	return baseDevices.map((device) => ({
+		...device,
+		id: v4(),
+		// Создаем новый URL slug для нового формата URL
+		url: createSlug(device.title) // Используем нормализованный slug
+	}))
+}
+
+export const useRootStore = create<RootState>((set) => ({
+	devices: createDevices(),
+	documents: [
+		{
+			id: v4(),
+			title: 'Акт принятия оказанных услуг',
+			description: 'Документ подтверждающий прием выполненных работ и услуг',
+			fileUrl: '/documents/installationCertificate.docx',
+			size: '18.5 KB',
+			format: 'docx',
+			category: 'legal',
+			updatedAt: '15 ноября 2025',
+			tags: ['Акт', 'Приемка', 'Юридический'],
+			downloadCount: 156
 		},
 		{
 			id: v4(),
-			url: 'aqsi5-f',
-			author: 'Сергей Кравченко',
-			title: 'AQSI5-Ф',
-			description: '',
-			image: '/content/aqsi5-f/image/aqsi5f.png',
-			bgColor: '#0dd72d',
-			updatedAt: '29 ноября 2025',
-			tags: ['Сбер', 'Aqsi'],
-			content: Aqsi5fContent,
-			contentItems: [],
-			discussionId: '31'
+			title: 'Акт экспертизы оборудования и SIM-карт',
+			description:
+				'Заключение о проверке и оценке состояния оборудования и SIM-карт',
+			fileUrl: '/documents/expertReport.docx',
+			size: '23.2 KB',
+			format: 'docx',
+			category: 'report',
+			updatedAt: '10 декабря 2025',
+			tags: ['Экспертиза', 'Оборудование', 'SIM-карты'],
+			downloadCount: 89
+		},
+		{
+			id: v4(),
+			title: 'Чек-лист X5',
+			description: 'Пошаговый список проверок перед сдачей',
+			fileUrl: '/documents/checklistX5.docx',
+			size: '13.5 KB',
+			format: 'docx',
+			category: 'checklist',
+			updatedAt: '20 ноября 2025',
+			tags: ['Чек-лист', 'X5', 'Проверка'],
+			downloadCount: 234
+		},
+		{
+			id: v4(),
+			title: 'Техническое задание на установку',
+			description: 'Требования и спецификации для установки оборудования',
+			fileUrl: '/documents/technicalSpec.docx',
+			size: '45.7 KB',
+			format: 'pdf',
+			category: 'technical',
+			updatedAt: '5 декабря 2025',
+			tags: ['Технический', 'Установка', 'Спецификации'],
+			downloadCount: 67
+		},
+		{
+			id: v4(),
+			title: 'Договор на обслуживание',
+			description: 'Типовой договор на техническое обслуживание оборудования',
+			fileUrl: '/documents/serviceContract.docx',
+			size: '32.1 KB',
+			format: 'docx',
+			category: 'legal',
+			updatedAt: '1 декабря 2025',
+			tags: ['Договор', 'Обслуживание', 'Юридический'],
+			downloadCount: 112
+		},
+		{
+			id: v4(),
+			title: 'Отчет о проделанной работе',
+			description: 'Форма для отчетности о выполненных работах',
+			fileUrl: '/documents/workReport.docx',
+			size: '19.8 KB',
+			format: 'docx',
+			category: 'report',
+			updatedAt: '25 ноября 2025',
+			tags: ['Отчет', 'Работы', 'Форма'],
+			downloadCount: 178
+		}
+	],
+	files: [
+		{
+			id: v4(),
+			title: 'Прошивка Эвотор 5i v2.1.5',
+			description: 'Стабильная версия прошивки для терминала Эвотор 5i',
+			fileUrl: '/files/firmware/evotor-5i-v2.1.5.zip',
+			size: '156 MB',
+			type: 'firmware',
+			version: 'v2.1.5',
+			updatedAt: '1 августа 2025',
+			deviceBrand: 'Эвотор',
+			deviceModel: '5i',
+			downloadCount: 1245,
+			checksum: 'sha256:abc123...'
+		},
+		{
+			id: v4(),
+			title: 'Драйвер USB для VeriFone VX520',
+			description: 'Драйвер для подключения терминала через USB',
+			fileUrl: '/files/drivers/verifone-vx520-usb-driver.exe',
+			size: '45 MB',
+			type: 'driver',
+			updatedAt: '15 ноября 2025',
+			deviceBrand: 'VeriFone',
+			deviceModel: 'VX520',
+			downloadCount: 892,
+			checksum: 'sha256:def456...'
+		},
+		{
+			id: v4(),
+			title: 'Утилита конфигурации Pax Terminals',
+			description: 'Программа для настройки терминалов Pax',
+			fileUrl: '/files/utilities/pax-config-tool-v1.4.2.exe',
+			size: '78 MB',
+			type: 'utility',
+			version: 'v1.4.2',
+			updatedAt: '21 июня 2025',
+			deviceBrand: 'Pax',
+			downloadCount: 567,
+			checksum: 'sha256:ghi789...'
+		},
+		{
+			id: v4(),
+			title: 'Программа-симулятор Ingenico',
+			description: 'Симулятор для тестирования транзакций',
+			fileUrl: '/files/software/ingenico-simulator-v3.0.1.zip',
+			size: '210 MB',
+			type: 'software',
+			version: 'v3.0.1',
+			updatedAt: '24 мая 2025',
+			deviceBrand: 'Ingenico',
+			downloadCount: 321,
+			checksum: 'sha256:jkl012...'
+		},
+		{
+			id: v4(),
+			title: 'Руководство по эксплуатации Kozen P12',
+			description: 'Полное руководство пользователя',
+			fileUrl: '/files/manuals/kozen-p12-manual.pdf',
+			size: '12.3 MB',
+			type: 'manual',
+			updatedAt: '14 декабря 2025',
+			deviceBrand: 'Kozen',
+			deviceModel: 'P12',
+			downloadCount: 456,
+			checksum: 'sha256:mno345...'
+		},
+		{
+			id: v4(),
+			title: 'Прошивка Pax S90 v5.3.0',
+			description: 'Актуальная версия прошивки для терминала Pax S90',
+			fileUrl: '/files/firmware/pax-s90-v5.3.0.zip',
+			size: '142 MB',
+			type: 'firmware',
+			version: 'v5.3.0',
+			updatedAt: '21 июня 2025',
+			deviceBrand: 'Pax',
+			deviceModel: 'S90',
+			downloadCount: 789,
+			checksum: 'sha256:pqr678...'
+		},
+		{
+			id: v4(),
+			title: 'Драйвер Ethernet для Castles Vega3000',
+			description: 'Драйвер для сетевого подключения',
+			fileUrl: '/files/drivers/castles-vega3000-ethernet-driver.exe',
+			size: '32 MB',
+			type: 'driver',
+			updatedAt: '30 июня 2025',
+			deviceBrand: 'Castles',
+			deviceModel: 'Vega3000',
+			downloadCount: 234,
+			checksum: 'sha256:stu901...'
+		},
+		{
+			id: v4(),
+			title: 'Утилита диагностики Tactilion',
+			description: 'Программа для диагностики терминалов Tactilion',
+			fileUrl: '/files/utilities/tactilion-diagnostic-tool.exe',
+			size: '65 MB',
+			type: 'utility',
+			version: 'v2.1.0',
+			updatedAt: '21 июня 2025',
+			deviceBrand: 'Tactilion',
+			downloadCount: 189,
+			checksum: 'sha256:vwx234...'
+		}
+	],
+	people: [
+		{
+			id: v4(),
+			avatar: <ScanFace className='w-16 h-16' />,
+			name: 'Сергей Кравченко',
+			description: 'Не знал где скачать прошивку. Поэтому создал доку'
 		}
 	],
 	bgHeader: '#fafafa',
-	changeBgHeader: (bgHeader: string) => {
-		set(() => ({ bgHeader }))
-		return { bgHeader }
-	},
 	activeTags: [],
+
+	// Функции должны быть правильно объявлены
+	changeBgHeader: (color: string) => {
+		set({ bgHeader: color })
+	},
 
 	toggleTag: (tagTitle: string) => {
 		set((state) => {

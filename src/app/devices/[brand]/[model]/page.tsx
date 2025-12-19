@@ -20,46 +20,70 @@ import { Feedback } from '@/components/feedback'
 const DevicePage = () => {
 	const params = useParams()
 	const router = useRouter()
-	const posts = useRootStore((state) => state.posts)
+
+	// Получаем параметры из URL
+	const brandSlug = params?.brand as string | undefined
+	const modelSlug = params?.model as string | undefined
+
+	const devices = useRootStore((state) => state.devices)
 	const changeBgHeader = useRootStore((state) => state.changeBgHeader)
 	const [sectionIds, setSectionIds] = useState<string[]>([])
+	const [isClient, setIsClient] = useState(false)
 	const activeSectionId = useActiveSection(sectionIds)
 
-	const url = params?.url as string
-	const post = useMemo(
-		() => posts.find((post) => post.url === url),
-		[posts, url]
+	useEffect(() => {
+		setIsClient(true)
+	}, [])
+
+	// Ищем устройство по бренду и модели
+	const device = useMemo(() => {
+		if (!brandSlug || !modelSlug) return null
+
+		return devices.find((d) => {
+			// Создаем slug из модели устройства для сравнения
+			const deviceModelSlug = d.model
+				.toLowerCase()
+				.replace(/\s+/g, '-')
+				.replace(/[.,]/g, '')
+				.replace('стац', 'stationary')
+				.replace('моб', 'mobile')
+				.replace('икр', 'ikr')
+
+			return (
+				d.brand?.toLowerCase() === brandSlug && deviceModelSlug === modelSlug
+			)
+		})
+	}, [devices, brandSlug, modelSlug])
+
+	const deviceIndex = useMemo(
+		() => devices.findIndex((d) => d.id === device?.id),
+		[devices, device?.id]
 	)
 
-	const postIndex = useMemo(
-		() => posts.findIndex((p) => p.id === post?.id),
-		[posts, post?.id]
+	const prevDevice = useMemo(
+		() => devices[deviceIndex - 1] ?? null,
+		[devices, deviceIndex]
 	)
 
-	const prevPost = useMemo(
-		() => posts[postIndex - 1] ?? null,
-		[posts, postIndex]
+	const nextDevice = useMemo(
+		() => devices[deviceIndex + 1] ?? null,
+		[devices, deviceIndex]
 	)
 
-	const nextPost = useMemo(
-		() => posts[postIndex + 1] ?? null,
-		[posts, postIndex]
-	)
-
-	const randomPosts = useMemo(
+	const randomDevices = useMemo(
 		() =>
-			[...posts]
-				.filter((p) => p.url !== url)
+			[...devices]
+				.filter((d) => d.id !== device?.id)
 				.sort(() => Math.random() - 0.5)
 				.slice(0, 3),
-		[posts, url]
+		[devices, device?.id]
 	)
 
 	const getAllSectionIds = () => {
-		if (!post?.contentItems) return []
+		if (!device?.contentItems) return []
 
 		const ids: string[] = []
-		post.contentItems.forEach((item, itemIndex) => {
+		device.contentItems.forEach((item, itemIndex) => {
 			ids.push(`${itemIndex + 1}`)
 
 			if (item.children) {
@@ -69,7 +93,7 @@ const DevicePage = () => {
 			}
 		})
 
-		ids.push(String(post.contentItems.length))
+		ids.push(String(device.contentItems.length))
 
 		return ids
 	}
@@ -77,18 +101,21 @@ const DevicePage = () => {
 	useEffect(() => {
 		const ids = getAllSectionIds()
 		setSectionIds(ids)
-	}, [post])
+	}, [device])
 
 	useEffect(() => {
-		if (!post) {
-			router.push('/not-found')
+		if (!isClient) return
+
+		if (!device && brandSlug && modelSlug) {
+			// Если устройство не найдено, перенаправляем на страницу бренда
+			router.push(`/devices/${brandSlug}`)
 			return
 		}
 
-		if (post?.bgColor) {
-			changeBgHeader(post.bgColor)
+		if (device?.bgColor) {
+			changeBgHeader(device.bgColor)
 		}
-	}, [post, changeBgHeader, router])
+	}, [device, changeBgHeader, router, isClient, brandSlug, modelSlug])
 
 	const isSectionActive = (sectionId: string) => {
 		return activeSectionId === sectionId
@@ -96,15 +123,62 @@ const DevicePage = () => {
 
 	const getActiveStyles = (sectionId: string) => {
 		if (isSectionActive(sectionId)) {
-			return { color: post?.bgColor }
+			return { color: device?.bgColor }
 		}
 		return {}
 	}
 
-	const Content = post?.content
+	// Функция для получения URL устройства
+	const getDeviceUrl = (deviceItem: any) => {
+		if (!deviceItem) return '/'
 
-	if (!post) {
-		return null
+		const brandSlug = deviceItem.brand?.toLowerCase() || 'unknown'
+		const modelSlug = deviceItem.model
+			.toLowerCase()
+			.replace(/\s+/g, '-')
+			.replace(/[.,]/g, '')
+			.replace('стац', 'stationary')
+			.replace('моб', 'mobile')
+			.replace('икр', 'ikr')
+
+		return `/devices/${brandSlug}/${modelSlug}`
+	}
+
+	// Функция для получения URL для навигации назад
+	const getBrandUrl = () => {
+		if (!brandSlug) return '/'
+		return `/devices/${brandSlug}`
+	}
+
+	const Content = device?.content
+
+	// Если SSR или загрузка
+	if (!isClient || !brandSlug || !modelSlug) {
+		return (
+			<div className='min-h-screen bg-white dark:bg-gray-900'>
+				<div className='p-8'>
+					<div className='animate-pulse'>
+						<div className='h-8 bg-gray-200 rounded w-1/4 mb-4'></div>
+						<div className='h-4 bg-gray-200 rounded w-1/2'></div>
+					</div>
+				</div>
+			</div>
+		)
+	}
+
+	if (!device) {
+		return (
+			<div className='min-h-screen bg-white dark:bg-gray-900'>
+				<div className='px-4 pt-20 md:pt-8 pb-8 max-w-[1572px] mx-auto'>
+					<h1 className='text-2xl font-bold text-red-600'>
+						Устройство не найдено
+					</h1>
+					<Link href={getBrandUrl()} className='text-blue-600 hover:underline'>
+						Вернуться к бренду
+					</Link>
+				</div>
+			</div>
+		)
 	}
 
 	return (
@@ -113,21 +187,21 @@ const DevicePage = () => {
 			<div className='flex flex-col items-center'>
 				<header
 					className='flex items-center justify-center w-screen h-[480px] z-0 md:h-[348px]'
-					style={{ backgroundColor: post.bgColor }}
+					style={{ backgroundColor: device.bgColor }}
 				>
 					<div className='w-full px-4 max-w-[1308px] flex flex-col items-center gap-6 md:flex-row md:gap-8'>
 						<Image
-							src={post.image}
+							src={device.image}
 							width={320}
 							height={320}
 							priority
-							alt={post.title}
+							alt={device.title}
 							className='w-auto h-[320px] object-contain'
 						/>
 						<div className='flex flex-col gap-4 text-center md:text-left'>
-							<h1 className='text-3xl font-semibold'>{post.title}</h1>
+							<h1 className='text-3xl font-semibold'>{device.title}</h1>
 							<p className='text-xl text-gray-700 dark:text-gray-300'>
-								{post.description}
+								{device.description}
 							</p>
 						</div>
 					</div>
@@ -145,7 +219,7 @@ const DevicePage = () => {
 						</AccordionTrigger>
 						<AccordionContent>
 							<nav className='flex flex-col p-4'>
-								{post.contentItems.map((item, itemIndex) => (
+								{device.contentItems.map((item, itemIndex) => (
 									<div key={`nav-${itemIndex}`} className='mb-3'>
 										<a
 											href={`#${itemIndex + 1}`}
@@ -181,7 +255,7 @@ const DevicePage = () => {
 					<div className='p-6 sticky top-[102px]'>
 						<ScrollArea className='h-[calc(100vh-200px)]'>
 							<nav className='space-y-4'>
-								{post.contentItems.map((item, itemIndex) => (
+								{device.contentItems.map((item, itemIndex) => (
 									<div key={itemIndex} className='mb-2'>
 										<a
 											href={`#${itemIndex + 1}`}
@@ -192,7 +266,7 @@ const DevicePage = () => {
 												<div
 													className='absolute left-0 top-1 bottom-1 w-1.5 rounded-full'
 													style={{
-														backgroundColor: post.bgColor,
+														backgroundColor: device.bgColor,
 														transition: 'background-color 0.3s ease'
 													}}
 												/>
@@ -216,7 +290,7 @@ const DevicePage = () => {
 															<div
 																className='absolute left-0 top-1 bottom-1 w-1.5 rounded-full'
 																style={{
-																	backgroundColor: post.bgColor,
+																	backgroundColor: device.bgColor,
 																	transition: 'background-color 0.3s ease'
 																}}
 															/>
@@ -238,7 +312,7 @@ const DevicePage = () => {
 					>
 						<div className='flex flex-wrap gap-1 text-sm text-gray-600 dark:text-gray-400'>
 							<span>Обновлено</span>
-							<time dateTime={post.updatedAt}>{post.updatedAt}</time>
+							<time dateTime={device.updatedAt}>{device.updatedAt}</time>
 						</div>
 					</footer>
 				</aside>
@@ -258,9 +332,9 @@ const DevicePage = () => {
 					{/*Feedback*/}
 					<div className='mt-16 px-4 max-w-[1308px] mx-auto'>
 						<Feedback
-							postId={post.id}
-							discussionId={post.discussionId}
-							color={post.bgColor}
+							postId={device.id}
+							discussionId={device.discussionId}
+							color={device.bgColor}
 						/>
 					</div>
 
@@ -270,22 +344,22 @@ const DevicePage = () => {
 							Читайте также
 						</h2>
 						<div className='flex gap-6 flex-wrap'>
-							{randomPosts.map((post) => (
+							{randomDevices.map((relatedDevice) => (
 								<Link
-									href={`/posts/${post.url}`}
-									key={post.id}
+									href={getDeviceUrl(relatedDevice)}
+									key={relatedDevice.id}
 									className={`relative p-6 h-[380px] flex flex-col items-center justify-between rounded-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-101 flex-1 min-w-[280px] ${'max-w-full'}`}
-									style={{ backgroundColor: post.bgColor }}
+									style={{ backgroundColor: relatedDevice.bgColor }}
 								>
 									<div className='absolute inset-0 bg-white opacity-0 transition-opacity duration-300 hover:opacity-20 dark:bg-gray-800 dark:hover:opacity-40' />
 									<h3 className='text-xl font-semibold self-start z-10 line-clamp-2'>
-										{post.title}
+										{relatedDevice.title}
 									</h3>
 									<p className='text-lg text-center self-center z-10 line-clamp-3'>
-										{post.description}
+										{relatedDevice.description}
 									</p>
 									<ul className='flex gap-3 flex-wrap self-end z-10'>
-										{post.tags.map((tag) => (
+										{relatedDevice.tags.map((tag) => (
 											<li
 												key={tag}
 												className='px-3 py-1 text-sm bg-black/10 rounded-md backdrop-blur-sm'
@@ -300,25 +374,25 @@ const DevicePage = () => {
 
 						{/* Navigation */}
 						<div className='my-12 flex flex-col gap-6 md:flex-row justify-between items-center'>
-							{prevPost && (
+							{prevDevice && (
 								<Link
-									href={`/posts/${prevPost.url}`}
+									href={getDeviceUrl(prevDevice)}
 									className='flex items-center gap-3 text-lg hover:underline transition-all hover:scale-101 group mr-auto'
 								>
 									<CircleArrowLeft className='transition-transform group-hover:-translate-x-1' />
 									<span className='max-w-[200px] line-clamp-2 md:max-w-[300px]'>
-										{prevPost.title}
+										{prevDevice.title}
 									</span>
 								</Link>
 							)}
 
-							{nextPost && (
+							{nextDevice && (
 								<Link
-									href={`/posts/${nextPost.url}`}
+									href={getDeviceUrl(nextDevice)}
 									className='flex items-center gap-3 text-lg hover:underline transition-all hover:scale-101 group ml-auto'
 								>
 									<span className='max-w-[200px] line-clamp-2 md:max-w-[300px] text-right'>
-										{nextPost.title}
+										{nextDevice.title}
 									</span>
 									<CircleArrowRight className='transition-transform group-hover:translate-x-1' />
 								</Link>
@@ -326,15 +400,15 @@ const DevicePage = () => {
 						</div>
 
 						<ScrollToTop
-							progressColor={post.bgColor}
-							iconColor={post.bgColor}
+							progressColor={device.bgColor}
+							iconColor={device.bgColor}
 						/>
 
 						{/* Mobile Footer */}
 						<div className='mb-8 px-6 py-8 text-lg border rounded-lg flex items-center justify-center lg:hidden'>
 							<div className='flex flex-wrap gap-1 text-gray-600 dark:text-gray-400'>
 								<span>Обновлено</span>
-								<time dateTime={post.updatedAt}>{post.updatedAt}</time>
+								<time dateTime={device.updatedAt}>{device.updatedAt}</time>
 							</div>
 						</div>
 					</div>
