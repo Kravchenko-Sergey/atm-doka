@@ -122,7 +122,7 @@ export default function RootLayout({
 						<div className='flex flex-col items-center justify-between gap-4 md:flex-row'>
 							<Link
 								href='/'
-								className='w-full z-20 whitespace-nowrap rounded-lg px-8 py-2 text-3xl flex items-center justify-center transition-colors  dark:text-[#fafafa] md:w-fit bg-gray-200 dark:bg-[#42454c]'
+								className='w-full z-20 whitespace-nowrap rounded-sm px-8 py-2 text-3xl flex items-center justify-center transition-colors  dark:text-[#fafafa] md:w-fit bg-gray-200 dark:bg-[#42454c]'
 								aria-label='На главную страницу'
 							>
 								АТМ Дока

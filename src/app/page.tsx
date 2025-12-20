@@ -187,7 +187,7 @@ export default function Home() {
 
 							{/* Hover фон - появляется при наведении */}
 							<div
-								className='absolute inset-0 -z-10 rounded-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200'
+								className='absolute inset-0 -z-10 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200'
 								style={{
 									backgroundColor: item.color,
 									width: '100%' // Фон на всю ширину ссылки
@@ -200,7 +200,7 @@ export default function Home() {
 
 			{/* Info Cards */}
 			<div className='px-4 max-w-[1572px] flex gap-4 flex-col lg:flex-row'>
-				<div className='p-6 bg-gray-200 rounded-xl flex-1 dark:bg-[#42454c]'>
+				<div className='p-6 bg-gray-200 rounded-sm flex-1 dark:bg-[#42454c]'>
 					<h2 className='pb-6 text-2xl font-semibold'>Вместе и для каждого</h2>
 					<div className='text-xl space-y-2'>
 						<p>Дока — это документация для POS-инженеров на понятном языке.</p>
@@ -217,7 +217,7 @@ export default function Home() {
 					</Link>
 				</div>
 
-				<div className='p-6 border border-[1px] border-gray-300 dark:border-gray-600 rounded-xl flex flex-col flex-1'>
+				<div className='p-6 border border-[1px] border-gray-300 dark:border-gray-600 rounded-sm flex flex-col flex-1'>
 					<h2 className='pb-6 text-2xl font-semibold'>Станьте автором Доки</h2>
 					<div className='text-xl space-y-2 flex-1'>
 						<p>Дополните документацию реальными кейсами из практики.</p>
@@ -245,7 +245,7 @@ export default function Home() {
 							<Link
 								href={getDeviceUrl(device)}
 								key={device.id}
-								className='relative p-6 min-w-[320px] h-[330px] flex flex-col items-center justify-between flex-1 rounded-xl overflow-hidden transition-all duration-300 ease-in-out sm:h-[480px] sm:min-w-[400px] hover:shadow-lg hover:scale-101'
+								className='relative p-4 min-w-[320px] h-[330px] flex flex-col items-center justify-between flex-1 rounded-sm overflow-hidden transition-all duration-300 ease-in-out sm:h-[480px] sm:min-w-[400px] hover:shadow-lg hover:scale-101'
 								style={{ backgroundColor: device.bgColor }}
 							>
 								<div className='absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-20 dark:bg-gray-800 dark:hover:opacity-40' />
@@ -255,11 +255,11 @@ export default function Home() {
 								<p className='text-xl text-center self-center z-10 line-clamp-3'>
 									{device.description}
 								</p>
-								<div className='flex gap-3 flex-wrap self-end justify-end z-10'>
+								<div className='flex gap-1 flex-wrap self-end justify-end z-10'>
 									{device.tags.map((tag) => (
 										<span
 											key={tag}
-											className='px-2 py-1 text-sm bg-black/10 rounded-lg'
+											className='p-1 text-sm bg-black/10 rounded-sm'
 										>
 											{tag}
 										</span>
@@ -274,7 +274,7 @@ export default function Home() {
 							<Button
 								onClick={handleLoadMore}
 								variant='outline'
-								className='p-6 text-xl rounded-xl font-normal min-w-[200px] hover:scale-105 transition-transform'
+								className='p-6 text-xl rounded-sm font-normal min-w-[200px] hover:scale-105 transition-transform'
 							>
 								Показать ещё
 							</Button>
@@ -284,7 +284,7 @@ export default function Home() {
 			</div>
 
 			{/* Детальная навигация по брендам с моделями */}
-			<div className='pl-4 mt-16 mb-32 md:mt-32 pt-6 md:pt-20 px-4 max-w-[1572px]'>
+			<div className='px-4 mt-16 md:mt-32 max-w-[1572px]'>
 				<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-7 gap-6 md:gap-8 lg:gap-10 xl:gap-12 mb-8 md:mb-12'>
 					{brandModels.map((brand) => (
 						<div key={brand.brand} className='w-full'>

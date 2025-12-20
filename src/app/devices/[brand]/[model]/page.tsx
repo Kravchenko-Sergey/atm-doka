@@ -1,7 +1,7 @@
 'use client'
 
 import { useRootStore } from '@/state/store'
-import { CircleArrowLeft, CircleArrowRight } from 'lucide-react'
+import { CircleArrowLeft, CircleArrowRight, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
 import Image from 'next/image'
@@ -17,6 +17,44 @@ import { ScrollToTop } from '@/components/scroll-to-top'
 import { useActiveSection } from '@/components/use-active-section'
 import { Feedback } from '@/components/feedback'
 
+const BRAND_CONFIG = {
+	evotor: {
+		name: 'Evotor',
+		displayName: 'Эвотор',
+		color: '#f15024'
+	},
+	pax: {
+		name: 'Pax',
+		displayName: 'Pax',
+		color: '#08a4e1'
+	},
+	ingenico: {
+		name: 'Ingenico',
+		displayName: 'Ingenico',
+		color: '#41e747'
+	},
+	verifone: {
+		name: 'VeriFone',
+		displayName: 'VeriFone',
+		color: '#6effd2'
+	},
+	kozen: {
+		name: 'Kozen',
+		displayName: 'Kozen',
+		color: '#DC2626'
+	},
+	castles: {
+		name: 'Castles',
+		displayName: 'Castles',
+		color: '#704ecc'
+	},
+	tactilion: {
+		name: 'Tactilion',
+		displayName: 'Tactilion',
+		color: '#ffd829'
+	}
+} as const
+
 const DevicePage = () => {
 	const params = useParams()
 	const router = useRouter()
@@ -30,6 +68,11 @@ const DevicePage = () => {
 	const [sectionIds, setSectionIds] = useState<string[]>([])
 	const [isClient, setIsClient] = useState(false)
 	const activeSectionId = useActiveSection(sectionIds)
+
+	const brandInfo = useMemo(() => {
+		if (!brandSlug) return null
+		return BRAND_CONFIG[brandSlug as keyof typeof BRAND_CONFIG]
+	}, [brandSlug])
 
 	useEffect(() => {
 		setIsClient(true)
@@ -168,7 +211,7 @@ const DevicePage = () => {
 
 	if (!device) {
 		return (
-			<div className='min-h-screen bg-white dark:bg-gray-900'>
+			<div className='min-h-screen '>
 				<div className='px-4 pt-20 md:pt-8 pb-8 max-w-[1572px] mx-auto'>
 					<h1 className='text-2xl font-bold text-red-600'>
 						Устройство не найдено
@@ -186,23 +229,47 @@ const DevicePage = () => {
 			{/* Header Section */}
 			<div className='flex flex-col items-center'>
 				<header
-					className='flex items-center justify-center w-screen h-[480px] z-0 md:h-[348px]'
+					className='flex items-center justify-center w-screen'
 					style={{ backgroundColor: device.bgColor }}
 				>
-					<div className='w-full px-4 max-w-[1308px] flex flex-col items-center gap-6 md:flex-row md:gap-8'>
-						<Image
-							src={device.image}
-							width={320}
-							height={320}
-							priority
-							alt={device.title}
-							className='w-auto h-[320px] object-contain'
-						/>
-						<div className='flex flex-col gap-4 text-center md:text-left'>
-							<h1 className='text-3xl font-semibold'>{device.title}</h1>
-							<p className='text-xl text-gray-700 dark:text-gray-300'>
-								{device.description}
-							</p>
+					<div className='w-full mt-20 md:mt-0 mb-6 px-4 max-w-[1570px] flex flex-col items-center gap-6 md:flex-row md:gap-8'>
+						{/* Изображение устройства */}
+						<div className='w-50 h-64 md:min-w-51.5 md:h-80 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-sm'>
+							<Image
+								src={device.image}
+								width={206}
+								height={256}
+								priority
+								alt={device.title}
+							/>
+						</div>
+
+						<div className='h-full flex flex-col gap-24 text-center md:text-left'>
+							<div className='pt-16 flex flex-col gap-6'>
+								<h1 className='text-4xl md:text-5xl font-semibold'>
+									{device.title}
+								</h1>
+								<p className='text-xl'>{device.description}</p>
+							</div>
+
+							{/* Хлебные крошки */}
+							<nav className='flex items-center gap-2 text-sm mt-4 '>
+								<Link
+									href='/'
+									className='flex items-center gap-1 hover:text-white transition-colors'
+								>
+									<span>Главная</span>
+								</Link>
+								<ChevronRight size={16} />
+								<Link
+									href={`/devices/${brandSlug}`}
+									className='flex items-center gap-1 hover:text-white transition-colors'
+								>
+									<span>{brandInfo?.displayName || device.brand}</span>
+								</Link>
+								<ChevronRight size={16} />
+								<span className='font-medium'>{device.title}</span>
+							</nav>
 						</div>
 					</div>
 				</header>

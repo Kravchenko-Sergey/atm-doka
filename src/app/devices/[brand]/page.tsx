@@ -4,6 +4,7 @@ import { useRootStore } from '@/state/store'
 import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
+import { ChevronRight, Home } from 'lucide-react'
 
 const BRAND_CONFIG = {
 	evotor: {
@@ -57,6 +58,18 @@ const BRAND_CONFIG = {
 	}
 } as const
 
+// Функция для создания slug из названия модели
+const createModelSlug = (modelName: string): string => {
+	return modelName
+		.toLowerCase()
+		.replace(/\s+/g, '-')
+		.replace(/[.,]/g, '')
+		.replace('стац', 'stationary')
+		.replace('моб', 'mobile')
+		.replace('икр', 'ikr')
+		.replace(/[^a-z0-9-]/g, '')
+}
+
 // Функция для нормализации названия бренда
 const normalizeBrandName = (brandName: string): string => {
 	const brandMapping: Record<string, string> = {
@@ -87,39 +100,39 @@ const BRAND_DESCRIPTIONS: Record<
 	{ title: string; description: string }
 > = {
 	evotor: {
-		title: 'Эвотор - Российский производитель POS-терминалов',
+		title: 'Эвотор',
 		description:
-			'Эвотор — ведущий российский производитель интеллектуальных POS-терминалов и экосистемы программного обеспечения для торговли. Компания была основана в 2014 году и быстро заняла лидирующие позиции на российском рынке.'
+			'Ведущий российский производитель интеллектуальных POS-терминалов и экосистемы программного обеспечения для торговли. Компания была основана в 2014 году, быстро заняла лидирующие позиции на российском рынке. Специализируется на создании смарт-терминалов для автоматизации малого и среднего бизнеса, предлагая комплексные решения для розничной торговли, общественного питания и сферы услуг'
 	},
 	pax: {
-		title: 'Pax - Международный лидер в производстве POS-терминалов',
+		title: 'Pax',
 		description:
-			'PAX Technology — международная компания, специализирующаяся на разработке и производстве инновационных решений для электронных платежей. Штаб-квартира расположена в Шэньчжэне, Китай.'
+			'Международная компания PAX Technology (PAX Global Technology) — мировой лидер в производстве инновационных решений для электронных платежей. Основана в 2000 году, штаб-квартира расположена в Шэньчжэне, Китай. Производит широкий спектр POS-терминалов, включая стационарные, мобильные и беспроводные модели, поставляя оборудование в более чем 120 стран мира'
 	},
 	ingenico: {
-		title: 'Ingenico - Мировой лидер в платежных решениях',
+		title: 'Ingenico',
 		description:
-			'Ingenico — французская компания, мировой лидер в области терминальных решений и платежных услуг. Компания предлагает широкий спектр продуктов и услуг для безопасных электронных транзакций.'
+			'Французская компания, один из мировых лидеров в области терминальных решений и платежных услуг. Основана в 1980 году, имеет представительства в более чем 170 странах. Компания предлагает полный спектр продуктов и услуг для безопасных электронных транзакций, включая POS-терминалы, решения для электронной коммерции и мобильных платежей'
 	},
 	verifone: {
-		title: 'VeriFone - Американский производитель платежных систем',
+		title: 'VeriFone',
 		description:
-			'VeriFone — американская компания, один из крупнейших в мире производителей терминалов для электронных платежей и сопутствующих услуг. Основана в 1981 году.'
+			'Американская компания (ныне часть индийской группы Catalyst), один из крупнейших в мире производителей терминалов для электронных платежей. Основана в 1981 году. Специализируется на разработке и производстве безопасных платежных решений для розничной торговли, финансовых учреждений и поставщиков услуг по всему миру'
 	},
 	kozen: {
-		title: 'Kozen - Российские POS-решения для бизнеса',
+		title: 'Kozen',
 		description:
-			'Kozen — российский производитель POS-терминалов, специализирующийся на создании надежных и современных решений для розничной торговли. Оборудование адаптировано под специфику российского рынка.'
+			'Российский производитель POS-терминалов, основанный в 2016 году. Специализируется на создании надежных и современных решений для розничной торговли, адаптированных под специфику российского рынка. Компания предлагает как стационарные, так и мобильные терминалы, ориентированные на потребности малого и среднего бизнеса в России и странах СНГ'
 	},
 	castles: {
-		title: 'Castles - Тайваньский производитель платежного оборудования',
+		title: 'Castles',
 		description:
-			'Castles Technology — тайваньская компания, специализирующаяся на разработке и производстве инновационных решений для электронных платежей. Известна своими надежными и производительными терминалами.'
+			'Тайваньская компания Castles Technology, основанная в 1996 году. Специализируется на разработке и производстве инновационных решений для электронных платежей. Известна своими надежными и производительными терминалами, которые используются по всему миру. Компания имеет сертификаты безопасности PCI, EMV и других международных стандартов'
 	},
 	tactilion: {
-		title: 'Tactilion - Мобильные POS-решения',
+		title: 'Tactilion',
 		description:
-			'Tactilion — производитель мобильных POS-терминалов, предлагающий современные решения для безналичных платежей. Специализируется на беспроводных и компактных устройствах.'
+			'Производитель мобильных POS-терминалов, предлагающий современные решения для безналичных платежей. Специализируется на создании компактных, беспроводных устройств для мобильной торговли. Продукция компании ориентирована на курьеров, торговых представителей, водителей такси и другие профессии, требующие мобильных платежных решений'
 	}
 }
 
@@ -256,7 +269,7 @@ export default function BrandPage() {
 	}
 
 	return (
-		<div className='w-full mb-32 flex flex-col'>
+		<div className='w-full flex flex-1 flex-col'>
 			{/* Header Section */}
 			<div className='flex flex-col items-center'>
 				<header
@@ -265,24 +278,30 @@ export default function BrandPage() {
 				>
 					<div className='w-full mt-20 md:mt-0 mb-6 px-4 max-w-[1572] flex flex-col items-center gap-6 md:flex-row md:gap-8'>
 						{/* Иконка или лого бренда */}
-						<div
-							className='w-64 h-64 md:min-w-51.5 md:h-80 flex items-center justify-center rounded-2xl'
-							style={{
-								backgroundColor: 'rgba(255, 255, 255, 0.2)',
-								backdropFilter: 'blur(10px)'
-							}}
-						>
-							<h1 className='text-5xl md:text-6xl font-bold text-white'>
+						<div className='w-64 h-64 md:min-w-51.5 md:h-80 flex items-center justify-center rounded-sm bg-white/10 backdrop-blur-sm'>
+							<h1 className='text-5xl md:text-6xl font-bold'>
 								{brand.displayName.charAt(0)}
 							</h1>
 						</div>
-						<div className='flex flex-col gap-6 text-center md:text-left'>
-							<h1 className='text-4xl md:text-5xl font-semibold text-white'>
-								{brand.displayName}
-							</h1>
-							<p className='text-xl text-white/90'>
-								{brandDescription.description}
-							</p>
+						<div className='h-full flex flex-col gap-24 text-center md:text-left'>
+							<div className='pt-16 flex flex-col gap-6'>
+								<h1 className='text-4xl md:text-5xl font-semibold'>
+									{brand.displayName}
+								</h1>
+								<p className='text-xl'>{brandDescription.description}</p>
+							</div>
+
+							{/* Хлебные крошки */}
+							<nav className='flex items-center gap-2 text-sm mt-4'>
+								<Link
+									href='/'
+									className='flex items-center gap-1 transition-colors'
+								>
+									<span>Главная</span>
+								</Link>
+								<ChevronRight size={16} />
+								<span className='font-medium'>{brand.displayName}</span>
+							</nav>
 						</div>
 					</div>
 				</header>
@@ -292,51 +311,40 @@ export default function BrandPage() {
 			<div className='w-full flex flex-col lg:flex-row'>
 				{/* Content Area */}
 				<main className='flex-1 max-w-full'>
-					{/* Устройства бренда */}
+					{/* Устройства бренда - СПИСОК как на главной */}
+					<div className='px-4 md:mt-6 md:mb-8 pt-6 md:pt-8 max-w-[1572px]'>
+						{/* Хлебные крошки под заголовком для десктопа */}
 
-					<div className='px-4 max-w-[1572px]'>
-						<h2 className='my-12 text-2xl md:text-3xl font-bold'>
-							Модели {brand.displayName}
+						<h2 className='mb-8 md:mb-10 text-2xl md:text-3xl font-bold'>
+							Модели
 						</h2>
 
 						{brandDevices.length > 0 ? (
-							<div className='flex justify-center gap-6 flex-wrap'>
-								{brandDevices.map((device) => {
-									const modelSlug = device.model
-										.toLowerCase()
-										.replace(/\s+/g, '-')
-										.replace(/[.,]/g, '')
-										.replace('стац', 'stationary')
-										.replace('моб', 'mobile')
-										.replace('икр', 'ikr')
+							<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 md:gap-8 lg:gap-10 xl:gap-12 mb-8 md:mb-12'>
+								<div className='w-full'>
+									{/* Простой список моделей */}
+									<div className='space-y-2 md:space-y-3'>
+										{brandDevices.map((device) => {
+											const modelSlug = createModelSlug(device.model)
 
-									return (
-										<Link
-											key={device.id}
-											href={`/devices/${brandSlug}/${modelSlug}`}
-											className='relative p-6 min-w-[320px] h-[330px] flex flex-col items-center justify-between flex-1 rounded-xl overflow-hidden transition-all duration-300 ease-in-out sm:h-[480px] sm:min-w-[400px] hover:shadow-lg hover:scale-101'
-											style={{ backgroundColor: device.bgColor || brand.color }}
-										>
-											<div className='absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-20 dark:bg-gray-800 dark:hover:opacity-40' />
-											<h3 className='text-2xl font-semibold self-start z-10'>
-												{device.title}
-											</h3>
-											<p className='text-xl text-center self-center z-10 line-clamp-3'>
-												{device.description}
-											</p>
-											<div className='flex gap-3 flex-wrap self-end justify-end z-10'>
-												{device.tags.slice(0, 3).map((tag) => (
-													<span
-														key={tag}
-														className='px-2 py-1 text-sm bg-black/10 rounded-lg'
+											return (
+												<div key={device.id} className='py-1'>
+													<Link
+														href={`/devices/${brandSlug}/${modelSlug}`}
+														className='text-base md:text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 
+															dark:hover:text-blue-400 hover:underline transition-colors whitespace-nowrap flex items-center gap-2'
 													>
-														{tag}
-													</span>
-												))}
-											</div>
-										</Link>
-									)
-								})}
+														<span
+															className='w-2 h-2 rounded-full'
+															style={{ backgroundColor: brand.color }}
+														/>
+														{device.title}
+													</Link>
+												</div>
+											)
+										})}
+									</div>
+								</div>
 							</div>
 						) : (
 							<div className='text-center py-12'>
@@ -346,42 +354,6 @@ export default function BrandPage() {
 							</div>
 						)}
 					</div>
-					{/* Рекомендуемые бренды */}
-					{otherBrands.length > 0 && (
-						<div className='px-4 pb-8 max-w-[1572px]'>
-							<h2 className='my-12 text-3xl font-semibold transition-colors duration-300'>
-								Другие бренды
-							</h2>
-							<div className='flex justify-center gap-6 flex-wrap'>
-								{otherBrands.map((otherBrand) => {
-									const devicesCount = brandStats[otherBrand.slug]?.count || 0
-
-									return (
-										<Link
-											key={otherBrand.slug}
-											href={getBrandUrl(otherBrand.slug)}
-											className='relative p-6 min-w-[320px] h-[330px] flex flex-col items-center justify-between flex-1 rounded-xl overflow-hidden transition-all duration-300 ease-in-out sm:h-[480px] sm:min-w-[400px] hover:shadow-lg hover:scale-101'
-											style={{ backgroundColor: otherBrand.color }}
-										>
-											<div className='absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-20 dark:bg-gray-800 dark:hover:opacity-40' />
-											<h3 className='text-2xl font-semibold self-start z-10'>
-												{otherBrand.displayName}
-											</h3>
-											<p className='text-xl text-center self-center z-10 line-clamp-3'>
-												{BRAND_DESCRIPTIONS[otherBrand.slug]?.description ||
-													'Смотреть все модели'}
-											</p>
-											<div className='flex gap-3 flex-wrap self-end justify-end z-10'>
-												<span className='px-2 py-1 text-sm bg-black/10 rounded-lg'>
-													{devicesCount} {getModelWord(devicesCount)}
-												</span>
-											</div>
-										</Link>
-									)
-								})}
-							</div>
-						</div>
-					)}
 				</main>
 			</div>
 		</div>

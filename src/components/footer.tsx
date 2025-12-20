@@ -43,7 +43,7 @@ export default function Footer({ theme, toggleTheme }: FooterProps) {
 				{/* Мобилка: вертикально */}
 				<div className='flex md:hidden flex-col items-center gap-4'>
 					{/* Текст */}
-					<div className='text-sm text-gray-600 dark:text-gray-400 text-center'>
+					<div className='text-xs text-gray-600 dark:text-gray-400 text-center'>
 						ATM Дока • Документация для POS-инженеров • {currentYear}
 					</div>
 

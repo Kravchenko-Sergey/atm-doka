@@ -154,7 +154,7 @@ const createDevices = (): Device[] => {
 				}
 			],
 			discussionId: '6',
-			brand: 'Эвотор',
+			brand: 'Evotor',
 			model: '7.2'
 		},
 		{
@@ -179,7 +179,7 @@ const createDevices = (): Device[] => {
 				}
 			],
 			discussionId: '7',
-			brand: 'Эвотор',
+			brand: 'Evotor',
 			model: '7.3'
 		},
 		{
@@ -200,7 +200,7 @@ const createDevices = (): Device[] => {
 				}
 			],
 			discussionId: '8',
-			brand: 'Эвотор',
+			brand: 'Evotor',
 			model: '10'
 		},
 		{
@@ -225,7 +225,7 @@ const createDevices = (): Device[] => {
 				}
 			],
 			discussionId: '9',
-			brand: 'Эвотор',
+			brand: 'Evotor',
 			model: '6'
 		},
 		{
