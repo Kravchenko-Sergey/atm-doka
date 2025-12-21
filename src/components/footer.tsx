@@ -1,4 +1,4 @@
-import { Sun, Moon, Usb } from 'lucide-react'
+import { Sun, Moon, Usb, Table } from 'lucide-react'
 import { Switch } from './ui/switch'
 import Link from 'next/link'
 
@@ -43,6 +43,15 @@ export default function Footer({ theme, toggleTheme }: FooterProps) {
 							Флешка инженера
 						</Link>
 						<Link
+							href='https://cloud.atm72.ru/s/7wtH9HYb74DLrCt'
+							target='_blank'
+							rel='noopener noreferrer'
+							className='flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 transition-colors whitespace-nowrap'
+						>
+							<Table size={16} />
+							Таблица целевых версий
+						</Link>
+						<Link
 							href='/about'
 							className='text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 transition-colors whitespace-nowrap'
 						>
@@ -59,8 +68,8 @@ export default function Footer({ theme, toggleTheme }: FooterProps) {
 					</div>
 
 					{/* Нижний ряд: тема и ссылки */}
-					<div className='flex items-center justify-center gap-6'>
-						<div className='flex items-center gap-3'>
+					<div className='flex items-center justify-center gap-4'>
+						<div className='flex items-center gap-2'>
 							<Sun size={16} className='text-gray-500' />
 							<Switch
 								checked={theme === 'dark'}
@@ -79,6 +88,15 @@ export default function Footer({ theme, toggleTheme }: FooterProps) {
 							>
 								<Usb size={14} />
 								Флешка
+							</Link>
+							<Link
+								href='https://cloud.atm72.ru/d/pBGRrxepfXG-yw'
+								target='_blank'
+								rel='noopener noreferrer'
+								className='flex items-center gap-1 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 transition-colors'
+							>
+								<Table size={14} />
+								Таблица
 							</Link>
 							<Link
 								href='/about'
