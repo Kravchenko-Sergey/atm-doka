@@ -3,7 +3,7 @@
 import { useRootStore } from '@/state/store'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo } from 'react'
 import { ChevronRight, Download } from 'lucide-react'
 
 const BRAND_CONFIG = {
@@ -41,13 +41,7 @@ const BRAND_CONFIG = {
 			}
 		],
 		drivers: [],
-		soft: [],
-		instructions: [
-			{
-				title: 'Эвотор 6 (07.08.2024)',
-				url: 'https://disk.yandex.ru/i/yV8UE5IlTIr73Q'
-			}
-		]
+		soft: []
 	},
 	pax: {
 		name: 'Pax',
@@ -57,8 +51,7 @@ const BRAND_CONFIG = {
 		lightGradient: 'from-blue-50 to-cyan-100',
 		firmwares: [],
 		drivers: [],
-		soft: [],
-		instructions: []
+		soft: []
 	},
 	ingenico: {
 		name: 'Ingenico',
@@ -68,8 +61,7 @@ const BRAND_CONFIG = {
 		lightGradient: 'from-green-50 to-emerald-100',
 		firmwares: [],
 		drivers: [],
-		soft: [],
-		instructions: []
+		soft: []
 	},
 	verifone: {
 		name: 'VeriFone',
@@ -79,8 +71,7 @@ const BRAND_CONFIG = {
 		lightGradient: 'from-teal-50 to-green-100',
 		firmwares: [],
 		drivers: [],
-		soft: [],
-		instructions: []
+		soft: []
 	},
 	kozen: {
 		name: 'Kozen',
@@ -102,19 +93,13 @@ const BRAND_CONFIG = {
 		],
 		drivers: [
 			{
-				title: 'Драйвера для Kozen P12',
+				title: 'Драйверы для Kozen P12',
 				url: 'https://disk.yandex.ru/d/b-x-jmu7iA3swg'
 			}
 		],
 		soft: [
 			{ title: 'Flash Tool', url: 'https://disk.yandex.ru/d/rd08ougjIKg4Lg' },
 			{ title: 'SN Writter', url: 'https://disk.yandex.ru/d/jWk5EXCjMpsN8g' }
-		],
-		instructions: [
-			{
-				title: 'Kozen P12 (07.03.2024)',
-				url: 'https://disk.yandex.ru/i/vGRR81BisBrqWA'
-			}
 		]
 	},
 	castles: {
@@ -125,8 +110,7 @@ const BRAND_CONFIG = {
 		lightGradient: 'from-purple-50 to-violet-100',
 		firmwares: [],
 		drivers: [],
-		soft: [],
-		instructions: []
+		soft: []
 	},
 	tactilion: {
 		name: 'Tactilion',
@@ -136,8 +120,7 @@ const BRAND_CONFIG = {
 		lightGradient: 'from-yellow-50 to-amber-100',
 		firmwares: [],
 		drivers: [],
-		soft: [],
-		instructions: []
+		soft: []
 	}
 } as const
 
@@ -226,25 +209,6 @@ export default function BrandPage() {
 
 	const devices = useRootStore((state) => state.devices)
 	const changeBgHeader = useRootStore((state) => state.changeBgHeader)
-	const [isClient, setIsClient] = useState(false)
-
-	const getModelWord = (count: number): string => {
-		if (count % 10 === 1 && count % 100 !== 11) {
-			return 'модель'
-		}
-		if (
-			count % 10 >= 2 &&
-			count % 10 <= 4 &&
-			(count % 100 < 10 || count % 100 >= 20)
-		) {
-			return 'модели'
-		}
-		return 'моделей'
-	}
-
-	useEffect(() => {
-		setIsClient(true)
-	}, [])
 
 	// Ищем бренд в конфигурации
 	const brand = useMemo(() => {
@@ -253,8 +217,6 @@ export default function BrandPage() {
 	}, [brandSlug])
 
 	useEffect(() => {
-		if (!isClient) return
-
 		// Проверяем, что бренд существует и у него есть цвет
 		if (brand?.color) {
 			changeBgHeader(brand.color)
@@ -262,7 +224,7 @@ export default function BrandPage() {
 			// Если бренд не найден, устанавливаем цвет по умолчанию
 			changeBgHeader('#fafafa')
 		}
-	}, [brand, changeBgHeader, isClient])
+	}, [brand, changeBgHeader])
 
 	// Получаем устройства этого бренда (с нормализацией)
 	const brandDevices = useMemo(() => {
@@ -276,42 +238,14 @@ export default function BrandPage() {
 		})
 	}, [devices, brand])
 
-	// Если SSR или загрузка
-	if (!isClient || !brandSlug) {
-		return (
-			<div className='min-h-screen bg-white dark:bg-gray-900'>
-				<div className='p-8'>
-					<div className='animate-pulse'>
-						<div className='h-8 bg-gray-200 rounded w-1/4 mb-4'></div>
-						<div className='h-4 bg-gray-200 rounded w-1/2'></div>
-					</div>
-				</div>
-			</div>
-		)
-	}
-
-	if (!brand) {
-		return (
-			<div className='min-h-screen bg-white dark:bg-gray-900'>
-				<div className='px-4 pt-20 md:pt-8 pb-8 max-w-[1572px] mx-auto'>
-					<h1 className='text-2xl font-bold text-red-600'>Бренд не найден</h1>
-					<Link href='/' className='text-blue-600 hover:underline'>
-						Вернуться на главную
-					</Link>
-				</div>
-			</div>
-		)
-	}
-
-	const brandDescription = BRAND_DESCRIPTIONS[brandSlug] || {
-		title: `${brand.displayName} - POS-терминалы`,
-		description: `Полное руководство по POS-терминалам ${brand.displayName}. Инструкции по настройке, прошивке, ремонту и обслуживанию всех моделей.`
+	const brandDescription = BRAND_DESCRIPTIONS[brandSlug || ''] || {
+		title: `${brand?.displayName} - POS-терминалы`,
+		description: `Полное руководство по POS-терминалам ${brand?.displayName}. Инструкции по настройке, прошивке, ремонту и обслуживанию всех моделей.`
 	}
 
 	const hasFirmware = brand?.firmwares && brand.firmwares.length > 0
 	const hasDrivers = brand?.drivers && brand.drivers.length > 0
 	const hasSoft = brand?.soft && brand.soft.length > 0
-	const hasInstructions = brand?.instructions && brand.instructions.length > 0
 
 	return (
 		<div className='w-full flex flex-1 flex-col'>
@@ -319,19 +253,19 @@ export default function BrandPage() {
 			<div className='flex flex-col items-center'>
 				<header
 					className='flex items-center justify-center w-screen'
-					style={{ backgroundColor: brand.color }}
+					style={{ backgroundColor: brand?.color }}
 				>
 					<div className='w-full mt-20 md:mt-0 mb-6 px-4 max-w-[1572] flex flex-col items-center gap-6 md:flex-row md:gap-8'>
 						{/* Иконка или лого бренда */}
 						<div className='w-64 h-64 md:min-w-51.5 md:h-80 flex items-center justify-center rounded-sm bg-white/10 backdrop-blur-sm'>
 							<h1 className='text-5xl md:text-6xl font-bold'>
-								{brand.displayName.charAt(0)}
+								{brand?.displayName.charAt(0)}
 							</h1>
 						</div>
 						<div className='h-full flex flex-col gap-24 text-center md:text-left'>
 							<div className='pt-16 flex flex-col gap-6'>
 								<h1 className='text-4xl md:text-5xl font-semibold'>
-									{brand.displayName}
+									{brand?.displayName}
 								</h1>
 								<p className='text-xl'>{brandDescription.description}</p>
 							</div>
@@ -345,7 +279,7 @@ export default function BrandPage() {
 									<span>Главная</span>
 								</Link>
 								<ChevronRight size={16} />
-								<span className='font-medium'>{brand.displayName}</span>
+								<span className='font-medium'>{brand?.displayName}</span>
 							</nav>
 						</div>
 					</div>
@@ -377,7 +311,7 @@ export default function BrandPage() {
 													>
 														<span
 															className='w-2 h-2 rounded-full'
-															style={{ backgroundColor: brand.color }}
+															style={{ backgroundColor: brand?.color }}
 														/>
 														{device.title}
 													</Link>
@@ -474,36 +408,11 @@ export default function BrandPage() {
 										</div>
 									</div>
 								)}
-
-								{/* Колонка 5: Инструкции */}
-								{hasInstructions && (
-									<div className='w-full'>
-										<div className='space-y-2 md:space-y-3'>
-											<h2 className='mb-8 md:mb-10 text-2xl md:text-3xl font-bold'>
-												Инструкции
-											</h2>
-											{brand.instructions.map((item, index) => (
-												<div key={index} className='py-1'>
-													<a
-														href={item.url}
-														target='_blank'
-														rel='noopener noreferrer'
-														className='text-base md:text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 
-                  dark:hover:text-blue-400 hover:underline transition-colors whitespace-nowrap flex items-center gap-2'
-													>
-														<Download className='w-4 h-4' />
-														{item.title}
-													</a>
-												</div>
-											))}
-										</div>
-									</div>
-								)}
 							</div>
 						) : (
 							<div className='text-center py-12'>
 								<p className='text-xl text-gray-500 dark:text-gray-400'>
-									Устройства {brand.displayName} пока не добавлены
+									Устройства {brand?.displayName} пока не добавлены
 								</p>
 							</div>
 						)}

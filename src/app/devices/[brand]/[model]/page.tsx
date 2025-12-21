@@ -66,17 +66,12 @@ const DevicePage = () => {
 	const devices = useRootStore((state) => state.devices)
 	const changeBgHeader = useRootStore((state) => state.changeBgHeader)
 	const [sectionIds, setSectionIds] = useState<string[]>([])
-	const [isClient, setIsClient] = useState(false)
 	const activeSectionId = useActiveSection(sectionIds)
 
 	const brandInfo = useMemo(() => {
 		if (!brandSlug) return null
 		return BRAND_CONFIG[brandSlug as keyof typeof BRAND_CONFIG]
 	}, [brandSlug])
-
-	useEffect(() => {
-		setIsClient(true)
-	}, [])
 
 	// Ищем устройство по бренду и модели
 	const device = useMemo(() => {
@@ -147,8 +142,6 @@ const DevicePage = () => {
 	}, [device])
 
 	useEffect(() => {
-		if (!isClient) return
-
 		if (!device && brandSlug && modelSlug) {
 			// Если устройство не найдено, перенаправляем на страницу бренда
 			router.push(`/devices/${brandSlug}`)
@@ -158,7 +151,7 @@ const DevicePage = () => {
 		if (device?.bgColor) {
 			changeBgHeader(device.bgColor)
 		}
-	}, [device, changeBgHeader, router, isClient, brandSlug, modelSlug])
+	}, [device, changeBgHeader, router, brandSlug, modelSlug])
 
 	const isSectionActive = (sectionId: string) => {
 		return activeSectionId === sectionId
@@ -196,7 +189,7 @@ const DevicePage = () => {
 	const Content = device?.content
 
 	// Если SSR или загрузка
-	if (!isClient || !brandSlug || !modelSlug) {
+	if (!brandSlug || !modelSlug) {
 		return (
 			<div className='min-h-screen bg-white dark:bg-gray-900'>
 				<div className='p-8'>
@@ -210,18 +203,7 @@ const DevicePage = () => {
 	}
 
 	if (!device) {
-		return (
-			<div className='min-h-screen '>
-				<div className='px-4 pt-20 md:pt-8 pb-8 max-w-[1572px] mx-auto'>
-					<h1 className='text-2xl font-bold text-red-600'>
-						Устройство не найдено
-					</h1>
-					<Link href={getBrandUrl()} className='text-blue-600 hover:underline'>
-						Вернуться к бренду
-					</Link>
-				</div>
-			</div>
-		)
+		return <div></div>
 	}
 
 	return (
