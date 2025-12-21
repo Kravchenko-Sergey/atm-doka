@@ -2,9 +2,9 @@
 
 import { useRootStore } from '@/state/store'
 import Link from 'next/link'
-import { useParams, useRouter } from 'next/navigation'
+import { useParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
-import { ChevronRight, Download, Home } from 'lucide-react'
+import { ChevronRight, Download } from 'lucide-react'
 
 const BRAND_CONFIG = {
 	evotor: {
@@ -13,7 +13,7 @@ const BRAND_CONFIG = {
 		color: '#f15024',
 		gradient: 'from-orange-500 to-red-500',
 		lightGradient: 'from-orange-50 to-orange-100',
-		firmwareLinks: [
+		firmwares: [
 			{
 				model: 'Эвотор 5i',
 				version: '4.9.11',
@@ -39,6 +39,14 @@ const BRAND_CONFIG = {
 				version: '6.0.16',
 				url: 'https://drive.google.com/uc?export=download&id=1f0PLsnjJLSsyf8BjNS7pERTeJYn48JLp'
 			}
+		],
+		drivers: [],
+		soft: [],
+		instructions: [
+			{
+				title: 'Эвотор 6 (07.08.2024)',
+				url: 'https://disk.yandex.ru/i/yV8UE5IlTIr73Q'
+			}
 		]
 	},
 	pax: {
@@ -47,7 +55,10 @@ const BRAND_CONFIG = {
 		color: '#08a4e1',
 		gradient: 'from-blue-500 to-cyan-500',
 		lightGradient: 'from-blue-50 to-cyan-100',
-		firmwareLinks: []
+		firmwares: [],
+		drivers: [],
+		soft: [],
+		instructions: []
 	},
 	ingenico: {
 		name: 'Ingenico',
@@ -55,7 +66,10 @@ const BRAND_CONFIG = {
 		color: '#41e747',
 		gradient: 'from-green-500 to-emerald-500',
 		lightGradient: 'from-green-50 to-emerald-100',
-		firmwareLinks: [] // Добавляем пустой массив или реальные ссылки
+		firmwares: [],
+		drivers: [],
+		soft: [],
+		instructions: []
 	},
 	verifone: {
 		name: 'VeriFone',
@@ -63,7 +77,10 @@ const BRAND_CONFIG = {
 		color: '#6effd2',
 		gradient: 'from-teal-500 to-green-400',
 		lightGradient: 'from-teal-50 to-green-100',
-		firmwareLinks: [] // Добавляем пустой массив или реальные ссылки
+		firmwares: [],
+		drivers: [],
+		soft: [],
+		instructions: []
 	},
 	kozen: {
 		name: 'Kozen',
@@ -71,7 +88,7 @@ const BRAND_CONFIG = {
 		color: '#DC2626',
 		gradient: 'from-red-600 to-rose-600',
 		lightGradient: 'from-red-50 to-rose-100',
-		firmwareLinks: [
+		firmwares: [
 			{
 				model: 'Kozen P10',
 				version: '1.5.24',
@@ -82,6 +99,22 @@ const BRAND_CONFIG = {
 				version: '1.4.5',
 				url: 'https://drive.google.com/uc?export=download&id=1vdlPr4kLPkLk7Jg3EbBnmJ-DhHh1pNZ7'
 			}
+		],
+		drivers: [
+			{
+				title: 'Драйвера для Kozen P12',
+				url: 'https://disk.yandex.ru/d/b-x-jmu7iA3swg'
+			}
+		],
+		soft: [
+			{ title: 'Flash Tool', url: 'https://disk.yandex.ru/d/rd08ougjIKg4Lg' },
+			{ title: 'SN Writter', url: 'https://disk.yandex.ru/d/jWk5EXCjMpsN8g' }
+		],
+		instructions: [
+			{
+				title: 'Kozen P12 (07.03.2024)',
+				url: 'https://disk.yandex.ru/i/vGRR81BisBrqWA'
+			}
 		]
 	},
 	castles: {
@@ -90,7 +123,10 @@ const BRAND_CONFIG = {
 		color: '#704ecc',
 		gradient: 'from-purple-600 to-violet-600',
 		lightGradient: 'from-purple-50 to-violet-100',
-		firmwareLinks: [] // Добавляем пустой массив или реальные ссылки
+		firmwares: [],
+		drivers: [],
+		soft: [],
+		instructions: []
 	},
 	tactilion: {
 		name: 'Tactilion',
@@ -98,7 +134,10 @@ const BRAND_CONFIG = {
 		color: '#ffd829',
 		gradient: 'from-yellow-500 to-amber-500',
 		lightGradient: 'from-yellow-50 to-amber-100',
-		firmwareLinks: [] // Добавляем пустой массив или реальные ссылки
+		firmwares: [],
+		drivers: [],
+		soft: [],
+		instructions: []
 	}
 } as const
 
@@ -182,7 +221,6 @@ const BRAND_DESCRIPTIONS: Record<
 
 export default function BrandPage() {
 	const params = useParams()
-	const router = useRouter()
 
 	const brandSlug = params?.brand as string | undefined
 
@@ -238,48 +276,6 @@ export default function BrandPage() {
 		})
 	}, [devices, brand])
 
-	// Получаем другие бренды для рекомендаций
-	const otherBrands = useMemo(() => {
-		if (!brandSlug) return []
-
-		const allBrands = Object.keys(BRAND_CONFIG)
-		const currentBrandIndex = allBrands.indexOf(brandSlug)
-
-		// Берем 3 других бренда
-		const otherBrandSlugs = allBrands.filter(
-			(slug, index) => index !== currentBrandIndex
-		)
-
-		return otherBrandSlugs.map((slug) => ({
-			slug,
-			...BRAND_CONFIG[slug as keyof typeof BRAND_CONFIG]
-		}))
-	}, [brandSlug])
-
-	// Получаем статистику по другим брендам
-	const brandStats = useMemo(() => {
-		const stats: Record<string, { count: number; devices: any[] }> = {}
-
-		devices.forEach((device) => {
-			if (!device.brand) return
-
-			const brandSlug = normalizeBrandName(device.brand)
-			if (!stats[brandSlug]) {
-				stats[brandSlug] = { count: 0, devices: [] }
-			}
-			stats[brandSlug].count++
-			stats[brandSlug].devices.push(device)
-		})
-
-		return stats
-	}, [devices])
-
-	// Функция для получения URL бренда
-	const getBrandUrl = (brandSlugName: string | null) => {
-		if (!brandSlugName) return '/'
-		return `/devices/${brandSlugName}`
-	}
-
 	// Если SSR или загрузка
 	if (!isClient || !brandSlug) {
 		return (
@@ -312,7 +308,10 @@ export default function BrandPage() {
 		description: `Полное руководство по POS-терминалам ${brand.displayName}. Инструкции по настройке, прошивке, ремонту и обслуживанию всех моделей.`
 	}
 
-	const hasFirmware = brand?.firmwareLinks && brand.firmwareLinks.length > 0
+	const hasFirmware = brand?.firmwares && brand.firmwares.length > 0
+	const hasDrivers = brand?.drivers && brand.drivers.length > 0
+	const hasSoft = brand?.soft && brand.soft.length > 0
+	const hasInstructions = brand?.instructions && brand.instructions.length > 0
 
 	return (
 		<div className='w-full flex flex-1 flex-col'>
@@ -359,12 +358,10 @@ export default function BrandPage() {
 				<main className='flex-1 max-w-full'>
 					{/* Устройства бренда - СПИСОК как на главной */}
 					<div className='px-4 md:mt-6 md:mb-8 pt-6 md:pt-8 max-w-[1572px]'>
-						{/* Хлебные крошки под заголовком для десктопа */}
-
 						{brandDevices.length > 0 ? (
 							<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 md:gap-8 lg:gap-10 xl:gap-12 mb-8 md:mb-12'>
+								{/* Колонка 1: Модели */}
 								<div className='w-full'>
-									{/* Простой список моделей */}
 									<div className='space-y-2 md:space-y-3'>
 										<h2 className='mb-8 md:mb-10 text-2xl md:text-3xl font-bold'>
 											Модели
@@ -390,42 +387,118 @@ export default function BrandPage() {
 									</div>
 								</div>
 
-								<div>
-									<div className='space-y-2 md:space-y-3'>
-										{hasFirmware && (
+								{/* Колонка 2: Прошивки */}
+								{hasFirmware && (
+									<div className='w-full'>
+										<div className='space-y-2 md:space-y-3'>
 											<h2 className='mb-8 md:mb-10 text-2xl md:text-3xl font-bold'>
 												Прошивки
 											</h2>
-										)}
-										{brandDevices.map((device) => {
-											const modelSlug = createModelSlug(device.model)
+											{brandDevices.map((device) => {
+												const modelSlug = createModelSlug(device.model)
 
-											// Ищем прошивку для этой модели
-											const firmwareLink = brand.firmwareLinks?.find((link) =>
-												link.model
-													.toLowerCase()
-													.includes(device.model.toLowerCase())
-											)
+												// Ищем прошивку для этой модели
+												const firmwareLink = brand.firmwares?.find((firmware) =>
+													firmware.model
+														.toLowerCase()
+														.includes(device.model.toLowerCase())
+												)
 
-											return (
-												<div key={device.id} className='py-1'>
-													{firmwareLink && (
-														<a
-															href={firmwareLink.url}
-															target='_blank'
-															rel='noopener noreferrer'
-															className='text-base md:text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 
+												return (
+													<div key={device.id} className='py-1'>
+														{firmwareLink && (
+															<a
+																href={firmwareLink.url}
+																target='_blank'
+																rel='noopener noreferrer'
+																className='text-base md:text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 
                   dark:hover:text-blue-400 hover:underline transition-colors whitespace-nowrap flex items-center gap-2'
-														>
-															<Download className='w-4 h-4' />
-															{firmwareLink.version} ({firmwareLink.model})
-														</a>
-													)}
-												</div>
-											)
-										})}
+															>
+																<Download className='w-4 h-4' />
+																{firmwareLink.version} ({firmwareLink.model})
+															</a>
+														)}
+													</div>
+												)
+											})}
+										</div>
 									</div>
-								</div>
+								)}
+
+								{/* Колонка 3: Драйверы */}
+								{hasDrivers && (
+									<div className='w-full'>
+										<div className='space-y-2 md:space-y-3'>
+											<h2 className='mb-8 md:mb-10 text-2xl md:text-3xl font-bold'>
+												Драйверы
+											</h2>
+											{brand.drivers.map((driver, index) => (
+												<div key={index} className='py-1'>
+													<a
+														href={driver.url}
+														target='_blank'
+														rel='noopener noreferrer'
+														className='text-base md:text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 
+                  dark:hover:text-blue-400 hover:underline transition-colors whitespace-nowrap flex items-center gap-2'
+													>
+														<Download className='w-4 h-4' />
+														{driver.title}
+													</a>
+												</div>
+											))}
+										</div>
+									</div>
+								)}
+
+								{/* Колонка 4: Софт */}
+								{hasSoft && (
+									<div className='w-full'>
+										<div className='space-y-2 md:space-y-3'>
+											<h2 className='mb-8 md:mb-10 text-2xl md:text-3xl font-bold'>
+												Софт
+											</h2>
+											{brand.soft.map((item, index) => (
+												<div key={index} className='py-1'>
+													<a
+														href={item.url}
+														target='_blank'
+														rel='noopener noreferrer'
+														className='text-base md:text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 
+                  dark:hover:text-blue-400 hover:underline transition-colors whitespace-nowrap flex items-center gap-2'
+													>
+														<Download className='w-4 h-4' />
+														{item.title}
+													</a>
+												</div>
+											))}
+										</div>
+									</div>
+								)}
+
+								{/* Колонка 5: Инструкции */}
+								{hasInstructions && (
+									<div className='w-full'>
+										<div className='space-y-2 md:space-y-3'>
+											<h2 className='mb-8 md:mb-10 text-2xl md:text-3xl font-bold'>
+												Инструкции
+											</h2>
+											{brand.instructions.map((item, index) => (
+												<div key={index} className='py-1'>
+													<a
+														href={item.url}
+														target='_blank'
+														rel='noopener noreferrer'
+														className='text-base md:text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 
+                  dark:hover:text-blue-400 hover:underline transition-colors whitespace-nowrap flex items-center gap-2'
+													>
+														<Download className='w-4 h-4' />
+														{item.title}
+													</a>
+												</div>
+											))}
+										</div>
+									</div>
+								)}
 							</div>
 						) : (
 							<div className='text-center py-12'>
