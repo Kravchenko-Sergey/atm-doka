@@ -16,14 +16,14 @@ const VerifoneVx520Content: React.FC<VerifoneVx520ContentProps> = ({
 	const tableData = [
 		{
 			model: 'VX520',
-			upos: '33.18.03',
+			upos: '33.18.03 (АН)',
 			osVerix: 'QT00050',
 			eos: '3.3.2.0',
 			vxCtls: '01.30.02M6'
 		},
 		{
 			model: 'VX520 + Kozen P10/P12',
-			upos: '33.42.06 (АН)\n(ОЭ) 34.00.04',
+			upos: '34.00.04 (АН)\n(ОЭ) 34.02.02',
 			osVerix: 'QT00050',
 			eos: '3.3.2.0',
 			vxCtls: '01.30.02M6'

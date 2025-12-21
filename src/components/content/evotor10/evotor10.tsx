@@ -17,7 +17,7 @@ const Evotor10Content: React.FC<Evotor10ContentProps> = ({
 		{
 			oc: '4.9.11',
 			upos: 'В соответствии с целевой версией применяемого терминала эквайринга',
-			driver: 'Uposdriver\n1.104.103',
+			driver: 'Uposdriver\n1.104.103\n(ОЭ)1.105.117',
 			uposKKM: '33.35.02'
 		}
 	]

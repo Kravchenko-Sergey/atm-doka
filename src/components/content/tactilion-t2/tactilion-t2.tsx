@@ -21,7 +21,7 @@ const TactilionT2Content: React.FC<TactilionT2ContentProps> = ({
 		},
 		{
 			model: 'T2 + Kozen P10/P12',
-			upos: '33.42.06 (АН)\n(ОЭ) 34.00.04',
+			upos: '34.00.04 (АН)\n(ОЭ) 34.02.02',
 			os: '04_190408'
 		}
 	]

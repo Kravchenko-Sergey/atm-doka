@@ -20,7 +20,7 @@ const KozenP10Content: React.FC<KozenP10ContentProps> = ({
 
 	const tableData = [
 		{
-			upos: '33.42.02 (АН)\n(На ограниченном количестве 33.47.04)\n(ОЭ) 34.00.04',
+			upos: '34.00.04 (АН)\n(ОЭ) 34.02.02',
 			firmware: '1.5.24',
 			uposNative: '1.104.53',
 			equipment:

@@ -20,8 +20,8 @@ const KozenP12Content: React.FC<KozenP12ContentProps> = ({
 
 	const tableData = [
 		{
-			upos: '33.42.02 (АН)\n(На ограниченном количестве 33.47.04)\n(ОЭ) 34.00.04',
-			firmware: '1.4.5',
+			upos: '34.00.04 (АН)\n(ОЭ) 34.02.02',
+			firmware: '1.4.5\n (ОЭ)1.4.7',
 			uposNative: '1.104.53',
 			equipment:
 				'ИКР Атол Sigma\nТерминалы Эвотор (кроме банковских 5i)\nIngenico ICT 220, 250\nVerifone VX 520\nTactilion T2'

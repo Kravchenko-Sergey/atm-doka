@@ -4,7 +4,7 @@ import { useRootStore } from '@/state/store'
 import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
-import { ChevronRight, Home } from 'lucide-react'
+import { ChevronRight, Download, Home } from 'lucide-react'
 
 const BRAND_CONFIG = {
 	evotor: {
@@ -12,49 +12,82 @@ const BRAND_CONFIG = {
 		displayName: 'Эвотор',
 		color: '#f15024',
 		gradient: 'from-orange-500 to-red-500',
-		lightGradient: 'from-orange-50 to-orange-100'
+		lightGradient: 'from-orange-50 to-orange-100',
+		firmwareLinks: [
+			{
+				model: 'Эвотор 5i',
+				version: '4.9.11',
+				url: 'https://evoservice.center/upload/iblock/2c2/81jjeqjozr2tvc2giymyttknr6n1fyy3/evotor_st3si_4.9.11.20241107143357.77e95644_5380_4bf8_80f6_8161b24fa612.aef'
+			},
+			{
+				model: 'Эвотор 7.2',
+				version: '4.9.11',
+				url: 'https://evoservice.center/upload/iblock/bc0/2bbmp0jvgiwqp6yefzve38adzenwzg7j/evotor_st2_4.9.11.20241107143140.b24b2d50_6245_4b18_87b8_115bd9c62d84.aef'
+			},
+			{
+				model: 'Эвотор 7.3',
+				version: '4.9.11',
+				url: 'https://evoservice.center/upload/iblock/c6e/ch46qjmajbpheq2dz7u8afl8m1p94twh/evotor_st3_4.9.11.20241107143150.73ea5ec7_8738_4a94_829a_5d2e52dc1ca9.aef'
+			},
+			{
+				model: 'Эвотор 10',
+				version: '4.9.11',
+				url: 'https://evoservice.center/upload/iblock/917/7032gor2oiwtw4t0cw6mszj0zui6cx49/evotor_st3xl_4.9.11.20241107143322.6c56f433_f0af_4a68_9e06_2c5f7b852e94.aef'
+			},
+			{
+				model: 'Эвотор 6',
+				version: '4.9.11',
+				url: 'https://drive.google.com/uc?export=download&id=1f0PLsnjJLSsyf8BjNS7pERTeJYn48JLp'
+			}
+		]
 	},
 	pax: {
 		name: 'Pax',
 		displayName: 'Pax',
 		color: '#08a4e1',
 		gradient: 'from-blue-500 to-cyan-500',
-		lightGradient: 'from-blue-50 to-cyan-100'
+		lightGradient: 'from-blue-50 to-cyan-100',
+		firmwareLinks: [] // Добавляем пустой массив или реальные ссылки
 	},
 	ingenico: {
 		name: 'Ingenico',
 		displayName: 'Ingenico',
 		color: '#41e747',
 		gradient: 'from-green-500 to-emerald-500',
-		lightGradient: 'from-green-50 to-emerald-100'
+		lightGradient: 'from-green-50 to-emerald-100',
+		firmwareLinks: [] // Добавляем пустой массив или реальные ссылки
 	},
 	verifone: {
 		name: 'VeriFone',
 		displayName: 'VeriFone',
 		color: '#6effd2',
 		gradient: 'from-teal-500 to-green-400',
-		lightGradient: 'from-teal-50 to-green-100'
+		lightGradient: 'from-teal-50 to-green-100',
+		firmwareLinks: [] // Добавляем пустой массив или реальные ссылки
 	},
 	kozen: {
 		name: 'Kozen',
 		displayName: 'Kozen',
 		color: '#DC2626',
 		gradient: 'from-red-600 to-rose-600',
-		lightGradient: 'from-red-50 to-rose-100'
+		lightGradient: 'from-red-50 to-rose-100',
+		firmwareLinks: [] // Добавляем пустой массив или реальные ссылки
 	},
 	castles: {
 		name: 'Castles',
 		displayName: 'Castles',
 		color: '#704ecc',
 		gradient: 'from-purple-600 to-violet-600',
-		lightGradient: 'from-purple-50 to-violet-100'
+		lightGradient: 'from-purple-50 to-violet-100',
+		firmwareLinks: [] // Добавляем пустой массив или реальные ссылки
 	},
 	tactilion: {
 		name: 'Tactilion',
 		displayName: 'Tactilion',
 		color: '#ffd829',
 		gradient: 'from-yellow-500 to-amber-500',
-		lightGradient: 'from-yellow-50 to-amber-100'
+		lightGradient: 'from-yellow-50 to-amber-100',
+		firmwareLinks: [] // Добавляем пустой массив или реальные ссылки
 	}
 } as const
 
@@ -268,6 +301,8 @@ export default function BrandPage() {
 		description: `Полное руководство по POS-терминалам ${brand.displayName}. Инструкции по настройке, прошивке, ремонту и обслуживанию всех моделей.`
 	}
 
+	const hasFirmware = brand?.firmwareLinks && brand.firmwareLinks.length > 0
+
 	return (
 		<div className='w-full flex flex-1 flex-col'>
 			{/* Header Section */}
@@ -315,24 +350,22 @@ export default function BrandPage() {
 					<div className='px-4 md:mt-6 md:mb-8 pt-6 md:pt-8 max-w-[1572px]'>
 						{/* Хлебные крошки под заголовком для десктопа */}
 
-						<h2 className='mb-8 md:mb-10 text-2xl md:text-3xl font-bold'>
-							Модели
-						</h2>
-
 						{brandDevices.length > 0 ? (
 							<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 md:gap-8 lg:gap-10 xl:gap-12 mb-8 md:mb-12'>
 								<div className='w-full'>
 									{/* Простой список моделей */}
 									<div className='space-y-2 md:space-y-3'>
+										<h2 className='mb-8 md:mb-10 text-2xl md:text-3xl font-bold'>
+											Модели
+										</h2>
 										{brandDevices.map((device) => {
 											const modelSlug = createModelSlug(device.model)
-
 											return (
 												<div key={device.id} className='py-1'>
 													<Link
 														href={`/devices/${brandSlug}/${modelSlug}`}
 														className='text-base md:text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 
-															dark:hover:text-blue-400 hover:underline transition-colors whitespace-nowrap flex items-center gap-2'
+                dark:hover:text-blue-400 hover:underline transition-colors whitespace-nowrap flex items-center gap-2'
 													>
 														<span
 															className='w-2 h-2 rounded-full'
@@ -340,6 +373,43 @@ export default function BrandPage() {
 														/>
 														{device.title}
 													</Link>
+												</div>
+											)
+										})}
+									</div>
+								</div>
+
+								<div>
+									<div className='space-y-2 md:space-y-3'>
+										{hasFirmware && (
+											<h2 className='mb-8 md:mb-10 text-2xl md:text-3xl font-bold'>
+												Прошивки
+											</h2>
+										)}
+										{brandDevices.map((device) => {
+											const modelSlug = createModelSlug(device.model)
+
+											// Ищем прошивку для этой модели
+											const firmwareLink = brand.firmwareLinks?.find((link) =>
+												link.model
+													.toLowerCase()
+													.includes(device.model.toLowerCase())
+											)
+
+											return (
+												<div key={device.id} className='py-1'>
+													{firmwareLink && (
+														<a
+															href={firmwareLink.url}
+															target='_blank'
+															rel='noopener noreferrer'
+															className='text-base md:text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 
+                  dark:hover:text-blue-400 hover:underline transition-colors whitespace-nowrap flex items-center gap-2'
+														>
+															<Download className='w-4 h-4' />
+															{firmwareLink.version} ({firmwareLink.model})
+														</a>
+													)}
 												</div>
 											)
 										})}

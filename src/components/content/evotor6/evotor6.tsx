@@ -17,7 +17,7 @@ const Evotor6Content: React.FC<Evotor6ContentProps> = ({ className = '' }) => {
 			oc: '6.0.16',
 			evoPP: 'Не применяется',
 			uposNative: '1.105.63',
-			upos: '33.60.00'
+			upos: '33.60.00 (АН)'
 		}
 	]
 

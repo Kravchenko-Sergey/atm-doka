@@ -21,7 +21,7 @@ const IngenicoICT220Content: React.FC<IngenicoIct220CTContentProps> = ({
 		},
 		{
 			model: 'ICT2X0 + Kozen P10/P12',
-			upos: '33.42.06 (АН)\n(ОЭ) 34.00.04',
+			upos: '34.00.04 (АН)\n(ОЭ) 34.02.02',
 			teliumOS: '9.32.3v'
 		}
 	]
