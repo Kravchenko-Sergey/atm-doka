@@ -107,7 +107,7 @@ const KozenP10Content: React.FC<KozenP10ContentProps> = ({
 						</li>
 						<li className='leading-7'>
 							<a
-								href='https://drive.google.com/file/d/1rseX8SzaCr5X41YLjX9kcvzj4SdPE1ZX/view?usp=drive_link'
+								href='https://drive.google.com/uc?export=download&id=1MpQ1YbGuHUT9na83AT5qO6h6hvL-1-dw'
 								target='_blank'
 								rel='noopener noreferrer'
 								className='hover:underline text-[#EF4444] font-medium transition-colors duration-200'

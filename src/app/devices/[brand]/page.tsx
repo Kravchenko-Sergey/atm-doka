@@ -47,7 +47,7 @@ const BRAND_CONFIG = {
 		color: '#08a4e1',
 		gradient: 'from-blue-500 to-cyan-500',
 		lightGradient: 'from-blue-50 to-cyan-100',
-		firmwareLinks: [] // Добавляем пустой массив или реальные ссылки
+		firmwareLinks: []
 	},
 	ingenico: {
 		name: 'Ingenico',
@@ -71,7 +71,18 @@ const BRAND_CONFIG = {
 		color: '#DC2626',
 		gradient: 'from-red-600 to-rose-600',
 		lightGradient: 'from-red-50 to-rose-100',
-		firmwareLinks: [] // Добавляем пустой массив или реальные ссылки
+		firmwareLinks: [
+			{
+				model: 'Kozen P10',
+				version: '1.5.24',
+				url: 'https://drive.google.com/uc?export=download&id=1MpQ1YbGuHUT9na83AT5qO6h6hvL-1-dw'
+			},
+			{
+				model: 'Kozen P12',
+				version: '1.4.5',
+				url: 'https://drive.google.com/uc?export=download&id=1vdlPr4kLPkLk7Jg3EbBnmJ-DhHh1pNZ7'
+			}
+		]
 	},
 	castles: {
 		name: 'Castles',

@@ -217,7 +217,7 @@ export default function HomeClient() {
 					</Link>
 				</div>
 
-				<div className='p-6 border border-[1px] border-gray-300 dark:border-gray-600 rounded-sm flex flex-col flex-1'>
+				<div className='p-6 border border-gray-300 dark:border-gray-600 rounded-sm flex flex-col flex-1'>
 					<h2 className='pb-6 text-2xl font-semibold'>Станьте автором Доки</h2>
 					<div className='text-xl space-y-2 flex-1'>
 						<p>Дополните документацию реальными кейсами из практики.</p>
