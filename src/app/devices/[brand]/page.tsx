@@ -36,7 +36,7 @@ const BRAND_CONFIG = {
 			},
 			{
 				model: 'Эвотор 6',
-				version: '4.9.11',
+				version: '6.0.16',
 				url: 'https://drive.google.com/uc?export=download&id=1f0PLsnjJLSsyf8BjNS7pERTeJYn48JLp'
 			}
 		]

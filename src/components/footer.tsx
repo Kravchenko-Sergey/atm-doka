@@ -1,4 +1,4 @@
-import { Sun, Moon } from 'lucide-react'
+import { Sun, Moon, Usb } from 'lucide-react'
 import { Switch } from './ui/switch'
 import Link from 'next/link'
 
@@ -31,13 +31,24 @@ export default function Footer({ theme, toggleTheme }: FooterProps) {
 						ATM Дока • Документация для POS-инженеров • {currentYear}
 					</div>
 
-					{/* О проекте */}
-					<Link
-						href='/about'
-						className='text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 transition-colors whitespace-nowrap'
-					>
-						О проекте
-					</Link>
+					{/* Ссылки */}
+					<div className='flex items-center gap-6'>
+						<Link
+							href='https://disk.yandex.ru/d/pBGRrxepfXG-yw'
+							target='_blank'
+							rel='noopener noreferrer'
+							className='flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 transition-colors whitespace-nowrap'
+						>
+							<Usb size={16} />
+							Флешка инженера
+						</Link>
+						<Link
+							href='/about'
+							className='text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 transition-colors whitespace-nowrap'
+						>
+							О проекте
+						</Link>
+					</div>
 				</div>
 
 				{/* Мобилка: вертикально */}
@@ -47,8 +58,8 @@ export default function Footer({ theme, toggleTheme }: FooterProps) {
 						ATM Дока • Документация для POS-инженеров • {currentYear}
 					</div>
 
-					{/* Нижний ряд: тема и ссылка */}
-					<div className='flex items-center justify-center gap-8'>
+					{/* Нижний ряд: тема и ссылки */}
+					<div className='flex items-center justify-center gap-6'>
 						<div className='flex items-center gap-3'>
 							<Sun size={16} className='text-gray-500' />
 							<Switch
@@ -59,12 +70,23 @@ export default function Footer({ theme, toggleTheme }: FooterProps) {
 							<Moon size={16} className='text-gray-500' />
 						</div>
 
-						<Link
-							href='/about'
-							className='text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 transition-colors'
-						>
-							О проекте
-						</Link>
+						<div className='flex items-center gap-4'>
+							<Link
+								href='https://disk.yandex.ru/d/pBGRrxepfXG-yw'
+								target='_blank'
+								rel='noopener noreferrer'
+								className='flex items-center gap-1 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 transition-colors'
+							>
+								<Usb size={14} />
+								Флешка
+							</Link>
+							<Link
+								href='/about'
+								className='text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 transition-colors'
+							>
+								О проекте
+							</Link>
+						</div>
 					</div>
 				</div>
 			</div>
