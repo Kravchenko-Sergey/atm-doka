@@ -27,7 +27,6 @@ import TactilionG3Content from '@/components/content/tactilion-g3/tactilion-g3'
 import CastlesVega3000Content from '@/components/content/castles-vega3000-st/castles-vega3000-st'
 import CastlesVega3000MobContent from '@/components/content/castles-vega3000-mob/castles-vega3000-mob'
 import CastlesVega3000IkrContent from '@/components/content/castles-vega3000-ikr/castles-vega3000-ikr'
-import Aqsi5fContent from '@/components/content/aqsi-5ф/aqsi-5ф'
 
 type ContentItem = {
 	title: string
@@ -106,9 +105,7 @@ const createSlug = (str: string): string => {
 		.toLowerCase()
 		.replace(/\s+/g, '-') // заменяем пробелы на дефисы
 		.replace(/[.,]/g, '') // убираем точки и запятые
-		.replace('стац', 'stationary')
-		.replace('моб', 'mobile')
-		.replace('икр', 'ikr')
+
 		.replace(/[^a-z0-9-]/g, '') // удаляем все не-буквенно-цифровые символы кроме дефисов
 }
 
@@ -646,7 +643,7 @@ const createDevices = (): Device[] => {
 		{
 			url: 'castles-vega3000',
 			author: 'Сергей Кравченко',
-			title: 'Castles Vega3000 стац',
+			title: 'Castles Vega3000',
 			description: 'Руководство по прошивке',
 			image: '/content/castles-vega3000/image/v3st.png',
 			bgColor: '#704ecc',
@@ -681,12 +678,12 @@ const createDevices = (): Device[] => {
 			],
 			discussionId: '27',
 			brand: 'Castles',
-			model: 'Vega3000 стац'
+			model: 'Vega3000'
 		},
 		{
 			url: 'castles-vega3000-mob',
 			author: 'Сергей Кравченко',
-			title: 'Castles Vega3000 моб',
+			title: 'Castles Vega3000M',
 			description: 'Руководство по прошивке',
 			image: '/content/castles-vega3000-mob/image/v3mob.png',
 			bgColor: '#704ecc',
@@ -702,12 +699,12 @@ const createDevices = (): Device[] => {
 			],
 			discussionId: '28',
 			brand: 'Castles',
-			model: 'Vega3000 моб'
+			model: 'Vega3000M'
 		},
 		{
 			url: 'castles-vega3000-ikr',
 			author: 'Сергей Кравченко',
-			title: 'Castles Vega3000 ИКР',
+			title: 'Castles Vega3000P',
 			description: 'Руководство по прошивке',
 			image: '/content/castles-vega3000-ikr/image/v3ikr.png',
 			bgColor: '#704ecc',
@@ -723,7 +720,7 @@ const createDevices = (): Device[] => {
 			],
 			discussionId: '29',
 			brand: 'Castles',
-			model: 'Vega3000 ИКР'
+			model: 'Vega3000P'
 		}
 	]
 

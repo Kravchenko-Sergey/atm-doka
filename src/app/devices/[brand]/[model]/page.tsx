@@ -83,9 +83,6 @@ const DevicePage = () => {
 				.toLowerCase()
 				.replace(/\s+/g, '-')
 				.replace(/[.,]/g, '')
-				.replace('стац', 'stationary')
-				.replace('моб', 'mobile')
-				.replace('икр', 'ikr')
 
 			return (
 				d.brand?.toLowerCase() === brandSlug && deviceModelSlug === modelSlug

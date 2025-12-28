@@ -14,7 +14,7 @@ export default function Footer({ theme, toggleTheme }: FooterProps) {
 		<footer className='w-full py-8 border-t'>
 			<div className='px-4 mx-auto max-w-[1572px]'>
 				{/* Десктоп: горизонтально */}
-				<div className='hidden md:flex items-center justify-between'>
+				<div className='hidden lg:flex items-center justify-between'>
 					{/* Тема */}
 					<div className='flex items-center gap-3'>
 						<Sun size={16} className='text-gray-500' />
@@ -61,7 +61,7 @@ export default function Footer({ theme, toggleTheme }: FooterProps) {
 				</div>
 
 				{/* Мобилка: вертикально */}
-				<div className='flex md:hidden flex-col items-center gap-4'>
+				<div className='flex lg:hidden flex-col items-center gap-4'>
 					{/* Текст */}
 					<div className='text-xs text-gray-600 dark:text-gray-400 text-center'>
 						ATM Дока • Документация для POS-инженеров • {currentYear}
