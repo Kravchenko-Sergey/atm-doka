@@ -51,34 +51,6 @@ export type Device = {
 	manufacturer?: string // Опционально: производитель
 }
 
-export type Document = {
-	id: string
-	title: string
-	description: string
-	fileUrl: string
-	size: string
-	format: string
-	category: 'technical' | 'legal' | 'checklist' | 'report'
-	updatedAt: string
-	tags: string[]
-	downloadCount: number
-}
-
-export type FileItem = {
-	id: string
-	title: string
-	description: string
-	fileUrl: string
-	size: string
-	type: 'firmware' | 'driver' | 'utility' | 'software' | 'manual'
-	version?: string
-	updatedAt: string
-	deviceBrand?: string
-	deviceModel?: string
-	downloadCount: number
-	checksum?: string
-}
-
 type Person = {
 	id: string
 	avatar: JSX.Element
@@ -88,8 +60,6 @@ type Person = {
 
 type RootState = {
 	devices: Device[]
-	documents: Document[]
-	files: FileItem[]
 	people: Person[]
 	bgHeader: string
 	activeTags: string[]
@@ -105,7 +75,6 @@ const createSlug = (str: string): string => {
 		.toLowerCase()
 		.replace(/\s+/g, '-') // заменяем пробелы на дефисы
 		.replace(/[.,]/g, '') // убираем точки и запятые
-
 		.replace(/[^a-z0-9-]/g, '') // удаляем все не-буквенно-цифровые символы кроме дефисов
 }
 
@@ -463,7 +432,7 @@ const createDevices = (): Device[] => {
 		{
 			url: 'pax-d230-mob',
 			author: 'Сергей Кравченко',
-			title: 'Pax D230 mob',
+			title: 'Pax D230M',
 			description: 'Руководство по прошивке',
 			image: '/content/pax-d230-mob/image/pax-d230-mob.png',
 			bgColor: '#08a4e1',
@@ -479,7 +448,7 @@ const createDevices = (): Device[] => {
 			],
 			discussionId: '19',
 			brand: 'Pax',
-			model: 'D230 mob'
+			model: 'D230M'
 		},
 		{
 			url: 'verifone-vx520',
@@ -735,189 +704,6 @@ const createDevices = (): Device[] => {
 
 export const useRootStore = create<RootState>((set) => ({
 	devices: createDevices(),
-	documents: [
-		{
-			id: v4(),
-			title: 'Акт принятия оказанных услуг',
-			description: 'Документ подтверждающий прием выполненных работ и услуг',
-			fileUrl: '/documents/installationCertificate.docx',
-			size: '18.5 KB',
-			format: 'docx',
-			category: 'legal',
-			updatedAt: '15 ноября 2025',
-			tags: ['Акт', 'Приемка', 'Юридический'],
-			downloadCount: 156
-		},
-		{
-			id: v4(),
-			title: 'Акт экспертизы оборудования и SIM-карт',
-			description:
-				'Заключение о проверке и оценке состояния оборудования и SIM-карт',
-			fileUrl: '/documents/expertReport.docx',
-			size: '23.2 KB',
-			format: 'docx',
-			category: 'report',
-			updatedAt: '10 декабря 2025',
-			tags: ['Экспертиза', 'Оборудование', 'SIM-карты'],
-			downloadCount: 89
-		},
-		{
-			id: v4(),
-			title: 'Чек-лист X5',
-			description: 'Пошаговый список проверок перед сдачей',
-			fileUrl: '/documents/checklistX5.docx',
-			size: '13.5 KB',
-			format: 'docx',
-			category: 'checklist',
-			updatedAt: '20 ноября 2025',
-			tags: ['Чек-лист', 'X5', 'Проверка'],
-			downloadCount: 234
-		},
-		{
-			id: v4(),
-			title: 'Техническое задание на установку',
-			description: 'Требования и спецификации для установки оборудования',
-			fileUrl: '/documents/technicalSpec.docx',
-			size: '45.7 KB',
-			format: 'pdf',
-			category: 'technical',
-			updatedAt: '5 декабря 2025',
-			tags: ['Технический', 'Установка', 'Спецификации'],
-			downloadCount: 67
-		},
-		{
-			id: v4(),
-			title: 'Договор на обслуживание',
-			description: 'Типовой договор на техническое обслуживание оборудования',
-			fileUrl: '/documents/serviceContract.docx',
-			size: '32.1 KB',
-			format: 'docx',
-			category: 'legal',
-			updatedAt: '1 декабря 2025',
-			tags: ['Договор', 'Обслуживание', 'Юридический'],
-			downloadCount: 112
-		},
-		{
-			id: v4(),
-			title: 'Отчет о проделанной работе',
-			description: 'Форма для отчетности о выполненных работах',
-			fileUrl: '/documents/workReport.docx',
-			size: '19.8 KB',
-			format: 'docx',
-			category: 'report',
-			updatedAt: '25 ноября 2025',
-			tags: ['Отчет', 'Работы', 'Форма'],
-			downloadCount: 178
-		}
-	],
-	files: [
-		{
-			id: v4(),
-			title: 'Прошивка Эвотор 5i v2.1.5',
-			description: 'Стабильная версия прошивки для терминала Эвотор 5i',
-			fileUrl: '/files/firmware/evotor-5i-v2.1.5.zip',
-			size: '156 MB',
-			type: 'firmware',
-			version: 'v2.1.5',
-			updatedAt: '1 августа 2025',
-			deviceBrand: 'Эвотор',
-			deviceModel: '5i',
-			downloadCount: 1245,
-			checksum: 'sha256:abc123...'
-		},
-		{
-			id: v4(),
-			title: 'Драйвер USB для VeriFone VX520',
-			description: 'Драйвер для подключения терминала через USB',
-			fileUrl: '/files/drivers/verifone-vx520-usb-driver.exe',
-			size: '45 MB',
-			type: 'driver',
-			updatedAt: '15 ноября 2025',
-			deviceBrand: 'VeriFone',
-			deviceModel: 'VX520',
-			downloadCount: 892,
-			checksum: 'sha256:def456...'
-		},
-		{
-			id: v4(),
-			title: 'Утилита конфигурации Pax Terminals',
-			description: 'Программа для настройки терминалов Pax',
-			fileUrl: '/files/utilities/pax-config-tool-v1.4.2.exe',
-			size: '78 MB',
-			type: 'utility',
-			version: 'v1.4.2',
-			updatedAt: '21 июня 2025',
-			deviceBrand: 'Pax',
-			downloadCount: 567,
-			checksum: 'sha256:ghi789...'
-		},
-		{
-			id: v4(),
-			title: 'Программа-симулятор Ingenico',
-			description: 'Симулятор для тестирования транзакций',
-			fileUrl: '/files/software/ingenico-simulator-v3.0.1.zip',
-			size: '210 MB',
-			type: 'software',
-			version: 'v3.0.1',
-			updatedAt: '24 мая 2025',
-			deviceBrand: 'Ingenico',
-			downloadCount: 321,
-			checksum: 'sha256:jkl012...'
-		},
-		{
-			id: v4(),
-			title: 'Руководство по эксплуатации Kozen P12',
-			description: 'Полное руководство пользователя',
-			fileUrl: '/files/manuals/kozen-p12-manual.pdf',
-			size: '12.3 MB',
-			type: 'manual',
-			updatedAt: '14 декабря 2025',
-			deviceBrand: 'Kozen',
-			deviceModel: 'P12',
-			downloadCount: 456,
-			checksum: 'sha256:mno345...'
-		},
-		{
-			id: v4(),
-			title: 'Прошивка Pax S90 v5.3.0',
-			description: 'Актуальная версия прошивки для терминала Pax S90',
-			fileUrl: '/files/firmware/pax-s90-v5.3.0.zip',
-			size: '142 MB',
-			type: 'firmware',
-			version: 'v5.3.0',
-			updatedAt: '21 июня 2025',
-			deviceBrand: 'Pax',
-			deviceModel: 'S90',
-			downloadCount: 789,
-			checksum: 'sha256:pqr678...'
-		},
-		{
-			id: v4(),
-			title: 'Драйвер Ethernet для Castles Vega3000',
-			description: 'Драйвер для сетевого подключения',
-			fileUrl: '/files/drivers/castles-vega3000-ethernet-driver.exe',
-			size: '32 MB',
-			type: 'driver',
-			updatedAt: '30 июня 2025',
-			deviceBrand: 'Castles',
-			deviceModel: 'Vega3000',
-			downloadCount: 234,
-			checksum: 'sha256:stu901...'
-		},
-		{
-			id: v4(),
-			title: 'Утилита диагностики Tactilion',
-			description: 'Программа для диагностики терминалов Tactilion',
-			fileUrl: '/files/utilities/tactilion-diagnostic-tool.exe',
-			size: '65 MB',
-			type: 'utility',
-			version: 'v2.1.0',
-			updatedAt: '21 июня 2025',
-			deviceBrand: 'Tactilion',
-			downloadCount: 189,
-			checksum: 'sha256:vwx234...'
-		}
-	],
 	people: [
 		{
 			id: v4(),
