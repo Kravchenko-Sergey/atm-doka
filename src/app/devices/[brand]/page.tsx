@@ -49,8 +49,34 @@ const BRAND_CONFIG = {
 		color: '#08a4e1',
 		gradient: 'from-blue-500 to-cyan-500',
 		lightGradient: 'from-blue-50 to-cyan-100',
-		firmwares: [],
-		drivers: [],
+		firmwares: [
+			{
+				model: '',
+				version: '!SB_S80_33.33',
+				url: 'https://disk.yandex.ru/d/1Ei0svpswKnAOQ'
+			},
+			{
+				model: '',
+				version: '!SB_S90C_33.33',
+				url: 'https://disk.yandex.ru/d/GQPfUmSopiLFyA'
+			},
+			{
+				model: '',
+				version: '!SB_SP30_33.33',
+				url: 'https://disk.yandex.ru/d/4fC0Y01j_Gu1-A'
+			},
+			{
+				model: '',
+				version: '33.33_PAX_Prolin_Bat',
+				url: 'https://disk.yandex.ru/d/jt5WS_fWPZHaUg'
+			}
+		],
+		drivers: [
+			{
+				title: 'PaxUSBDriver_2.28',
+				url: 'https://disk.yandex.ru/d/0XtlL9aZeqnAHA'
+			}
+		],
 		soft: []
 	},
 	ingenico: {
@@ -59,9 +85,15 @@ const BRAND_CONFIG = {
 		color: '#41e747',
 		gradient: 'from-green-500 to-emerald-500',
 		lightGradient: 'from-green-50 to-emerald-100',
-		firmwares: [],
+		firmwares: [
+			{
+				model: '',
+				version: 'telium',
+				url: 'https://disk.yandex.ru/d/-L6rGWh_bGYcog'
+			}
+		],
 		drivers: [],
-		soft: []
+		soft: [{ title: 'LLT', url: 'https://disk.yandex.ru/d/BbiiXdxjEfw_PA' }]
 	},
 	verifone: {
 		name: 'VeriFone',
@@ -69,7 +101,18 @@ const BRAND_CONFIG = {
 		color: '#6effd2',
 		gradient: 'from-teal-500 to-green-400',
 		lightGradient: 'from-teal-50 to-green-100',
-		firmwares: [],
+		firmwares: [
+			{
+				model: 'VX520',
+				version: 'verifone',
+				url: 'https://disk.yandex.ru/d/Ym5ZizF5xbCEHQ'
+			},
+			{
+				model: 'VX820',
+				version: 'vx820-33.33.07',
+				url: 'https://disk.yandex.ru/d/XjC6g_QSFhr6Jw'
+			}
+		],
 		drivers: [],
 		soft: []
 	},
@@ -108,7 +151,13 @@ const BRAND_CONFIG = {
 		color: '#704ecc',
 		gradient: 'from-purple-600 to-violet-600',
 		lightGradient: 'from-purple-50 to-violet-100',
-		firmwares: [],
+		firmwares: [
+			{
+				model: '',
+				version: 'vxupdate',
+				url: 'https://disk.yandex.ru/d/MS548Ff0grXoUw'
+			}
+		],
 		drivers: [],
 		soft: []
 	},
@@ -118,9 +167,25 @@ const BRAND_CONFIG = {
 		color: '#ffd829',
 		gradient: 'from-yellow-500 to-amber-500',
 		lightGradient: 'from-yellow-50 to-amber-100',
-		firmwares: [],
+		firmwares: [
+			{
+				model: '',
+				version: 'T2',
+				url: 'https://disk.yandex.ru/d/wlh2zYSls2s77g'
+			},
+			{
+				model: '',
+				version: 'G3',
+				url: 'https://disk.yandex.ru/d/Zo_BfaeJxsk8oA'
+			}
+		],
 		drivers: [],
-		soft: []
+		soft: [
+			{
+				title: 'Nexgo TMU Tools',
+				url: 'https://disk.yandex.ru/d/ntxPwIVh8dASHg'
+			}
+		]
 	}
 } as const
 
@@ -328,30 +393,20 @@ export default function BrandPage() {
 											<h2 className='mb-8 md:mb-10 text-2xl md:text-3xl font-bold'>
 												Прошивки
 											</h2>
-											{brandDevices.map((device) => {
-												const modelSlug = createModelSlug(device.model)
-
-												// Ищем прошивку для этой модели
-												const firmwareLink = brand.firmwares?.find((firmware) =>
-													firmware.model
-														.toLowerCase()
-														.includes(device.model.toLowerCase())
-												)
-
+											{brand.firmwares.map((firmware) => {
 												return (
-													<div key={device.id} className='py-1'>
-														{firmwareLink && (
-															<a
-																href={firmwareLink.url}
-																target='_blank'
-																rel='noopener noreferrer'
-																className='text-base md:text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 
+													<div key={firmware.url} className='py-1'>
+														<a
+															href={firmware.url}
+															target='_blank'
+															rel='noopener noreferrer'
+															className='text-base md:text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 
                   dark:hover:text-blue-400 hover:underline transition-colors whitespace-nowrap flex items-center gap-2'
-															>
-																<Download className='w-4 h-4' />
-																{firmwareLink.version} ({firmwareLink.model})
-															</a>
-														)}
+														>
+															<Download className='w-4 h-4' />
+															{firmware.version}{' '}
+															{firmware.model ? `(${firmware.model})` : ''}
+														</a>
 													</div>
 												)
 											})}

@@ -407,7 +407,7 @@ const DevicePage = () => {
 									<p className='text-lg text-center self-center z-10 line-clamp-3'>
 										{relatedDevice.description}
 									</p>
-									<ul className='flex gap-3 flex-wrap self-end z-10'>
+									<ul className='flex gap-1 flex-wrap self-end justify-end z-10'>
 										{relatedDevice.tags.map((tag) => (
 											<li
 												key={tag}
