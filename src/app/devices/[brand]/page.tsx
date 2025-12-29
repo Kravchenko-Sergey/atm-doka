@@ -6,13 +6,15 @@ import { useParams } from 'next/navigation'
 import { useEffect, useMemo } from 'react'
 import { ChevronRight, Download } from 'lucide-react'
 
-const BRAND_CONFIG = {
+const BRANDS_CONFIG = {
 	evotor: {
 		name: 'Evotor',
 		displayName: 'Эвотор',
 		color: '#f15024',
 		gradient: 'from-orange-500 to-red-500',
 		lightGradient: 'from-orange-50 to-orange-100',
+		description:
+			'Ведущий российский производитель интеллектуальных POS-терминалов и экосистемы программного обеспечения для торговли. Компания была основана в 2014 году, быстро заняла лидирующие позиции на российском рынке. Специализируется на создании смарт-терминалов для автоматизации малого и среднего бизнеса, предлагая комплексные решения для розничной торговли, общественного питания и сферы услуг',
 		firmwares: [
 			{
 				model: 'Эвотор 5i',
@@ -49,6 +51,8 @@ const BRAND_CONFIG = {
 		color: '#08a4e1',
 		gradient: 'from-blue-500 to-cyan-500',
 		lightGradient: 'from-blue-50 to-cyan-100',
+		description:
+			'Международная компания PAX Technology (PAX Global Technology) — мировой лидер в производстве инновационных решений для электронных платежей. Основана в 2000 году, штаб-квартира расположена в Шэньчжэне, Китай. Производит широкий спектр POS-терминалов, включая стационарные, мобильные и беспроводные модели, поставляя оборудование в более чем 120 стран мира',
 		firmwares: [
 			{
 				model: '',
@@ -85,6 +89,8 @@ const BRAND_CONFIG = {
 		color: '#41e747',
 		gradient: 'from-green-500 to-emerald-500',
 		lightGradient: 'from-green-50 to-emerald-100',
+		description:
+			'Французская компания, один из мировых лидеров в области терминальных решений и платежных услуг. Основана в 1980 году, имеет представительства в более чем 170 странах. Компания предлагает полный спектр продуктов и услуг для безопасных электронных транзакций, включая POS-терминалы, решения для электронной коммерции и мобильных платежей',
 		firmwares: [
 			{
 				model: '',
@@ -101,6 +107,8 @@ const BRAND_CONFIG = {
 		color: '#6effd2',
 		gradient: 'from-teal-500 to-green-400',
 		lightGradient: 'from-teal-50 to-green-100',
+		description:
+			'Американская компания (ныне часть индийской группы Catalyst), один из крупнейших в мире производителей терминалов для электронных платежей. Основана в 1981 году. Специализируется на разработке и производстве безопасных платежных решений для розничной торговли, финансовых учреждений и поставщиков услуг по всему миру',
 		firmwares: [
 			{
 				model: 'VX520',
@@ -122,6 +130,8 @@ const BRAND_CONFIG = {
 		color: '#DC2626',
 		gradient: 'from-red-600 to-rose-600',
 		lightGradient: 'from-red-50 to-rose-100',
+		description:
+			'Российский производитель POS-терминалов, основанный в 2016 году. Специализируется на создании надежных и современных решений для розничной торговли, адаптированных под специфику российского рынка. Компания предлагает как стационарные, так и мобильные терминалы, ориентированные на потребности малого и среднего бизнеса в России и странах СНГ',
 		firmwares: [
 			{
 				model: 'Kozen P10',
@@ -151,6 +161,8 @@ const BRAND_CONFIG = {
 		color: '#704ecc',
 		gradient: 'from-purple-600 to-violet-600',
 		lightGradient: 'from-purple-50 to-violet-100',
+		description:
+			'Тайваньская компания Castles Technology, основанная в 1996 году. Специализируется на разработке и производстве инновационных решений для электронных платежей. Известна своими надежными и производительными терминалами, которые используются по всему миру. Компания имеет сертификаты безопасности PCI, EMV и других международных стандартов',
 		firmwares: [
 			{
 				model: '',
@@ -167,6 +179,8 @@ const BRAND_CONFIG = {
 		color: '#ffd829',
 		gradient: 'from-yellow-500 to-amber-500',
 		lightGradient: 'from-yellow-50 to-amber-100',
+		description:
+			'Производитель мобильных POS-терминалов, предлагающий современные решения для безналичных платежей. Специализируется на создании компактных, беспроводных устройств для мобильной торговли. Продукция компании ориентирована на курьеров, торговых представителей, водителей такси и другие профессии, требующие мобильных платежных решений',
 		firmwares: [
 			{
 				model: '',
@@ -189,6 +203,8 @@ const BRAND_CONFIG = {
 	}
 } as const
 
+type BrandKey = keyof typeof BRANDS_CONFIG
+
 // Функция для создания slug из названия модели
 const createModelSlug = (modelName: string): string => {
 	return modelName
@@ -200,7 +216,7 @@ const createModelSlug = (modelName: string): string => {
 
 // Функция для нормализации названия бренда
 const normalizeBrandName = (brandName: string): string => {
-	const brandMapping: Record<string, string> = {
+	const brandMapping: Record<string, BrandKey> = {
 		эвотор: 'evotor',
 		evotor: 'evotor',
 		пакс: 'pax',
@@ -222,52 +238,9 @@ const normalizeBrandName = (brandName: string): string => {
 	return brandMapping[normalized] || normalized
 }
 
-// Статическое описание для каждого бренда
-const BRAND_DESCRIPTIONS: Record<
-	string,
-	{ title: string; description: string }
-> = {
-	evotor: {
-		title: 'Эвотор',
-		description:
-			'Ведущий российский производитель интеллектуальных POS-терминалов и экосистемы программного обеспечения для торговли. Компания была основана в 2014 году, быстро заняла лидирующие позиции на российском рынке. Специализируется на создании смарт-терминалов для автоматизации малого и среднего бизнеса, предлагая комплексные решения для розничной торговли, общественного питания и сферы услуг'
-	},
-	pax: {
-		title: 'Pax',
-		description:
-			'Международная компания PAX Technology (PAX Global Technology) — мировой лидер в производстве инновационных решений для электронных платежей. Основана в 2000 году, штаб-квартира расположена в Шэньчжэне, Китай. Производит широкий спектр POS-терминалов, включая стационарные, мобильные и беспроводные модели, поставляя оборудование в более чем 120 стран мира'
-	},
-	ingenico: {
-		title: 'Ingenico',
-		description:
-			'Французская компания, один из мировых лидеров в области терминальных решений и платежных услуг. Основана в 1980 году, имеет представительства в более чем 170 странах. Компания предлагает полный спектр продуктов и услуг для безопасных электронных транзакций, включая POS-терминалы, решения для электронной коммерции и мобильных платежей'
-	},
-	verifone: {
-		title: 'VeriFone',
-		description:
-			'Американская компания (ныне часть индийской группы Catalyst), один из крупнейших в мире производителей терминалов для электронных платежей. Основана в 1981 году. Специализируется на разработке и производстве безопасных платежных решений для розничной торговли, финансовых учреждений и поставщиков услуг по всему миру'
-	},
-	kozen: {
-		title: 'Kozen',
-		description:
-			'Российский производитель POS-терминалов, основанный в 2016 году. Специализируется на создании надежных и современных решений для розничной торговли, адаптированных под специфику российского рынка. Компания предлагает как стационарные, так и мобильные терминалы, ориентированные на потребности малого и среднего бизнеса в России и странах СНГ'
-	},
-	castles: {
-		title: 'Castles',
-		description:
-			'Тайваньская компания Castles Technology, основанная в 1996 году. Специализируется на разработке и производстве инновационных решений для электронных платежей. Известна своими надежными и производительными терминалами, которые используются по всему миру. Компания имеет сертификаты безопасности PCI, EMV и других международных стандартов'
-	},
-	tactilion: {
-		title: 'Tactilion',
-		description:
-			'Производитель мобильных POS-терминалов, предлагающий современные решения для безналичных платежей. Специализируется на создании компактных, беспроводных устройств для мобильной торговли. Продукция компании ориентирована на курьеров, торговых представителей, водителей такси и другие профессии, требующие мобильных платежных решений'
-	}
-}
-
 export default function BrandPage() {
 	const params = useParams()
-
-	const brandSlug = params?.brand as string | undefined
+	const brandSlug = params?.brand as BrandKey | undefined
 
 	const devices = useRootStore((state) => state.devices)
 	const changeBgHeader = useRootStore((state) => state.changeBgHeader)
@@ -275,7 +248,7 @@ export default function BrandPage() {
 	// Ищем бренд в конфигурации
 	const brand = useMemo(() => {
 		if (!brandSlug) return null
-		return BRAND_CONFIG[brandSlug as keyof typeof BRAND_CONFIG]
+		return BRANDS_CONFIG[brandSlug]
 	}, [brandSlug])
 
 	useEffect(() => {
@@ -299,11 +272,6 @@ export default function BrandPage() {
 			return deviceBrandNormalized === normalizedBrandName
 		})
 	}, [devices, brand])
-
-	const brandDescription = BRAND_DESCRIPTIONS[brandSlug || ''] || {
-		title: `${brand?.displayName} - POS-терминалы`,
-		description: `Полное руководство по POS-терминалам ${brand?.displayName}. Инструкции по настройке, прошивке, ремонту и обслуживанию всех моделей.`
-	}
 
 	const hasFirmware = brand?.firmwares && brand.firmwares.length > 0
 	const hasDrivers = brand?.drivers && brand.drivers.length > 0
@@ -329,7 +297,7 @@ export default function BrandPage() {
 								<h1 className='text-4xl md:text-5xl font-semibold'>
 									{brand?.displayName}
 								</h1>
-								<p className='text-xl'>{brandDescription.description}</p>
+								<p className='text-xl'>{brand?.description}</p>
 							</div>
 
 							{/* Хлебные крошки */}
@@ -360,7 +328,7 @@ export default function BrandPage() {
 								<div className='w-full'>
 									<div className='space-y-2 md:space-y-3'>
 										<h2 className='mb-8 md:mb-10 text-2xl md:text-3xl font-bold'>
-											Модели
+											Инструкции
 										</h2>
 										{brandDevices.map((device) => {
 											const modelSlug = createModelSlug(device.model)
@@ -390,7 +358,7 @@ export default function BrandPage() {
 											<h2 className='mb-8 md:mb-10 text-2xl md:text-3xl font-bold'>
 												Прошивки
 											</h2>
-											{brand.firmwares.map((firmware) => {
+											{brand!.firmwares.map((firmware) => {
 												return (
 													<div key={firmware.url} className='py-1'>
 														<a
@@ -418,7 +386,7 @@ export default function BrandPage() {
 											<h2 className='mb-8 md:mb-10 text-2xl md:text-3xl font-bold'>
 												Драйверы
 											</h2>
-											{brand.drivers.map((driver, index) => (
+											{brand!.drivers.map((driver, index) => (
 												<div key={index} className='py-1'>
 													<a
 														href={driver.url}
@@ -443,7 +411,7 @@ export default function BrandPage() {
 											<h2 className='mb-8 md:mb-10 text-2xl md:text-3xl font-bold'>
 												Софт
 											</h2>
-											{brand.soft.map((item, index) => (
+											{brand!.soft.map((item, index) => (
 												<div key={index} className='py-1'>
 													<a
 														href={item.url}
