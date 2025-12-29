@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { Device as DeviceType, useRootStore } from '@/state/store'
 import { Send, Users } from 'lucide-react'
-import { useEffect, useState, useMemo, useCallback } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import Link from 'next/link'
 
 // Простая структура: бренд -> модели
@@ -32,7 +32,7 @@ const brandModels = [
 			{ name: 'SP30', url: 'pax-sp30' },
 			{ name: 'Q25', url: 'pax-q25' },
 			{ name: 'D230', url: 'pax-d230' },
-			{ name: 'D230 mob', url: 'pax-d230-mob' }
+			{ name: 'D230M', url: 'pax-d230M' }
 		]
 	},
 	{
@@ -68,9 +68,9 @@ const brandModels = [
 		displayBrand: 'Castles',
 		color: '#704ecc',
 		models: [
-			{ name: 'Vega3000 стац', url: 'castles-vega3000' },
-			{ name: 'Vega3000 моб', url: 'castles-vega3000-mob' },
-			{ name: 'Vega3000 ИКР', url: 'castles-vega3000-ikr' }
+			{ name: 'Vega3000', url: 'castles-vega3000' },
+			{ name: 'Vega3000M', url: 'castles-vega3000M' },
+			{ name: 'Vega3000P', url: 'castles-vega3000P' }
 		]
 	},
 	{
@@ -84,96 +84,52 @@ const brandModels = [
 	}
 ]
 
-// Функция для создания slug из названия модели
-const createModelSlug = (modelName: string): string => {
-	return modelName
-		.toLowerCase()
-		.replace(/\s+/g, '-')
-		.replace(/[.,]/g, '')
-		.replace('стац', 'stationary')
-		.replace('моб', 'mobile')
-		.replace('икр', 'ikr')
-		.replace(/[^a-z0-9-]/g, '')
-}
-
-// Функция для получения URL устройства
-const getDeviceUrl = (device: DeviceType): string => {
-	if (!device.brand || !device.model) {
-		// Если нет бренда или модели, используем старый URL
-		return `/devices/${device.url}`
-	}
-
-	const brandSlug = device.brand.toLowerCase()
-	const modelSlug = createModelSlug(device.model)
-
-	return `/devices/${brandSlug}/${modelSlug}`
-}
-
 // Извлекаем только бренды для верхней навигации
-const BRAND_NAVIGATION = brandModels.map((brand) => ({
+const BRAND_NAVIGATION = brandModels.map(brand => ({
 	title: brand.displayBrand,
 	url: `/devices/${brand.brand.toLowerCase()}`,
 	color: brand.color
 }))
 
 export default function HomeClient() {
-	const devicesList = useRootStore((state) => state.devices)
-	const changeBgHeader = useRootStore((state) => state.changeBgHeader)
-	const activeDevices = useRootStore((state) => state.activeTags)
-	const toggleDevice = useRootStore((state) => state.toggleTag)
+	const devices = useRootStore(state => state.devices)
+	const changeBgHeader = useRootStore(state => state.changeBgHeader)
 
-	const [sortedDevices, setSortedDevices] = useState<DeviceType[]>([])
 	const [visibleCount, setVisibleCount] = useState(6)
+	// Используем useMemo для однократного перемешивания при первой загрузке
+	const [shuffledDevices, setShuffledDevices] = useState<DeviceType[]>([])
+	const [displayedDevices, setDisplayedDevices] = useState<DeviceType[]>([])
 
-	const toggleActive = useCallback(
-		(title: string) => {
-			toggleDevice(title)
-		},
-		[toggleDevice]
-	)
-
-	const filteredDevices = useMemo(() => {
-		if (activeDevices.length === 0) return sortedDevices
-
-		return sortedDevices.filter((deviceItem) =>
-			activeDevices.some((activeDevice) =>
-				deviceItem.tags.includes(activeDevice)
-			)
-		)
-	}, [sortedDevices, activeDevices])
-
-	const displayedDevices = useMemo(
-		() => filteredDevices.slice(0, visibleCount),
-		[filteredDevices, visibleCount]
-	)
-
-	const handleLoadMore = useCallback(() => {
-		setVisibleCount((prev) => prev + 6)
-	}, [])
+	// Инициализация перемешанного списка при первой загрузке
+	useEffect(() => {
+		if (devices.length > 0 && shuffledDevices.length === 0) {
+			const shuffled = [...devices].sort(() => Math.random() - 0.5)
+			setShuffledDevices(shuffled)
+			setDisplayedDevices(shuffled.slice(0, visibleCount))
+		}
+	}, [devices, shuffledDevices.length, visibleCount])
 
 	useEffect(() => {
-		const shuffledDevices = [...devicesList].sort(() => Math.random() - 0.5)
-		setSortedDevices(shuffledDevices)
 		changeBgHeader('#fafafa')
-	}, [devicesList, changeBgHeader])
+	}, [changeBgHeader])
+
+	const handleLoadMore = useCallback(() => {
+		const newVisibleCount = visibleCount + 6
+		setVisibleCount(newVisibleCount)
+		setDisplayedDevices(shuffledDevices.slice(0, newVisibleCount))
+	}, [shuffledDevices, visibleCount])
 
 	return (
 		<>
 			{/* Навигация с линией внизу и hover эффектом */}
 			<div className='pl-4 md:pl-56 pt-12 md:pt-0 px-4 max-w-[1572px]'>
 				<div className='flex flex-col items-start gap-2 sm:gap-2 md:gap-4 mb-4 sm:mb-6 md:mb-8'>
-					{BRAND_NAVIGATION.map((item) => (
-						<Link
-							key={item.title}
-							href={item.url}
-							className='py-1 group w-full relative text-2xl sm:text-3xl md:text-4xl font-medium inline-block'
-						>
+					{BRAND_NAVIGATION.map(item => (
+						<Link key={item.title} href={item.url} className='py-1 group w-full relative text-2xl sm:text-3xl md:text-4xl font-medium inline-block'>
 							{/* Контейнер для текста и линии */}
 							<div className='relative inline-block'>
 								{/* Текст */}
-								<div className='pl-3 sm:pl-4 font-light relative z-10'>
-									{item.title}
-								</div>
+								<div className='pl-3 sm:pl-4 font-light relative z-10'>{item.title}</div>
 
 								{/* Цветная линия только под словом */}
 								<div
@@ -186,13 +142,7 @@ export default function HomeClient() {
 							</div>
 
 							{/* Hover фон - появляется при наведении */}
-							<div
-								className='absolute inset-0 -z-10 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200'
-								style={{
-									backgroundColor: item.color,
-									width: '100%' // Фон на всю ширину ссылки
-								}}
-							/>
+							<div className='absolute inset-0 -z-10 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200' style={{ backgroundColor: item.color }} />
 						</Link>
 					))}
 				</div>
@@ -208,10 +158,7 @@ export default function HomeClient() {
 						<p>Делитесь своими знаниями, помогайте коллегам.</p>
 						<p>Ваш опыт важен, ваш вклад бесценен.</p>
 					</div>
-					<Link
-						href='#'
-						className='mt-6 text-xl flex items-center gap-3 hover:underline'
-					>
+					<Link href='#' className='mt-6 text-xl flex items-center gap-3 hover:underline'>
 						<Users size={20} />
 						<span>Участники</span>
 					</Link>
@@ -225,12 +172,7 @@ export default function HomeClient() {
 						<p>Исправьте неточность в материалах.</p>
 						<p>Ваши правки экономят время и решают проблемы коллег.</p>
 					</div>
-					<Link
-						href='https://t.me/+CznWcCGr6H03NjMy'
-						className='mt-6 text-xl flex items-center gap-3 hover:underline'
-						target='_blank'
-						rel='noopener noreferrer'
-					>
+					<Link href='https://t.me/+CznWcCGr6H03NjMy' className='mt-6 text-xl flex items-center gap-3 hover:underline' target='_blank' rel='noopener noreferrer'>
 						<Send size={20} />
 						<span>Написать нам</span>
 					</Link>
@@ -241,26 +183,14 @@ export default function HomeClient() {
 			<div className='px-4 py-8 max-w-[1572px]'>
 				<div className='flex flex-col gap-8'>
 					<div className='flex justify-center gap-6 flex-wrap'>
-						{displayedDevices.map((device) => (
-							<Link
-								href={getDeviceUrl(device)}
-								key={device.id}
-								className='relative p-4 min-w-[320px] h-[330px] flex flex-col items-center justify-between flex-1 rounded-sm overflow-hidden transition-all duration-300 ease-in-out sm:h-[480px] sm:min-w-[400px] hover:shadow-lg hover:scale-101'
-								style={{ backgroundColor: device.bgColor }}
-							>
+						{displayedDevices.map(device => (
+							<Link href={`/devices/${device.brand.toLowerCase()}/${device.model.toLowerCase()}`} key={device.id} className='relative p-4 min-w-[320px] h-[330px] flex flex-col items-center justify-between flex-1 rounded-sm overflow-hidden transition-all duration-300 ease-in-out sm:h-[480px] sm:min-w-[400px] hover:shadow-lg hover:scale-101' style={{ backgroundColor: device.bgColor }}>
 								<div className='absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-20 dark:bg-gray-800 dark:hover:opacity-40' />
-								<h3 className='text-2xl font-semibold self-start z-10'>
-									{device.title}
-								</h3>
-								<p className='text-xl text-center self-center z-10 line-clamp-3'>
-									{device.description}
-								</p>
+								<h3 className='text-2xl font-semibold self-start z-10'>{device.title}</h3>
+								<p className='text-xl text-center self-center z-10 line-clamp-3'>{device.description}</p>
 								<div className='flex gap-1 flex-wrap self-end justify-end z-10'>
-									{device.tags.map((tag) => (
-										<span
-											key={tag}
-											className='p-1 text-sm bg-black/10 rounded-sm'
-										>
+									{device.tags.map(tag => (
+										<span key={tag} className='p-1 text-sm bg-black/10 rounded-sm'>
 											{tag}
 										</span>
 									))}
@@ -269,13 +199,9 @@ export default function HomeClient() {
 						))}
 					</div>
 
-					{filteredDevices.length > visibleCount && (
+					{shuffledDevices.length > visibleCount && (
 						<div className='flex justify-center'>
-							<Button
-								onClick={handleLoadMore}
-								variant='outline'
-								className='p-6 text-xl rounded-sm font-normal min-w-[200px] hover:scale-105 transition-transform'
-							>
+							<Button onClick={handleLoadMore} variant='outline' className='p-6 text-xl rounded-sm font-normal min-w-[200px] hover:scale-105 transition-transform'>
 								Показать ещё
 							</Button>
 						</div>
@@ -286,16 +212,14 @@ export default function HomeClient() {
 			{/* Детальная навигация по брендам с моделями */}
 			<div className='px-4 mt-16 md:mt-32 max-w-[1572px]'>
 				<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-7 gap-6 md:gap-8 lg:gap-10 xl:gap-12 mb-8 md:mb-12'>
-					{brandModels.map((brand) => (
+					{brandModels.map(brand => (
 						<div key={brand.brand} className='w-full'>
 							{/* Заголовок бренда с линией */}
 							<div className='py-1 group w-full relative text-xl md:text-2xl font-medium inline-block mb-3 md:mb-4'>
 								{/* Контейнер для текста и линии */}
 								<div className='relative inline-block'>
 									{/* Текст */}
-									<div className='font-light relative z-10'>
-										{brand.displayBrand}
-									</div>
+									<div className='font-light relative z-10'>{brand.displayBrand}</div>
 
 									{/* Цветная линия только под словом */}
 									<div
@@ -310,17 +234,16 @@ export default function HomeClient() {
 
 							{/* Простой список моделей */}
 							<div className='space-y-1'>
-								{brand.models.map((model) => {
+								{brand.models.map(model => {
 									const brandSlug = brand.brand.toLowerCase()
-									const modelSlug = createModelSlug(model.name)
+									const modelSlug = model.name.toLowerCase()
 
 									return (
 										<div key={model.url} className='py-0.5'>
 											<Link
 												href={`/devices/${brandSlug}/${modelSlug}`}
 												className='text-base md:text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 
-                        dark:hover:text-blue-400 hover:underline transition-colors whitespace-nowrap'
-											>
+                        dark:hover:text-blue-400 hover:underline transition-colors whitespace-nowrap'>
 												{model.name}
 											</Link>
 										</div>
