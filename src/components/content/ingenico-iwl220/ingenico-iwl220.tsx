@@ -1,4 +1,4 @@
-import { CopyLinkButton } from '@/components/copy-link-button'
+import { CopyLinkButton } from '@/components/shared/copy-link-button'
 import { useDelayedHashScroll } from '@/hooks/use-delayed-hash-scroll'
 import React from 'react'
 
@@ -6,9 +6,7 @@ interface IngenicoIWL220ContentProps {
 	className?: string
 }
 
-const IngenicoIWL220Content: React.FC<IngenicoIWL220ContentProps> = ({
-	className = ''
-}) => {
+const IngenicoIWL220Content: React.FC<IngenicoIWL220ContentProps> = ({ className = '' }) => {
 	useDelayedHashScroll()
 
 	const tableHeaders = ['UPOS', 'Telium OS']
@@ -25,9 +23,7 @@ const IngenicoIWL220Content: React.FC<IngenicoIWL220ContentProps> = ({
 			<div className='content-section'>
 				{/* Контейнер с ID */}
 				<div className='flex items-center justify-start gap-4 mb-8 mt-8' id='1'>
-					<h2 className='section-title text-2xl md:text-3xl font-semibold md:font-bold'>
-						Актуальные версии
-					</h2>
+					<h2 className='section-title text-2xl md:text-3xl font-semibold md:font-bold'>Актуальные версии</h2>
 					<CopyLinkButton index='1' color='#41e747' />
 				</div>
 
@@ -35,11 +31,8 @@ const IngenicoIWL220Content: React.FC<IngenicoIWL220ContentProps> = ({
 					<table className='min-w-full'>
 						<thead>
 							<tr>
-								{tableHeaders.map((header) => (
-									<th
-										key={header}
-										className='px-2 py-2 text-left text-sm font-medium border border-gray-300'
-									>
+								{tableHeaders.map(header => (
+									<th key={header} className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
 										{header}
 									</th>
 								))}
@@ -48,12 +41,8 @@ const IngenicoIWL220Content: React.FC<IngenicoIWL220ContentProps> = ({
 						<tbody>
 							{tableData.map((row, index) => (
 								<tr key={index}>
-									<td className='px-3 py-3 text-sm border border-gray-300'>
-										{row.upos}
-									</td>
-									<td className='px-3 py-3 text-sm border border-gray-300'>
-										{row.teliumOS}
-									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>{row.upos}</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>{row.teliumOS}</td>
 								</tr>
 							))}
 						</tbody>
@@ -64,30 +53,21 @@ const IngenicoIWL220Content: React.FC<IngenicoIWL220ContentProps> = ({
 			<div className='content-section'>
 				{/* Контейнер с ID */}
 				<div className='flex items-center justify-start gap-4 mb-8 mt-8' id='2'>
-					<h2 className='section-title text-2xl md:text-3xl font-semibold md:font-bold'>
-						Прошивка
-					</h2>
+					<h2 className='section-title text-2xl md:text-3xl font-semibold md:font-bold'>Прошивка</h2>
 					<CopyLinkButton index='2' color='#41e747' />
 				</div>
 
 				<div className='subsection mb-8'>
 					{/* Контейнер с ID */}
 					<div className='flex items-center justify-start gap-4 mb-6' id='2.1'>
-						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
-							Что понадобится?
-						</h3>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>Что понадобится?</h3>
 						<CopyLinkButton index='2.1' color='#41e747' />
 					</div>
 
 					<ul className='list-disc text-lg flex flex-col gap-4 pl-6'>
 						<li className='leading-7'>Переходник USB мама - mini USB папа</li>
 						<li className='leading-7'>
-							<a
-								href='https://disk.yandex.ru/d/-L6rGWh_bGYcog'
-								target='_blank'
-								rel='noopener noreferrer'
-								className='hover:underline text-[#41e747] font-medium transition-colors duration-200'
-							>
+							<a href='https://disk.yandex.ru/d/-L6rGWh_bGYcog' target='_blank' rel='noopener noreferrer' className='hover:underline text-[#41e747] font-medium transition-colors duration-200'>
 								Папка с файлами
 							</a>
 						</li>
@@ -97,131 +77,77 @@ const IngenicoIWL220Content: React.FC<IngenicoIWL220ContentProps> = ({
 				<div className='subsection mb-8'>
 					{/* Контейнер с ID */}
 					<div className='flex items-center justify-start gap-4 mb-6' id='2.2'>
-						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
-							Процесс прошивки
-						</h3>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>Процесс прошивки</h3>
 						<CopyLinkButton index='2.2' color='#41e747' />
 					</div>
 
 					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
-						<li className='leading-7'>
-							Подключаем флешку с помощью переходника.
-						</li>
+						<li className='leading-7'>Подключаем флешку с помощью переходника.</li>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
-								<span>
-									Включаем терминал нажатием на зелёную кнопку и сразу же
-									зажимаем
-								</span>
-								<span className='bg-[#41e747] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#37c43d] transition-colors duration-200 mx-1'>
-									F4
-								</span>
+								<span>Включаем терминал нажатием на зелёную кнопку и сразу же зажимаем</span>
+								<span className='bg-[#41e747] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#37c43d] transition-colors duration-200 mx-1'>F4</span>
 								<span>. Должна появиться надпись</span>
-								<span className='bg-[#41e747] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#37c43d] transition-colors duration-200 ml-1'>
-									USB MASS STORAGE
-								</span>
+								<span className='bg-[#41e747] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#37c43d] transition-colors duration-200 ml-1'>USB MASS STORAGE</span>
 							</div>
 						</li>
 						<li className='leading-7'>Дожидаемся появления меню.</li>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>Выбираем пункт</span>
-								<span className='bg-[#41e747] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#37c43d] transition-colors duration-200 mx-1'>
-									FLASHCLEAN
-								</span>
+								<span className='bg-[#41e747] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#37c43d] transition-colors duration-200 mx-1'>FLASHCLEAN</span>
 							</div>
 						</li>
-						<li className='leading-7'>
-							Ждём очистки и перезагрузки терминала.
-						</li>
+						<li className='leading-7'>Ждём очистки и перезагрузки терминала.</li>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>После того как на экране появится надпись</span>
-								<span className='bg-[#41e747] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#37c43d] transition-colors duration-200 mx-1'>
-									LLT
-								</span>
-								<span>
-									, одновременно зажимаем жёлтую кнопку и точку. Терминал
-									выключится.
-								</span>
+								<span className='bg-[#41e747] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#37c43d] transition-colors duration-200 mx-1'>LLT</span>
+								<span>, одновременно зажимаем жёлтую кнопку и точку. Терминал выключится.</span>
 							</div>
 						</li>
-						<li className='leading-7'>
-							Включаем терминал нажатием на зелёную кнопку.
-						</li>
+						<li className='leading-7'>Включаем терминал нажатием на зелёную кнопку.</li>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>В меню выбираем пункт</span>
-								<span className='bg-[#41e747] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#37c43d] transition-colors duration-200 mx-1'>
-									9_32_3V
-								</span>
+								<span className='bg-[#41e747] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#37c43d] transition-colors duration-200 mx-1'>9_32_3V</span>
 							</div>
 						</li>
-						<li className='leading-7'>
-							Ждём установки файлов и перезагрузки терминала.
-						</li>
-						<li className='leading-7'>
-							После перезагрузки терминала одновременно зажимаем жёлтую кнопку и
-							точку. Терминал выключится.
-						</li>
+						<li className='leading-7'>Ждём установки файлов и перезагрузки терминала.</li>
+						<li className='leading-7'>После перезагрузки терминала одновременно зажимаем жёлтую кнопку и точку. Терминал выключится.</li>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
-								<span>
-									Включаем терминал нажатием на зелёную кнопку и сразу же
-									зажимаем
-								</span>
-								<span className='bg-[#41e747] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#37c43d] transition-colors duration-200 mx-1'>
-									F4
-								</span>
+								<span>Включаем терминал нажатием на зелёную кнопку и сразу же зажимаем</span>
+								<span className='bg-[#41e747] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#37c43d] transition-colors duration-200 mx-1'>F4</span>
 							</div>
 						</li>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>В меню выбираем файл</span>
-								<span className='bg-[#41e747] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#37c43d] transition-colors duration-200 mx-1'>
-									Stempel
-								</span>
+								<span className='bg-[#41e747] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#37c43d] transition-colors duration-200 mx-1'>Stempel</span>
 							</div>
 						</li>
-						<li className='leading-7'>
-							После перезагрузки терминала одновременно зажимаем жёлтую кнопку и
-							точку. Терминал выключится.
-						</li>
+						<li className='leading-7'>После перезагрузки терминала одновременно зажимаем жёлтую кнопку и точку. Терминал выключится.</li>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
-								<span>
-									Включаем терминал нажатием на зелёную кнопку и сразу же
-									зажимаем
-								</span>
-								<span className='bg-[#41e747] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#37c43d] transition-colors duration-200 mx-1'>
-									F4
-								</span>
+								<span>Включаем терминал нажатием на зелёную кнопку и сразу же зажимаем</span>
+								<span className='bg-[#41e747] text-black px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#37c43d] transition-colors duration-200 mx-1'>F4</span>
 							</div>
 						</li>
-						<li className='leading-7'>
-							В меню выбираем файл с названием модели нашего устройства.
-						</li>
-						<li className='leading-7'>
-							После того как терминал перезагрузится, останется дождаться
-							загрузки UPOS.
-						</li>
+						<li className='leading-7'>В меню выбираем файл с названием модели нашего устройства.</li>
+						<li className='leading-7'>После того как терминал перезагрузится, останется дождаться загрузки UPOS.</li>
 					</ul>
 				</div>
 
 				<div className='subsection'>
 					{/* Контейнер с ID */}
 					<div className='flex items-center justify-start gap-4 mb-6' id='2.3'>
-						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
-							Видеоинструкция
-						</h3>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>Видеоинструкция</h3>
 						<CopyLinkButton index='2.3' color='#41e747' />
 					</div>
 					<div className='flex'>
 						<video controls className='w-full rounded-xl md:w-1/3 max-w-md'>
-							<source
-								src='/content/ingenico-iwl220-iwl250/video/IWL220-IWL250.mp4'
-								type='video/mp4'
-							/>
+							<source src='/content/ingenico-iwl220-iwl250/video/IWL220-IWL250.mp4' type='video/mp4' />
 							Ваш браузер не поддерживает видео тег.
 						</video>
 					</div>

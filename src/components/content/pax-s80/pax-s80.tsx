@@ -1,4 +1,4 @@
-import { CopyLinkButton } from '@/components/copy-link-button'
+import { CopyLinkButton } from '@/components/shared/copy-link-button'
 import { useDelayedHashScroll } from '@/hooks/use-delayed-hash-scroll'
 import React from 'react'
 
@@ -25,9 +25,7 @@ const PaxS80Content: React.FC<PaxS80ContentProps> = ({ className = '' }) => {
 			<div className='content-section'>
 				{/* Контейнер с ID */}
 				<div className='flex items-center justify-start gap-4 mb-8 mt-8' id='1'>
-					<h2 className='section-title text-2xl md:text-3xl font-semibold md:font-bold'>
-						Актуальные версии
-					</h2>
+					<h2 className='section-title text-2xl md:text-3xl font-semibold md:font-bold'>Актуальные версии</h2>
 					<CopyLinkButton index='1' color='#08a4e1' />
 				</div>
 
@@ -35,11 +33,8 @@ const PaxS80Content: React.FC<PaxS80ContentProps> = ({ className = '' }) => {
 					<table className='min-w-full'>
 						<thead>
 							<tr>
-								{tableHeaders.map((header) => (
-									<th
-										key={header}
-										className='px-2 py-2 text-left text-sm font-medium border border-gray-300'
-									>
+								{tableHeaders.map(header => (
+									<th key={header} className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
 										{header}
 									</th>
 								))}
@@ -48,18 +43,10 @@ const PaxS80Content: React.FC<PaxS80ContentProps> = ({ className = '' }) => {
 						<tbody>
 							{tableData.map((row, index) => (
 								<tr key={index}>
-									<td className='px-3 py-3 text-sm border border-gray-300'>
-										{row.upos}
-									</td>
-									<td className='px-3 py-3 text-sm border border-gray-300'>
-										{row.osMonitor}
-									</td>
-									<td className='px-3 py-3 text-sm border border-gray-300'>
-										{row.base}
-									</td>
-									<td className='px-3 py-3 text-sm border border-gray-300'>
-										{row.api}
-									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>{row.upos}</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>{row.osMonitor}</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>{row.base}</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>{row.api}</td>
 								</tr>
 							))}
 						</tbody>
@@ -70,33 +57,22 @@ const PaxS80Content: React.FC<PaxS80ContentProps> = ({ className = '' }) => {
 			<div className='content-section'>
 				{/* Контейнер с ID */}
 				<div className='flex items-center justify-start gap-4 mb-8 mt-8' id='2'>
-					<h2 className='section-title text-2xl md:text-3xl font-semibold md:font-bold'>
-						Прошивка
-					</h2>
+					<h2 className='section-title text-2xl md:text-3xl font-semibold md:font-bold'>Прошивка</h2>
 					<CopyLinkButton index='2' color='#08a4e1' />
 				</div>
 
 				<div className='subsection mb-8'>
 					{/* Контейнер с ID */}
 					<div className='flex items-center justify-start gap-4 mb-6' id='2.1'>
-						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
-							Что понадобится?
-						</h3>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>Что понадобится?</h3>
 						<CopyLinkButton index='2.1' color='#08a4e1' />
 					</div>
 
 					<ul className='list-disc text-lg flex flex-col gap-4 pl-6'>
 						<li className='leading-7'>Флешка, отформатированная в FAT32</li>
+						<li className='leading-7'>Переходник USB (мама) — mini-USB (папа)</li>
 						<li className='leading-7'>
-							Переходник USB (мама) — mini-USB (папа)
-						</li>
-						<li className='leading-7'>
-							<a
-								href='https://disk.yandex.ru/d/1Ei0svpswKnAOQ'
-								target='_blank'
-								rel='noopener noreferrer'
-								className='hover:underline text-[#08a4e1] font-medium transition-colors duration-200'
-							>
+							<a href='https://disk.yandex.ru/d/1Ei0svpswKnAOQ' target='_blank' rel='noopener noreferrer' className='hover:underline text-[#08a4e1] font-medium transition-colors duration-200'>
 								Файл прошивки
 							</a>
 						</li>
@@ -106,9 +82,7 @@ const PaxS80Content: React.FC<PaxS80ContentProps> = ({ className = '' }) => {
 				<div className='subsection mb-8'>
 					{/* Контейнер с ID */}
 					<div className='flex items-center justify-start gap-4 mb-6' id='2.2'>
-						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
-							Процесс прошивки
-						</h3>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>Процесс прошивки</h3>
 						<CopyLinkButton index='2.2' color='#08a4e1' />
 					</div>
 
@@ -118,12 +92,7 @@ const PaxS80Content: React.FC<PaxS80ContentProps> = ({ className = '' }) => {
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>Выберите файл прошивки</span>
-								<a
-									href='https://disk.yandex.ru/d/1Ei0svpswKnAOQ'
-									target='_blank'
-									rel='noopener noreferrer'
-									className='hover:underline text-[#08a4e1] font-medium transition-colors duration-200 mx-1'
-								>
+								<a href='https://disk.yandex.ru/d/1Ei0svpswKnAOQ' target='_blank' rel='noopener noreferrer' className='hover:underline text-[#08a4e1] font-medium transition-colors duration-200 mx-1'>
 									!SB_S80_33.33
 								</a>
 								<span>и подтвердите выбор</span>
@@ -132,46 +101,31 @@ const PaxS80Content: React.FC<PaxS80ContentProps> = ({ className = '' }) => {
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>В меню выберите:</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
-									DELETE APP
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>DELETE APP</span>
 								<span>→</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
-									Delete all app
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>Delete all app</span>
 							</div>
 						</li>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>После очистки выберите</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
-									DOWNLOAD ALL
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>DOWNLOAD ALL</span>
 							</div>
 						</li>
-						<li className='leading-7'>
-							По завершении дважды нажмите красную кнопку и извлеките флешку
-						</li>
-						<li className='leading-7'>
-							Дождитесь перезагрузки и загрузки UPOS
-						</li>
+						<li className='leading-7'>По завершении дважды нажмите красную кнопку и извлеките флешку</li>
+						<li className='leading-7'>Дождитесь перезагрузки и загрузки UPOS</li>
 					</ul>
 				</div>
 
 				<div className='subsection'>
 					{/* Контейнер с ID */}
 					<div className='flex items-center justify-start gap-4 mb-6' id='2.3'>
-						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
-							Видеоинструкция
-						</h3>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>Видеоинструкция</h3>
 						<CopyLinkButton index='2.3' color='#08a4e1' />
 					</div>
 					<div className='flex'>
 						<video controls className='w-full rounded-xl md:w-1/3 max-w-md'>
-							<source
-								src='/content/pax-s80/video/PAX S80.mp4'
-								type='video/mp4'
-							/>
+							<source src='/content/pax-s80/video/PAX S80.mp4' type='video/mp4' />
 							Ваш браузер не поддерживает видео тег.
 						</video>
 					</div>
@@ -181,79 +135,50 @@ const PaxS80Content: React.FC<PaxS80ContentProps> = ({ className = '' }) => {
 			<div className='content-section'>
 				{/* Контейнер с ID */}
 				<div className='flex items-center justify-start gap-4 mb-8 mt-8' id='3'>
-					<h2 className='section-title text-2xl md:text-3xl font-semibold md:font-bold'>
-						Дефектовка
-					</h2>
+					<h2 className='section-title text-2xl md:text-3xl font-semibold md:font-bold'>Дефектовка</h2>
 					<CopyLinkButton index='3' color='#08a4e1' />
 				</div>
 
 				<div className='subsection mb-8'>
 					{/* Контейнер с ID */}
 					<div className='flex items-center justify-start gap-4 mb-6' id='3.1'>
-						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
-							Внешний осмотр
-						</h3>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>Внешний осмотр</h3>
 						<CopyLinkButton index='3.1' color='#08a4e1' />
 					</div>
 
 					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
-						<li className='leading-7'>
-							Проверьте отсутствие посторонних предметов в ридерах
-						</li>
-						<li className='leading-7'>
-							Осмотрите корпус на наличие повреждений и загрязнений
-						</li>
-						<li className='leading-7'>
-							Проверьте целостность контактов SIM-слота и Ethernet-порта
-						</li>
+						<li className='leading-7'>Проверьте отсутствие посторонних предметов в ридерах</li>
+						<li className='leading-7'>Осмотрите корпус на наличие повреждений и загрязнений</li>
+						<li className='leading-7'>Проверьте целостность контактов SIM-слота и Ethernet-порта</li>
 						<li className='leading-7'>Оцените общее состояние терминала</li>
 					</ul>
 				</div>
 				<div className='subsection mb-8'>
 					{/* Контейнер с ID */}
 					<div className='flex items-center justify-start gap-4 mb-6' id='3.2'>
-						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
-							Включение терминала
-						</h3>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>Включение терминала</h3>
 						<CopyLinkButton index='3.2' color='#08a4e1' />
 					</div>
 
 					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
-						<li className='leading-7'>
-							Включите терминал и проверьте процесс загрузки
-						</li>
+						<li className='leading-7'>Включите терминал и проверьте процесс загрузки</li>
 						<li className='leading-7'>
 							Убедитесь в отсутствии сообщений об ошибках:
 							<div className='mt-2 ml-4 flex flex-wrap gap-2'>
-								<span className='bg-[#08a4e1] text-white px-2 py-1 rounded text-base font-medium whitespace-nowrap'>
-									TAMPER
-								</span>
-								<span className='bg-[#08a4e1] text-white px-2 py-1 rounded text-base font-medium whitespace-nowrap'>
-									TAMPERED DEVICE
-								</span>
-								<span className='bg-[#08a4e1] text-white px-2 py-1 rounded text-base font-medium whitespace-nowrap'>
-									TAMPERING DETECTED
-								</span>
-								<span className='bg-[#08a4e1] text-white px-2 py-1 rounded text-base font-medium whitespace-nowrap'>
-									PED TAMPERED
-								</span>
-								<span className='bg-[#08a4e1] text-white px-2 py-1 rounded text-base font-medium whitespace-nowrap'>
-									PLS INPUT PWD
-								</span>
+								<span className='bg-[#08a4e1] text-white px-2 py-1 rounded text-base font-medium whitespace-nowrap'>TAMPER</span>
+								<span className='bg-[#08a4e1] text-white px-2 py-1 rounded text-base font-medium whitespace-nowrap'>TAMPERED DEVICE</span>
+								<span className='bg-[#08a4e1] text-white px-2 py-1 rounded text-base font-medium whitespace-nowrap'>TAMPERING DETECTED</span>
+								<span className='bg-[#08a4e1] text-white px-2 py-1 rounded text-base font-medium whitespace-nowrap'>PED TAMPERED</span>
+								<span className='bg-[#08a4e1] text-white px-2 py-1 rounded text-base font-medium whitespace-nowrap'>PLS INPUT PWD</span>
 							</div>
 						</li>
-						<li className='leading-7'>
-							При обнаружении ошибок — терминал неисправен, требуется отправка в
-							сервисный центр
-						</li>
+						<li className='leading-7'>При обнаружении ошибок — терминал неисправен, требуется отправка в сервисный центр</li>
 					</ul>
 				</div>
 				<div className='subsection mb-8'>
 					{/* Контейнер с ID */}
 					<div className='flex items-center justify-start gap-4 mb-6' id='3.3'>
-						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
-							Магнитный ридер
-						</h3>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>Магнитный ридер</h3>
 						<CopyLinkButton index='3.3' color='#08a4e1' />
 					</div>
 
@@ -261,34 +186,24 @@ const PaxS80Content: React.FC<PaxS80ContentProps> = ({ className = '' }) => {
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>Зажмите кнопку</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
-									func
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>func</span>
 								<span>при включении</span>
 							</div>
 						</li>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>Выберите:</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
-									Module Test
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>Module Test</span>
 								<span>→</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
-									Magcard Reader
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>Magcard Reader</span>
 							</div>
 						</li>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>Проведите карту — должен отображаться</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
-									READ TRACK OK
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>READ TRACK OK</span>
 								<span>или</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
-									Status=0
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>Status=0</span>
 							</div>
 						</li>
 					</ul>
@@ -297,9 +212,7 @@ const PaxS80Content: React.FC<PaxS80ContentProps> = ({ className = '' }) => {
 				<div className='subsection mb-8'>
 					{/* Контейнер с ID */}
 					<div className='flex items-center justify-start gap-4 mb-6' id='3.4'>
-						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
-							Чиповый ридер
-						</h3>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>Чиповый ридер</h3>
 						<CopyLinkButton index='3.4' color='#08a4e1' />
 					</div>
 
@@ -307,38 +220,26 @@ const PaxS80Content: React.FC<PaxS80ContentProps> = ({ className = '' }) => {
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>Зажмите кнопку</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
-									func
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>func</span>
 								<span>при включении</span>
 							</div>
 						</li>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>Выберите:</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
-									Module Test
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>Module Test</span>
 								<span>→</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
-									Card Readers
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>Card Readers</span>
 								<span>→</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
-									User Card
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>User Card</span>
 							</div>
 						</li>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>Вставьте карту — должен отображаться</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
-									OK
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>OK</span>
 								<span>или</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
-									Card test done
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>Card test done</span>
 							</div>
 						</li>
 					</ul>
@@ -347,9 +248,7 @@ const PaxS80Content: React.FC<PaxS80ContentProps> = ({ className = '' }) => {
 				<div className='subsection mb-8'>
 					{/* Контейнер с ID */}
 					<div className='flex items-center justify-start gap-4 mb-6' id='3.5'>
-						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
-							Бесконтактный ридер
-						</h3>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>Бесконтактный ридер</h3>
 						<CopyLinkButton index='3.5' color='#08a4e1' />
 					</div>
 
@@ -357,46 +256,32 @@ const PaxS80Content: React.FC<PaxS80ContentProps> = ({ className = '' }) => {
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>Зажмите кнопку</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
-									func
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>func</span>
 								<span>при включении</span>
 							</div>
 						</li>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>Выберите:</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
-									Module Test
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>Module Test</span>
 								<span>→</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
-									Card Readers
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>Card Readers</span>
 							</div>
 						</li>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>Выберите</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
-									A Type Card
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>A Type Card</span>
 								<span>или поднесите карту при появлении</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
-									PLS SWIPED CARD
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>PLS SWIPED CARD</span>
 							</div>
 						</li>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>Должен отображаться</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
-									read succeeded
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>read succeeded</span>
 								<span>или</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
-									A CARD TEST OK
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>A CARD TEST OK</span>
 							</div>
 						</li>
 					</ul>
@@ -405,9 +290,7 @@ const PaxS80Content: React.FC<PaxS80ContentProps> = ({ className = '' }) => {
 				<div className='subsection mb-8'>
 					{/* Контейнер с ID */}
 					<div className='flex items-center justify-start gap-4 mb-6' id='3.6'>
-						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
-							Клавиатура
-						</h3>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>Клавиатура</h3>
 						<CopyLinkButton index='3.6' color='#08a4e1' />
 					</div>
 
@@ -415,45 +298,29 @@ const PaxS80Content: React.FC<PaxS80ContentProps> = ({ className = '' }) => {
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>Зажмите кнопку</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
-									func
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>func</span>
 								<span>при включении</span>
 							</div>
 						</li>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>Выберите:</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
-									Module Test
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>Module Test</span>
 								<span>→</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
-									KEY TEST
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>KEY TEST</span>
 								<span>→</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
-									User Interface
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>User Interface</span>
 								<span>→</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
-									Keyboard
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>Keyboard</span>
 							</div>
 						</li>
-						<li className='leading-7'>
-							Нажмите все клавиши — значения должны отображаться на экране
-						</li>
+						<li className='leading-7'>Нажмите все клавиши — значения должны отображаться на экране</li>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>Для выхода нажмите дважды</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
-									0
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>0</span>
 								<span>или</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
-									1
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>1</span>
 							</div>
 						</li>
 					</ul>
@@ -462,9 +329,7 @@ const PaxS80Content: React.FC<PaxS80ContentProps> = ({ className = '' }) => {
 				<div className='subsection mb-8'>
 					{/* Контейнер с ID */}
 					<div className='flex items-center justify-start gap-4 mb-6' id='3.7'>
-						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
-							GPRS
-						</h3>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>GPRS</h3>
 						<CopyLinkButton index='3.7' color='#08a4e1' />
 					</div>
 
@@ -472,34 +337,24 @@ const PaxS80Content: React.FC<PaxS80ContentProps> = ({ className = '' }) => {
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>Зажмите кнопку</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
-									func
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>func</span>
 								<span>при включении</span>
 							</div>
 						</li>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>Выберите:</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
-									Module Check
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>Module Check</span>
 								<span>→</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
-									WNET
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>WNET</span>
 							</div>
 						</li>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>Нажимайте</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>
-									Enter
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 mx-1'>Enter</span>
 								<span>до появления</span>
-								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>
-									WNET DIALING
-								</span>
+								<span className='bg-[#08a4e1] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#0789c4] transition-colors duration-200 ml-1'>WNET DIALING</span>
 							</div>
 						</li>
 						<li className='leading-7'>Должна появиться шкала уровня сигнала</li>
@@ -509,25 +364,15 @@ const PaxS80Content: React.FC<PaxS80ContentProps> = ({ className = '' }) => {
 				<div className='subsection'>
 					{/* Контейнер с ID */}
 					<div className='flex items-center justify-start gap-4 mb-6' id='3.8'>
-						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
-							Ethernet
-						</h3>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>Ethernet</h3>
 						<CopyLinkButton index='3.8' color='#08a4e1' />
 					</div>
 
 					<ul className='list-disc text-lg flex flex-col gap-5 pl-6'>
-						<li className='leading-7'>
-							Визуально проверьте разъём на повреждения
-						</li>
-						<li className='leading-7'>
-							Подключите терминал к ноутбуку патч-кордом
-						</li>
-						<li className='leading-7'>
-							Проверьте сетевые подключения ноутбука
-						</li>
-						<li className='leading-7'>
-							Должно появиться новое сетевое подключение
-						</li>
+						<li className='leading-7'>Визуально проверьте разъём на повреждения</li>
+						<li className='leading-7'>Подключите терминал к ноутбуку патч-кордом</li>
+						<li className='leading-7'>Проверьте сетевые подключения ноутбука</li>
+						<li className='leading-7'>Должно появиться новое сетевое подключение</li>
 					</ul>
 				</div>
 			</div>

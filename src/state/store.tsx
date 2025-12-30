@@ -100,15 +100,6 @@ type RootState = {
 	setActiveTags: (tags: string[]) => void
 }
 
-// Функция для нормализации строк для URL
-const createSlug = (str: string): string => {
-	return str
-		.toLowerCase()
-		.replace(/\s+/g, '-')
-		.replace(/[.,]/g, '')
-		.replace(/[^a-z0-9-]/g, '')
-}
-
 // Создаем бренды с полной информацией
 const createBrands = (): Brand[] => [
 	{
