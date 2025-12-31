@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 import { useEffect, useRef, useState } from 'react'
 import { useClickAway } from 'react-use'
 import Link from 'next/link'
-import { Device, useRootStore } from '@/state/store'
+import { Device, useRootStore } from '@/lib'
 
 type SearchInputProps = {
 	className?: string

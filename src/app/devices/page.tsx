@@ -1,6 +1,6 @@
 'use client'
 
-import { Device, useRootStore } from '@/state/store'
+import { Device, useRootStore } from '@/lib'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 

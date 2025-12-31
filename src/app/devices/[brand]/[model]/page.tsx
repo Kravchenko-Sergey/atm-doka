@@ -1,12 +1,17 @@
 'use client'
 
-import { useRootStore } from '@/state/store'
+import { useRootStore } from '@/lib'
 import { CircleArrowLeft, CircleArrowRight, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { useEffect, useMemo, useState } from 'react'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger
+} from '@/components/ui/accordion'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { ScrollToTop } from '@/components/shared/scroll-to-top'
 import { useActiveSection } from '@/hooks/use-active-section'
@@ -20,38 +25,47 @@ const DevicePage = () => {
 	const brandSlug = params?.brand as string | undefined
 	const modelSlug = params?.model as string | undefined
 
-	const devices = useRootStore(state => state.devices)
-	const brands = useRootStore(state => state.brands) // Добавляем бренды
-	const changeBgHeader = useRootStore(state => state.changeBgHeader)
+	const devices = useRootStore((state) => state.devices)
+	const brands = useRootStore((state) => state.brands) // Добавляем бренды
+	const changeBgHeader = useRootStore((state) => state.changeBgHeader)
 	const [sectionIds, setSectionIds] = useState<string[]>([])
 	const activeSectionId = useActiveSection(sectionIds)
 
 	// Ищем бренд по slug
 	const brandInfo = useMemo(() => {
 		if (!brandSlug) return null
-		return brands.find(brand => brand.brand === brandSlug)
+		return brands.find((brand) => brand.brand === brandSlug)
 	}, [brands, brandSlug])
 
 	// Ищем устройство по бренду и модели
 	const device = useMemo(() => {
 		if (!brandSlug || !modelSlug) return null
 
-		return devices.find(d => {
+		return devices.find((d) => {
 			// Сравниваем по brandSlug и modelSlug из данных устройства
 			return d.brandSlug === brandSlug && d.modelSlug === modelSlug
 		})
 	}, [devices, brandSlug, modelSlug])
 
-	const deviceIndex = useMemo(() => devices.findIndex(d => d.id === device?.id), [devices, device?.id])
+	const deviceIndex = useMemo(
+		() => devices.findIndex((d) => d.id === device?.id),
+		[devices, device?.id]
+	)
 
-	const prevDevice = useMemo(() => devices[deviceIndex - 1] ?? null, [devices, deviceIndex])
+	const prevDevice = useMemo(
+		() => devices[deviceIndex - 1] ?? null,
+		[devices, deviceIndex]
+	)
 
-	const nextDevice = useMemo(() => devices[deviceIndex + 1] ?? null, [devices, deviceIndex])
+	const nextDevice = useMemo(
+		() => devices[deviceIndex + 1] ?? null,
+		[devices, deviceIndex]
+	)
 
 	const randomDevices = useMemo(
 		() =>
 			[...devices]
-				.filter(d => d.id !== device?.id)
+				.filter((d) => d.id !== device?.id)
 				.sort(() => Math.random() - 0.5)
 				.slice(0, 3),
 		[devices, device?.id]
@@ -137,26 +151,43 @@ const DevicePage = () => {
 		<div className='w-full flex flex-col'>
 			{/* Header Section */}
 			<div className='flex flex-col items-center'>
-				<header className='flex items-center justify-center w-screen' style={{ backgroundColor: device.bgColor }}>
+				<header
+					className='flex items-center justify-center w-screen'
+					style={{ backgroundColor: device.bgColor }}
+				>
 					<div className='w-full mt-20 md:mt-0 mb-6 px-4 max-w-[1570px] flex flex-col items-center gap-6 md:flex-row md:gap-8'>
 						{/* Изображение устройства */}
 						<div className='w-50 h-64 md:min-w-51.5 md:h-80 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-sm'>
-							<Image src={device.image} width={206} height={256} priority alt={device.title} />
+							<Image
+								src={device.image}
+								width={206}
+								height={256}
+								priority
+								alt={device.title}
+							/>
 						</div>
 
 						<div className='h-full flex flex-col gap-24 text-center md:text-left'>
 							<div className='pt-16 flex flex-col gap-6'>
-								<h1 className='text-4xl md:text-5xl font-semibold'>{device.title}</h1>
+								<h1 className='text-4xl md:text-5xl font-semibold'>
+									{device.title}
+								</h1>
 								<p className='text-xl'>{device.description}</p>
 							</div>
 
 							{/* Хлебные крошки */}
 							<nav className='flex items-center gap-2 text-sm mt-4 '>
-								<Link href='/' className='flex items-center gap-1 hover:text-white transition-colors'>
+								<Link
+									href='/'
+									className='flex items-center gap-1 hover:text-white transition-colors'
+								>
 									<span>Главная</span>
 								</Link>
 								<ChevronRight size={16} />
-								<Link href={`/devices/${brandSlug}`} className='flex items-center gap-1 hover:text-white transition-colors'>
+								<Link
+									href={`/devices/${brandSlug}`}
+									className='flex items-center gap-1 hover:text-white transition-colors'
+								>
 									<span>{brandInfo?.displayBrand || device.brand}</span>
 								</Link>
 								<ChevronRight size={16} />
@@ -167,20 +198,33 @@ const DevicePage = () => {
 				</header>
 
 				{/* Mobile Table of Contents */}
-				<Accordion type='single' collapsible className='w-full border-b border-gray-200 dark:border-gray-700 block lg:hidden'>
+				<Accordion
+					type='single'
+					collapsible
+					className='w-full border-b border-gray-200 dark:border-gray-700 block lg:hidden'
+				>
 					<AccordionItem value='table-of-contents'>
-						<AccordionTrigger className='text-xl font-normal px-4 hover:no-underline'>Содержание</AccordionTrigger>
+						<AccordionTrigger className='text-xl font-normal px-4 hover:no-underline'>
+							Содержание
+						</AccordionTrigger>
 						<AccordionContent>
 							<nav className='flex flex-col p-4'>
 								{device.contentItems.map((item, itemIndex) => (
 									<div key={`nav-${itemIndex}`} className='mb-3'>
-										<a href={`#${itemIndex + 1}`} className='min-w-[140px] text-lg hover:underline transition-colors'>
+										<a
+											href={`#${itemIndex + 1}`}
+											className='min-w-[140px] text-lg hover:underline transition-colors'
+										>
 											{item.title}
 										</a>
 										{item.children && (
 											<div className='pl-6 flex flex-col mt-2 space-y-2'>
 												{item.children.map((child, childIndex) => (
-													<a key={childIndex} href={`#${itemIndex + 1}.${childIndex + 1}`} className='min-w-[140px] text-lg hover:underline transition-colors text-gray-600 dark:text-gray-400'>
+													<a
+														key={childIndex}
+														href={`#${itemIndex + 1}.${childIndex + 1}`}
+														className='min-w-[140px] text-lg hover:underline transition-colors text-gray-600 dark:text-gray-400'
+													>
 														{child}
 													</a>
 												))}
@@ -203,7 +247,11 @@ const DevicePage = () => {
 							<nav className='space-y-4'>
 								{device.contentItems.map((item, itemIndex) => (
 									<div key={itemIndex} className='mb-2'>
-										<a href={`#${itemIndex + 1}`} className={`block min-w-[140px] text-md hover:underline transition-colors font-medium pl-6 relative ${isSectionActive(`${itemIndex + 1}`) ? 'font-semibold' : ''}`} style={getActiveStyles(`${itemIndex + 1}`)}>
+										<a
+											href={`#${itemIndex + 1}`}
+											className={`block min-w-[140px] text-md hover:underline transition-colors font-medium pl-6 relative ${isSectionActive(`${itemIndex + 1}`) ? 'font-semibold' : ''}`}
+											style={getActiveStyles(`${itemIndex + 1}`)}
+										>
 											{isSectionActive(`${itemIndex + 1}`) && (
 												<div
 													className='absolute left-0 top-1 bottom-1 w-1.5 rounded-full'
@@ -218,8 +266,17 @@ const DevicePage = () => {
 										{item.children && (
 											<div className='pl-6 flex flex-col mt-2 space-y-2'>
 												{item.children.map((child, childIndex) => (
-													<a key={childIndex} href={`#${itemIndex + 1}.${childIndex + 1}`} className={`block min-w-[140px] text-md hover:underline transition-colors text-gray-600 dark:text-gray-400 pl-6 relative ${isSectionActive(`${itemIndex + 1}.${childIndex + 1}`) ? 'font-medium' : ''}`} style={getActiveStyles(`${itemIndex + 1}.${childIndex + 1}`)}>
-														{isSectionActive(`${itemIndex + 1}.${childIndex + 1}`) && (
+													<a
+														key={childIndex}
+														href={`#${itemIndex + 1}.${childIndex + 1}`}
+														className={`block min-w-[140px] text-md hover:underline transition-colors text-gray-600 dark:text-gray-400 pl-6 relative ${isSectionActive(`${itemIndex + 1}.${childIndex + 1}`) ? 'font-medium' : ''}`}
+														style={getActiveStyles(
+															`${itemIndex + 1}.${childIndex + 1}`
+														)}
+													>
+														{isSectionActive(
+															`${itemIndex + 1}.${childIndex + 1}`
+														) && (
 															<div
 																className='absolute left-0 top-1 bottom-1 w-1.5 rounded-full'
 																style={{
@@ -239,7 +296,10 @@ const DevicePage = () => {
 						</ScrollArea>
 					</div>
 
-					<footer className='p-6 mt-auto bg-[#fafafa] dark:bg-[#292a2e] sticky bottom-0' aria-label='Информация об обновлении'>
+					<footer
+						className='p-6 mt-auto bg-[#fafafa] dark:bg-[#292a2e] sticky bottom-0'
+						aria-label='Информация об обновлении'
+					>
 						<div className='flex flex-wrap gap-1 text-sm text-gray-600 dark:text-gray-400'>
 							<span>Обновлено</span>
 							<time dateTime={device.updatedAt}>{device.updatedAt}</time>
@@ -249,25 +309,51 @@ const DevicePage = () => {
 
 				{/* Content Area */}
 				<main className='flex-1 max-w-full lg:max-w-[calc(100%-280px)]'>
-					<div className='px-4 max-w-[1308px] mx-auto'>{Content ? <Content /> : <div className='text-center py-12 text-xl'>Контент недоступен</div>}</div>
+					<div className='px-4 max-w-[1308px] mx-auto'>
+						{Content ? (
+							<Content />
+						) : (
+							<div className='text-center py-12 text-xl'>
+								Контент недоступен
+							</div>
+						)}
+					</div>
 
 					{/*Feedback*/}
 					<div className='mt-16 px-4 max-w-[1308px] mx-auto'>
-						<Feedback postId={device.id} discussionId={device.discussionId} color={device.bgColor} />
+						<Feedback
+							postId={device.id}
+							discussionId={device.discussionId}
+							color={device.bgColor}
+						/>
 					</div>
 
 					{/* Related Posts */}
 					<div className='px-4 max-w-[1308px] mx-auto'>
-						<h2 className='my-12 text-3xl font-semibold transition-colors duration-300'>Читайте также</h2>
+						<h2 className='my-12 text-3xl font-semibold transition-colors duration-300'>
+							Читайте также
+						</h2>
 						<div className='flex gap-6 flex-wrap'>
-							{randomDevices.map(relatedDevice => (
-								<Link href={getDeviceUrl(relatedDevice)} key={relatedDevice.id} className={`relative p-6 h-[380px] flex flex-col items-center justify-between rounded-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-101 flex-1 min-w-[280px] ${'max-w-full'}`} style={{ backgroundColor: relatedDevice.bgColor }}>
+							{randomDevices.map((relatedDevice) => (
+								<Link
+									href={getDeviceUrl(relatedDevice)}
+									key={relatedDevice.id}
+									className={`relative p-6 h-[380px] flex flex-col items-center justify-between rounded-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-101 flex-1 min-w-[280px] ${'max-w-full'}`}
+									style={{ backgroundColor: relatedDevice.bgColor }}
+								>
 									<div className='absolute inset-0 bg-white opacity-0 transition-opacity duration-300 hover:opacity-20 dark:bg-gray-800 dark:hover:opacity-40' />
-									<h3 className='text-xl font-semibold self-start z-10 line-clamp-2'>{relatedDevice.title}</h3>
-									<p className='text-lg text-center self-center z-10 line-clamp-3'>{relatedDevice.description}</p>
+									<h3 className='text-xl font-semibold self-start z-10 line-clamp-2'>
+										{relatedDevice.title}
+									</h3>
+									<p className='text-lg text-center self-center z-10 line-clamp-3'>
+										{relatedDevice.description}
+									</p>
 									<ul className='flex gap-1 flex-wrap self-end justify-end z-10'>
-										{relatedDevice.tags.map(tag => (
-											<li key={tag} className='px-3 py-1 text-sm bg-black/10 rounded-md backdrop-blur-sm'>
+										{relatedDevice.tags.map((tag) => (
+											<li
+												key={tag}
+												className='px-3 py-1 text-sm bg-black/10 rounded-md backdrop-blur-sm'
+											>
 												{tag}
 											</li>
 										))}
@@ -279,21 +365,34 @@ const DevicePage = () => {
 						{/* Navigation */}
 						<div className='my-12 flex flex-col gap-6 md:flex-row justify-between items-center'>
 							{prevDevice && (
-								<Link href={getDeviceUrl(prevDevice)} className='flex items-center gap-3 text-lg hover:underline transition-all hover:scale-101 group mr-auto'>
+								<Link
+									href={getDeviceUrl(prevDevice)}
+									className='flex items-center gap-3 text-lg hover:underline transition-all hover:scale-101 group mr-auto'
+								>
 									<CircleArrowLeft className='transition-transform group-hover:-translate-x-1' />
-									<span className='max-w-[200px] line-clamp-2 md:max-w-[300px]'>{prevDevice.title}</span>
+									<span className='max-w-[200px] line-clamp-2 md:max-w-[300px]'>
+										{prevDevice.title}
+									</span>
 								</Link>
 							)}
 
 							{nextDevice && (
-								<Link href={getDeviceUrl(nextDevice)} className='flex items-center gap-3 text-lg hover:underline transition-all hover:scale-101 group ml-auto'>
-									<span className='max-w-[200px] line-clamp-2 md:max-w-[300px] text-right'>{nextDevice.title}</span>
+								<Link
+									href={getDeviceUrl(nextDevice)}
+									className='flex items-center gap-3 text-lg hover:underline transition-all hover:scale-101 group ml-auto'
+								>
+									<span className='max-w-[200px] line-clamp-2 md:max-w-[300px] text-right'>
+										{nextDevice.title}
+									</span>
 									<CircleArrowRight className='transition-transform group-hover:translate-x-1' />
 								</Link>
 							)}
 						</div>
 
-						<ScrollToTop progressColor={device.bgColor} iconColor={device.bgColor} />
+						<ScrollToTop
+							progressColor={device.bgColor}
+							iconColor={device.bgColor}
+						/>
 
 						{/* Mobile Footer */}
 						<div className='mb-8 px-6 py-8 text-lg border rounded-lg flex items-center justify-center lg:hidden'>

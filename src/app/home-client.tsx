@@ -1,24 +1,24 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
-import { Device as DeviceType, useRootStore } from '@/state/store'
+import { Button } from '@/components'
+import { Device, useRootStore } from '@/lib'
 import { Send, Users } from 'lucide-react'
 import { useEffect, useState, useCallback, useMemo } from 'react'
 import Link from 'next/link'
 
 export default function HomeClient() {
-	const devices = useRootStore(state => state.devices)
-	const brands = useRootStore(state => state.brands)
-	const changeBgHeader = useRootStore(state => state.changeBgHeader)
+	const devices = useRootStore((state) => state.devices)
+	const brands = useRootStore((state) => state.brands)
+	const changeBgHeader = useRootStore((state) => state.changeBgHeader)
 
 	const [visibleCount, setVisibleCount] = useState(6)
-	const [shuffledDevices, setShuffledDevices] = useState<DeviceType[]>([])
-	const [displayedDevices, setDisplayedDevices] = useState<DeviceType[]>([])
+	const [shuffledDevices, setShuffledDevices] = useState<Device[]>([])
+	const [displayedDevices, setDisplayedDevices] = useState<Device[]>([])
 
 	// Создаем навигацию из брендов
 	const BRAND_NAVIGATION = useMemo(
 		() =>
-			brands.map(brand => ({
+			brands.map((brand) => ({
 				title: brand.displayBrand,
 				url: `/devices/${brand.brand}`,
 				color: brand.color
@@ -29,11 +29,11 @@ export default function HomeClient() {
 	// Преобразуем структуру брендов для сетки
 	const brandGridData = useMemo(
 		() =>
-			brands.map(brand => ({
+			brands.map((brand) => ({
 				brand: brand.brand,
 				displayBrand: brand.displayBrand,
 				color: brand.color,
-				models: brand.models.map(model => ({
+				models: brand.models.map((model) => ({
 					name: model.displayName,
 					url: `/devices/${brand.brand}/${model.slug}`
 				}))
@@ -65,10 +65,16 @@ export default function HomeClient() {
 			{/* Навигация с линией внизу и hover эффектом */}
 			<div className='pl-4 md:pl-56 pt-12 md:pt-0 px-4 max-w-[1572px]'>
 				<div className='flex flex-col items-start gap-2 sm:gap-2 md:gap-4 mb-4 sm:mb-6 md:mb-8'>
-					{BRAND_NAVIGATION.map(item => (
-						<Link key={item.title} href={item.url} className='py-1 group w-full relative text-2xl sm:text-3xl md:text-4xl font-medium inline-block'>
+					{BRAND_NAVIGATION.map((item) => (
+						<Link
+							key={item.title}
+							href={item.url}
+							className='py-1 group w-full relative text-2xl sm:text-3xl md:text-4xl font-medium inline-block'
+						>
 							<div className='relative inline-block'>
-								<div className='pl-3 sm:pl-4 font-light relative z-10'>{item.title}</div>
+								<div className='pl-3 sm:pl-4 font-light relative z-10'>
+									{item.title}
+								</div>
 								<div
 									className='absolute bottom-0 left-3 sm:left-4 h-0.5 sm:h-1 rounded-full'
 									style={{
@@ -77,7 +83,10 @@ export default function HomeClient() {
 									}}
 								/>
 							</div>
-							<div className='absolute inset-0 -z-10 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200' style={{ backgroundColor: item.color }} />
+							<div
+								className='absolute inset-0 -z-10 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200'
+								style={{ backgroundColor: item.color }}
+							/>
 						</Link>
 					))}
 				</div>
@@ -93,7 +102,10 @@ export default function HomeClient() {
 						<p>Делитесь своими знаниями, помогайте коллегам.</p>
 						<p>Ваш опыт важен, ваш вклад бесценен.</p>
 					</div>
-					<Link href='#' className='mt-6 text-xl flex items-center gap-3 hover:underline'>
+					<Link
+						href='#'
+						className='mt-6 text-xl flex items-center gap-3 hover:underline'
+					>
 						<Users size={20} />
 						<span>Участники</span>
 					</Link>
@@ -107,7 +119,12 @@ export default function HomeClient() {
 						<p>Исправьте неточность в материалах.</p>
 						<p>Ваши правки экономят время и решают проблемы коллег.</p>
 					</div>
-					<Link href='https://t.me/+CznWcCGr6H03NjMy' className='mt-6 text-xl flex items-center gap-3 hover:underline' target='_blank' rel='noopener noreferrer'>
+					<Link
+						href='https://t.me/+CznWcCGr6H03NjMy'
+						className='mt-6 text-xl flex items-center gap-3 hover:underline'
+						target='_blank'
+						rel='noopener noreferrer'
+					>
 						<Send size={20} />
 						<span>Написать нам</span>
 					</Link>
@@ -119,14 +136,26 @@ export default function HomeClient() {
 				<div className='flex flex-col gap-8'>
 					<div className='flex justify-center gap-6 flex-wrap'>
 						{displayedDevices.length > 0 ? (
-							displayedDevices.map(device => (
-								<Link href={`/devices/${device.brandSlug}/${device.modelSlug}`} key={device.id} className='relative p-4 min-w-[320px] h-[330px] flex flex-col items-center justify-between flex-1 rounded-sm overflow-hidden transition-all duration-300 ease-in-out sm:h-[480px] sm:min-w-[400px] hover:shadow-lg hover:scale-101' style={{ backgroundColor: device.bgColor }}>
+							displayedDevices.map((device) => (
+								<Link
+									href={`/devices/${device.brandSlug}/${device.modelSlug}`}
+									key={device.id}
+									className='relative p-4 min-w-[320px] h-[330px] flex flex-col items-center justify-between flex-1 rounded-sm overflow-hidden transition-all duration-300 ease-in-out sm:h-[480px] sm:min-w-[400px] hover:shadow-lg hover:scale-101'
+									style={{ backgroundColor: device.bgColor }}
+								>
 									<div className='absolute inset-0 bg-white opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-20 dark:bg-gray-800 dark:hover:opacity-40' />
-									<h3 className='text-2xl font-semibold self-start z-10'>{device.title}</h3>
-									<p className='text-xl text-center self-center z-10 line-clamp-3'>{device.description}</p>
+									<h3 className='text-2xl font-semibold self-start z-10'>
+										{device.title}
+									</h3>
+									<p className='text-xl text-center self-center z-10 line-clamp-3'>
+										{device.description}
+									</p>
 									<div className='flex gap-1 flex-wrap self-end justify-end z-10'>
-										{device.tags.map(tag => (
-											<span key={tag} className='p-1 text-sm bg-black/10 rounded-sm'>
+										{device.tags.map((tag) => (
+											<span
+												key={tag}
+												className='p-1 text-sm bg-black/10 rounded-sm'
+											>
 												{tag}
 											</span>
 										))}
@@ -135,14 +164,20 @@ export default function HomeClient() {
 							))
 						) : (
 							<div className='text-center py-12 w-full'>
-								<p className='text-xl text-gray-500 dark:text-gray-400'>Загрузка устройств...</p>
+								<p className='text-xl text-gray-500 dark:text-gray-400'>
+									Загрузка устройств...
+								</p>
 							</div>
 						)}
 					</div>
 
 					{shuffledDevices.length > visibleCount && (
 						<div className='flex justify-center'>
-							<Button onClick={handleLoadMore} variant='outline' className='p-6 text-xl rounded-sm font-normal min-w-[200px] hover:scale-105 transition-transform'>
+							<Button
+								onClick={handleLoadMore}
+								variant='outline'
+								className='p-6 text-xl rounded-sm font-normal min-w-[200px] hover:scale-105 transition-transform'
+							>
 								Показать ещё
 							</Button>
 						</div>
@@ -153,19 +188,27 @@ export default function HomeClient() {
 			{/* Детальная навигация по брендам с моделями */}
 			<div className='px-4 mt-16 md:mt-32 max-w-[1572px]'>
 				<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-7 gap-6 md:gap-8 lg:gap-10 xl:gap-12 mb-8 md:mb-12'>
-					{brandGridData.map(brand => (
+					{brandGridData.map((brand) => (
 						<div key={brand.brand} className='w-full'>
 							<div className='py-1 group w-full relative text-xl md:text-2xl font-medium inline-block mb-3 md:mb-4'>
 								<div className='relative inline-block'>
-									<div className='font-light relative z-10'>{brand.displayBrand}</div>
-									<div className='absolute bottom-0 h-1 rounded-full' style={{ backgroundColor: brand.color, width: '100%' }} />
+									<div className='font-light relative z-10'>
+										{brand.displayBrand}
+									</div>
+									<div
+										className='absolute bottom-0 h-1 rounded-full'
+										style={{ backgroundColor: brand.color, width: '100%' }}
+									/>
 								</div>
 							</div>
 
 							<div className='space-y-1'>
-								{brand.models.map(model => (
+								{brand.models.map((model) => (
 									<div key={model.url} className='py-0.5'>
-										<Link href={model.url} className='text-base md:text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:underline transition-colors whitespace-nowrap'>
+										<Link
+											href={model.url}
+											className='text-base md:text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:underline transition-colors whitespace-nowrap'
+										>
 											{model.name}
 										</Link>
 									</div>
