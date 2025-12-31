@@ -1,9 +1,10 @@
 'use client'
 
-import { useRootStore } from '@/state/store'
+import { useRootStore } from '@/lib'
 
 export default function People() {
 	const people = useRootStore((state) => state.people)
+
 	return (
 		<div className='px-4 w-full max-w-[1572px] mx-auto flex flex-col'>
 			<div className='w-full max-w-[1448px] mx-auto flex flex-col gap-8'>
