@@ -47,9 +47,9 @@ export function CopyLinkButton({
 
 			toast.custom(
 				(t) => (
-					<div className='bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 p-3.5'>
+					<div className='bg-white dark:bg-gray-800 rounded-sm shadow-lg border border-gray-200 dark:border-gray-700 p-3.5'>
 						<div className='flex items-center gap-2'>
-							<div className='flex-shrink-0 w-6 h-6 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center'>
+							<div className='shrink-0 w-6 h-6 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center'>
 								<svg
 									className='w-4 h-4 text-green-600 dark:text-green-400'
 									fill='none'
@@ -78,9 +78,9 @@ export function CopyLinkButton({
 		} catch {
 			toast.custom(
 				(t) => (
-					<div className='bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 p-4'>
+					<div className='bg-white dark:bg-gray-800 rounded-sm shadow-lg border border-gray-200 dark:border-gray-700 p-4'>
 						<div className='flex items-center gap-2'>
-							<div className='flex-shrink-0 w-6 h-6 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-center'>
+							<div className='shrink-0 w-6 h-6 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-center'>
 								<svg
 									className='w-4 h-4 text-red-600 dark:text-red-400'
 									fill='none'

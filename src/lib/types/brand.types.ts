@@ -24,6 +24,7 @@ export type Brand = {
 	id: string
 	brand: string
 	displayBrand: string
+	logo?: string
 	color: string
 	gradient: string
 	lightGradient: string

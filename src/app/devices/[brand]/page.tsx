@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { useEffect, useMemo } from 'react'
 import { ChevronRight, Download } from 'lucide-react'
+import Image from 'next/image' // Добавляем импорт Image
 
 export default function BrandPage() {
 	const params = useParams()
@@ -61,9 +62,23 @@ export default function BrandPage() {
 				>
 					<div className='w-full mt-20 md:mt-0 mb-6 px-4 max-w-[1572] flex flex-col items-center gap-6 md:flex-row md:gap-8'>
 						<div className='w-64 h-64 md:min-w-51.5 md:h-80 flex items-center justify-center rounded-sm bg-white/10 backdrop-blur-sm'>
-							<h1 className='text-5xl md:text-6xl font-bold'>
-								{brand.displayBrand.charAt(0)}
-							</h1>
+							{/* Отображение логотипа или первой буквы */}
+							{brand.logo ? (
+								<div className='relative w-40 h-40 md:w-48 md:h-48'>
+									<Image
+										src={brand.logo}
+										alt={`Логотип ${brand.displayBrand}`}
+										fill
+										className='object-contain'
+										sizes='(max-width: 768px) 160px, 192px'
+										priority
+									/>
+								</div>
+							) : (
+								<h1 className='text-5xl md:text-6xl font-bold'>
+									{brand.displayBrand.charAt(0)}
+								</h1>
+							)}
 						</div>
 						<div className='h-full flex flex-col gap-24 text-center md:text-left'>
 							<div className='pt-16 flex flex-col gap-6'>
