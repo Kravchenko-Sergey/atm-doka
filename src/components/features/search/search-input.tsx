@@ -17,9 +17,6 @@ const createModelSlug = (modelName: string): string => {
 		.toLowerCase()
 		.replace(/\s+/g, '-')
 		.replace(/[.,]/g, '')
-		.replace('стац', 'stationary')
-		.replace('моб', 'mobile')
-		.replace('икр', 'ikr')
 		.replace(/[^a-z0-9-]/g, '')
 }
 
@@ -59,7 +56,7 @@ export const SearchInput = ({ className }: SearchInputProps) => {
 	const getDeviceUrl = (device: Device) => {
 		if (!device.brand || !device.model) return '#'
 
-		const brandSlug = device.brand.toLowerCase()
+		const brandSlug = device.brandSlug.toLowerCase()
 		const modelSlug = createModelSlug(device.model)
 
 		return `/devices/${brandSlug}/${modelSlug}`
