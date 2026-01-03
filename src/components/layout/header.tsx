@@ -29,6 +29,7 @@ export function Header({ theme }: HeaderProps) {
 						href='/'
 						className='w-full z-20 whitespace-nowrap rounded-sm px-8 py-2 text-3xl flex items-center justify-center transition-colors dark:text-[#fafafa] md:w-fit bg-gray-200 dark:bg-[#42454c]'
 						aria-label='На главную страницу'
+						scroll={false}
 					>
 						АТМ Дока
 					</Link>

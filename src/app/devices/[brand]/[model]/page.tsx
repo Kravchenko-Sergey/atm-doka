@@ -176,7 +176,7 @@ const DevicePage = () => {
 							</div>
 
 							{/* Хлебные крошки */}
-							<nav className='flex items-center gap-2 text-sm mt-4 '>
+							<nav className='flex items-center justify-center md:justify-start gap-2 text-sm mt-4 '>
 								<Link
 									href='/'
 									className='flex items-center gap-1 hover:text-white transition-colors'
