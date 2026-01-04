@@ -53,7 +53,7 @@ export default function BrandPage() {
 	}
 
 	return (
-		<div className='w-full flex flex-1 flex-col'>
+		<div className='w-full min-h-screen flex flex-1 flex-col'>
 			{/* Header Section */}
 			<div className='flex flex-col items-center'>
 				<header
