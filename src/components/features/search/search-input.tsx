@@ -57,9 +57,9 @@ export const SearchInput = ({ className }: SearchInputProps) => {
 		if (!device.brand || !device.model) return '#'
 
 		const brandSlug = device.brandSlug.toLowerCase()
-		const modelSlug = createModelSlug(device.model)
+		const modelSlug = createModelSlug(device.modelSlug)
 
-		return `/devices/${brandSlug}/${modelSlug}`
+		return `/${brandSlug}/${modelSlug}`
 	}
 
 	return (

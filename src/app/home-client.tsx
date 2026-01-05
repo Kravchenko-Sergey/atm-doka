@@ -20,7 +20,7 @@ export default function HomeClient() {
 		() =>
 			brands.map((brand) => ({
 				title: brand.displayBrand,
-				url: `/devices/${brand.brand}`,
+				url: `/${brand.brand}`,
 				color: brand.color
 			})),
 		[brands]
@@ -35,7 +35,7 @@ export default function HomeClient() {
 				color: brand.color,
 				models: brand.models.map((model) => ({
 					name: model.displayName,
-					url: `/devices/${brand.brand}/${model.slug}`
+					url: `/${brand.brand}/${model.slug}`
 				}))
 			})),
 		[brands]
@@ -138,7 +138,7 @@ export default function HomeClient() {
 						{displayedDevices.length > 0 ? (
 							displayedDevices.map((device) => (
 								<Link
-									href={`/devices/${device.brandSlug}/${device.modelSlug}`}
+									href={`/${device.brandSlug}/${device.modelSlug}`}
 									key={device.id}
 									className='relative p-4 min-w-[320px] h-[330px] flex flex-col items-center justify-between flex-1 rounded-sm overflow-hidden transition-all duration-300 ease-in-out sm:h-[480px] sm:min-w-[400px] hover:shadow-lg hover:scale-101'
 									style={{ backgroundColor: device.bgColor }}

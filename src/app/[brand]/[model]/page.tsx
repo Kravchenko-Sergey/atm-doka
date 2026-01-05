@@ -98,7 +98,7 @@ const DevicePage = () => {
 	useEffect(() => {
 		if (!device && brandSlug && modelSlug) {
 			// Если устройство не найдено, перенаправляем на страницу бренда
-			router.push(`/devices/${brandSlug}`)
+			router.push(`/${brandSlug}`)
 			return
 		}
 
@@ -124,7 +124,7 @@ const DevicePage = () => {
 	// Функция для получения URL устройства
 	const getDeviceUrl = (deviceItem: any) => {
 		if (!deviceItem) return '/'
-		return `/devices/${deviceItem.brandSlug}/${deviceItem.modelSlug}`
+		return `/${deviceItem.brandSlug}/${deviceItem.modelSlug}`
 	}
 
 	const Content = device?.content
@@ -185,7 +185,7 @@ const DevicePage = () => {
 								</Link>
 								<ChevronRight size={16} />
 								<Link
-									href={`/devices/${brandSlug}`}
+									href={`/${brandSlug}`}
 									className='flex items-center gap-1 hover:text-white transition-colors'
 								>
 									<span>{brandInfo?.displayBrand || device.brand}</span>

@@ -117,7 +117,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
 	// Страницы брендов
 	const brandPages = uniqueBrands.map((brand) => ({
-		url: `${baseUrl}/devices/${brand}`,
+		url: `${baseUrl}/${brand}`,
 		lastModified: currentDate,
 		changeFrequency: 'weekly' as const,
 		priority: 0.9
@@ -125,7 +125,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
 	// Страницы устройств
 	const devicePages = devices.map((device) => ({
-		url: `${baseUrl}/devices/${device.brand}/${device.modelSlug}`,
+		url: `${baseUrl}/${device.brand}/${device.modelSlug}`,
 		lastModified: device.updatedAt,
 		changeFrequency: 'weekly' as const,
 		priority: 0.8

@@ -118,7 +118,7 @@ export default function BrandPage() {
 										{brandDevices.map((device) => (
 											<div key={device.id} className='py-1'>
 												<Link
-													href={`/devices/${brandSlug}/${device.modelSlug}`}
+													href={`/${brandSlug}/${device.modelSlug}`}
 													className='text-base md:text-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 
                           dark:hover:text-blue-400 hover:underline transition-colors whitespace-nowrap flex items-center gap-2'
 												>
