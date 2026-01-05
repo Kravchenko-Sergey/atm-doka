@@ -9,6 +9,7 @@ import { Device, useRootStore } from '@/lib'
 
 type SearchInputProps = {
 	className?: string
+	onFocusChange?: (focused: boolean) => void
 }
 
 // Функция для создания slug из названия модели (должна совпадать с логикой в других компонентах)
@@ -20,7 +21,7 @@ const createModelSlug = (modelName: string): string => {
 		.replace(/[^a-z0-9-]/g, '')
 }
 
-export const SearchInput = ({ className }: SearchInputProps) => {
+export const SearchInput = ({ className, onFocusChange }: SearchInputProps) => {
 	const [focused, setFocused] = useState(false)
 	const [searchQuery, setSearchQuery] = useState('')
 	const devices = useRootStore((state) => state.devices)
@@ -30,6 +31,12 @@ export const SearchInput = ({ className }: SearchInputProps) => {
 	useClickAway(ref, () => {
 		setFocused(false)
 	})
+
+	useEffect(() => {
+		if (onFocusChange) {
+			onFocusChange(focused)
+		}
+	}, [focused, onFocusChange])
 
 	const onClickItem = () => {
 		setFocused(false)
@@ -80,6 +87,7 @@ export const SearchInput = ({ className }: SearchInputProps) => {
 					type='text'
 					placeholder='Найти устройство...'
 					onFocus={() => setFocused(true)}
+					onBlur={() => setTimeout(() => setFocused(false), 200)}
 					value={searchQuery}
 					onChange={(e) => setSearchQuery(e.target.value)}
 				/>
