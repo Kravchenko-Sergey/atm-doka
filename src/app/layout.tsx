@@ -30,12 +30,20 @@ export default function RootLayout({
 	}
 
 	return (
-		<html lang='ru' className={`${theme} ${roboto.className} scroll-smooth scroll-pt-[188px] lg:scroll-pt-[134px]`} suppressHydrationWarning>
+		<html
+			lang='ru'
+			className={`${theme} ${roboto.className} scroll-smooth scroll-pt-[188px] lg:scroll-pt-[134px]`}
+			suppressHydrationWarning
+		>
 			<head></head>
-			<body className={`min-h-screen w-full bg-[#fafafa] text-[#2C2C2C] flex flex-col dark:bg-[#292a2e] dark:text-[#fafafa]`}>
-				{/* <Header theme={theme} /> */}
-				<main className='mx-auto w-full max-w-[1572px] flex flex-col flex-1 justify-center pt-[100px]'>{children}</main>
-				{/* <Footer theme={theme} toggleTheme={toggleTheme} /> */}
+			<body
+				className={`min-h-screen w-full bg-[#fafafa] text-[#2C2C2C] flex flex-col dark:bg-[#292a2e] dark:text-[#fafafa]`}
+			>
+				<Header theme={theme} />
+				<main className='mx-auto w-full max-w-[1572px] flex flex-col flex-1 justify-center pt-[100px]'>
+					{children}
+				</main>
+				<Footer theme={theme} toggleTheme={toggleTheme} />
 				<Toaster />
 				<Analytics />
 			</body>
