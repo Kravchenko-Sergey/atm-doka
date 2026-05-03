@@ -6,15 +6,14 @@ export function middleware(request: NextRequest) {
 	const expiresCookie = request.cookies.get('auth_expires')
 	const isAuthenticated = authCookie?.value === 'true'
 	const isLoginPage = request.nextUrl.pathname === '/login'
-	const isApiRoute = request.nextUrl.pathname.startsWith('/api')
 
-	// Проверяем не истекла ли сессия
+	// Проверяем не истекла ли сессия (полночь)
 	if (isAuthenticated && expiresCookie?.value) {
 		const expiresDate = new Date(expiresCookie.value)
 		const now = new Date()
 
-		if (now > expiresDate) {
-			// Сессия истекла - удаляем cookie и перенаправляем на логин
+		if (now >= expiresDate) {
+			// Сессия истекла (наступила полночь)
 			const response = NextResponse.redirect(new URL('/login', request.url))
 			response.cookies.delete('auth')
 			response.cookies.delete('auth_expires')
@@ -22,11 +21,8 @@ export function middleware(request: NextRequest) {
 		}
 	}
 
-	// Разрешаем доступ к статическим файлам и API
-	if (
-		request.nextUrl.pathname.match(/\.(jpg|jpeg|png|gif|svg|css|js|ico)$/) ||
-		isApiRoute
-	) {
+	// Разрешаем доступ к статическим файлам
+	if (request.nextUrl.pathname.match(/\.(jpg|jpeg|png|gif|svg|css|js|ico)$/)) {
 		return NextResponse.next()
 	}
 
@@ -47,5 +43,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-	matcher: ['/((?!_next/static|_next/image|favicon.ico).*)']
+	matcher: ['/((?!_next/static|_next/image|favicon.ico|api/auth).*)']
 }

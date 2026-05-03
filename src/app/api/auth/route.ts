@@ -1,34 +1,42 @@
 import { NextResponse } from 'next/server'
 
+export function getNextMidnight(): Date {
+	const now = new Date()
+	const midnight = new Date(now)
+	midnight.setHours(24, 0, 0, 0) // Следующая полночь (00:00 следующего дня)
+	return midnight
+}
+
 export async function POST(request: Request) {
 	try {
 		const { action } = await request.json()
 
 		if (action === 'login') {
-			// Устанавливаем время последней активности
-			const now = new Date()
-			const expiresAt = new Date(now.getTime() + 24 * 60 * 60 * 1000) // +24 часа
+			const midnight = getNextMidnight()
+			const secondsUntilMidnight = Math.floor(
+				(midnight.getTime() - Date.now()) / 1000
+			)
 
 			const response = NextResponse.json({
 				success: true,
-				expiresAt: expiresAt.toISOString()
+				expiresAt: midnight.toISOString()
 			})
 
-			// Устанавливаем cookie авторизации
+			// Устанавливаем cookie до полуночи
 			response.cookies.set('auth', 'true', {
 				httpOnly: true,
 				secure: process.env.NODE_ENV === 'production',
 				sameSite: 'lax',
-				maxAge: 60 * 60 * 24, // 24 часа
+				maxAge: secondsUntilMidnight, // Живет до полуночи
 				path: '/'
 			})
 
-			// Устанавливаем cookie с временем истечения сессии
-			response.cookies.set('auth_expires', expiresAt.toISOString(), {
+			// Устанавливаем cookie с временем истечения
+			response.cookies.set('auth_expires', midnight.toISOString(), {
 				httpOnly: true,
 				secure: process.env.NODE_ENV === 'production',
 				sameSite: 'lax',
-				maxAge: 60 * 60 * 24,
+				maxAge: secondsUntilMidnight,
 				path: '/'
 			})
 
@@ -37,31 +45,9 @@ export async function POST(request: Request) {
 
 		if (action === 'logout') {
 			const response = NextResponse.json({ success: true })
-
-			// Удаляем cookies
 			response.cookies.delete('auth')
 			response.cookies.delete('auth_expires')
-
 			return response
-		}
-
-		if (action === 'check') {
-			// Проверяем не истекла ли сессия
-			const expiresAt = request.headers
-				.get('cookie')
-				?.match(/auth_expires=([^;]+)/)?.[1]
-
-			if (expiresAt) {
-				const expiresDate = new Date(expiresAt)
-				const now = new Date()
-
-				if (now > expiresDate) {
-					// Сессия истекла
-					return NextResponse.json({ expired: true })
-				}
-			}
-
-			return NextResponse.json({ expired: false })
 		}
 
 		return NextResponse.json({ error: 'Invalid action' }, { status: 400 })

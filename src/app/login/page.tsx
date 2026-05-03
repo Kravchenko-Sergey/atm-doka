@@ -115,7 +115,7 @@ export default function LoginPage() {
 									value={lastname}
 									onChange={(e) => setLastname(e.target.value)}
 									className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white'
-									placeholder='Например: Иванов'
+									placeholder='Введите логин'
 									required
 									disabled={isLoading}
 									autoComplete='off'
