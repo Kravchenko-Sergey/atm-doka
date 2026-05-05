@@ -35,8 +35,8 @@ export const brandsData: Brand[] = [
 			},
 			{
 				model: 'Эвотор 6',
-				version: '6.0.16',
-				url: 'https://drive.google.com/uc?export=download&id=1f0PLsnjJLSsyf8BjNS7pERTeJYn48JLp'
+				version: '6.0.26',
+				url: 'https://drive.google.com/uc?export=download&id=1j_R9VvurtkWpu9Z6N9ytUN0PyGomEL81'
 			}
 		],
 		drivers: [],
@@ -49,7 +49,6 @@ export const brandsData: Brand[] = [
 			{ name: '10', displayName: 'Эвотор 10', slug: '10' }
 		]
 	},
-	// ... Остальные бренды (весь массив из createBrands)
 	{
 		id: v4(),
 		brand: 'pax',
@@ -179,13 +178,13 @@ export const brandsData: Brand[] = [
 		firmwares: [
 			{
 				model: 'Kozen P10',
-				version: '1.5.24',
-				url: 'https://drive.google.com/uc?export=download&id=1MpQ1YbGuHUT9na83AT5qO6h6hvL-1-dw'
+				version: '1.6.11',
+				url: 'https://drive.google.com/uc?export=download&id=1f67tVuuqNhm3ah4BcbwK2r2TzHEr1t76'
 			},
 			{
 				model: 'Kozen P12',
-				version: '1.4.5',
-				url: 'https://drive.google.com/uc?export=download&id=1vdlPr4kLPkLk7Jg3EbBnmJ-DhHh1pNZ7'
+				version: '1.6.9',
+				url: 'https://drive.google.com/uc?export=download&id=1brc6f2ynOXfotC1spa62xiviLngDeX9M'
 			}
 		],
 		drivers: [

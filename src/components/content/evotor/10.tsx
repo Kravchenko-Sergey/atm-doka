@@ -6,26 +6,42 @@ interface Evotor10ContentProps {
 	className?: string
 }
 
-const Evotor10Content: React.FC<Evotor10ContentProps> = ({ className = '' }) => {
+const Evotor10Content: React.FC<Evotor10ContentProps> = ({
+	className = ''
+}) => {
 	useDelayedHashScroll()
 
-	const tableHeaders = ['OC', 'UPOS', 'Драйвер', 'UPOS ККМ']
+	const tableHeaders = [
+		'Версия ОС',
+		'Версия UPOS',
+		'Uposdriver',
+		'Версия UPOS ККМ'
+	]
 
 	const tableData = [
 		{
-			oc: '4.9.11',
+			os: ['4.9.11', '4.9.12 (ОЭ)'],
 			upos: 'В соответствии с целевой версией применяемого терминала эквайринга',
-			driver: 'Uposdriver\n1.104.103\n(ОЭ)1.105.117',
-			uposKKM: '33.35.02'
+			driver: '1.105.118',
+			uposKkm: '34.05.00'
 		}
 	]
+
+	const renderCell = (value: string | string[]) => {
+		if (Array.isArray(value)) {
+			return value.map((item, i) => <div key={i}>{item}</div>)
+		}
+		return value
+	}
 
 	return (
 		<div className={className}>
 			<div className='content-section'>
 				{/* Контейнер с ID */}
 				<div className='flex items-center justify-start gap-4 mb-8 mt-8' id='1'>
-					<h2 className='section-title text-2xl md:text-3xl font-semibold md:font-bold'>Актуальные версии</h2>
+					<h2 className='section-title text-2xl md:text-3xl font-semibold md:font-bold'>
+						Актуальные версии
+					</h2>
 					<CopyLinkButton index='1' color='#f15024' />
 				</div>
 
@@ -33,8 +49,11 @@ const Evotor10Content: React.FC<Evotor10ContentProps> = ({ className = '' }) => 
 					<table className='min-w-full'>
 						<thead>
 							<tr>
-								{tableHeaders.map(header => (
-									<th key={header} className='px-2 py-2 text-left text-sm font-medium border border-gray-300'>
+								{tableHeaders.map((header) => (
+									<th
+										key={header}
+										className='px-2 py-2 text-left text-sm font-medium border border-gray-300'
+									>
 										{header}
 									</th>
 								))}
@@ -43,10 +62,18 @@ const Evotor10Content: React.FC<Evotor10ContentProps> = ({ className = '' }) => 
 						<tbody>
 							{tableData.map((row, index) => (
 								<tr key={index}>
-									<td className='px-3 py-3 text-sm border border-gray-300'>{row.oc}</td>
-									<td className='px-3 py-3 text-sm border border-gray-300'>{row.upos}</td>
-									<td className='px-3 py-3 text-sm border border-gray-300 whitespace-pre-line'>{row.driver}</td>
-									<td className='px-3 py-3 text-sm border border-gray-300'>{row.uposKKM}</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{renderCell(row.os)}
+									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.upos}
+									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300 whitespace-pre-line'>
+										{row.driver}
+									</td>
+									<td className='px-3 py-3 text-sm border border-gray-300'>
+										{row.uposKkm}
+									</td>
 								</tr>
 							))}
 						</tbody>
@@ -57,21 +84,30 @@ const Evotor10Content: React.FC<Evotor10ContentProps> = ({ className = '' }) => 
 			<div className='content-section'>
 				{/* Контейнер с ID */}
 				<div className='flex items-center justify-start gap-4 mb-8 mt-8' id='2'>
-					<h2 className='section-title text-2xl md:text-3xl font-semibold md:font-bold'>Прошивка</h2>
+					<h2 className='section-title text-2xl md:text-3xl font-semibold md:font-bold'>
+						Прошивка
+					</h2>
 					<CopyLinkButton index='2' color='#f15024' />
 				</div>
 
 				<div className='subsection mb-8'>
 					{/* Контейнер с ID */}
 					<div className='flex items-center justify-start gap-4 mb-6' id='2.1'>
-						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>Что понадобится?</h3>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
+							Что понадобится?
+						</h3>
 						<CopyLinkButton index='2.1' color='#f15024' />
 					</div>
 
 					<ul className='list-disc text-lg flex flex-col gap-4 pl-6'>
 						<li className='leading-7'>Флешка, отформатированная в FAT32</li>
 						<li className='leading-7'>
-							<a href='https://disk.yandex.ru/d/wQphqGBH5Eh7Hg' target='_blank' rel='noopener noreferrer' className='hover:underline text-[#f15024] font-medium transition-colors duration-200'>
+							<a
+								href='https://disk.yandex.ru/d/wQphqGBH5Eh7Hg'
+								target='_blank'
+								rel='noopener noreferrer'
+								className='hover:underline text-[#f15024] font-medium transition-colors duration-200'
+							>
 								Файл прошивки
 							</a>
 						</li>
@@ -81,7 +117,9 @@ const Evotor10Content: React.FC<Evotor10ContentProps> = ({ className = '' }) => 
 				<div className='subsection'>
 					{/* Контейнер с ID */}
 					<div className='flex items-center justify-start gap-4 mb-6' id='2.2'>
-						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>Процесс прошивки</h3>
+						<h3 className='subsection-title text-xl md:text-2xl font-semibold'>
+							Процесс прошивки
+						</h3>
 						<CopyLinkButton index='2.2' color='#f15024' />
 					</div>
 
@@ -89,27 +127,46 @@ const Evotor10Content: React.FC<Evotor10ContentProps> = ({ className = '' }) => 
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>Скачайте</span>
-								<a href='https://disk.yandex.ru/d/wQphqGBH5Eh7Hg' target='_blank' rel='noopener noreferrer' className='hover:underline text-[#f15024] font-medium transition-colors duration-200 mx-1'>
+								<a
+									href='https://disk.yandex.ru/d/wQphqGBH5Eh7Hg'
+									target='_blank'
+									rel='noopener noreferrer'
+									className='hover:underline text-[#f15024] font-medium transition-colors duration-200 mx-1'
+								>
 									файл прошивки
 								</a>
 								<span>(актуальная версия —</span>
-								<span className='border px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 ml-1'>4.9.11</span>
+								<span className='border px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 ml-1'>
+									4.9.11
+								</span>
 								<span>)</span>
 							</div>
 						</li>
-						<li className='leading-7'>Подготовьте флешку FAT32 и запишите файл прошивки в корень</li>
+						<li className='leading-7'>
+							Подготовьте флешку FAT32 и запишите файл прошивки в корень
+						</li>
 						<li className='leading-7'>Включите терминал</li>
-						<li className='leading-7'>Вставьте флешку — запустится автоматическое обновление</li>
+						<li className='leading-7'>
+							Вставьте флешку — запустится автоматическое обновление
+						</li>
 						<li className='leading-7'>
 							<div className='flex flex-wrap items-center gap-2 mt-1'>
 								<span>В окне</span>
-								<span className='bg-[#f15024] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#e14520] transition-colors duration-200 mx-1'>Обновление системы</span>
+								<span className='bg-[#f15024] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#e14520] transition-colors duration-200 mx-1'>
+									Обновление системы
+								</span>
 								<span>нажмите</span>
-								<span className='bg-[#f15024] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#e14520] transition-colors duration-200 ml-1'>Проверить и установить</span>
+								<span className='bg-[#f15024] text-white px-1 rounded text-base font-medium whitespace-nowrap flex-shrink-0 hover:bg-[#e14520] transition-colors duration-200 ml-1'>
+									Проверить и установить
+								</span>
 							</div>
 						</li>
-						<li className='leading-7'>Дождитесь завершения процесса установки</li>
-						<li className='leading-7'>После автоматической перезагрузки извлеките флешку</li>
+						<li className='leading-7'>
+							Дождитесь завершения процесса установки
+						</li>
+						<li className='leading-7'>
+							После автоматической перезагрузки извлеките флешку
+						</li>
 					</ul>
 				</div>
 			</div>
